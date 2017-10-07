@@ -1,0 +1,31 @@
+{
+  "name": "foafiaf-admin",
+  "description": "Manage and admin tools for Freind of a Friend is a Friend (FOAFIAF) Network Map Community Graph",
+  "version": "0.0.2",
+  "author": "Asterius Media LLC",
+  "contributors": [
+    {
+      "name": "J Stewart",
+      "email": "jstewart@asteriusmedia.com"
+    }
+  ],
+  "main": "./server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asteriusj/semanticdatamaster"
+  },
+  "private": true,
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm":  "1.3.x"
+  },
+  "keywords": [
+  ],
+  "dependencies": {
+   
+  },
+    "scripts": {
+    "test": "grunt test"
+  },
+  "license": "MIT"
+}
