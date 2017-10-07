@@ -154,5 +154,3 @@ foaf:nick  a              owl:DatatypeProperty ;
     rdfs:label "Type"@en ;
     rdfs:comment "Used for type codes. The URI of the type code must be used as the value for Type."@en ;
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> .
-
-
