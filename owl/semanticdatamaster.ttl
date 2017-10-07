@@ -1,1 +1,158 @@
+@prefix schema: <http://schema.org/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix con:    <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix org:    <http://www.w3.org/ns/org#> .
+@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix sf:     <https://github.com/vocol/salesforce/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix vs:     <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix sdm:    <https://github.com/asteriusj/semanticdatamaster/> .
+
+
+sdm:   
+        a                   owl:Ontology ;
+        rdfs:label          "Ontology for Semantic Data Model"@en ;
+        rdfs:comment        "\n\n" ;
+        dc:date             "$Date: 2017-10-07 23:18:26 $" ;
+        dc:description      "\nThe \n" ;
+        dc:title            "Semantic Data Master (SDM) Ontology" ;
+        owl:versionInfo     "Draft"@en .
+
+:Contact a owl:Class ;
+    rdfs:label "Contact"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:subClassOf :RelatedType ;
+    owl:equivalentClass vcard:Contact .
+
+    
+ 
+:Person  a            owl:Class ;
+        rdfs:comment      "A person." ;
+        rdfs:isDefinedBy  foaf: ;
+        rdfs:label        "Person" ;
+        rdfs:subClassOf   <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent ;
+        owl:disjointWith  foaf:Project , foaf:Document , foaf:Organization ;
+        owl:equivalentClass foaf:Person .
+
+foaf:nick  a              owl:DatatypeProperty ;
+        rdfs:comment      "\nA short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).\n" ;
+        rdfs:isDefinedBy  foaf: ;
+        rdfs:label        "nickname" ;
+        vs:term_status    "testing" .
+  
+
+:additional-name a owl:DatatypeProperty ;
+    rdfs:label "additional name"@en ;
+    rdfs:comment "The additional name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:country-name a owl:DatatypeProperty ;
+    rdfs:label "country name"@en ;
+    rdfs:comment "The country name associated with the address of the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:family-name a owl:DatatypeProperty ;
+    rdfs:label "family name"@en ;
+    rdfs:comment "The family name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:given-name a owl:DatatypeProperty ;
+    rdfs:label "given name"@en ;
+    rdfs:comment "The given name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:hasMember a owl:ObjectProperty ;
+    rdfs:label "has member"@en ;
+    rdfs:comment "To include a member in the group this object represents. (This property can only be used by Group individuals)"@en ;
+    rdfs:domain :Group ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range :Kind .
+
+:honorific-prefix a owl:DatatypeProperty ;
+    rdfs:label "honorific prefix"@en ;
+    rdfs:comment "The honorific prefix of the name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:honorific-suffix a owl:DatatypeProperty ;
+    rdfs:label "honorific suffix"@en ;
+    rdfs:comment "The honorific suffix of the name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:locality a owl:DatatypeProperty ;
+    rdfs:label "locality"@en ;
+    rdfs:comment "The locality (e.g. city or town) associated with the address of the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:organization-name a owl:DatatypeProperty ;
+    rdfs:label "organization name"@en ;
+    rdfs:comment "To specify the organizational name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+
+:adr a owl:ObjectProperty ;
+    rdfs:label "address"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentProperty :hasAddress .
+
+
+:postal-code a owl:DatatypeProperty ;
+    rdfs:label "postal code"@en ;
+    rdfs:comment "The postal code associated with the address of the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:region a owl:DatatypeProperty ;
+    rdfs:label "region"@en ;
+    rdfs:comment "The region (e.g. state or province) associated with the address of the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:street-address a owl:DatatypeProperty ;
+    rdfs:label "street address"@en ;
+    rdfs:comment "The street address associated with the address of the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:range xsd:string .
+
+:Organization a owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment """An object representing an organization.  An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like.
+"""@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:subClassOf :Kind .
+
+:Gender a owl:Class ;
+    rdfs:label "Gender"@en ;
+    rdfs:comment "Used for gender codes. The URI of the gender code must be used as the value for Gender."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> .
+
+:Kind a owl:Class ;
+    rdfs:label "Kind"@en ;
+    rdfs:comment "The parent class for all objects"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :fn ],
+        :VCard .
+
+:Type a owl:Class ;
+    rdfs:label "Type"@en ;
+    rdfs:comment "Used for type codes. The URI of the type code must be used as the value for Type."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> .
+
 
