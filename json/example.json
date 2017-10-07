@@ -1,0 +1,23 @@
+{
+  "schema": {
+    "name": {
+      "title": "Name",
+      "description": "Nickname allowed",
+      "type": "string"
+    },
+    "age": {
+      "type": 'number',
+      "title": 'Age'
+    },
+    "gender": {
+      "title": "Gender",
+      "description": "Your gender",
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "alien"
+      ]
+    }
+  }
+}
