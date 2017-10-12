@@ -1,0 +1,47 @@
+{
+	"id": "#E21_Person.json",
+	"title": "Person",
+	"translations": {
+		"title": {},
+		"description": {}
+	},
+	"allOf": [{"$ref": "E39_Actor.json"}, {"$ref": "E20_Biological_Object.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "#E21_Person",
+	"media": {"type": "application/json;profile=#E21_Person"}
+}

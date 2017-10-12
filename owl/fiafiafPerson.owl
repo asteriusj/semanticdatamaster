@@ -1,0 +1,524 @@
+@prefix : <http://foafiaf-admin-asteriusj.c9users.io/owl/Person#> .
+@prefix con: <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix google: <http://purl.org/NET/googlevocab#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sioc:  <http://rdfs.org/sioc/ns#> .
+@prefix schema: <http://schema.org/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix media: <http://www.w3.org/ns/ma-ont#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl> .
+@prefix org: <https://www.w3.org/ns/org#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <ttp://dbpedia.org/property/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix bio: <http://purl.org/vocab/bio/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://mappings.dbpedia.org/index.php/OntologyClass:> .
+
+# Ontology header
+
+: a owl:Ontology ;
+    rdfs:label          "Ontology for FOAFIAF Master Classes"@en ;
+    rdfs:comment        "Ontology for master classes based on "@en ;
+    dc:description      "The Master Classes for  Friend of a Friend is a Friend (FOAFIAF) RDF vocabulary, described using XXXX Schema and the Web Ontology Language." ;
+    dc:title            "Friend of a Friend is a Friend (FOAFIAF) Master Class vocabulary" ;
+    dc:date             "2017-01-07"^^xsd:date ;
+    owl:imports         <http://dublincore.org/2008/01/14/dcelements.rdf> ;
+    owl:versionInfo     "v0.0"@en .
+
+
+
+#### Classes
+
+:Person
+    a                   owl:class , rdfs:Class ;
+    rdf:subClassOf      :Agent, :Kind ;
+    owl:equivalentClass schema:Person, foaf:Person, dbo:Person, dul:NaturalPerson ;
+    owl:disjointWith    :Organization , :Place, :Event , :Concept ;
+    rdfs:label          "Person"@en ;
+    rdfs:comment        ""@en;
+    rdfs:isDefinedBy    : ;
+    vs:term_status      "" .
+
+:OrganisationMember	a  owl:class ;
+    rdf:type  schema:Person ;
+    rdf:subClassOf :Person ;
+	rdfs:label "Organisation member"@en ;
+	rdfs:comment "A member of an organisation."@en ;
+	owl:sameAs	dbo:OrganisationMember ;
+	rdfs:subClassOf	dbo:Person ;
+	prov:wasDerivedFrom	ns5:OrganisationMember .
+     
+:VCard a owl:Class ;
+    rdfs:label "VCard"@en ;
+    rdfs:comment "The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentClass vcard:VCard ;
+    owl:sameAs	vcard:VCard ;
+    owl:equivalentClass :Kind .
+
+:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "An object representing a named geographical place"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:subClassOf :Place ;
+    owl:equivalentClass vcard:Location ;
+    owl:sameAs	vcard:Location ;
+    owl:disjointWith :Organization .
+    
+:Work a owl:Class ;
+    rdfs:label "Work"@en ;
+    rdfs:comment "This implies that the property is related to an individual's work place"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentClass vcard:Work ;
+    owl:sameAs	vcard:Work ;
+    rdfs:subClassOf :Concept .
+
+
+#### Properties
+
+rdfs:label a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "label" ;
+    rdfs:comment "The label for the" ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+rdfs:comment a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "comment" ;
+    rdfs:comment "The comment for the" ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+rdf:type a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "type" ;
+    rdfs:comment "The rdf type for the" ;
+    rdfs:domain :Person ;
+    rdfs:range owl:Class ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+dbo:type a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "type" ;
+    rdfs:comment "The dbo type for the" ;
+    rdfs:domain :Person ;
+    rdfs:range owl:Class ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+owl:equivalentClass a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "equivalentClass" ;
+    rdfs:comment "The equivalentClass for the" ;
+    rdfs:domain :Person ;
+    rdfs:range owl:Class ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+owl:sameAs a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "equivalentClass" ;
+    rdfs:comment "The sameAs for the" ;
+    rdfs:domain :Person ;
+    rdfs:range owl:Class ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+
+:hasVCard  a owl:ObjectProperty ;
+    rdfs:label "hasVCard"@en ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy : ;
+    rdfs:domain :Person ;
+    rdfs:range :VCard ;
+    owl:equivalentProperty :vcard .
+
+
+
+vcard:n a owl:ObjectProperty ;
+    rdfs:label "name"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:domain :VCard ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty :hasName, :name .
+
+vcard:nickname a owl:DatatypeProperty ;
+    rdfs:label "nickname"@en ;
+    rdfs:comment "The nick name associated with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:domain :VCard ;
+    rdfs:range xsd:string .
+
+vcard:photo a owl:ObjectProperty ;
+    rdfs:label "photo"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:domain :VCard ;
+    rdfs:range foaf:Image ;
+    owl:equivalentProperty :hasPhoto .
+
+vcard:fn a owl:DatatypeProperty ;
+    rdfs:label "formatted name"@en ;
+    rdfs:comment "The formatted text corresponding to the name of the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:domain :VCard ;
+    rdfs:range xsd:string .
+
+vcard:hasAddress a owl:ObjectProperty ;
+    rdfs:label "has address"@en ;
+    rdfs:comment "To specify the components of the delivery address for the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:domain :VCard ;
+    rdfs:range :Address .
+
+vcard:email a owl:ObjectProperty ;
+    rdfs:label "email"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentProperty :hasEmail .
+
+vcard:hasEmail a owl:ObjectProperty ;
+    rdfs:label "has email"@en ;
+    rdfs:comment "To specify the electronic mail address for communication with the object"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    rdfs:domain :VCard ;
+    rdfs:range :Email .
+
+vcard:hasGeo a owl:ObjectProperty ;
+    rdfs:label "has geo"@en ;
+    rdfs:comment "To specify information related to the global positioning of the object. May also be used as a property parameter."@en ;
+    rdfs:domain :VCard ;
+    rdfs:range :Location ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> .
+
+vcard:tel a owl:ObjectProperty ;
+    rdfs:label "telephone"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:domain :VCard ;
+    
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentProperty :hasTelephone .
+
+vcard:url a owl:ObjectProperty ;
+    rdfs:label "url"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:domain :VCard ;
+    
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentProperty :hasURL .
+
+vcard:adr a owl:ObjectProperty ;
+    rdfs:label "address"@en ;
+    rdfs:comment "This object property has been mapped"@en ;
+    rdfs:domain :VCard ;
+    rdfs:range :Address ;
+    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+    owl:equivalentProperty :hasAddress .
+
+#vcard:postalAddress
+
+vcard:prefix a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "prefix" ;
+    rdfs:comment "The prefix name of person." ;
+    rdfs:domain :VCard ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+        vs:term_status "testing" .
+
+vcard:suffix a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "suffix" ;
+    rdfs:comment "The suffix name of person." ;
+    rdfs:domain :VCard ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+        vs:term_status "testing" .
+
+vcard:title a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "title" ;
+    rdfs:comment "The title of person." ;
+    rdfs:domain :VCard ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+        vs:term_status "testing" .
+
+foaf:name a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:comment "The name of person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty vcard:fn ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "testing" .
+    
+foaf:lastName a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "lastName" ;
+    rdfs:comment "The last name of person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "testing" .
+
+foaf:firstName a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "firstName" ;
+    rdfs:comment "The firstName of person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "testing" .
+    
+foaf:familyName a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "familyName" ;
+    rdfs:comment "The family name of some person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "testing" .
+    
+foaf:surname a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "surname" ;
+    rdfs:comment "The surname of some person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty foaf:givenName ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+foaf:givenName a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "givenName" ;
+    rdfs:comment "The given name of some person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    owl:sameAs foaf:firstName, foaf:surname ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:nickname a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "nickname" ;
+    rdfs:comment "The nickname of some person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    owl:equivalentProperty vcard:nickname ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:age a rdf:Property, 
+        owl:DatatypeProperty, 
+        owl:FunctionalProperty ;
+    rdfs:label "age" ;
+    rdfs:comment "The age in years of some person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+foaf:currentProject a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "currentProject" ;
+    rdfs:comment "CurrentProject for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Project ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:pastProject a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "pastProject" ;
+    rdfs:comment "pastProject for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Project ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:gender a rdf:Property, 
+        owl:DatatypeProperty, 
+        owl:FunctionalProperty ;
+    rdfs:label "gender" ;
+    rdfs:comment "The gender of some person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    owl:sameAs vcard:sex ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:knows a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "knows" ;
+    rdfs:comment "knows person" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Person ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:member a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "member" ;
+    rdfs:comment " person member of" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Group ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+foaf:interest a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "interest" ;
+    rdfs:comment "interest for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Document ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:topic_interest a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "topic_interest" ;
+    rdfs:comment "topic_interest for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range :Concept ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+foaf:thumbnail a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "thumbnail" ;
+    rdfs:comment "thumbnail for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Image ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+dul:isMemberOf a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "isMemberOf" ;
+    rdfs:comment " person isMemberOf" ;
+    rdfs:domain :Person ;
+    rdfs:range foaf:Group ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+dbo:birthName a rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "birthName" ;
+    rdfs:comment "The birthName of the person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+dbo:sex a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "sex" ;
+    rdfs:comment "The sex of the person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+dbo:ethnicity a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "ethnicity" ;
+    rdfs:comment "The ethnicity of the person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+dbo:nationality a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "nationality" ;
+    rdfs:comment "The nationality of the person." ;
+    rdfs:domain :Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+
+
+bio:birthPlace a rdf:Property,
+        owl:ObjectProperty ;
+    rdfs:label "birthPlace" ;
+    rdfs:comment "birthPlace for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range :Location ;
+    owl:sameAs dbo:birthPlace ;
+    owl:equivalentClass dbo:birthPlace ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+    
+foaf:myersBriggs a rdf:Property,
+        owl:DatatypeProperty ;
+    rdfs:label "myersBriggs" ;
+    rdfs:comment "myersBriggs type indicator for the person" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy : ;
+    vs:term_status "" .
+ 
+ 
+#	owl:sameAs	bio:Employer	foafiaf:isContactOf
+
+#foaf:mbox	mbox_sha1sum	
+
+#org:hadRole org:holdsRole	dbp:leader	dbo:office		vcard:locale	vcard:postalCode	vcard:tel	foaf:phone	vcard:tel-other	vcard:email	linkedin:Profile	linkedin:Connections	foafiaf:Thumbnail	foafiaf:Skills	foafiaf:Interests		foafiaf:DISC	foafiaf:skill	foaf:depiction	foaf:homepage		foaf:workplaceHomepage		foaf:member	rdfs:comment
+
+#dbo:birthDate
+ 
+
+#dul:isRoleOf
+#weight
+#height
+
+
+#dbo:member
+
+#dbo:board
+#dbo:colleague
+
+#rel:friendOf
+#rel:acquaintanceOf
+#rel:parentOf
+#rel:siblingOf
+#rel:childOf
+#Has Met
+#rel:spouseOf
+#Has Met
+#Works With
+#Colleague Of
+#dbo:employer
+#participation:holder_of
+#dbo:author
+#dbo:familyMember
+#bio:employer
+#d0:Activity
+#dbo:project
+#dbo:profession
+#livingPlace
+#dbo:residence
+
+
+    

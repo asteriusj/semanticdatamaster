@@ -1,0 +1,240 @@
+{
+	"id": "http://foafiaf.transformrockford.org/owl/foafiafPerson.json",
+	"title": "Person",
+	"description": "A Person is an Entity of type...",
+	"translations": {
+		"title": {},
+		"description": {}
+	},
+	"type": "object",
+	"required": [],
+	"properties": {
+		"http://foafiaf.transformrockford.org/owl/foafiafage": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafage"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbased_near": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbirthDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafbirthDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafbirthDate"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbirthSign": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafbirthSign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafbirthSign"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiaffriend": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafid": {
+			"oneOf": [
+				{"$ref": "rdfs$Literal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Literal.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafmember": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafmember"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafmember"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafmemberOf": {
+			"oneOf": [
+				{"$ref": "http://foafiaf.transformrockford.org/owl/foafiafOrganization.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://foafiaf.transformrockford.org/owl/foafiafOrganization.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafmyersBriggs": {
+			"oneOf": [
+				{"$ref": "rdfs$Literal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Literal.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafspouse": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiaftype": {
+			"oneOf": [
+				{"$ref": "rdfs$Class.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Class.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/firstName": {
+			"oneOf": [
+				{"$ref": "rdfs$Literal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Literal.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/knows": {
+			"oneOf": [
+				{"$ref": "http://foafiaf.transformrockford.org/owl/foafiaf#Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://foafiaf.transformrockford.org/owl/foafiaf#Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/lastName": {
+			"oneOf": [
+				{"$ref": "rdfs$Literal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Literal.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/made": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://xmlns.com/foaf/0.1/made"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://xmlns.com/foaf/0.1/made"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/name": {
+			"oneOf": [
+				{"$ref": "rdfs$Literal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Literal.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/publications": {
+			"oneOf": [
+				{"$ref": "http://foafiaf.transformrockford.org/owl/foafiaf#Document.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://foafiaf.transformrockford.org/owl/foafiaf#Document.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://xmlns.com/foaf/0.1/title": {
+			"oneOf": [
+				{"$ref": "rdfs$Literal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdfs$Literal.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafage": {
+			"title": "age",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbirthDate": {
+			"title": "birth date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafmember": {
+			"title": "member",
+			"description": "",
+			"type": "string"
+		},
+		"http://xmlns.com/foaf/0.1/made": {
+			"title": "made",
+			"description": "Something that was made by this person or organization.",
+			"anyOf": []
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbirthSign": {
+			"title": "birth sign",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://foafiaf.transformrockford.org/owl/foafiafPerson",
+	"media": {"type": "application/json;profile=http://foafiaf.transformrockford.org/owl/foafiafPerson"}
+}

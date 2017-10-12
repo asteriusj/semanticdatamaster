@@ -1,0 +1,105 @@
+{
+	"id": "http://foafiaf.transformrockford.org/owl/foafiaf_Person.json",
+	"title": "person",
+	"translations": {
+		"title": {
+			"ar": "شخص",
+			"da": "person",
+			"de": "Person",
+			"el": "Πληροφορίες προσώπου",
+			"es": "persona",
+			"eu": "pertsona",
+			"fr": "personne",
+			"ga": "duine",
+			"hy": "անձ",
+			"it": "persona",
+			"ja": "人_&amp;&#35;40;法律&#41;",
+			"nl": "persoon",
+			"pl": "osoba",
+			"pt": "pessoa",
+			"sl": "Oseba"
+		},
+		"description": {}
+	},
+	"type": "object",
+	"required": [],
+	"properties": {
+		"http://foafiaf.transformrockford.org/owl/foafiafage": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafage"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbirthDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafbirthDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/http://foafiaf.transformrockford.org/owl/foafiafbirthDate"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiaffriend": {
+			"oneOf": [
+				{"$ref": "http://foafiaf.transformrockford.org/owl/foafiafPerson.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://foafiaf.transformrockford.org/owl/foafiafPerson.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafage": {
+			"title": "age",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"http://foafiaf.transformrockford.org/owl/foafiafbirthDate": {
+			"title": "birth date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://foafiaf.transformrockford.org/owl/foafiaf_Person",
+	"media": {"type": "application/json;profile=http://foafiaf.transformrockford.org/owl/foafiaf_Person"}
+}
