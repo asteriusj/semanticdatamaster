@@ -1,0 +1,268 @@
+{
+  "@graph": [
+    {
+      "@id": "",
+      "description": [
+        "\n To illustrate with examples the creation of a schema of RDF properties\n and classes, but using abstract things for people, rather than strings, etc.\n If you have an \"Assistant's phone number\", then really you have an assitant who has\n a phone number - and that is much more useful in general.\n For example, when data about you and your assietnt in merged,\n you will end up with an \"assistant's email\" and the like.\n",
+        "$Id: contact.rdf,v 1.18 2011/02/01 04:13:21 timbl Exp $"
+      ],
+      "title": "Person: Utility concepts for everyday life",
+      "creator": "../../../../People/Berners-Lee/card#i",
+      "persistencePolicy": "_:b0"
+    },
+    {
+      "@id": "_:b0",
+      "@type": ":_SubjectToChange",
+      "description": "If you change this, you have to tell the W3C SemWeb AD\n   folk, including Dan Connolly; so agreed 5 Jun 2001.\n   TimBl takes this as being met by a mail to sw-team."
+    },
+    {
+      "@id": "contact",
+      "rules": "contact-rules"
+    },
+    {
+      "@id": ":Fax",
+      "label": "fax",
+      "subClassOf": ":Phone"
+    },
+    {
+      "@id": ":Home",
+      "@type": "rdf:Property",
+      "domain": ":Person",
+      "label": "vacation",
+      "range": ":Location"
+    },
+    {
+      "@id": ":MobilePhone",
+      "label": "mobile",
+      "subClassOf": ":Phone"
+    },
+    {
+      "@id": ":Person",
+      "comment": "A person in the normal sense of the word.",
+      "subClassOf": ":SocialEntity"
+    },
+    {
+      "@id": ":Phone",
+      "@type": "rdfs:Class",
+      "comment": "\n    An end-point in the public swiitched telephone system.\n    Anything identified by a URI with tel: scheme is in this class.\n    ",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "phone"
+        },
+        {
+          "@language": "fr",
+          "@value": "tel."
+        }
+      ]
+    },
+    {
+      "@id": ":_addressProperty",
+      "@type": "rdf:Property"
+    },
+    {
+      "@id": ":address",
+      "@type": "rdf:Property",
+      "domain": ":ContactLocation",
+      "label": {
+        "@language": "en",
+        "@value": "address"
+      },
+      "range": ":Address"
+    },
+    {
+      "@id": ":birthday",
+      "@type": "rdf:Property",
+      "domain": ":SocialEntity",
+      "range": ":Date"
+    },
+    {
+      "@id": ":child",
+      "@type": "rdf:Property"
+    },
+    {
+      "@id": ":city",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":country",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":description",
+      "@type": "rdf:Property"
+    },
+    {
+      "@id": ":emailAddress",
+      "@type": "owl:InverseFunctionalProperty",
+      "comment": "emailAddress is a string.  Use of this is discouraged. Use :mailbox instead ",
+      "domain": ":SocialEntity",
+      "label": "email",
+      "range": ":_EmailAddress",
+      "_example": "\n            <rdf:Description xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" rdf:about=\"http://www.w3.org/2000/10/swap/pim/contact#_Dan\">\n                <:emailAddress xmlns:con=\"http://www.w3.org/2000/10/swap/pim/contact#\">connolly@w3.org</:emailAddress>\n            </rdf:Description>\n        "
+    },
+    {
+      "@id": ":familyName",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":firstName",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":fullName",
+      "@type": "rdf:Property",
+      "label": "full name"
+    },
+    {
+      "@id": ":givenName",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":home",
+      "@type": "rdf:Property",
+      "domain": ":Person",
+      "label": "home",
+      "range": ":ContactLocation"
+    },
+    {
+      "@id": ":lastName",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":mailbox",
+      "@type": "owl:InverseFunctionalProperty",
+      "domain": ":SocialEntity",
+      "range": ":Mailbox",
+      "_addressProperty": ":mailboxURI",
+      "_example": "\n            <rdf:Description xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" rdf:about=\"http://www.w3.org/2000/10/swap/pim/contact#_Dan\">\n                <:mailbox xmlns:con=\"http://www.w3.org/2000/10/swap/pim/contact#\" rdf:resource=\"mailto:connolly@w3.org\"></:mailbox>\n            </rdf:Description>\n        "
+    },
+    {
+      "@id": ":mailboxURI",
+      "@type": "owl:InverseFunctionalProperty",
+      "comment": "mailboxURI is a string.  Use of this is discouraged. Use :mailbox instead ",
+      "domain": ":SocialEntity",
+      "range": ":_URI",
+      "_example": "\n            <rdf:Description xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" rdf:about=\"http://www.w3.org/2000/10/swap/pim/contact#_Dan\">\n                <:mailboxURI xmlns:con=\"http://www.w3.org/2000/10/swap/pim/contact#\">mailto:connolly@w3.org</:mailboxURI>\n            </rdf:Description>\n        "
+    },
+    {
+      "@id": ":middleInitial",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":middleName",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":mobile",
+      "@type": "rdf:Property",
+      "domain": ":Person",
+      "label": "mobile",
+      "range": ":ContactLocation"
+    },
+    {
+      "@id": ":personalTitle",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":phone",
+      "@type": "rdf:Property",
+      "domain": ":ContactLocation",
+      "range": ":Phone"
+    },
+    {
+      "@id": ":postalCode",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":region",
+      "@type": "rdf:Property",
+      "comment": "The sub-national unit such as state (us),\nprovince (ca), county (uk), département (fr), and so on",
+      "label": "region"
+    },
+    {
+      "@id": ":sortName",
+      "@type": "rdf:Property",
+      "comment": "re-arranged for lexicographic ordering; ala Doe, John",
+      "label": "sort name"
+    },
+    {
+      "@id": ":stateOrProvince",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":street",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":street2",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":street3",
+      "domain": ":Address"
+    },
+    {
+      "@id": ":suffix",
+      "domain": ":Person"
+    },
+    {
+      "@id": ":title",
+      "domain": ":Person"
+    },
+    {
+      "@id": "doc:persistencePolicy",
+      "seeAlso": "../../../../1999/10/nsuri"
+    }
+  ],
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@context": {
+    "description": "http://purl.org/dc/elements/1.1/description",
+    "title": "http://purl.org/dc/elements/1.1/title",
+    "creator": {
+      "@id": "http://www.w3.org/2000/10/swap/pim/doc#creator",
+      "@type": "@id"
+    },
+    "persistencePolicy": {
+      "@id": "http://www.w3.org/2000/10/swap/pim/doc#persistencePolicy",
+      "@type": "@id"
+    },
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "domain": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#domain",
+      "@type": "@id"
+    },
+    "_example": {
+      "@id": "http://www.w3.org/2000/10/swap/pim/contact#_example",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral"
+    },
+    "range": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type": "@id"
+    },
+    "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+    "subClassOf": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type": "@id"
+    },
+    "rules": {
+      "@id": "http://www.w3.org/2000/10/swap/pim/doc#rules",
+      "@type": "@id"
+    },
+    "_addressProperty": {
+      "@id": "http://www.w3.org/2000/10/swap/pim/contact#_addressProperty",
+      "@type": "@id"
+    },
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "@base": "http://www.w3.org/2000/10/swap/pim/contact#",
+    "": "http://www.w3.org/2000/10/swap/pim/contact#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "doc": "http://www.w3.org/2000/10/swap/pim/doc#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dc": "http://purl.org/dc/elements/1.1/"
+  }
+}
