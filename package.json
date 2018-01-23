@@ -16,13 +16,14 @@
   },
   "private": true,
   "engines": {
-    "node": ">= 4.0.0",
-    "npm":  "1.3.x"
+    "node": ">= 8.0.0",
+    "npm":  ">= 1.3.x"
   },
   "keywords": [
   ],
   "dependencies": {
-   
+    "json-promise": ">=",
+    "request": ">="
   },
     "scripts": {
     "test": "grunt test"
