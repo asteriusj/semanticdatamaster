@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>OWL JSON Edit  Edit - OWL JSON Schema Form Field Translators Editors</title>
+
+		<!-- Minified version of `es6-promise-auto` below. -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>  
+
+        <!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="ace/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="ace/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+        
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="ace/assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/chosen.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-colorpicker.min.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="ace/assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="ace/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="ace/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="ace/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="ace/assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+<style>
+    
+    
+    
+</style>
+
+
+    
+
+    <script type="text/javascript" src="../deps/jquery.min.js"></script>
+    <script type="text/javascript" src="../deps/underscore.js"></script>
+    <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="../lib/jsonform.js"></script>
+    
+    <!-- Asterius Media LLC semanticdatamaster commonfiles-->
+    <link rel="stylesheet" href="common.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script src="../lib/Transforms.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles('OWLJSONLDData')">
+   <div id="container">
+     
+    <script>
+        function doOWLJSONLDData(_data) {
+            console.log('doOWLJSONLDData',_data)
+            
+            setOWLJSONLD(_data).then(function(_owljsonld) {
+                console.log("call setOWLJSONLD Success! _owljsonld", _owljsonld);
+                return _owljsonld;
+                
+            }).then(function(_owljsonld) {
+                    console.log("doOWLJSONLDData then _owljsonld", _owljsonld);
+
+                    doOWLJSONLDAceEditor(_owljsonld).then(function (result) {
+                        console.log('call doOWLJSONLDEditor Success! result', result)
+                    
+                    }).catch(function (e) {
+                        console.error('call doOWLJSONLDEditor Fail! e', e)
+            
+                    }); // enddoOWLJSONLDEditor
+
+            }).catch(function(err) {
+                console.error("doOWLJSONLDData Fail!", err);
+              
+            });
+        }
+    </script> 
+
+
+
+    <div id="header" class="myheader">
+      <h2>OWL JSON-LD Edit</h2>
+    </div>
+  
+    
+    <div id="content" class="myOWLJSONLD">   
+    
+<div class="modal-wrapper">  
+ <div class="modal-dialog"> 
+  <div class="modal-content"> 
+
+     <div class="modal-header">
+       
+       <h3>OWL JSON-LD</h3>
+     
+     </div>  
+      
+     <div class="modal-body"> 
+     
+       <!--https://github.com/ajaxorg/ace-->
+       <!--https://ace.c9.io/-->
+       <div id="editor"></div>
+        <script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+    
+     </div>  
+        
+     <div class="modal-footer">
+         
+       <div class="myButtons">
+        <button id="btnSave" class=" btn btn-default btn-sm" title="Save to local storage" >
+            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+            Save
+        </button>
+        <button id="btnReload" class=" btn btn-default btn-sm" title="Reload Data from Cloud" >
+            <i class="glyphicon glyphicon-cloud-download"></i>
+            Reload
+        </button>
+        <button id="btnImport" class=" btn btn-default btn-sm" title="Import from JSON Schema" >
+            <i class="glyphicon glyphicon-import"></i>
+            Import
+        </button>
+        <button id="btnExport" class=" btn btn-default btn-sm" title="Export to JSON Schema" >
+            <i class="glyphicon glyphicon-export"></i>
+            Export 
+        </button>
+       </div>
+       
+    </div>
+    
+  </div>
+ </div>
+</div>
+
+    </div> 
+ 
+ 
+<script>
+//
+//
+var btnSave = document.getElementById('btnSave');
+btnSave.addEventListener("click", onSaveButtonClick);
+function onSaveButtonClick() {
+    console.log('onSaveButtonClick')
+
+    return new Promise(function (resolve, reject) {
+  
+        getOWLJSONLDAceEditor().then(function (_owljsonld) {
+            console.log('call getOWLJSONLDAceEditor Success! _owljsonld', _owljsonld)
+          
+              setOWLJSONLD(_owljsonld).then(function (result) {
+                  console.log('call setOWLJSONLD Success! result', result)
+                  
+                    var msg = 'Saving OWL JSON-LDs to local store succeeded';
+                    alert(msg);
+                    resolve(true)
+                  
+                    
+              }).catch(function (e) {
+                    console.error('call setOWLJSONLD Fail! e', e)
+                    reject(e)
+                    
+                    var msg = 'Saving OWL JSON-LDs to local store FAILED';
+                    alert(msg);
+                    reject(false)
+                    
+              });
+          
+          
+        }).catch(function (e) {
+          console.error('call getOWLJSONLDAceEditor Fail! e', e)
+          reject(e)
+          
+        }); // getOWLJSONLDAceEditor
+        
+    }); // end promise
+}; // end onSaveButtonClick
+//
+//
+var btnReload = document.getElementById('btnReload');
+btnReload.addEventListener("click", onReloadButtonClick);
+console.log('btnReload',btnReload)
+function onReloadButtonClick() {
+  console.log('onReloadButtonClick')
+
+  return new Promise(function (resolve, reject) {
+  
+        loadOWLJSONLDData().then(function (result) {
+            console.log('call loadOWLJSONLDData Success! result', result)
+        
+            if (result === true) {
+                      
+                var msg = 'Loading OWL JSON-LDs from file succeeded';
+                alert(msg);
+                resolve(true)
+                      
+            } else {
+                  
+                var msg = 'Loading OWL JSON-LDs from file FAILED';
+                alert(msg);
+                reject(e)
+            }
+          
+          
+        }).catch(function (e) {
+          console.error('call loadOWLJSONLDData Fail! e', e)
+          reject(e)
+        });
+  
+  })
+}
+//
+//
+var btnImport = document.getElementById('btnImport');
+btnImport.addEventListener("click", onImportButtonClick);
+function onImportButtonClick() {
+  console.log('onImportButtonClick')
+  var status = false;
+  return new Promise(function (resolve, reject) {
+  
+    try {
+  
+        //get local store JSON Schema then call transform
+        getJSONSchema().then(function(_schema) {
+              console.log("call getJSONSchema Success! _schema", _schema);
+              
+              // let JSONSchema = JSON.parse(_schema) || _schema ;
+              
+              importJSONSchema2OWLJSONLD(_schema).then(function (rslt) {
+                    console.log('call importJSONSchema2OWLJSONLD Success! rslt', rslt)
+              
+                    if (rslt === true) {
+                      var msg = 'Import JSON Schema to OWL JSON-LD succeeded';
+                      alert(msg);
+                      status = true;
+                      resolve(true)
+                      
+                    } else {
+                      var msg = 'Import JSON Schema to OWL JSON-LD failed';
+                      alert(msg);
+                      status = false;
+                      reject(rslt);
+                    }
+              
+              }).catch(function (e) {
+                    console.error('call importJSONSchema2OWLJSONLD Fail! e', e)
+                    var msg = 'Import JSON Schema to OWL JSON-LD failed on error';
+                    alert(msg);
+                    reject(e);
+                    
+              });
+
+        }).catch(function(err) {
+              console.error("call getJSONSchema Fail!", err);
+              var msg = 'Import JSON Schema to OWL JSON-LDs errored';
+              alert(msg);
+              status = false;
+              reject(e);
+              
+        });
+
+        
+    } catch (e) {
+        console.error('onImportButtonClick e', e)
+        var msg = 'Import JSON Schema to OWL JSON-LDs failed';
+        alert(msg);
+        reject(e);
+      
+    }; // end try    
+  
+  }); // end promise
+}; // end
+
+async function importJSONSchema2OWLJSONLD(_jsonschema) {
+  console.log('importJSONSchema2OWLJSONLD',_jsonschema)
+  
+  return new Promise(function (resolve, reject) {
+    
+    try {
+    
+        JSONSchema2OWLJSONLD.transform(_jsonschema).then(function (_owljsonld) {
+            console.log("call JSONSchema2OWLJSONLDs.transform Success! _owljsonld",_owljsonld)
+      
+            let OWLJSONLDs = JSON.parse(_owljsonld) || _owljsonld ;
+            // let OWLJSONLDs =  _owljsonld ;
+            console.log('OWLJSONLDs',OWLJSONLDs)
+            
+            // set Ace form with OWLJSONLDs
+            setOWLJSONLDAceEditor(OWLJSONLDs).then(function(_owljsonld) {
+                console.log("call setOWLJSONLDAceEditor Success! _owljsonld", _owljsonld);
+                
+                resolve(true)
+                
+            }).catch(function(err) {
+                console.error("call setOWLJSONLDAceEditor Fail!", err);
+                reject(err)
+                
+            });
+
+      }).catch(function (e) {
+            console.error('call JSONSchema2OWLJSONLDs.transform Fail! e', e)
+            reject(e)
+          
+      });
+
+    } catch (e) {
+        console.error('importJSONSchema2OWLJSONLD e', e)
+        reject(e);
+      
+    }; // end try 
+  }); // end promise
+}; // end exportOWLJSONLD2JSONSchema
+
+//
+//
+var btnExport = document.getElementById('btnExport');
+btnExport.addEventListener("click", onExportButtonClick);
+function onExportButtonClick() {
+  console.log('onExportButtonClick')
+
+  return new Promise(function (resolve, reject) {
+  
+        getOWLJSONLDAceEditor().then(function (_owljsonld) {
+                console.log('call getOWLJSONLDAceEditor Success! _owljsonld', _owljsonld)
+              
+                exportOWLJSONLD2JSONSchema(_owljsonld).then(function (rslt) {
+                    console.log('call exportOWLJSONLD2JSONSchema Success! rslt', rslt)
+              
+                    if (rslt === true) {
+                      
+                      var msg = 'Export OWL JSON-LDs to JSON Schema succeeded';
+                      alert(msg);
+                      
+                      resolve(true)
+                      
+                    } else {
+                        var msg = 'Export OWL JSON-LDs to JSON Schema failed';
+                        alert(msg);
+                        reject(e)
+                    }
+              
+                }).catch(function (e) {
+                    console.error('call exportOWLJSONLD2JSONSchema Fail! e', e)
+                    var msg = 'Export OWL JSON-LDs to JSON Schema errored';
+                    alert(msg);
+                    reject(e)
+                });
+        
+        }).catch(function (e) {
+          console.error('call getOWLJSONLDAceEditor Fail! e', e)
+          reject(e)
+        });
+  
+  })
+}
+
+async function exportOWLJSONLD2JSONSchema(_owljsonld) {
+  console.log('exportOWLJSONLD2JSONSchema',_owljsonld)
+
+  return new Promise(function (resolve, reject) {
+  try {
+
+      OWLJSONLD2JSONSchema.transform(_owljsonld).then(function (_jsonschema) {
+          console.log("call OWLJSONLDs2JSONSchema.transform Success! _jsonschema",_jsonschema)
+    
+          let JSONSchema = JSON.parse(_jsonschema)
+          console.log('JSONSchema',JSONSchema)
+          
+          // save schema result to JSONSchema store, then return true
+          setJSONSchema(JSONSchema).then(function(_schema) {
+              console.log("call setJSONSchema Success! _schema", _schema);
+              
+              resolve(true)
+              
+          }).catch(function(err) {
+              console.error("call setJSONSchema Fail!", err);
+            
+          });
+
+      }).catch(function (e) {
+          console.error('call OWLJSONLDs2JSONSchema.transform Fail! e', e)
+          reject(e)
+          
+      });
+        
+    } catch (e) {
+      console.error('exportOWLJSONLD2JSONSchema e', e)
+      reject(e);
+      
+    }; // end try 
+  }); // end promise
+}; // end exportOWLJSONLD2JSONSchema
+
+</script>
+          
+<script>
+//
+// STARTING Ace Editor Functions  
+//
+
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/twilight");
+editor.setAutoScrollEditorIntoView(true);
+var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+editor.session.setMode(new JavaScriptMode());
+console.log('editor',editor)
+
+//
+// doFormdoOWLJSONLDAceEditor to set up Ace editor for JSON content
+//
+function doOWLJSONLDAceEditor(_owljsonld) {
+  console.log('doOWLJSONLDAceEditor _owljsonld', _owljsonld)
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+
+        // call setOWLJSONLDAceEditor 
+          setOWLJSONLDAceEditor(_owljsonld).then(function (result) {
+          console.log('call setOWLJSONLDAceEditor Success! result', result)
+  
+          resolve(result);
+  
+        }).catch(function (e) {
+          console.error('call setOWLJSONLDAceEditor Fail! e', e)
+          reject(e)
+  
+        }); // end setOWLJSONLDAceEditor
+    }
+    catch (e) {
+      console.error('doOWLJSONLDAceEditor e', e)
+      reject(e);
+    }; // end try 
+  }); // end promise
+} // end doOWLJSONLDAceEditor
+
+function setOWLJSONLDAceEditor(_json) {
+  console.log('setOWLJSONLDAceEditor _json', _json)
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+
+        editor.setValue(JSON.stringify( _json, null, '\t' ));
+    
+        // editor.addEventListener("input", onchangeOWLJSONLDAceEditor);                     // CHANGED EVENT
+    
+        resolve(true);
+
+    }
+    catch (e) {
+      console.error('setOWLJSONLDAceEditor e', e)
+      reject(e);
+
+    }; // end try 
+  }); // end promise
+}; // end doOWLJSONLDEditor
+
+//
+// getOWLJSONLDAceEditor content
+//
+function getOWLJSONLDAceEditor() {
+  console.log('getOWLJSONLDAceEditor ')
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+
+        let content = editor.getValue() ;
+
+            if ( isJSONValid(content) === false ) {
+                var msg = "OWLJSONLDEditor content is NOT valid JSON" ;
+                alert(msg);
+                console.error(msg)
+                
+                reject(msg)
+                
+            } else {
+
+                let _owljsonld = JSON.parse(content)
+        
+                resolve(_owljsonld);
+                
+            }; // end if
+            
+    } catch (e) {
+      console.error('getOWLJSONLDAceEditor e', e)
+      reject(e);
+
+    }; // end try 
+  }); // end promise
+}; // end getOWLJSONLDEditor
+
+function onchangeOWLJSONLDAceEditor() {
+  console.log('CHANGE onchangeOWLJSONLDAceEditor')
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+        
+        getOWLJSONLDAceEditor().then(function (_owljsonld) {
+            console.log('call getOWLJSONLDAceEditor Success! _owljsonld', _owljsonld)
+          
+            resolve(_owljsonld);
+          
+          
+        }).catch(function (e) {
+          console.error('call getOWLJSONLDAceEditor Fail! e', e)
+        });
+
+    }
+    catch (e) {
+        console.error('onchangeOWLJSONLDAceEditor e', e)
+        reject(e);
+
+    }; // end try 
+  }); // end promise
+}; // end onchangeOWLJSONLDEditor
+//
+// ENDING Ace Editor Functions  
+//
+</script>
+
+    
+<script>   
+
+</script>
+
+   <div id="footer" class="myfooter">
+      <a href="index.html">Editors Home</a>
+   </div>
+    
+  <div>
+ </body>
+</html>

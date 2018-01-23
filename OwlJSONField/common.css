@@ -1,0 +1,121 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   /*background:#ff0;*/
+   padding:10px;
+}
+#content {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   padding:10px;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   /*background:#6cf;*/
+}
+
+
+        .myheader {
+ 
+        }
+        .mycontent {
+          
+        }
+        .myfooter {
+
+        }
+        .myJSONSchema {
+            position: absolute;
+            width: 80%;
+            height: 70%;
+        }
+        .myFormFieldDef {
+            position: absolute;
+            width: 80%;
+            height: 70%;
+        }
+        .myOWLJSONLD {
+            position: absolute;
+            width: 80%;
+            height: 70%;
+        }
+        .myFieldSchema {
+            position: absolute;
+            top: 120px;
+            left: 420px;
+        }
+        .mySchemaForm {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+        }
+        
+        
+        
+        #editor {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .modal-wrapper {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+        @media not all and (min-height: 600px) and (min-width: 768px) {
+          ion-modal ion-backdrop {
+            visibility: hidden;
+          }
+        }
+        @media only screen and (min-height: 0px) and (min-width: 0px) {
+          .modal-wrapper {
+            position: absolute;
+            top: 0;
+            left: 10;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .modal-dialog {
+            width: 100%;
+            height: 100%;
+        }
+        .modal-content {
+            width: 100%;
+            height: 100%;
+        }
+        .modal-header {
+
+        }
+        .modal-body {
+
+            width: 100%;
+            height: 80%;
+        }
+        .modal-footer {
+ 
+        }
+        .control-label {
+          font-size: 13px;
+          font-weight: bold;
+        }
+        .myButtons {
+
+        }
+        #modalSchemaForm {
+            
+        }
+        .json-form {
+            border-style: dotted;
+        }
