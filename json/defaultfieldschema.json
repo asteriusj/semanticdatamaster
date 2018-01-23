@@ -1,0 +1,222 @@
+{
+  "schema": {
+    "text": {
+      "type": "object",
+      "title": "Text Type",
+      "description": "",
+      "properties": {
+        "type": {
+          "key": "type",
+          "semantic": "input.type",
+          "type": "string",
+          "title": "type",
+          "description": "This attribute specifies the type of control to create. The default value for this attribute is 'text'.",
+          "required": true,
+          "readonly": true,
+          "enum": [
+            "text"
+          ]
+        },
+        "name": {
+          "key": "name",
+          "semantic": "input.name",
+          "type": "string",
+          "title": "name",
+          "required": true,
+          "description": "This attribute assigns the control name.",
+          "placeholder": "Name of the text field"
+        },
+        "size": {
+          "key": "size",
+          "semantic": "input.size",
+          "type": "number",
+          "title": "size",
+          "description": "This attribute tells the user agent the initial width of the control.",
+          "required": false
+        },
+        "maxlength": {
+          "key": "maxlength",
+          "type": "integer",
+          "title": "maxlength ",
+          "description": "When the type attribute has the value 'text' or 'password', this attribute specifies the maximum number of characters the user may enter. This number may exceed the specified size, in which case the user agent should offer a scrolling mechanism. The default value for this attribute is an unlimited number.",
+          "required": false,
+          "default": ""
+        },
+        "max": {
+          "key": "max",
+          "type": "integer",
+          "title": "max ",
+          "required": false,
+          "default": ""
+        },
+        "min": {
+          "key": "min",
+          "type": "integer",
+          "title": "min ",
+          "required": false,
+          "default": "0"
+        },
+        "id": {
+          "key": "id",
+          "type": "string",
+          "title": "id",
+          "description": "",
+          "required": false,
+          "default": ""
+        },
+        "class": {
+          "key": "class",
+          "type": "string",
+          "title": "class",
+          "description": "",
+          "required": false,
+          "default": ""
+        },
+        "title": {
+          "key": "title",
+          "semantic": "input.title",
+          "type": "string",
+          "title": "title",
+          "description": "(element title)",
+          "required": false
+        },
+        "style": {
+          "key": "style",
+          "semantic": "input.style",
+          "type": "string",
+          "title": "style",
+          "required": false,
+          "description": " (inline style information)"
+        },
+        "required": {
+          "key": "required",
+          "type": "boolean",
+          "title": "required",
+          "description": "",
+          "required": false
+        },
+        "readonly": {
+          "key": "readonly",
+          "type": "boolean",
+          "title": "readonly",
+          "description": "",
+          "required": false,
+          "default": true
+        },
+        "pattern": {
+          "key": "pattern",
+          "type": "string",
+          "title": "pattern",
+          "description": "",
+          "required": false,
+          "default": ""
+        },
+        "placeholder": {
+          "key": "placeholder",
+          "type": "string",
+          "title": "placeholder",
+          "description": "",
+          "required": false,
+          "placeholder": "Placeholder value",
+          "default": ""
+        },
+        "default": {
+          "key": "default",
+          "type": "string",
+          "title": "default",
+          "required": false
+        },
+        "value": {
+          "key": "value",
+          "type": "string",
+          "title": "value",
+          "required": false
+        }
+      }
+    },
+    "password": {
+      "key": "",
+      "type": "string",
+      "title": "password Type",
+      "description": ""
+    },
+    "checkbox": {
+      "key": "",
+      "type": "object",
+      "title": "Checkbox Type",
+      "description": "Creates a checkbox.",
+      "properties": {
+        "required": {
+          "key": "",
+          "type": "string",
+          "title": "id",
+          "required": false,
+          "value": "false"
+        },
+        "name": {
+          "key": "",
+          "type": "string",
+          "title": "name",
+          "required": true,
+          "value": ""
+        },
+        "id": {
+          "key": "",
+          "type": "string",
+          "title": "id",
+          "required": false,
+          "value": ""
+        },
+        "value": {
+          "key": "",
+          "type": "string",
+          "title": "value",
+          "required": false,
+          "value": ""
+        }
+      }
+    },
+    "radio": {
+      "key": "",
+      "type": "string",
+      "title": "radio Type",
+      "description": ""
+    },
+    "submit": {
+      "key": "",
+      "type": "string",
+      "title": "reset Type",
+      "description": ""
+    },
+    "reset": {
+      "key": "",
+      "type": "string",
+      "title": "password Type",
+      "description": ""
+    },
+    "file": {
+      "key": "",
+      "type": "string",
+      "title": "file Type",
+      "description": ""
+    },
+    "hidden": {
+      "key": "",
+      "type": "string",
+      "title": "hidden Type",
+      "description": ""
+    },
+    "image": {
+      "key": "",
+      "type": "string",
+      "title": "image Type",
+      "description": ""
+    },
+    "button": {
+      "key": "",
+      "type": "string",
+      "title": "button Type",
+      "description": ""
+    }
+  }
+}
