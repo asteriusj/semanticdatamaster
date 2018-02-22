@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>JSON Schema Edit - OWL JSON Schema Form Field Translators Editors</title>
+
+		<!-- Minified version of `es6-promise-auto` below. -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>  
+
+        <!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="ace/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="ace/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+        
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="ace/assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/chosen.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-colorpicker.min.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="ace/assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="ace/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="ace/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="ace/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="ace/assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+
+<style>
+
+    
+</style>
+    
+
+    <script type="text/javascript" src="../deps/jquery.min.js"></script>
+    <script type="text/javascript" src="../deps/underscore.js"></script>
+    <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="../lib/jsonform.js"></script>
+    
+    <!-- Asterius Media LLC semanticdatamaster commonfiles-->
+    <link rel="stylesheet" href="common.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script src="../lib/Transforms.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles('JSONSchemaData')">
+   <div id="container">
+     
+    <script>
+        function doJSONSchemaData(_data) {
+            console.log('doJSONSchemaData',_data)
+            
+            setJSONSchema(_data).then(function(_jsonschema) {
+                console.log("call setJSONSchema Success! _jsonschema", _jsonschema);
+                return _jsonschema;
+                
+            }).then(function(_jsonschema) {
+                    console.log("doJSONSchemaData then _jsonschema", _jsonschema);
+
+                    doJSONSchemaAceEditor(_jsonschema).then(function (result) {
+                        console.log('call doJSONSchemaEditor Success! result', result)
+                    
+                    }).catch(function (e) {
+                        console.error('call doJSONSchemaEditor Fail! e', e)
+            
+                    }); // enddoJSONSchemaEditor
+
+            }).catch(function(err) {
+                console.error("doJSONSchemaData Fail!", err);
+              
+            });
+        }
+    </script> 
+
+
+
+    <div id="header" class="myheader">
+      <h2>JSON Schema Edit</h2>
+    </div>
+  
+    
+    <div id="content" class="myJSONSchema">   
+    
+<div class="modal-wrapper">  
+ <div class="modal-dialog"> 
+  <div class="modal-content"> 
+
+     <div class="modal-header">
+       
+       <h3>JSON Schema</h3>
+     
+     </div>  
+      
+     <div class="modal-body"> 
+     
+       <!--https://github.com/ajaxorg/ace-->
+       <!--https://ace.c9.io/-->
+       <div id="editor"></div>
+        <script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="ace/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+    
+     </div>  
+        
+     <div class="modal-footer">
+         
+       <div class="myButtons">
+         <button id="btnImportOWL" class=" btn btn-default btn-sm" title="Import from OWL JSON-LD" >
+            <i class="glyphicon glyphicon-import"></i>
+            OWL In
+        </button>
+        <button id="btnExportOWL" class=" btn btn-default btn-sm" title="Export to  OWL JSON-LD" >
+            <i class="glyphicon glyphicon-export"></i>
+            OWL Out
+        </button>
+        <button id="btnSave" class=" btn btn-default btn-sm" title="Save to local storage" >
+            <i class="glyphicon glyphicon-circle-arrow-down"></i>
+            Save
+        </button>
+        <button id="btnReload" class=" btn btn-default btn-sm" title="Reload Data from Cloud" >
+            <i class="glyphicon glyphicon-cloud-download"></i>
+            Reload
+        </button>
+        <button id="btnImportDef" class=" btn btn-default btn-sm" title="Import from Form Field Def" >
+            <i class="glyphicon glyphicon-import"></i>
+            Def In
+        </button>
+        <button id="btnExportDef" class=" btn btn-default btn-sm" title="Export to Form Field Def" >
+            <i class="glyphicon glyphicon-export"></i>
+            Def Out
+        </button>
+       </div>
+  
+<script>
+
+//
+// Import from OWL JSON-LD file
+//
+// onImportOWLButtonClick
+// importOWLJSONLD2JSONSchema
+//
+var btnImportOWL = document.getElementById('btnImportOWL');
+btnImportOWL.addEventListener("click", onImportOWLButtonClick);
+function onImportOWLButtonClick() {
+  console.log('onImportOWLButtonClick')
+  var status = false;
+  return new Promise(function (resolve, reject) {
+  
+    try {
+  
+
+        throw "not yet implemented";
+        
+    } catch (e) {
+        console.error('onImportOWLButtonClick e', e)
+        var msg = 'Import OWL JSON-LD to JSON Schemas failed';
+        alert(msg);
+        reject(e);
+      
+    }; // end try    
+  
+  }); // end promise
+}; // end
+async function importOWL2JSONSchema(_owljsonld) {
+  console.log('importOWL2JSONSchema',_owljsonld)
+  
+  return new Promise(function (resolve, reject) {
+    
+    try {
+    
+      throw "not yet implemented";
+
+    } catch (e) {
+        console.error('importOWL2JSONSchema e', e)
+        reject(e);
+      
+    }; // end try 
+  }); // end promise
+}; // end importOWL2JSONSchema
+
+//
+// Export from JSON Schema to OWL JSON-LD file
+//
+// onExportOWLButtonClick
+// exportJSONSchema2OWLJSONLD
+//
+var btnExportOWL = document.getElementById('btnExportOWL');
+btnExportOWL.addEventListener("click", onExportOWLButtonClick);
+function onExportOWLButtonClick() {
+  console.log('onExportOWLButtonClick')
+
+  return new Promise(function (resolve, reject) {
+  
+   try {
+  
+
+        throw "not yet implemented";
+        
+    } catch (e) {
+        console.error('onExportOWLButtonClick e', e)
+        var msg = 'Export OWL JSON-LD to JSON Schemas failed';
+        alert(msg);
+        reject(e);
+      
+    }; // end try
+  
+  }); // end promise
+}; // end onExportOWLButtonClick
+
+async function exportJSONSchema2OWLJSONLD(_jsonschema) {
+  console.log('exportJSONSchema2OWLJSONLD',_jsonschema)
+
+  return new Promise(function (resolve, reject) {
+  try {
+
+     throw "not yet implemented";
+        
+    } catch (e) {
+      console.error('exportJSONSchema2OWLJSONLD e', e)
+      reject(e);
+      
+    }; // end try 
+  }); // end promise
+}; // end exportJSONSchema2OWLJSONLD
+
+
+
+//
+//
+var btnSave = document.getElementById('btnSave');
+btnSave.addEventListener("click", onSaveButtonClick);
+function onSaveButtonClick() {
+    console.log('onSaveButtonClick')
+
+    return new Promise(function (resolve, reject) {
+  
+        getJSONSchemaAceEditor().then(function (_jsonschema) {
+            console.log('call getJSONSchemaAceEditor Success! _jsonschema', _jsonschema)
+          
+              setJSONSchema(_jsonschema).then(function (result) {
+                  console.log('call setJSONSchema Success! result', result)
+                  
+                    var msg = 'Saving JSON Schemas to local store succeeded';
+                    alert(msg);
+                    resolve(true)
+                  
+                    
+              }).catch(function (e) {
+                    console.error('call setJSONSchema Fail! e', e)
+                    reject(e)
+                    
+                    var msg = 'Saving JSON Schemas to local store FAILED';
+                    alert(msg);
+                    reject(false)
+                    
+              });
+          
+          
+        }).catch(function (e) {
+          console.error('call getJSONSchemaAceEditor Fail! e', e)
+          var msg = 'Saving JSON Schemas to local store FAILED';
+          alert(msg);
+          reject(false)
+          reject(e)
+          
+        }); // getJSONSchemaAceEditor
+        
+    }); // end promise
+}; // end onSaveButtonClick
+//
+//
+var btnReload = document.getElementById('btnReload');
+btnReload.addEventListener("click", onReloadButtonClick);
+console.log('btnReload',btnReload)
+function onReloadButtonClick() {
+  console.log('onReloadButtonClick')
+
+  return new Promise(function (resolve, reject) {
+  
+  
+        loadJSONSchemaData().then(function (result) {
+            console.log('call loadJSONSchemaData Success! result', result)
+        
+            if (result === true) {
+                      
+                var msg = 'Loading JSON Schema from file succeeded';
+                alert(msg);
+                resolve(true)
+                      
+            } else {
+                  
+                var msg = 'Loading JSON Schema from file FAILED';
+                alert(msg);
+                reject(e)
+            }
+          
+          
+        }).catch(function (e) {
+          console.error('call loadJSONSchemaData Fail! e', e)
+          reject(e)
+        });
+  
+  })
+}
+
+
+//
+// Import from Form Field Definition file
+//
+// onImportDefButtonClick
+// importFormFieldDef2JSONSchema
+//
+var btnImportDef = document.getElementById('btnImportDef');
+btnImportDef.addEventListener("click", onImportDefButtonClick);
+function onImportDefButtonClick() {
+  console.log('onImportDefButtonClick')
+  var status = false;
+  return new Promise(function (resolve, reject) {
+  
+    try {
+  
+
+        throw "not yet implemented";
+        
+    } catch (e) {
+        console.error('onImportDefButtonClick e', e)
+        var msg = 'Import Form Field Def to JSON Schemas failed';
+        alert(msg);
+        reject(e);
+      
+    }; // end try    
+  
+  }); // end promise
+}; // end
+async function importFormFieldDef2JSONSchema(_formfielddef) {
+  console.log('importFormFieldDef2JSONSchema',_formfielddef)
+  
+  return new Promise(function (resolve, reject) {
+    
+    try {
+    
+      throw "not yet implemented";
+
+    } catch (e) {
+        console.error('importFormFieldDef2JSONSchema e', e)
+        reject(e);
+      
+    }; // end try 
+  }); // end promise
+}; // end importFormFieldDef2JSONSchema
+
+//
+// Export from JSON Schema to Form Field Def file
+//
+// onExportDefButtonClick
+// exportJSONSchema2FormFieldDef
+//
+var btnExportDef = document.getElementById('btnExportDef');
+btnExportDef.addEventListener("click", onExportDefButtonClick);
+function onExportDefButtonClick() {
+  console.log('onExportDefButtonClick')
+
+  return new Promise(function (resolve, reject) {
+  
+   try {
+  
+
+        throw "not yet implemented";
+        
+    } catch (e) {
+        console.error('onExportDefButtonClick e', e)
+        var msg = 'Export Form Field Def to JSON Schemas failed';
+        alert(msg);
+        reject(e);
+      
+    }; // end try
+  
+  }); // end promise
+}; // end onExportDefButtonClick
+
+async function exportJSONSchema2FormFieldDef(_jsonschema) {
+  console.log('exportJSONSchema2FormFieldDef',_jsonschema)
+
+  return new Promise(function (resolve, reject) {
+  try {
+
+     throw "not yet implemented";
+        
+    } catch (e) {
+      console.error('exportJSONSchema2FormFieldDef e', e)
+      reject(e);
+      
+    }; // end try 
+  }); // end promise
+}; // end exportJSONSchema2FormFieldDef
+
+</script>  
+  
+  
+       
+    </div>
+    
+  </div>
+ </div>
+</div>
+
+    </div> 
+ 
+ 
+
+          
+          
+          
+<script>
+//
+// STARTING Ace Editor Functions  
+//
+
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/twilight");
+editor.setAutoScrollEditorIntoView(true);
+var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+editor.session.setMode(new JavaScriptMode());
+console.log('editor',editor)
+
+//
+// doFormdoJSONSchemaAceEditor to set up Ace editor for JSON content
+//
+function doJSONSchemaAceEditor(_jsonschema) {
+  console.log('doJSONSchemaAceEditor _jsonschema', _jsonschema)
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+
+        // call setJSONSchemaAceEditor 
+          setJSONSchemaAceEditor(_jsonschema).then(function (result) {
+          console.log('call setJSONSchemaAceEditor Success! result', result)
+  
+          resolve(result);
+  
+        }).catch(function (e) {
+          console.error('call setJSONSchemaAceEditor Fail! e', e)
+          reject(e)
+  
+        }); // end setJSONSchemaAceEditor
+    }
+    catch (e) {
+      console.error('doJSONSchemaAceEditor e', e)
+      reject(e);
+    }; // end try 
+  }); // end promise
+} // end doJSONSchemaAceEditor
+
+function setJSONSchemaAceEditor(_json) {
+  console.log('setJSONSchemaAceEditor _json', _json)
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+
+        editor.setValue(JSON.stringify( _json, null, '\t' ));
+    
+        // editor.addEventListener("input", onchangeJSONSchemaAceEditor);                     // CHANGED EVENT
+    
+        resolve(true);
+
+    }
+    catch (e) {
+      console.error('setJSONSchemaAceEditor e', e)
+      reject(e);
+
+    }; // end try 
+  }); // end promise
+}; // end doJSONSchemaEditor
+
+//
+// getJSONSchemaAceEditor content
+//
+function getJSONSchemaAceEditor() {
+  console.log('getJSONSchemaAceEditor ')
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+
+        let content = editor.getValue() ;
+
+            if ( isJSONValid(content) === false ) {
+                var msg = "JSONSchemaEditor content is NOT valid JSON" ;
+                alert(msg);
+                console.error(msg)
+                
+                reject(msg)
+                
+            } else {
+
+                let _jsonschema = JSON.parse(content)
+        
+                resolve(_jsonschema);
+                
+            }; // end if
+            
+    } catch (e) {
+      console.error('getJSONSchemaAceEditor e', e)
+      reject(e);
+
+    }; // end try 
+  }); // end promise
+}; // end getJSONSchemaEditor
+
+function onchangeJSONSchemaAceEditor() {
+  console.log('CHANGE onchangeJSONSchemaAceEditor')
+
+  return new Promise(function (resolve, reject) {
+
+    try {
+        
+        getJSONSchemaAceEditor().then(function (_jsonschema) {
+            console.log('call getJSONSchemaAceEditor Success! _jsonschema', _jsonschema)
+          
+            resolve(_jsonschema);
+          
+          
+        }).catch(function (e) {
+          console.error('call getJSONSchemaAceEditor Fail! e', e)
+        });
+
+    }
+    catch (e) {
+        console.error('onchangeJSONSchemaAceEditor e', e)
+        reject(e);
+
+    }; // end try 
+  }); // end promise
+}; // end onchangeJSONSchemaEditor
+//
+// ENDING Ace Editor Functions  
+//
+</script>
+
+    
+<script>   
+
+</script>
+
+   <div id="footer" class="myfooter">
+      <a href="index.html">Editors Home</a>
+   </div>
+    
+  <div>
+ </body>
+</html>

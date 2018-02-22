@@ -1,0 +1,198 @@
+[
+  {
+    "id": "txtAddress",
+    "contentmap": "place.address",
+    "name": "address",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtAddress1",
+    "contentmap": "client.organization.address.address1",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtAddress2",
+    "contentmap": "client.organization.address.address2",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtPersonUID",
+    "contentmap": "employee.person.uid",
+    "name": "PersonUID",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtGivenName",
+    "contentmap": "employee.person.givenname",
+    "name": "givenName",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtMiddleName",
+    "contentmap": "employee.person.middlename",
+    "name": "middleName",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtLastName",
+    "contentmap": "employee.person.familyname",
+    "name": "familyName",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtNickName",
+    "contentmap": "employee.person.informalname",
+    "name": "nickName",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtPrefix",
+    "contentmap": "employee.person.prefix",
+    "name": "prefix",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtSuffix",
+    "contentmap": "employee.person.suffix",
+    "name": "suffix",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtFullName",
+    "contentmap": "employee.person.fullname",
+    "name": "fullName",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "ddlGender",
+    "contentmap": "employee.person.gender",
+    "name": "gender",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "adult",
+    "contentmap": "level2.level1.level0.image",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "dateOfBirth",
+    "contentmap": "employee.person.dateofbirth",
+    "name": "dateOfBirth",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtEmailAddres",
+    "contentmap": "employee.person.emailaddress",
+    "name": "emailAddres",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtPhoneNumber",
+    "contentmap": "employee.person.phonenumber",
+    "name": "phoneNumber",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtMobileNumber",
+    "contentmap": "employee.person.mobilenumber",
+    "name": "mobileNumber",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "imgProfileThumbnail",
+    "contentmap": "thumbnail.image",
+    "name": "ProfileThumbnail",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtLocaleCity",
+    "contentmap": "client.organization.address.localecity",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtRegionState",
+    "contentmap": "client.organization.address.regionstate",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtPostalCode",
+    "contentmap": "client.organization.address.postalcode",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtCountryCode",
+    "contentmap": "client.organization.address.countrycode",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "ddlClientType",
+    "contentmap": "client.organization.type",
+    "name": "ClientType",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtName",
+    "contentmap": "client.organization.name",
+    "name": "ClientName",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtDescription",
+    "contentmap": "client.organization.description",
+    "name": null,
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtSlogan",
+    "contentmap": "client.organization.slogan",
+    "name": "Slogan",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "txtWebsite",
+    "contentmap": "client.organization.website",
+    "name": "Website",
+    "label": null,
+    "dbo": null
+  },
+  {
+    "id": "ddlIndustrySector",
+    "contentmap": "organization.sector",
+    "name": "Industry Sector",
+    "label": null,
+    "dbo": null
+  }
+]

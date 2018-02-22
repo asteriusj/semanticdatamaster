@@ -1,0 +1,477 @@
+{
+  "schema": {
+    "title": "",
+    "type": "object",
+    "properties": {
+      "txtAddress": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtAddress",
+        "name": "address",
+        "title": "Address",
+        "placeholder": "Mailing address ",
+        "x_semantic": "",
+        "x_contentmap": "place.address",
+        "size": 30,
+        "maxLength": 30,
+        "maximum": 30
+      },
+      "txtAddress1": {
+        "type": "string",
+        "id": "txtAddress1",
+        "name": "",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.address1"
+      },
+      "txtAddress2": {
+        "type": "string",
+        "id": "txtAddress2",
+        "name": "",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.address2"
+      },
+      "txtPersonUID": {
+        "control": "input",
+        "type": "string",
+        "format": "password",
+        "id": "txtPersonUID",
+        "name": "PersonUID",
+        "title": "It's a secret",
+        "placeholder": "secret pwd",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.uid"
+      },
+      "txtGivenName": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtGivenName",
+        "name": "givenName",
+        "title": "First or given name  ",
+        "placeholder": "Fisrst Name goes here  ",
+        "value": "Michael",
+        "x_semantic": "foaf:givenName",
+        "x_contentmap": "employee.person.givenname",
+        "size": 13,
+        "autocomplete": "FALSE",
+        "required": true,
+        "helpMessage": "First name to be used ",
+        "default": "Michael"
+      },
+      "txtMiddleName": {
+        "type": "string",
+        "id": "txtMiddleName",
+        "name": "middleName",
+        "title": "Middle",
+        "value": "Alan",
+        "x_semantic": "middleName",
+        "x_contentmap": "employee.person.middlename",
+        "size": 13,
+        "readOnly": true,
+        "default": "Alan"
+      },
+      "txtLastName": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtLastName",
+        "name": "familyName",
+        "title": "Last Name",
+        "x_semantic": "foaf:familyName",
+        "x_contentmap": "employee.person.familyname",
+        "size": 13,
+        "autocomplete": "FALSE",
+        "required": true
+      },
+      "txtNickName": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtNickName",
+        "name": "nickName",
+        "title": "Informal Name",
+        "x_semantic": "foaf:nick",
+        "x_contentmap": "employee.person.informalname",
+        "size": 13
+      },
+      "txtPrefix": {
+        "type": "string",
+        "id": "txtPrefix",
+        "name": "prefix",
+        "title": "Prefix",
+        "x_semantic": "dbp:prefix",
+        "x_contentmap": "employee.person.prefix",
+        "size": 13
+      },
+      "txtSuffix": {
+        "type": "string",
+        "id": "txtSuffix",
+        "name": "suffix",
+        "title": "Suffix",
+        "x_semantic": "dbp:suffix",
+        "x_contentmap": "employee.person.suffix"
+      },
+      "txtFullName": {
+        "type": "string",
+        "id": "txtFullName",
+        "name": "fullName",
+        "title": "Name",
+        "x_semantic": "foaf:name",
+        "x_contentmap": "employee.person.fullname",
+        "maxLength": 35,
+        "maximum": 35
+      },
+      "ddlGender": {
+        "control": "select",
+        "type": "string",
+        "format": "datalist",
+        "id": "ddlGender",
+        "name": "gender",
+        "title": "Gender",
+        "x_semantic": "foaf:gender",
+        "x_contentmap": "employee.person.gender",
+        "required": true,
+        "helpMessage": "Is you m or f?"
+      },
+      "adult": {
+        "type": "boolean",
+        "id": "adult",
+        "title": "is Adult ?",
+        "x_semantic": "",
+        "x_contentmap": "level2.level1.level0.image"
+      },
+      "dateOfBirth": {
+        "control": "datepicker",
+        "type": "string",
+        "format": "date",
+        "id": "dateOfBirth",
+        "name": "dateOfBirth",
+        "title": "DateOfBirth",
+        "placeholder": "Date of birth mm/dd/yyyy",
+        "value": "01/01/1971",
+        "x_semantic": "dbo:dateOfBirth",
+        "x_contentmap": "employee.person.dateofbirth",
+        "default": "01/01/1971"
+      },
+      "txtEmailAddres": {
+        "control": "input",
+        "type": "string",
+        "format": "email",
+        "id": "txtEmailAddres",
+        "name": "emailAddres",
+        "title": "Email Addres",
+        "x_semantic": "foaf:mbox",
+        "x_contentmap": "employee.person.emailaddress",
+        "size": 30,
+        "maxLength": 30,
+        "maximum": 30,
+        "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$",
+        "required": true
+      },
+      "txtPhoneNumber": {
+        "control": "input",
+        "type": "string",
+        "format": "tel",
+        "id": "txtPhoneNumber",
+        "name": "phoneNumber",
+        "title": "Phone Number",
+        "x_semantic": "foaf:phone",
+        "x_contentmap": "employee.person.phonenumber",
+        "size": 10,
+        "maxLength": 30,
+        "maximum": 30,
+        "pattern": "NOT(REGEX(Phone, \"\\\\D*?(\\\\d\\\\D*?){10}\"))"
+      },
+      "txtMobileNumber": {
+        "control": "input",
+        "type": "string",
+        "format": "tel",
+        "id": "txtMobileNumber",
+        "name": "mobileNumber",
+        "title": "Mobile Number",
+        "x_semantic": "foaf:phone",
+        "x_contentmap": "employee.person.mobilenumber",
+        "maxLength": 30,
+        "maximum": 30,
+        "pattern": "\\d{3}[\\-]\\d{3}[\\-]\\d{4}"
+      },
+      "imgProfileThumbnail": {
+        "control": "input",
+        "type": "string",
+        "id": "imgProfileThumbnail",
+        "name": "ProfileThumbnail",
+        "title": "Profile Thumbnail",
+        "x_semantic": "foaf:thumbnail",
+        "x_contentmap": "thumbnail.image"
+      },
+      "txtLocaleCity": {
+        "type": "string",
+        "id": "txtLocaleCity",
+        "name": "",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.localecity"
+      },
+      "txtRegionState": {
+        "type": "string",
+        "id": "txtRegionState",
+        "name": "",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.regionstate"
+      },
+      "txtPostalCode": {
+        "type": "string",
+        "id": "txtPostalCode",
+        "name": "",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.postalcode"
+      },
+      "txtCountryCode": {
+        "type": "string",
+        "id": "txtCountryCode",
+        "name": "",
+        "title": "",
+        "value": "US",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.countrycode",
+        "default": "US"
+      },
+      "ddlClientType": {
+        "control": "select",
+        "type": "string",
+        "format": "datalist",
+        "id": "ddlClientType",
+        "name": "ClientType",
+        "title": "Type",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.type",
+        "autocomplete": "TRUE",
+        "required": true
+      },
+      "txtName": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtName",
+        "name": "ClientName",
+        "title": "Client Name",
+        "x_semantic": "foaf:familyName",
+        "x_contentmap": "client.organization.name",
+        "size": 13,
+        "autocomplete": "FALSE",
+        "required": true
+      },
+      "txtDescription": {
+        "type": "string",
+        "id": "txtDescription",
+        "name": "",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.description"
+      },
+      "txtSlogan": {
+        "type": "string",
+        "id": "txtSlogan",
+        "name": "Slogan",
+        "title": "",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.slogan"
+      },
+      "txtWebsite": {
+        "control": "input",
+        "type": "string",
+        "format": "uri",
+        "id": "txtWebsite",
+        "name": "Website",
+        "title": "Company Website",
+        "placeholder": "Website URL",
+        "x_semantic": "foaf:website",
+        "x_contentmap": "client.organization.website",
+        "size": 30,
+        "maxLength": 30,
+        "maximum": 30,
+        "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$"
+      },
+      "ddlIndustrySector": {
+        "type": "string",
+        "id": "ddlIndustrySector",
+        "name": "Industry Sector",
+        "title": "",
+        "placeholder": "Common description of  primary industry sector (LinkedIn)",
+        "x_semantic": "org:classification",
+        "x_contentmap": "organization.sector"
+      }
+    },
+    "definitions": {
+      
+    }
+  },
+  "form": [
+    {
+      "key": "txtAddress",
+      "control": "input",
+      "placeholder": "Mailing address "
+    },
+    {
+      "key": "txtAddress1"
+    },
+    {
+      "key": "txtAddress1"
+    },
+    {
+      "key": "txtAddress2"
+    },
+    {
+      "key": "txtPersonUID",
+      "control": "input",
+      "type": "password",
+      "placeholder": "secret pwd"
+    },
+    {
+      "key": "txtGivenName",
+      "control": "input",
+      "placeholder": "Fisrst Name goes here  "
+    },
+    {
+      "key": "txtMiddleName"
+    },
+    {
+      "key": "txtLastName",
+      "control": "input"
+    },
+    {
+      "key": "txtNickName",
+      "control": "input"
+    },
+    {
+      "key": "txtPrefix"
+    },
+    {
+      "key": "txtSuffix"
+    },
+    {
+      "key": "txtFullName"
+    },
+    {
+      "key": "ddlGender"
+      
+    },
+    {
+      "key": "adult"
+    },
+    {
+      "key": "dateOfBirth",
+      "control": "datepicker",
+      "type": "date",
+      "placeholder": "Date of birth mm/dd/yyyy"
+    },
+    {
+      "key": "txtEmailAddres",
+      "control": "input"
+    },
+    {
+      "key": "txtPhoneNumber",
+      "control": "input"
+    },
+    {
+      "key": "txtMobileNumber",
+      "control": "input"
+    },
+    {
+      "key": "adult"
+    },
+    {
+      "key": "imgProfileThumbnail",
+      "control": "input"
+    },
+    {
+      "key": "txtAddress2",
+      "control": "input"
+    },
+    {
+      "key": "txtLocaleCity",
+      "control": "input",
+      "placeholder": "Mailing address city"
+    },
+    {
+      "key": "txtRegionState",
+      "control": "input",
+      "placeholder": "Mailing address state or provence"
+    },
+    {
+      "key": "txtPostalCode",
+      "control": "input",
+      "placeholder": "Mailing address ZIP or postal code"
+    },
+    {
+      "key": "txtCountryCode",
+      "control": "input",
+      "placeholder": "Three letter country code"
+    },
+    {
+      "key": "ddlClientType",
+      "titleMap": "null",
+      "control": "select"
+    },
+    {
+      "key": "txtName",
+      "control": "input"
+    },
+    {
+      "key": "txtDescription"
+    },
+    {
+      "key": "txtAddress1"
+    },
+    {
+      "key": "txtAddress2"
+    },
+    {
+      "key": "txtLocaleCity"
+    },
+    {
+      "key": "txtRegionState"
+    },
+    {
+      "key": "txtPostalCode"
+    },
+    {
+      "key": "txtCountryCode"
+    },
+    {
+      "key": "txtSlogan"
+    },
+    {
+      "key": "txtWebsite",
+      "control": "input",
+      "placeholder": "Website URL"
+    },
+    {
+      "key": "ddlIndustrySector",
+      "placeholder": "Common description of  primary industry sector (LinkedIn)"
+    }
+  ],
+  "values": {
+    "txtGivenName": {
+      "contentmap": "employee.person.givenname",
+      "value": "Michael"
+    },
+    "txtMiddleName": {
+      "contentmap": "employee.person.middlename",
+      "value": "Alan"
+    },
+    "dateOfBirth": {
+      "contentmap": "employee.person.dateofbirth",
+      "value": "01/01/1971"
+    },
+    "txtCountryCode": {
+      "contentmap": "client.organization.address.countrycode",
+      "value": "US"
+    }
+  }
+}
