@@ -1,0 +1,218 @@
+<!--https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file-->
+<!--https://github.com/mdn/learning-area/tree/master/html/forms-->
+<!--https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Semantic Data Services</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./favicon.ico" sizes="32x32"> 
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="./semanticdataservices.js"></script>
+    <link rel="stylesheet" type="text/css" href="./semanticdataservices.css">
+    
+    <script type="text/javascript">
+    </script>
+      
+    
+  </head>
+  <body onload="">
+    <div id="header" class="container" ng-view>
+
+        <h1>File Format Tranform / Translate</h1>
+        <h3>semanticdatamaster</h3>
+        <span>Master data definition using Linked Data Semantic ontologies to drive JSON Schema and Schema Forms</span> 
+        <span id="message"></span>
+    </div>
+    
+    <br>
+    <div style="width: 60%;" class="details container container-fluid">
+        <!--<form id="inputform">-->
+        <!--    <div>-->
+        <!--       <label for="my_file">Choose file to upload</label>-->
+        <!--       <input type="file" id="fileUpload" name="my_file" accept=".json, .jsonld, .xml, .owl, .rdf, .ttl, .n3" -->
+        <!--            onchange="" >-->
+        <!--    </div>-->
+        <!--    <div>-->
+        <!--       <button>Submit</button>-->
+        <!--    </div>-->
+        <!--</form>-->
+        <!--<form>-->
+        <!--  <div>-->
+        <!--    <label>Select file to upload</label>-->
+        <!--    <input id="fileinput" type="file" onchange="onSelectFile">-->
+        <!--  </div>-->
+        <!--  <button type="submit">Convert</button>-->
+        <!--</form>-->
+        <input type="file" id="selectFiles" value="Import" /><br />
+        <button id="import">Import</button>
+        <textarea id="result"></textarea>
+        
+    </div>
+    <br>
+    <div id="showj" style="width: 60%;" class="container container-fluid">
+        <span></span>
+    </div>
+    
+    <script>
+    
+    document.getElementById('import').onclick = function() {
+        
+        var files = document.getElementById('selectFiles').files;
+        console.log(files);
+        if (files.length <= 0) {
+            return false;
+        }
+        var fr = new FileReader();
+        fr.onload = function(e) { 
+            console.log(e);
+            var result = JSON.parse(e.target.result);
+            var formatted = JSON.stringify(result, null, 2);
+            document.getElementById('result').value = formatted;
+            // var resp = submitIt(result)
+            var resp = helloYo(result)
+            console.log('resp',resp)
+        }
+        fr.readAsText(files.item(0));
+    };    
+function helloYo(body) { 
+        console.log('helloYo body:',body)
+        
+        const url = "https://li1t6awrf8.execute-api.us-east-1.amazonaws.com/dev/helloWorld";
+        fetch(url, {
+            method : "GET",
+            // body: body,
+            // -- or --
+            // body : JSON.stringify({
+                // user : document.getElementById('user').value,
+                // ...
+            // })
+        }).then(
+            response => {
+                console.log('response',response)
+                response.json() // if the response is a JSON object
+        }).then(
+            success => console.log('success',success) // Handle the success response object
+        ).catch(
+            error => console.log('error',error) // Handle the error response object 
+        );   
+    }; // end submitIt
+    
+    function submitIt(body) { 
+        console.log('submitIt body:',body)
+        
+        const url = "https://li1t6awrf8.execute-api.us-east-1.amazonaws.com/dev/transform/owljsonld2jsonschema";
+        fetch(url, {
+            method : "POST",
+            body: body,
+            // -- or --
+            // body : JSON.stringify({
+                // user : document.getElementById('user').value,
+                // ...
+            // })
+        }).then(
+            response => {
+                console.log('response',response)
+                response.json() // if the response is a JSON object
+        }).then(
+            success => console.log('success',success) // Handle the success response object
+        ).catch(
+            error => console.log('error',error) // Handle the error response object 
+        );   
+    }; // end submitIt
+    </script>
+    
+    
+    
+    <script>
+    
+// function AjaxFileUpload() {
+//     var file = document.getElementById("fileUpload").files[0];
+//     console.log('file',file)
+//     //var file = fileInput;
+//     var fd = new FormData();
+//     fd.append("imageFileData", file);
+//     var xhr = new XMLHttpRequest();
+//     xhr.open("POST", 'https://li1t6awrf8.execute-api.us-east-1.amazonaws.com/dev/transform/owljsonld2jsonschema');
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState == 4) {
+//             alert('success');
+//         }
+//         else if (uploadResult == 'success')
+//             alert('error');
+//     };
+//     console.log('xhr',xhr)
+//     // xhr.send(fd);
+// }  
+    
+// {
+//   var xhr = new XMLHttpRequest();
+//   xhr.onload = function(){ alert (xhr.responseText); } // success case
+//   xhr.onerror = function(){ alert (xhr.responseText); } // failure case
+//   xhr.open (oFormElement.method, oFormElement.action, true);
+//   xhr.send (new FormData (oFormElement));
+//   return false;
+// }
+ 
+// function sendFiles() {
+//   var imgs = document.querySelectorAll(".obj");
+  
+//   for (var i = 0; i < imgs.length; i++) {
+//     new FileUpload(imgs[i], imgs[i].file);
+//   }
+// }
+
+
+
+    </script>
+    <script type="application/javascript">
+        // function sendFile(file) {
+        //     var uri = "/index.php";
+        //     var xhr = new XMLHttpRequest();
+        //     var fd = new FormData();
+            
+        //     xhr.open("POST", uri, true);
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readyState == 4 && xhr.status == 200) {
+        //             alert(xhr.responseText); // handle response.
+        //         }
+        //     };
+        //     fd.append('myFile', file);
+        //     // Initiate a multipart/form-data upload
+        //     xhr.send(fd);
+        // }
+
+        // window.onload = function() {
+        //     var fileUpload = document.getElementById("fileUpload");
+        //     // var dropzone = document.getElementById("dropzone");
+        //     // dropzone.ondragover = dropzone.ondragenter = function(event) {
+        //     //     event.stopPropagation();
+        //     //     event.preventDefault();
+        //     // }
+        //     uploadFile.onchange = function(event) {
+        //         event.stopPropagation();
+        //         event.preventDefault();
+
+        //         var filesArray = event.dataTransfer.files;
+        //         for (var i=0; i<filesArray.length; i++) {
+        //             sendFile(filesArray[i]);
+        //         }
+        //     }
+        //     // dropzone.ondrop = function(event) {
+        //     //     event.stopPropagation();
+        //     //     event.preventDefault();
+
+        //     //     var filesArray = event.dataTransfer.files;
+        //     //     for (var i=0; i<filesArray.length; i++) {
+        //     //         sendFile(filesArray[i]);
+        //     //     }
+        //     // }
+        // }
+    </script>
+  </body>
+</html>

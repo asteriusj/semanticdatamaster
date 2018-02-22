@@ -1,0 +1,37 @@
+{
+  "@graph": [
+    {
+      "@id": "https://github.com/asteriusj/semanticdatamaster/",
+      "@type": "owl:Ontology",
+      "date": "$Date: 2017-10-07 23:18:26 $",
+      "description": "\nThe \n",
+      "title": "Semantic Data Master (SDM) Ontology",
+      "comment": "\n\n",
+      "label": {
+        "@language": "en",
+        "@value": "Ontology for Semantic Data Model"
+      },
+      "versionInfo": {
+        "@language": "en",
+        "@value": "Draft"
+      }
+    },
+    {
+      "key": "Thing",
+      "@id": "sdm:Person",
+      "@type": "owl:Class",
+      "label": "DefaultJSONSchema",
+      "comment": "Base Class for default JSON Schema",
+      "subClassOf": "owl:Thing"
+    },
+    {
+      "key": "txtAddress",
+      "@id": "sdm:txtAddress",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "address",
+      "rdfs:comment": "place.address",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    }
+  ]
+}

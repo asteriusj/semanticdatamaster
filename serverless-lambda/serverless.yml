@@ -1,0 +1,331 @@
+# Welcome to serverless. Read the docs
+# https://serverless.com/framework/docs/
+
+# Serverless.yml is the configuration the CLI
+# uses to deploy your code to your provider of choice
+
+# The `service` block is the name of the service
+service: semantic-data-services
+
+# The `provider` block defines where your service will be deployed
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+  memorySize: 128
+  timeout: 30
+
+# The `functions` block defines what code to deploy
+functions:
+  helloWorld:
+    handler: lambdaHandlers.helloWorld
+    # The `events` block defines how to trigger the handler.helloWorld code
+    events:
+      - http:
+          path: hello-world
+          method: get
+          cors: true
+  # transform jsonschema2shacl semantic-data-service ----------------------------------------------------------------
+  jsonschema2shacl:
+    handler: lambdaHandlers.jsonschema2shacl
+    description: Read JSON Schema string and and convert to SHACL constraints
+    tags: 
+      function: transform
+      input: jsonschema
+      output: shacl
+    events:
+      - http:
+          path: transform/jsonschema2shacl/{string}
+          method: get
+          cors: 
+            origins:               
+              - '*'
+  # # transform jsonschema2shacl semantic-data-service ----------------------------------------------------------------
+  # jsonschema2shacl:
+  #   handler: lambdaHandlers.jsonschema2shacl
+  #   description: Read JSON Schema file and and convert to SHACL constraints
+  #   tags: 
+  #     function: transform
+  #     input: jsonschema
+  #     output: shacl
+  #   events:
+  #     - http:
+  #         path: transform/jsonschema2shacl/
+  #         method: post
+  #         cors: 
+  #           origins:               
+  #             - '*'
+  # transform shacljsonschema semantic-data-service ----------------------------------------------------------------
+  shacljsonschema:
+    handler: lambdaHandlers.shacljsonschema
+    description: Read SHACL constraints and and convert to JSON Schema
+    tags: 
+      function: transform
+      input: shacl
+      output: jsonschema
+    events:
+      - http:
+          path: transform/shacljsonschema/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform owljsonld2jsonschema semantic-data-service ----------------------------------------------------------------
+  owljsonld2jsonschema:
+    handler: lambdaHandlers.owljsonld2jsonschema
+    description: Read OWL JSON-LD  content, validate  and transform into JSON Schema
+    tags: 
+      function: transform
+      input: owljsonld
+      output: jsonschema
+    events:
+      - http:
+          path: transform/owljsonld2jsonschema/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # # transform jsonschema2owljsonld semantic-data-service ----------------------------------------------------------------
+  jsonschema2owljsonld:
+    handler: lambdaHandlers.jsonschema2owljsonld
+    description: Read JSON Schema content, validate  and transform into OWL JSON-LD
+    tags: 
+      function: transform
+      input: jsonschema
+      output: owljsonld
+    events:
+      - http:
+          path: transform/jsonschema2owljsonld/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform jsonform2contenttree semantic-data-service ----------------------------------------------------------------
+  jsonform2contenttree:
+    handler: lambdaHandlers.jsonform2contenttree
+    description: Read jsonform definitions schema and convert to ContentTree formated field values
+    tags: 
+      function: transform
+      input: jsonform
+      output: contenttree
+    events:
+      - http:
+          path: transform/jsonform2contenttree/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform contenttree2jsonform semantic-data-service ----------------------------------------------------------------
+  contenttree2jsonform:
+    handler: lambdaHandlers.contenttree2jsonform
+    description: Read ContentTree formated field values and convert to json form values
+    tags: 
+      function: transform
+      input: contenttree
+      output: jsonform
+    events:
+      - http:
+          path: transform/contenttree2jsonform/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform formfield2contenttree semantic-data-service ----------------------------------------------------------------
+  formfield2contenttree:
+    handler: lambdaHandlers.formfield2contenttree
+    description: Read CSV2JSON resulting serialization as JSON of form field definitions and convert to ContentTree.json.
+    tags: 
+      function: transform
+      input: formfield
+      output: contenttree
+    events:
+      - http:
+          path: transform/formfield2contenttree/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform formfield2jsonschema semantic-data-service ----------------------------------------------------------------
+  formfield2jsonschema:
+    handler: lambdaHandlers.formfield2jsonschema
+    description: Read form field definitions JSON and transform into valid JSON Schema.
+    tags: 
+      function: transform
+      input: formfield
+      output: jsonschema
+    events:
+      - http:
+          path: transform/formfield2jsonschema/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform jsonschema2formfield semantic-data-service ----------------------------------------------------------------
+  jsonschema2formfield:
+    handler: lambdaHandlers.jsonschema2formfield
+    description: Read JSON Schema content, validate and transform info form field definitions.
+    tags: 
+      function: transform
+      input: jsonschema
+      output: formfield
+    events:
+      - http:
+          path: transform/jsonschema2formfield/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform jsonschema2jsonform semantic-data-service ----------------------------------------------------------------
+  jsonschema2jsonform:
+    handler: lambdaHandlers.jsonschema2jsonform
+    description: Read JSON Schema content, validate and transform info simplier JSON Form definitions.
+    tags: 
+      function: transform
+      input: jsonschema
+      output: jsonform
+    events:
+      - http:
+          path: transform/jsonschema2jsonform/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform csv2formfield semantic-data-service ----------------------------------------------------------------
+  csv2formfield:
+    handler: lambdaHandlers.csv2formfield
+    tags: 
+      function: transform
+      input: csv
+      output: formfield
+    events:
+      - http:
+          path: transform/csv2formfield/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # transform formfield2csv semantic-data-service ----------------------------------------------------------------
+  formfield2csv:
+    handler: lambdaHandlers.formfield2csv
+    tags: 
+      function: transform
+      input: formfield
+      output: csv
+    events:
+      - http:
+          path: transform/formfield2csv/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  #
+  # Translate services
+  #
+  # translate jsonld2rdfxml semantic-data-service ----------------------------------------------------------------
+  jsonld2rdfxml:
+    handler: lambdaHandlers.jsonld2rdfxml
+    description: Read JSONLD content, validate  and translate into other RDF format - RDF/XML.
+    tags: 
+      function: translate
+      input: jsonld
+      output: rdfxml
+    events:
+      - http:
+          path: translate/jsonld2rdfxml/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # translate rdfxml2jsonld semantic-data-service ----------------------------------------------------------------
+  rdfxml2jsonld:
+    handler: lambdaHandlers.rdfxml2jsonld
+    description: 
+    tags: 
+      function: translate
+      input: jsonld
+      output: rdfxml
+    events:
+      - http:
+          path: translate/rdfxml2jsonld/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # translate jsonld2ttl semantic-data-service ----------------------------------------------------------------
+  jsonld2ttl:
+    handler: lambdaHandlers.jsonld2ttl
+    description: Read JSONLD content, validate  and translate into other RDF format - ttl.
+    tags: 
+      function: translate
+      input: jsonld
+      output: ttl
+    events:
+      - http:
+          path: translate/jsonld2ttl/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+# translate ttl2jsonld semantic-data-service ----------------------------------------------------------------
+  ttl2jsonld:
+    handler: lambdaHandlers.ttl2jsonld
+    description: 
+    tags: 
+      function: translate
+      input: ttl
+      output: jsonld
+    events:
+      - http:
+          path: translate/ttl2jsonld/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # translate jsonld2n3 semantic-data-service ----------------------------------------------------------------
+  jsonld2n3:
+    handler: lambdaHandlers.jsonld2n3
+    description: Read JSONLD content, validate and translate into other RDF format - N3.
+    tags: 
+      function: translate
+      input: jsonld
+      output: n3
+    events:
+      - http:
+          path: translate/jsonld2n3/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+  # translate n32jsonld semantic-data-service ----------------------------------------------------------------
+  n32jsonld:
+    handler: lambdaHandlers.n32jsonld
+    description: 
+    tags: 
+      function: translate
+      input: n3
+      output: jsonld
+    events:
+      - http:
+          path: translate/n32jsonld/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+
+### n3t2ttl
+
+
+### ttl2n3
+
+
+### ttl2rdfxml
+
+
+### rdfxml2ttl
+
+
+### owljsonld2webvowl
+
+
+### owljsonld2uml
+
