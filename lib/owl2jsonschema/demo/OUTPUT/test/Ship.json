@@ -1,0 +1,300 @@
+{
+	"id": "Ship.json",
+	"title": "ship",
+	"translations": {
+		"title": {
+			"pl": "statek",
+			"de": "Schiff",
+			"el": "πλοίο",
+			"fr": "navire",
+			"es": "barco",
+			"ga": "árthach",
+			"ko": "배",
+			"nl": "schip",
+			"ja": "舩"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"acquirementDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/acquirementDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/acquirementDate"}
+				}
+			]
+		},
+		"captureDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/captureDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/captureDate"}
+				}
+			]
+		},
+		"christeningDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/christeningDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/christeningDate"}
+				}
+			]
+		},
+		"commissioningDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/commissioningDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/commissioningDate"}
+				}
+			]
+		},
+		"decommissioningDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/decommissioningDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/decommissioningDate"}
+				}
+			]
+		},
+		"homeport": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"layingDown": {
+			"oneOf": [
+				{"$ref": "#/definitions/layingDown"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/layingDown"}
+				}
+			]
+		},
+		"maidenVoyage": {
+			"oneOf": [
+				{"$ref": "#/definitions/maidenVoyage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maidenVoyage"}
+				}
+			]
+		},
+		"numberOfPassengers": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPassengers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPassengers"}
+				}
+			]
+		},
+		"orderDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/orderDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/orderDate"}
+				}
+			]
+		},
+		"recommissioningDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/recommissioningDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/recommissioningDate"}
+				}
+			]
+		},
+		"shipBeam": {
+			"oneOf": [
+				{"$ref": "#/definitions/shipBeam"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shipBeam"}
+				}
+			]
+		},
+		"shipCrew": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"shipDisplacement": {
+			"oneOf": [
+				{"$ref": "#/definitions/shipDisplacement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shipDisplacement"}
+				}
+			]
+		},
+		"shipDraft": {
+			"oneOf": [
+				{"$ref": "#/definitions/shipDraft"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shipDraft"}
+				}
+			]
+		},
+		"shipLaunch": {
+			"oneOf": [
+				{"$ref": "#/definitions/shipLaunch"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shipLaunch"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"acquirementDate": {
+			"title": "date of acquirement",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"captureDate": {
+			"title": "capture date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"christeningDate": {
+			"title": "date of christening",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"commissioningDate": {
+			"title": "commissioning date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"decommissioningDate": {
+			"title": "decommissioning date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"layingDown": {
+			"title": "laying down",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"maidenVoyage": {
+			"title": "maiden voyage",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"numberOfPassengers": {
+			"title": "number of passengers",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"orderDate": {
+			"title": "order date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"recommissioningDate": {
+			"title": "recommissioning date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"shipBeam": {
+			"title": "ship beam &amp;&#35;40;μ&#41;",
+			"description": "The beam of a ship is its width at the widest point.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"shipDisplacement": {
+			"title": "displacement &amp;&#35;40;g&#41;",
+			"description": "A ship&apos;s displacement is its mass at any given time.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"shipDraft": {
+			"title": "ship draft &amp;&#35;40;μ&#41;",
+			"description": "The draft &amp;&#35;40;or draught&#41; of a ship&apos;s hull is the vertical distance between the waterline and the bottom of the hull (keel), with the thickness of the hull included; in the case of not being included the draft outline would be obtained.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"shipLaunch": {
+			"title": "ship launched",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Ship",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Ship"}
+}

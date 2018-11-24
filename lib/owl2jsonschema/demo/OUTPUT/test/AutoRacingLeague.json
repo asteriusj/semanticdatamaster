@@ -1,0 +1,57 @@
+{
+	"id": "AutoRacingLeague.json",
+	"title": "auto racing league",
+	"description": "a group of sports teams or individual athletes that compete against each other in auto racing",
+	"translations": {
+		"title": {
+			"de": "Auto Racing League",
+			"el": "πρωτάθλημα αγώνων αυτοκινήτων",
+			"fr": "la ligue de course automobile",
+			"it": "lega automobilistica",
+			"ga": "sraith rásaíochta charanna",
+			"ko": "자동차 경주 대회",
+			"nl": "auto race competitie",
+			"ja": "自動車競技リーグ"
+		},
+		"description": {"el": "μια ομάδα αθλητικών ομάδων ή μεμονωμένων αθλητών που ανταγωνίζονται μεταξύ τους σε αγώνες αυτοκινήτων"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsLeague.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AutoRacingLeague",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AutoRacingLeague"}
+}

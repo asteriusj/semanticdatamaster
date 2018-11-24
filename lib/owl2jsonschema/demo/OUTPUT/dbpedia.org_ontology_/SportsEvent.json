@@ -1,0 +1,182 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "a event of competitive physical activity",
+	"format": "http://dbpedia.org/ontology/SportsEvent",
+	"id": "SportsEvent.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SportsEvent"},
+	"properties": {
+		"bronzeMedalist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"champion": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInDouble": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInDoubleFemale": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInDoubleMale": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInMixedDouble": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInSingle": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInSingleFemale": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championInSingleMale": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"goldMedalist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"medalist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mostSuccessfulPlayer": {
+			"oneOf": [
+				{"$ref": "Athlete.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athlete.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"raceTrack": {
+			"oneOf": [
+				{"$ref": "RaceTrack.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "RaceTrack.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"silverMedalist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "sports event",
+	"translations": {
+		"title": {
+			"de": "Sportereignis",
+			"fr": "évènement sportif",
+			"nl": "sportevenement",
+			"pt": "evento esportivo"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

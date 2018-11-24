@@ -1,0 +1,53 @@
+{
+	"id": "State.json",
+	"title": "state",
+	"translations": {
+		"title": {
+			"de": "Staat",
+			"el": "πολιτεία",
+			"fr": "état",
+			"nl": "staat",
+			"ja": "州"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/State",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/State"}
+}

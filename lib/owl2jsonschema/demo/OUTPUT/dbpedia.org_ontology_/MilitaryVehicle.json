@@ -1,0 +1,50 @@
+{
+	"id": "MilitaryVehicle.json",
+	"title": "military vehicle",
+	"translations": {
+		"title": {
+			"de": "Militärfahrzeug",
+			"nl": "legervoertuig"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MilitaryVehicle",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MilitaryVehicle"}
+}

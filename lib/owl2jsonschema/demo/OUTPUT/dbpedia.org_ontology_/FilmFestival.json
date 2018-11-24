@@ -1,0 +1,87 @@
+{
+	"id": "FilmFestival.json",
+	"title": "film festival",
+	"translations": {
+		"title": {
+			"pl": "festiwal filmowy",
+			"de": "Filmfestival",
+			"el": "φεστιβάλ κινηματογράφου",
+			"fr": "festival du film",
+			"ga": "féile scannán",
+			"da": "filmfestival",
+			"ko": "영화제",
+			"nl": "filmfestival",
+			"ja": "映画祭"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"openingFilm": {
+			"oneOf": [
+				{"$ref": "Film.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Film.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"closingFilm": {
+			"oneOf": [
+				{"$ref": "Film.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Film.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"film": {
+			"oneOf": [
+				{"$ref": "Film.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Film.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FilmFestival",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FilmFestival"}
+}

@@ -1,0 +1,163 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"centuryBreaks": {
+			"title": "century breaks",
+			"description": "number of breaks with 100 points and more",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"bestFinish": {
+			"title": "best ranking finish",
+			"description": "",
+			"type": "string"
+		},
+		"otherWins": {
+			"title": "other wins",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"currentRank": {
+			"title": "current rank",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"highestRank": {
+			"title": "highest rank",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"highestBreak": {
+			"title": "highest break",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"rankingWins": {
+			"title": "ranking wins",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "An athlete that plays snooker, which is a billard derivate",
+	"format": "http://dbpedia.org/ontology/SnookerPlayer",
+	"id": "SnookerPlayer.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SnookerPlayer"},
+	"properties": {
+		"centuryBreaks": {
+			"oneOf": [
+				{"$ref": "#/definitions/centuryBreaks"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/centuryBreaks"}
+				}
+			]
+		},
+		"bestFinish": {
+			"oneOf": [
+				{"$ref": "#/definitions/bestFinish"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bestFinish"}
+				}
+			]
+		},
+		"otherWins": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherWins"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherWins"}
+				}
+			]
+		},
+		"currentRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/currentRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/currentRank"}
+				}
+			]
+		},
+		"highestRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/highestRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/highestRank"}
+				}
+			]
+		},
+		"highestBreak": {
+			"oneOf": [
+				{"$ref": "#/definitions/highestBreak"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/highestBreak"}
+				}
+			]
+		},
+		"rankingWins": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankingWins"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankingWins"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "snooker player",
+	"translations": {
+		"title": {
+			"ga": "imreoir snúcair",
+			"de": "Snookerspieler",
+			"nl": "biljarter"
+		},
+		"description": {"de": "Ein Sportler der Snooker spielt, eine bekannte Billardvariante"}
+	},
+	"type": "object"
+}

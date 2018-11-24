@@ -1,0 +1,76 @@
+{
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subMunicipalityType": {
+			"title": "type of municipality",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "An administrative body governing a territorial unity on the lowest level, administering part of a municipality",
+	"format": "http://dbpedia.org/ontology/SubMunicipality",
+	"id": "SubMunicipality.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SubMunicipality"},
+	"properties": {
+		"subMunicipalityType": {
+			"oneOf": [
+				{"$ref": "#/definitions/subMunicipalityType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subMunicipalityType"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "borough",
+	"translations": {
+		"title": {
+			"de": "Teilgemeinde",
+			"gl": "parroquia",
+			"nl": "deelgemeente"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

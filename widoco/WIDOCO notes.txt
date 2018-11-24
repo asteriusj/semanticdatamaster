@@ -1,0 +1,5 @@
+
+
+java -jar widoco-1.4.1-jar-with-dependencies.jar -ontFile semanticdatamaster.ttl  -outFolder myDocumentation -confFile ./config/semanticdatamaster.properties -saveConfig ./semanticdatamaster.properties -rewriteAll -useCustomStyle -lang en -includeImportedOntologies -webVowl -htaccess 
+
+

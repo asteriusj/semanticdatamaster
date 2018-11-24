@@ -1,0 +1,78 @@
+{
+	"id": "WrestlingEvent.json",
+	"title": "wrestling event",
+	"translations": {
+		"title": {
+			"de": "Wrestling-Veranstaltung",
+			"el": "αγώνας πάλης",
+			"fr": "match de catch",
+			"nl": "worstelevenement"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"brand": {
+			"oneOf": [
+				{"$ref": "TelevisionShow.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "TelevisionShow.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"promotion": {
+			"oneOf": [
+				{"$ref": "#/definitions/promotion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/promotion"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"promotion": {
+			"title": "promotion",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/WrestlingEvent",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WrestlingEvent"}
+}

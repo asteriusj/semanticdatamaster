@@ -1,0 +1,229 @@
+{
+	"id": "FormulaOneRacer.json",
+	"title": "Formula One racer",
+	"translations": {
+		"title": {
+			"de": "Formel-1 Rennfahrer",
+			"el": "πιλότος της φόρμουλας ένα",
+			"fr": "pilote de formule 1",
+			"nl": "formule 1-coureur"
+		},
+		"description": {}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Agent.json"},
+		{"$ref": "Person.json"},
+		{"$ref": "Athlete.json"},
+		{"$ref": "MotorsportRacer.json"},
+		{"$ref": "RacingDriver.json"}
+	],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"carNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/carNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/carNumber"}
+				}
+			]
+		},
+		"careerPoints": {
+			"oneOf": [
+				{"$ref": "#/definitions/careerPoints"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/careerPoints"}
+				}
+			]
+		},
+		"fastestLap": {
+			"oneOf": [
+				{"$ref": "#/definitions/fastestLap"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fastestLap"}
+				}
+			]
+		},
+		"firstRace": {
+			"oneOf": [
+				{"$ref": "GrandPrix.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GrandPrix.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstWin": {
+			"oneOf": [
+				{"$ref": "GrandPrix.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GrandPrix.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastPosition": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastPosition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastPosition"}
+				}
+			]
+		},
+		"lastRace": {
+			"oneOf": [
+				{"$ref": "GrandPrix.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GrandPrix.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastSeason"}
+				}
+			]
+		},
+		"lastWin": {
+			"oneOf": [
+				{"$ref": "GrandPrix.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GrandPrix.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"podiums": {
+			"oneOf": [
+				{"$ref": "#/definitions/podiums"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/podiums"}
+				}
+			]
+		},
+		"poles": {
+			"oneOf": [
+				{"$ref": "#/definitions/poles"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/poles"}
+				}
+			]
+		},
+		"races": {
+			"oneOf": [
+				{"$ref": "#/definitions/races"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/races"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"carNumber": {
+			"title": "car number",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"careerPoints": {
+			"title": "career points",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"fastestLap": {
+			"title": "fastest lap",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"lastPosition": {
+			"title": "last position",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"lastSeason": {
+			"title": "last season",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"podiums": {
+			"title": "podiums",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"poles": {
+			"title": "poles",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"races": {
+			"title": "races",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FormulaOneRacer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FormulaOneRacer"}
+}

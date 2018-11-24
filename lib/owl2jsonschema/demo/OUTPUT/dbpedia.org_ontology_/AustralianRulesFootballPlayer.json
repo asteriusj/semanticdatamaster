@@ -1,0 +1,54 @@
+{
+	"id": "AustralianRulesFootballPlayer.json",
+	"title": "Australian rules football player",
+	"translations": {
+		"title": {
+			"de": "Australian Rules Football-Spieler",
+			"el": "αυστραλιανοί κανόνες ποδοσφαιριστή",
+			"it": "giocatore di football australiano",
+			"ko": "오스트레일리아식 풋볼 선수",
+			"nl": "Australian football-speler",
+			"ja": "オージーフットボール選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AustralianRulesFootballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AustralianRulesFootballPlayer"}
+}

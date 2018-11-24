@@ -1,0 +1,59 @@
+{
+	"id": "Altitude.json",
+	"title": "altitude",
+	"translations": {
+		"title": {
+			"de": "Höhe",
+			"el": "υψόμετρο",
+			"fr": "altitude",
+			"ga": "airde",
+			"gl": "altitude",
+			"da": "højde",
+			"nl": "hoogte",
+			"ja": "高度"
+		},
+		"description": {
+			"el": "Το υψόμετρο είναι η κάθετη απόσταση ενός αντικειμένου σε σχέση με ένα καθορισμένο επίπεδο αναφοράς. Συνήθως το υψόμετρο μετριέται ως η κάθετη απόσταση &amp;&#35;40;υψομετρική διαφορά&#41; ενός τόπου από το επίπεδο της θάλασσας (Μέση Στάθμη Θάλασσας), ενώ για πιο ακριβείς μετρήσεις χρησιμοποιείται το γεωειδές.",
+			"gl": "A altitude é a distancia vertical dun obxecto respecto dun punto de orixe dado, considerado como o nivel cero, para o que se adoita tomar o nivel absoluto do mar.&amp;lt;ref&amp;gt;https://gl.wikipedia.org/wiki/Altitude&amp;lt;/ref&amp;gt;"
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Altitude",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Altitude"}
+}

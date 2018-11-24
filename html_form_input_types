@@ -1,0 +1,41 @@
+//https://www.w3schools.com/html/html_form_input_types.asp
+                        _prop.type = null ;
+                        if (obj.type == "text" )            _prop.type = "string" ;
+                        if (obj.type == "password" )        _prop.type = "string" ;
+                        if (obj.type == "radio" )           _prop.type = "string" ;
+                        if (obj.type == "checkbox" )        _prop.type = "string" ;
+                        if (obj.type == "button" )          _prop.type = "string" ;
+                        if (obj.type == "color" )           _prop.type = "string" ;
+                        if (obj.type == "date" )            _prop.type = "string" ;
+                        if (obj.type == "datetime" )        _prop.type = "string" ;
+                        if (obj.type == "datetime-local" )  _prop.type = "string" ;
+                        if (obj.type == "email" )           _prop.type = "string" ;
+                        if (obj.type == "month" )           _prop.type = "string" ;
+                        if (obj.type == "range" )           _prop.type = "string" ;
+                        if (obj.type == "search" )          _prop.type = "string" ;
+                        if (obj.type == "tel" )             _prop.type = "string" ;
+                        if (obj.type == "time" )            _prop.type = "string" ;
+                        if (obj.type == "url" )             _prop.type = "string" ;
+                        if (obj.type == "week" )            _prop.type = "string" ;
+                        
+                        if (obj.type == "datalist" )  _prop.type = "string" ;
+                        
+            
+                        // https://spacetelescope.github.io/understanding-json-schema/reference/string.html
+                        _prop.format = null ;  
+                        if (obj.type == "text" )            _prop.format = "text" ;
+                        if (obj.type == "password" )        _prop.format = "password" ;
+                        if (obj.type == "radio" )           _prop.format = "radio" ;
+                        if (obj.type == "checkbox" )        _prop.format = "checkbox" ;
+                        if (obj.type == "color" )           _prop.format = "color" ;
+                        if (obj.type == "date" )            _prop.format = "date" ;
+                        if (obj.type == "datetime-local" )  _prop.format = "datetime-local" ;
+            
+                        if (obj.type == "email" )     _prop.format = "email" ;
+                        if (obj.type == "date" )      _prop.format = "date-time" ;
+                        if (obj.type == "datetime" )  _prop.format = "date-time" ;
+                        if (obj.type == "url" )       _prop.format = "uri" ;
+                        // if (obj.type == "" )          _prop.format = "hostname" ;
+                        // if (obj.type == "" )          _prop.format = "ipv4" ;
+                        // if (obj.type == "" )          _prop.format = "ipv6" ;
+                        

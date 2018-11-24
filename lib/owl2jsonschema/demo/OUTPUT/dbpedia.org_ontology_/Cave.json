@@ -1,0 +1,77 @@
+{
+	"id": "Cave.json",
+	"title": "cave",
+	"translations": {
+		"title": {
+			"de": "Höhle",
+			"el": "σπηλιά",
+			"fr": "grotte",
+			"it": "grotta",
+			"ga": "pluais",
+			"ko": "동굴",
+			"nl": "grot",
+			"pt": "caverna",
+			"ja": "洞窟"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfEntrances": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfEntrances"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfEntrances"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfEntrances": {
+			"title": "number of entrances",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Cave",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Cave"}
+}

@@ -1,0 +1,107 @@
+{
+	"id": "Brain.json",
+	"title": "brain",
+	"translations": {
+		"title": {
+			"de": "Gehirn",
+			"el": "εγκέφαλος",
+			"fr": "cerveau",
+			"it": "cervello",
+			"es": "cerebro",
+			"ga": "inchinn",
+			"da": "hjerne",
+			"ko": "뇌",
+			"nl": "hersenen",
+			"ja": "脳"
+		},
+		"description": {"el": "Το βασικό όργανο του νευρικού συστήματος των ζώων, το οποίο καθορίζει ασυνείδητες και συνειδητές λειτουργίες. Ο όρος χρησιμοποιείται πλέον και για τον χαρακτηρισμό των καθοριστικότερων στοιχείων μίας μηχανής ή ενός συνόλου πραγμάτων."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"brainInfoNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/brainInfoNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/brainInfoNumber"}
+				}
+			]
+		},
+		"brainInfoType": {
+			"oneOf": [
+				{"$ref": "#/definitions/brainInfoType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/brainInfoType"}
+				}
+			]
+		},
+		"isPartOfAnatomicalStructure": {
+			"oneOf": [
+				{"$ref": "AnatomicalStructure.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "AnatomicalStructure.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"component": {
+			"oneOf": [
+				{"$ref": "AnatomicalStructure.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "AnatomicalStructure.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"brainInfoNumber": {
+			"title": "brain info number",
+			"description": "",
+			"type": "string"
+		},
+		"brainInfoType": {
+			"title": "brain info type",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Brain",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Brain"}
+}

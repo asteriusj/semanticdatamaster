@@ -1,0 +1,2104 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"definitions": {
+		"apskritis": {
+			"title": "apskritis",
+			"description": "",
+			"type": "string"
+		},
+		"areaRural": {
+			"title": "area rural &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"areaTotalRanking": {
+			"title": "total area ranking",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"areaUrban": {
+			"title": "area urban &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"barangays": {
+			"title": "barangays",
+			"description": "",
+			"type": "string"
+		},
+		"catholicPercentage": {
+			"title": "catholic percentage",
+			"description": "",
+			"type": "string"
+		},
+		"ccaState": {
+			"title": "cca state",
+			"description": "",
+			"type": "string"
+		},
+		"censusYear": {
+			"title": "census year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"circle": {
+			"title": "region",
+			"description": "",
+			"type": "string"
+		},
+		"citySince": {
+			"title": "city since",
+			"description": "",
+			"type": "string"
+		},
+		"cityType": {
+			"title": "city type",
+			"description": "",
+			"type": "string"
+		},
+		"colonialName": {
+			"title": "colonial name",
+			"description": "",
+			"type": "string"
+		},
+		"commissionerDate": {
+			"title": "commissioner date",
+			"description": "",
+			"type": "string"
+		},
+		"communityIsoCode": {
+			"title": "iso code of a community",
+			"description": "",
+			"type": "string"
+		},
+		"countySeat": {
+			"title": "county seat",
+			"description": "",
+			"anyOf": []
+		},
+		"delegation": {
+			"title": "delegation",
+			"description": "",
+			"type": "string"
+		},
+		"deme": {
+			"title": "deme",
+			"description": "",
+			"type": "string"
+		},
+		"demographicsAsOf": {
+			"title": "demographics as of",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"departmentPosition": {
+			"title": "geolocDepartment",
+			"description": "",
+			"type": "string"
+		},
+		"disappearanceDate": {
+			"title": "date disappearance of a populated place",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"ekatteCode": {
+			"title": "EKATTE code",
+			"description": "Indexing code used by the Bulgarian National Statistical Institute to identify populated places",
+			"type": "string"
+		},
+		"emblem": {
+			"title": "emblem",
+			"description": "",
+			"type": "string"
+		},
+		"fipsCode": {
+			"title": "fips code",
+			"description": "",
+			"type": "string"
+		},
+		"firstMention": {
+			"title": "first mention",
+			"description": "",
+			"type": "string"
+		},
+		"foundation": {
+			"title": "foundation",
+			"description": "",
+			"type": "string"
+		},
+		"gdpPerCapita": {
+			"title": "gross domestic product &amp;&#35;40;GDP&#41; per capita",
+			"description": "The nominal gross domestic product of a country per capita.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"giniCoefficient": {
+			"title": "gini coefficient",
+			"description": "is a measure of the inequality of a distribution. It is commonly used as a measure of inequality of income or wealth.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"giniCoefficientAsOf": {
+			"title": "gini coefficient as of",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"giniCoefficientCategory": {
+			"title": "gini coefficient category",
+			"description": "",
+			"anyOf": []
+		},
+		"giniCoefficientRanking": {
+			"title": "gini coefficient ranking",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"gnisCode": {
+			"title": "gnis code",
+			"description": "",
+			"type": "string"
+		},
+		"gnl": {
+			"title": "gnl",
+			"description": "",
+			"type": "string"
+		},
+		"governorate": {
+			"title": "governorate",
+			"description": "",
+			"type": "string"
+		},
+		"grossDomesticProduct": {
+			"title": "gross domestic product &amp;&#35;40;GDP&#41;",
+			"description": "The nominal gross domestic product of a country &amp;&#35;40;not per capita&#41;.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"grossDomesticProductAsOf": {
+			"title": "gross domestic product as of",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"historicalRegion": {
+			"title": "historical region",
+			"description": "",
+			"type": "string"
+		},
+		"hraState": {
+			"title": "hra state",
+			"description": "",
+			"type": "string"
+		},
+		"humanDevelopmentIndex": {
+			"title": "Human Development Index &amp;&#35;40;HDI&#41;",
+			"description": "a composite statistic used to rank countries by level of&quot;human development&quot;",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"humanDevelopmentIndexAsOf": {
+			"title": "human development index as of",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"humanDevelopmentIndexRankingCategory": {
+			"title": "human development index &amp;&#35;40;HDI&#41; category",
+			"description": "",
+			"anyOf": []
+		},
+		"illiteracy": {
+			"title": "illiteracy",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"income": {
+			"title": "income",
+			"description": "",
+			"type": "string"
+		},
+		"infantMortality": {
+			"title": "infant mortality",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"internationalPhonePrefix": {
+			"title": "international phone prefix",
+			"description": "",
+			"type": "string"
+		},
+		"internationalPhonePrefixLabel": {
+			"title": "international phone prefix label",
+			"description": "",
+			"type": "string"
+		},
+		"ist": {
+			"title": "ist",
+			"description": "",
+			"type": "string"
+		},
+		"istat": {
+			"title": "code istat",
+			"description": "Indexing code used for Italian municipalities",
+			"type": "string"
+		},
+		"latestElection": {
+			"title": "date of latest election",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"leaderParty": {
+			"title": "leader party",
+			"description": "",
+			"anyOf": []
+		},
+		"licenceNumber": {
+			"title": "licence number",
+			"description": "",
+			"type": "string"
+		},
+		"licenceNumberLabel": {
+			"title": "licence number label",
+			"description": "",
+			"type": "string"
+		},
+		"lieutenancy": {
+			"title": "lieutenancy",
+			"description": "",
+			"type": "string"
+		},
+		"lifeExpectancy": {
+			"title": "life expectancy",
+			"description": "",
+			"type": "string"
+		},
+		"localPhonePrefix": {
+			"title": "local phone prefix",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"localizationThumbnail": {
+			"title": "thumbnail localization",
+			"description": "",
+			"anyOf": []
+		},
+		"localizationThumbnailCaption": {
+			"title": "legend thumbnail localization",
+			"description": "",
+			"type": "string"
+		},
+		"nation": {
+			"title": "nation",
+			"description": "",
+			"type": "string"
+		},
+		"nisCode": {
+			"title": "NIS code",
+			"description": "Indexing code used by the Belgium National Statistical Institute to identify populated places.",
+			"type": "string"
+		},
+		"numberOfCantons": {
+			"title": "Number Of Cantons",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfCapitalDeputies": {
+			"title": "Number Of Capital Deputies",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfCounties": {
+			"title": "number of counties",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfFederalDeputies": {
+			"title": "Number Of Federal Deputies",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfMunicipalities": {
+			"title": "Number Of Municipalities",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfStateDeputies": {
+			"title": "Number Of State Deputies",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"okatoCode": {
+			"title": "okato code",
+			"description": "Code used to indentify populated places in Russia",
+			"type": "string"
+		},
+		"oldName": {
+			"title": "old name",
+			"description": "",
+			"type": "string"
+		},
+		"outskirts": {
+			"title": "outskirts",
+			"description": "",
+			"type": "string"
+		},
+		"perCapitaIncome": {
+			"title": "per capita income &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"perCapitaIncomeAsOf": {
+			"title": "per capita income as of",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"perCapitaIncomeRank": {
+			"title": "per capital income rank",
+			"description": "",
+			"type": "string"
+		},
+		"percentageLiteracyMen": {
+			"title": "percentage of a place&apos;s male population that is literate, degree of analphabetism",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"percentageLiteracyWomen": {
+			"title": "percentage of a place&apos;s female population that is literate, degree of analphabetism",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"percentageLiterate": {
+			"title": "percentage of a place&apos;s population that is literate, degree of analphabetism",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"phonePrefix": {
+			"title": "phone prefix",
+			"description": "Don&apos;t use this, use areaCode",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"pluviometry": {
+			"title": "pluviometry",
+			"description": "",
+			"type": "string"
+		},
+		"policeName": {
+			"title": "police name",
+			"description": "The police detachment serving a UK place, eg Wakefield -&amp;gt;&quot;West Yorkshire Police&quot;",
+			"type": "string"
+		},
+		"politicGovernmentDepartment": {
+			"title": "politic government department",
+			"description": "",
+			"anyOf": []
+		},
+		"populationAsOf": {
+			"title": "population as of",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"populationDensity": {
+			"title": "population density &amp;&#35;40;/sqkm&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"populationMetro": {
+			"title": "population metro",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationMetroDensity": {
+			"title": "population metro density &amp;&#35;40;/sqkm&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"populationPctChildren": {
+			"title": "population percentage under 12 years",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationPctMen": {
+			"title": "population percentage male",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationPctWomen": {
+			"title": "population percentage female",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationRural": {
+			"title": "population rural",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationRuralDensity": {
+			"title": "population density rural &amp;&#35;40;/sqkm&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"populationTotalRanking": {
+			"title": "total population ranking",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"populationUrban": {
+			"title": "population urban",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationUrbanDensity": {
+			"title": "population urban density &amp;&#35;40;/sqkm&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"populationYear": {
+			"title": "population year",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"previousName": {
+			"title": "previous name",
+			"description": "",
+			"type": "string"
+		},
+		"previousPopulationTotal": {
+			"title": "previous population total",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"protestantPercentage": {
+			"title": "protestant percentage",
+			"description": "",
+			"type": "string"
+		},
+		"provinceIsoCode": {
+			"title": "iso code of a province",
+			"description": "",
+			"type": "string"
+		},
+		"purchasingPowerParity": {
+			"title": "purchasing power parity",
+			"description": "",
+			"type": "string"
+		},
+		"purchasingPowerParityRank": {
+			"title": "purchasing power parity rank",
+			"description": "",
+			"type": "string"
+		},
+		"purchasingPowerParityYear": {
+			"title": "purchasing power parity year",
+			"description": "",
+			"type": "string"
+		},
+		"rankArea": {
+			"title": "rank of an area",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"rankPopulation": {
+			"title": "rank of a population",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"senior": {
+			"title": "senior",
+			"description": "",
+			"type": "string"
+		},
+		"seniunija": {
+			"title": "seniunija",
+			"description": "",
+			"type": "string"
+		},
+		"sharingOutPopulation": {
+			"title": "sharing out population",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"sharingOutPopulationYear": {
+			"title": "sharing out year",
+			"description": "",
+			"type": "string"
+		},
+		"simcCode": {
+			"title": "SIMC code",
+			"description": "indexing code used by the Polish National Official Register of the Territorial Division of the Country &amp;&#35;40;TERYT&#41; to identify various entities",
+			"anyOf": []
+		},
+		"termOfOffice": {
+			"title": "term of office",
+			"description": "",
+			"type": "string"
+		},
+		"terytCode": {
+			"title": "TERYT code",
+			"description": "indexing code used by the Polish National Official Register of the Territorial Division of the Country &amp;&#35;40;TERYT&#41; to identify various entities",
+			"anyOf": []
+		},
+		"topic": {
+			"title": "topic",
+			"description": "",
+			"type": "string"
+		},
+		"watercourse": {
+			"title": "watercourse",
+			"description": "",
+			"type": "string"
+		},
+		"zipCode": {
+			"title": "zip code",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "As defined by the United States Geological Survey, a populated place is a place or area with clustered or scattered buildings and a permanent human population &amp;&#35;40;city, settlement, town, or village&#41; referenced with geographic coordinates (http://en.wikipedia.org/wiki/Populated_place).",
+	"format": "http://dbpedia.org/ontology/PopulatedPlace",
+	"id": "PopulatedPlace.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PopulatedPlace"},
+	"properties": {
+		"PopulatedPlace/area": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"PopulatedPlace/areaMetro": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"PopulatedPlace/areaTotal": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"PopulatedPlace/areaUrban": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"PopulatedPlace/populationDensity": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"PopulatedPlace/populationMetroDensity": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"PopulatedPlace/populationUrbanDensity": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"administrativeHeadCity": {
+			"oneOf": [
+				{"$ref": "City.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "City.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"agglomeration": {
+			"oneOf": [
+				{"$ref": "Agglomeration.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Agglomeration.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"agglomerationArea": {
+			"oneOf": [
+				{"$ref": "Area.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Area.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"agglomerationDemographics": {
+			"oneOf": [
+				{"$ref": "Demographics.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Demographics.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"apskritis": {
+			"oneOf": [
+				{"$ref": "#/definitions/apskritis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/apskritis"}
+				}
+			]
+		},
+		"areaRural": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaRural"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaRural"}
+				}
+			]
+		},
+		"areaTotalRanking": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaTotalRanking"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaTotalRanking"}
+				}
+			]
+		},
+		"areaUrban": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaUrban"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaUrban"}
+				}
+			]
+		},
+		"arrondissement": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"barangays": {
+			"oneOf": [
+				{"$ref": "#/definitions/barangays"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/barangays"}
+				}
+			]
+		},
+		"borough": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capital": {
+			"oneOf": [
+				{"$ref": "City.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "City.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"catholicPercentage": {
+			"oneOf": [
+				{"$ref": "#/definitions/catholicPercentage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/catholicPercentage"}
+				}
+			]
+		},
+		"ccaState": {
+			"oneOf": [
+				{"$ref": "#/definitions/ccaState"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ccaState"}
+				}
+			]
+		},
+		"censusYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/censusYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/censusYear"}
+				}
+			]
+		},
+		"ceremonialCounty": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"circle": {
+			"oneOf": [
+				{"$ref": "#/definitions/circle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/circle"}
+				}
+			]
+		},
+		"citySince": {
+			"oneOf": [
+				{"$ref": "#/definitions/citySince"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/citySince"}
+				}
+			]
+		},
+		"cityType": {
+			"oneOf": [
+				{"$ref": "#/definitions/cityType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cityType"}
+				}
+			]
+		},
+		"colonialName": {
+			"oneOf": [
+				{"$ref": "#/definitions/colonialName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/colonialName"}
+				}
+			]
+		},
+		"commissionerDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/commissionerDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/commissionerDate"}
+				}
+			]
+		},
+		"communityIsoCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/communityIsoCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/communityIsoCode"}
+				}
+			]
+		},
+		"councilArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"countySeat": {
+			"oneOf": [
+				{"$ref": "#/definitions/countySeat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/countySeat"}
+				}
+			]
+		},
+		"delegateMayor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"delegation": {
+			"oneOf": [
+				{"$ref": "#/definitions/delegation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/delegation"}
+				}
+			]
+		},
+		"deme": {
+			"oneOf": [
+				{"$ref": "#/definitions/deme"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deme"}
+				}
+			]
+		},
+		"demographics": {
+			"oneOf": [
+				{"$ref": "Demographics.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Demographics.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"demographicsAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/demographicsAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/demographicsAsOf"}
+				}
+			]
+		},
+		"department": {
+			"oneOf": [
+				{"$ref": "Department.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Department.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"departmentPosition": {
+			"oneOf": [
+				{"$ref": "#/definitions/departmentPosition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/departmentPosition"}
+				}
+			]
+		},
+		"disappearanceDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/disappearanceDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/disappearanceDate"}
+				}
+			]
+		},
+		"ekatteCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/ekatteCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ekatteCode"}
+				}
+			]
+		},
+		"emblem": {
+			"oneOf": [
+				{"$ref": "#/definitions/emblem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/emblem"}
+				}
+			]
+		},
+		"ethnicGroup": {
+			"oneOf": [
+				{"$ref": "EthnicGroup.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "EthnicGroup.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fipsCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/fipsCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fipsCode"}
+				}
+			]
+		},
+		"firstMention": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstMention"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstMention"}
+				}
+			]
+		},
+		"foundation": {
+			"oneOf": [
+				{"$ref": "#/definitions/foundation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/foundation"}
+				}
+			]
+		},
+		"gdpPerCapita": {
+			"oneOf": [
+				{"$ref": "#/definitions/gdpPerCapita"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gdpPerCapita"}
+				}
+			]
+		},
+		"giniCoefficient": {
+			"oneOf": [
+				{"$ref": "#/definitions/giniCoefficient"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/giniCoefficient"}
+				}
+			]
+		},
+		"giniCoefficientAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/giniCoefficientAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/giniCoefficientAsOf"}
+				}
+			]
+		},
+		"giniCoefficientCategory": {
+			"oneOf": [
+				{"$ref": "#/definitions/giniCoefficientCategory"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/giniCoefficientCategory"}
+				}
+			]
+		},
+		"giniCoefficientRanking": {
+			"oneOf": [
+				{"$ref": "#/definitions/giniCoefficientRanking"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/giniCoefficientRanking"}
+				}
+			]
+		},
+		"gnisCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/gnisCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gnisCode"}
+				}
+			]
+		},
+		"gnl": {
+			"oneOf": [
+				{"$ref": "#/definitions/gnl"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gnl"}
+				}
+			]
+		},
+		"governorate": {
+			"oneOf": [
+				{"$ref": "#/definitions/governorate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/governorate"}
+				}
+			]
+		},
+		"grossDomesticProduct": {
+			"oneOf": [
+				{"$ref": "#/definitions/grossDomesticProduct"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grossDomesticProduct"}
+				}
+			]
+		},
+		"grossDomesticProductAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/grossDomesticProductAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grossDomesticProductAsOf"}
+				}
+			]
+		},
+		"grossDomesticProductNominalPerCapita": {
+			"oneOf": [
+				{"$ref": "GrossDomesticProductPerCapita.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GrossDomesticProductPerCapita.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"grossDomesticProductPurchasingPowerParityPerCapita": {
+			"oneOf": [
+				{"$ref": "GrossDomesticProductPerCapita.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GrossDomesticProductPerCapita.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"historicalRegion": {
+			"oneOf": [
+				{"$ref": "#/definitions/historicalRegion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/historicalRegion"}
+				}
+			]
+		},
+		"hraState": {
+			"oneOf": [
+				{"$ref": "#/definitions/hraState"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hraState"}
+				}
+			]
+		},
+		"humanDevelopmentIndex": {
+			"oneOf": [
+				{"$ref": "#/definitions/humanDevelopmentIndex"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/humanDevelopmentIndex"}
+				}
+			]
+		},
+		"humanDevelopmentIndexAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/humanDevelopmentIndexAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/humanDevelopmentIndexAsOf"}
+				}
+			]
+		},
+		"humanDevelopmentIndexRankingCategory": {
+			"oneOf": [
+				{"$ref": "#/definitions/humanDevelopmentIndexRankingCategory"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/humanDevelopmentIndexRankingCategory"}
+				}
+			]
+		},
+		"illiteracy": {
+			"oneOf": [
+				{"$ref": "#/definitions/illiteracy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/illiteracy"}
+				}
+			]
+		},
+		"income": {
+			"oneOf": [
+				{"$ref": "#/definitions/income"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/income"}
+				}
+			]
+		},
+		"infantMortality": {
+			"oneOf": [
+				{"$ref": "#/definitions/infantMortality"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/infantMortality"}
+				}
+			]
+		},
+		"internationalPhonePrefix": {
+			"oneOf": [
+				{"$ref": "#/definitions/internationalPhonePrefix"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/internationalPhonePrefix"}
+				}
+			]
+		},
+		"internationalPhonePrefixLabel": {
+			"oneOf": [
+				{"$ref": "#/definitions/internationalPhonePrefixLabel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/internationalPhonePrefixLabel"}
+				}
+			]
+		},
+		"ist": {
+			"oneOf": [
+				{"$ref": "#/definitions/ist"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ist"}
+				}
+			]
+		},
+		"istat": {
+			"oneOf": [
+				{"$ref": "#/definitions/istat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/istat"}
+				}
+			]
+		},
+		"largestCity": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"largestSettlement": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"latestElection": {
+			"oneOf": [
+				{"$ref": "#/definitions/latestElection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/latestElection"}
+				}
+			]
+		},
+		"leaderName": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"leaderParty": {
+			"oneOf": [
+				{"$ref": "#/definitions/leaderParty"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/leaderParty"}
+				}
+			]
+		},
+		"leaderTitle": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"legislature": {
+			"oneOf": [
+				{"$ref": "Legislature.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Legislature.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"licenceNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/licenceNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/licenceNumber"}
+				}
+			]
+		},
+		"licenceNumberLabel": {
+			"oneOf": [
+				{"$ref": "#/definitions/licenceNumberLabel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/licenceNumberLabel"}
+				}
+			]
+		},
+		"lieutenancy": {
+			"oneOf": [
+				{"$ref": "#/definitions/lieutenancy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lieutenancy"}
+				}
+			]
+		},
+		"lieutenancyArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lifeExpectancy": {
+			"oneOf": [
+				{"$ref": "#/definitions/lifeExpectancy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lifeExpectancy"}
+				}
+			]
+		},
+		"localPhonePrefix": {
+			"oneOf": [
+				{"$ref": "#/definitions/localPhonePrefix"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/localPhonePrefix"}
+				}
+			]
+		},
+		"localizationThumbnail": {
+			"oneOf": [
+				{"$ref": "#/definitions/localizationThumbnail"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/localizationThumbnail"}
+				}
+			]
+		},
+		"localizationThumbnailCaption": {
+			"oneOf": [
+				{"$ref": "#/definitions/localizationThumbnailCaption"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/localizationThumbnailCaption"}
+				}
+			]
+		},
+		"metropolitanBorough": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nation": {
+			"oneOf": [
+				{"$ref": "#/definitions/nation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nation"}
+				}
+			]
+		},
+		"neighboringMunicipality": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nisCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/nisCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nisCode"}
+				}
+			]
+		},
+		"numberOfCantons": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCantons"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCantons"}
+				}
+			]
+		},
+		"numberOfCapitalDeputies": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCapitalDeputies"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCapitalDeputies"}
+				}
+			]
+		},
+		"numberOfCounties": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCounties"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCounties"}
+				}
+			]
+		},
+		"numberOfFederalDeputies": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfFederalDeputies"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfFederalDeputies"}
+				}
+			]
+		},
+		"numberOfMunicipalities": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfMunicipalities"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfMunicipalities"}
+				}
+			]
+		},
+		"numberOfStateDeputies": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStateDeputies"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStateDeputies"}
+				}
+			]
+		},
+		"officialLanguage": {
+			"oneOf": [
+				{"$ref": "Language.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Language.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"okatoCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/okatoCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/okatoCode"}
+				}
+			]
+		},
+		"oldDistrict": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"oldName": {
+			"oneOf": [
+				{"$ref": "#/definitions/oldName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/oldName"}
+				}
+			]
+		},
+		"oldProvince": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"otherName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"outskirts": {
+			"oneOf": [
+				{"$ref": "#/definitions/outskirts"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/outskirts"}
+				}
+			]
+		},
+		"parish": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"peopleName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"perCapitaIncome": {
+			"oneOf": [
+				{"$ref": "#/definitions/perCapitaIncome"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/perCapitaIncome"}
+				}
+			]
+		},
+		"perCapitaIncomeAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/perCapitaIncomeAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/perCapitaIncomeAsOf"}
+				}
+			]
+		},
+		"perCapitaIncomeRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/perCapitaIncomeRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/perCapitaIncomeRank"}
+				}
+			]
+		},
+		"percentageLiteracyMen": {
+			"oneOf": [
+				{"$ref": "#/definitions/percentageLiteracyMen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/percentageLiteracyMen"}
+				}
+			]
+		},
+		"percentageLiteracyWomen": {
+			"oneOf": [
+				{"$ref": "#/definitions/percentageLiteracyWomen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/percentageLiteracyWomen"}
+				}
+			]
+		},
+		"percentageLiterate": {
+			"oneOf": [
+				{"$ref": "#/definitions/percentageLiterate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/percentageLiterate"}
+				}
+			]
+		},
+		"phonePrefix": {
+			"oneOf": [
+				{"$ref": "#/definitions/phonePrefix"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/phonePrefix"}
+				}
+			]
+		},
+		"pluviometry": {
+			"oneOf": [
+				{"$ref": "#/definitions/pluviometry"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/pluviometry"}
+				}
+			]
+		},
+		"policeName": {
+			"oneOf": [
+				{"$ref": "#/definitions/policeName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/policeName"}
+				}
+			]
+		},
+		"politicGovernmentDepartment": {
+			"oneOf": [
+				{"$ref": "#/definitions/politicGovernmentDepartment"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/politicGovernmentDepartment"}
+				}
+			]
+		},
+		"population": {
+			"oneOf": [
+				{"$ref": "Population.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Population.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"populationAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationAsOf"}
+				}
+			]
+		},
+		"populationDensity": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationDensity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationDensity"}
+				}
+			]
+		},
+		"populationMetro": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationMetro"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationMetro"}
+				}
+			]
+		},
+		"populationMetroDensity": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationMetroDensity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationMetroDensity"}
+				}
+			]
+		},
+		"populationPctChildren": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationPctChildren"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationPctChildren"}
+				}
+			]
+		},
+		"populationPctMen": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationPctMen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationPctMen"}
+				}
+			]
+		},
+		"populationPctWomen": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationPctWomen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationPctWomen"}
+				}
+			]
+		},
+		"populationRural": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationRural"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationRural"}
+				}
+			]
+		},
+		"populationRuralDensity": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationRuralDensity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationRuralDensity"}
+				}
+			]
+		},
+		"populationTotalRanking": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationTotalRanking"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationTotalRanking"}
+				}
+			]
+		},
+		"populationUrban": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationUrban"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationUrban"}
+				}
+			]
+		},
+		"populationUrbanDensity": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationUrbanDensity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationUrbanDensity"}
+				}
+			]
+		},
+		"populationYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationYear"}
+				}
+			]
+		},
+		"previousDemographics": {
+			"oneOf": [
+				{"$ref": "Demographics.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Demographics.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"previousName": {
+			"oneOf": [
+				{"$ref": "#/definitions/previousName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/previousName"}
+				}
+			]
+		},
+		"previousPopulation": {
+			"oneOf": [
+				{"$ref": "Population.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Population.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"previousPopulationTotal": {
+			"oneOf": [
+				{"$ref": "#/definitions/previousPopulationTotal"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/previousPopulationTotal"}
+				}
+			]
+		},
+		"principalArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"protestantPercentage": {
+			"oneOf": [
+				{"$ref": "#/definitions/protestantPercentage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/protestantPercentage"}
+				}
+			]
+		},
+		"provinceIsoCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/provinceIsoCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/provinceIsoCode"}
+				}
+			]
+		},
+		"purchasingPowerParity": {
+			"oneOf": [
+				{"$ref": "#/definitions/purchasingPowerParity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/purchasingPowerParity"}
+				}
+			]
+		},
+		"purchasingPowerParityRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/purchasingPowerParityRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/purchasingPowerParityRank"}
+				}
+			]
+		},
+		"purchasingPowerParityYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/purchasingPowerParityYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/purchasingPowerParityYear"}
+				}
+			]
+		},
+		"rankArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankArea"}
+				}
+			]
+		},
+		"rankPopulation": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankPopulation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankPopulation"}
+				}
+			]
+		},
+		"regionalLanguage": {
+			"oneOf": [
+				{"$ref": "Language.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Language.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"saint": {
+			"oneOf": [
+				{"$ref": "Saint.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Saint.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"senior": {
+			"oneOf": [
+				{"$ref": "#/definitions/senior"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/senior"}
+				}
+			]
+		},
+		"seniunija": {
+			"oneOf": [
+				{"$ref": "#/definitions/seniunija"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/seniunija"}
+				}
+			]
+		},
+		"sharingOutPopulation": {
+			"oneOf": [
+				{"$ref": "#/definitions/sharingOutPopulation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sharingOutPopulation"}
+				}
+			]
+		},
+		"sharingOutPopulationYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/sharingOutPopulationYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sharingOutPopulationYear"}
+				}
+			]
+		},
+		"sheading": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"simcCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/simcCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/simcCode"}
+				}
+			]
+		},
+		"termOfOffice": {
+			"oneOf": [
+				{"$ref": "#/definitions/termOfOffice"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/termOfOffice"}
+				}
+			]
+		},
+		"terytCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/terytCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/terytCode"}
+				}
+			]
+		},
+		"topic": {
+			"oneOf": [
+				{"$ref": "#/definitions/topic"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/topic"}
+				}
+			]
+		},
+		"touristicSite": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"unitaryAuthority": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"viceLeader": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"viceLeaderParty": {
+			"oneOf": [
+				{"$ref": "PoliticalParty.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PoliticalParty.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"watercourse": {
+			"oneOf": [
+				{"$ref": "#/definitions/watercourse"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/watercourse"}
+				}
+			]
+		},
+		"zipCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/zipCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/zipCode"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "populated place",
+	"translations": {
+		"title": {
+			"de": "bewohnter Ort",
+			"el": "πυκνοκατοικημένη περιοχή",
+			"fr": "lieu habité",
+			"da": "befolket sted",
+			"nl": "bebouwde omgeving",
+			"ar": "تجمع سكاني"
+		},
+		"description": {"el": "Πυκνοκατοικημένη περιοχή, είναι η περιοχή ή το μέρος με μεγάλο αριθμό κτιρίων και μεγάλο μόνιμο πληθυσμό, σε σύγκριση με την γεωγραφική περιοχή που καταλαμβάνει &amp;&#35;40;μεγαλούπολη, πόλη ή χωριό&#41;."}
+	},
+	"type": "object"
+}

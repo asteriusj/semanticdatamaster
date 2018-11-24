@@ -1,0 +1,56 @@
+{
+	"id": "Murderer.json",
+	"title": "murderer",
+	"translations": {
+		"title": {
+			"de": "Mörder",
+			"el": "δολοφόνος",
+			"fr": "assassin",
+			"it": "assasino",
+			"ga": "dúnmharfóir",
+			"ko": "연쇄 살인자",
+			"nl": "moordenaar",
+			"ja": "殺人"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Criminal.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Murderer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Murderer"}
+}

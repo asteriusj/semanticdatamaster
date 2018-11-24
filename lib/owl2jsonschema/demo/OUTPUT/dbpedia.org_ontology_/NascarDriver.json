@@ -1,0 +1,59 @@
+{
+	"id": "NascarDriver.json",
+	"title": "nascar driver",
+	"translations": {
+		"title": {
+			"de": "NASCAR Fahrer",
+			"el": "οδηγός αγώνων nascar",
+			"fr": "pilote de la nascar",
+			"nl": "nascar coureur"
+		},
+		"description": {}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Agent.json"},
+		{"$ref": "Person.json"},
+		{"$ref": "Athlete.json"},
+		{"$ref": "MotorsportRacer.json"},
+		{"$ref": "RacingDriver.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/NascarDriver",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/NascarDriver"}
+}

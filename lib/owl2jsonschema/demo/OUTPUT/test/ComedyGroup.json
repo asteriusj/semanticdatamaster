@@ -1,0 +1,52 @@
+{
+	"id": "ComedyGroup.json",
+	"title": "Comedy Group",
+	"translations": {
+		"title": {
+			"de": "Komikergruppe",
+			"ko": "코미디 그룹",
+			"nl": "cabaretgroep",
+			"ja": "お笑いグループ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Group.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ComedyGroup",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ComedyGroup"}
+}

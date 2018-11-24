@@ -1,0 +1,55 @@
+{
+	"id": "Vein.json",
+	"title": "vein",
+	"translations": {
+		"title": {
+			"de": "Vene",
+			"el": "φλέβα",
+			"fr": "veine",
+			"ga": "féith",
+			"nl": "ader",
+			"pt": "veia",
+			"ja": "静脈"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Vein",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Vein"}
+}

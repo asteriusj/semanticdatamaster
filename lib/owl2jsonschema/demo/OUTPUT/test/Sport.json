@@ -1,0 +1,89 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Activity.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "A sport is commonly defined as an organized, competitive, and skillful physical activity.",
+	"format": "http://dbpedia.org/ontology/Sport",
+	"id": "Sport.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Sport"},
+	"properties": {
+		"currentWorldChampion": {
+			"oneOf": [
+				{"$ref": "Agent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Agent.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstOlympicEvent": {
+			"oneOf": [
+				{"$ref": "OlympicEvent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "OlympicEvent.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"footedness": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "sport",
+	"translations": {
+		"title": {
+			"de": "Sportart",
+			"el": "Αθλήματα",
+			"fr": "sport",
+			"es": "Deporte",
+			"ga": "spórt",
+			"ru": "Вид спорта",
+			"ko": "스포츠",
+			"nl": "sport",
+			"pt": "esporte",
+			"ja": "スポーツ"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

@@ -1,0 +1,107 @@
+{
+	"id": "On-SiteTransportation.json",
+	"title": "on-site mean of transportation",
+	"translations": {
+		"title": {
+			"de": "Vorortbeförderungsmittel",
+			"nl": "stationair vervoermiddel"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"On-SiteTransportation/width": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"On-SiteTransportation/mass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"On-SiteTransportation/height": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"On-SiteTransportation/diameter": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"On-SiteTransportation/weight": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"On-SiteTransportation/length": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/On-SiteTransportation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/On-SiteTransportation"}
+}

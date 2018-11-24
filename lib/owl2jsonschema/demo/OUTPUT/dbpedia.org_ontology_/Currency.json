@@ -1,0 +1,69 @@
+{
+	"id": "Currency.json",
+	"title": "currency",
+	"translations": {
+		"title": {
+			"de": "Währung",
+			"el": "νόμισμα",
+			"fr": "devise",
+			"ga": "airgeadra",
+			"ru": "Валюта",
+			"be": "Валюта",
+			"ko": "통화",
+			"nl": "muntsoort",
+			"ja": "通貨"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"usingCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Currency",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Currency"}
+}

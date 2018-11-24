@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+ <link rel="stylesheet" href="resources/yeti.css" media="screen">    <link rel="stylesheet" href="resources/site.css" media="screen">
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://github.com/asteriusj/semanticdatamaster#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://github.com/asteriusj/semanticdatamaster#","name":"Semantic Data Master (SDM) Ontology", "headline":"An experimental ontology for defining entity relationships and data property definitions and constraints
+", "datePublished":"Feb 2018", "version":"Draft", "license":"http://creativecommons.org/licenses/by-nc-sa/2.0/", "author":[{"@type":"Person","name":"ateriusj","url":"<http://github.com/asteriusj>"}], "contributor":[{"@type":"Person","name":"Jeffrey A Stewart","url":"<http://LinkedIn.com/jeffreyastewart/>"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).text()+'</a></li>';
+		}
+		t = t.replace(' back to ToC','');
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+    $(function(){
+      $("#abstract").load("sections/abstract-en.html"); 
+      $("#introduction").load("sections/introduction-en.html"); 
+      $("#overview").load("sections/overview-en.html"); 
+      $("#description").load("sections/description-en.html"); 
+      $("#references").load("sections/references-en.html"); 
+      $("#crossref").load("sections/crossref-en.html", null, loadHash); 
+    });
+    </script> 
+  </head> 
+
+<body>
+<div class="container"><div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Semantic Data Master (SDM) Ontology</h1>
+<h2>Release  Feb 2018</h2>
+<dl>
+<dt>This version:</dt>
+<dd><a href="https://github.com/asteriusj/semanticdatamaster/Draft">https://github.com/asteriusj/semanticdatamaster/Draft</a></dd>
+</dl><dt>Revision:</dt>
+<dd>Draft</dd>
+<dl><dt>Authors:</dt>
+<dd><a href="<http://github.com/asteriusj>">ateriusj</a>, (<a href="<http://www.asteriusmedia.com>">Asterius Media LLC</a>)</dd></dl>
+
+<dl><dt>Contributors:</dt>
+<dd><a href="<http://LinkedIn.com/jeffreyastewart/>">Jeffrey A Stewart</a></dd></dl>
+
+<dl><dt>Publisher:</dt>
+<dd><a href="<http://github.com/asteriusj>">null</a>, (<a href="null">null</a>)</dd></dl>
+<dl><dt>Download serialization:</dt><dd><span><a href="semanticdatamaster.xml" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML"></a> </span><span><a href="semanticdatamaster.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples"></a> </span><span><a href="semanticdatamaster.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL"></a> </span></dd></dl><dl><dt>License: </dt><dd><a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" target="_blank"><img src="https://img.shields.io/badge/License-License name. E.g.: Creative Commons Attribution_NonCommercial_ShareAlike 2.0 Generic License-blue.svg" alt="http://creativecommons.org/licenses/by-nc-sa/2.0/"></a>
+<a href="http://creativecommons.org/licenses/by-nc-sa/2.0/" rel="license" target="_blank">
+<img src="http://i.creativecommons.org/l/by-nc-sa/2.0/88x31.png" style="border-width:0" alt="License">
+</a>
+<br></dd></dl><dl><dt>Visualization:</dt><dd><a href="webvowl/index.html#ontology" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl"></a></dd></dl>
+<dl><a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a></dl><hr>
+</div>
+<div class="status">
+<div>
+<span>Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><p>An experimental ontology for defining entity relationships and data property definitions and constraints</p>
+
+</div>
+<div id="toc"><h2>Table of contents</h2><ul><li>1. <a href="#intro">Introduction </a></li><ul><li>1.1. <a href="#ns">Namespace declarations</a></li></ul><li>2. <a href="#overv">Semantic Data Master (SDM) Ontology: Overview </a></li><li>3. <a href="#desc">Semantic Data Master (SDM) Ontology: Description </a></li><li>4. <a href="#crossreference">Cross reference for Semantic Data Master (SDM) Ontology classes, properties and dataproperties </a></li><ul><li>4.1. <a href="#classes">Classes</a></li><li>4.2. <a href="#properties">Object Properties</a></li><li>4.3. <a href="#dataproperties">Data Properties</a></li></ul><li>5. <a href="#ref">References </a></li><li>6. <a href="#ack">Acknowledgements </a></li></ul></div>     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</p>
+
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>schema</b></td><td>&lt;http://schema.org/&gt;</td></tr>
+<tr><td><b>vaem</b></td><td>&lt;http://www.linkedmodel.org/schema/vaem#&gt;</td></tr>
+<tr><td><b>ns</b></td><td>&lt;http:/s/www.w3.org/2003/06/sw-vocab-status/ns#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>github-com</b></td><td>&lt;http://github.com/&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>vcard</b></td><td>&lt;http://www.w3.org/2006/vcard/&gt;</td></tr>
+<tr><td><b>error</b></td><td>&lt;http://org.semanticweb.owlapi/error#&gt;</td></tr>
+<tr><td><b>salesforce</b></td><td>&lt;https://github.com/vocol/salesforce/&gt;</td></tr>
+<tr><td><b>wgs84-pos</b></td><td>&lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;</td></tr>
+<tr><td><b>0-1</b></td><td>&lt;http://xmlns.com/foaf/0.1/&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>terms</b></td><td>&lt;http://purl.org/dc/terms/&gt;</td></tr>
+<tr><td><b>bibo</b></td><td>&lt;http://purl.org/ontology/bibo/&gt;</td></tr>
+<tr><td><b>vann</b></td><td>&lt;http://purl.org/vocab/vann/&gt;</td></tr>
+<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
+<tr><td><b>sdm</b></td><td>&lt;https://github.com/asteriusj/semanticdatamaster/&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1/&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+     <div id="overview"><h2 id="overv" class="list">Semantic Data Master (SDM) Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>This ontology has the following classes and properties.</p>
+
+<h4>Classes</h4>
+<ul class="hlist">
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Address" title="https://github.com/asteriusj/semanticdatamaster/Address">
+         <span>Address</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#Contact" title="http://www.w3.org/2006/vcard/ns#Contact">
+         <span>contact</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Contact" title="https://github.com/asteriusj/semanticdatamaster/Contact">Contact</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+   </li>
+   <li>
+      <a href="#http://org.semanticweb.owlapi/error#Error1" title="http://org.semanticweb.owlapi/error#Error1">
+         <span>error1</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Gender" title="https://github.com/asteriusj/semanticdatamaster/Gender">Gender</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/IntegerValueObject" title="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">
+         <span>integer value object</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Kind" title="https://github.com/asteriusj/semanticdatamaster/Kind">Kind</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Name" title="https://github.com/asteriusj/semanticdatamaster/Name">
+         <span>Name</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Organization" title="https://github.com/asteriusj/semanticdatamaster/Organization">Organization</a>
+   </li>
+   <li>
+      <a href="#http://schema.org/Person" title="http://schema.org/Person">
+         <span>person</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/Person" title="http://xmlns.com/foaf/0.1/Person">
+         <span>person</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+   </li>
+   <li>
+      <a href="#http://schema.org/Thing" title="http://schema.org/Thing">
+         <span>thing</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Thing" title="https://github.com/asteriusj/semanticdatamaster/Thing">Thing</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/Type" title="https://github.com/asteriusj/semanticdatamaster/Type">Type</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/VCard" title="https://github.com/asteriusj/semanticdatamaster/VCard">VCard</a>
+   </li>
+</ul><h4>Object Properties</h4><ul class="hlist">
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/adr" title="https://github.com/asteriusj/semanticdatamaster/adr">address</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">
+         <span>age</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/hasAddress" title="https://github.com/asteriusj/semanticdatamaster/hasAddress">has address</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/hasMember" title="https://github.com/asteriusj/semanticdatamaster/hasMember">has member</a>
+   </li>
+</ul><h4>Data Properties</h4><ul class="hlist">
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/additional-name" title="https://github.com/asteriusj/semanticdatamaster/additional-name">additional name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">
+         <span>age</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/birthday" title="https://github.com/asteriusj/semanticdatamaster/birthday">birthday</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/country-name" title="https://github.com/asteriusj/semanticdatamaster/country-name">country name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/family-name" title="https://github.com/asteriusj/semanticdatamaster/family-name">family name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/firstName" title="https://github.com/asteriusj/semanticdatamaster/firstName">First Name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/hasIntegerValue" title="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue">
+         <span>has integer value</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/hasTitle" title="https://github.com/asteriusj/semanticdatamaster/hasTitle">has title</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/honorific-prefix" title="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">honorific prefix</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/honorific-suffix" title="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">honorific suffix</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/lastName" title="https://github.com/asteriusj/semanticdatamaster/lastName">Last Name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/locality" title="https://github.com/asteriusj/semanticdatamaster/locality">locality</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/nick" title="https://github.com/asteriusj/semanticdatamaster/nick">nickname</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#organization-name" title="http://www.w3.org/2006/vcard/ns#organization-name">organization name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/org-name" title="https://github.com/asteriusj/semanticdatamaster/org-name">organization name</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/postal-code" title="https://github.com/asteriusj/semanticdatamaster/postal-code">postal code</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/prefix" title="https://github.com/asteriusj/semanticdatamaster/prefix">prefix</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/region" title="https://github.com/asteriusj/semanticdatamaster/region">region</a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/street-address" title="https://github.com/asteriusj/semanticdatamaster/street-address">street address</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://github.com/asteriusj/semanticdatamaster/title" title="https://github.com/asteriusj/semanticdatamaster/title">title</a>
+   </li>
+</ul><iframe src="webvowl/index.html#ontology" width="100%" height="500px" align="middle"></iframe> </div>
+     <div id="description"><h2 id="desc" class="list">Semantic Data Master (SDM) Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</p>
+
+</div>
+     <div id="crossref"><h2 id="crossreference" class="list">Cross reference for Semantic Data Master (SDM) Ontology classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Semantic Data Master (SDM) Ontology.
+<div id="classes">
+   <h3 id="classes" class="list">Classes</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Address" title="https://github.com/asteriusj/semanticdatamaster/Address">
+            <span>Address</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/vcard/ns#Contact" title="http://www.w3.org/2006/vcard/ns#Contact">
+            <span>contact</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Contact" title="https://github.com/asteriusj/semanticdatamaster/Contact">Contact</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+      </li>
+      <li>
+         <a href="#http://org.semanticweb.owlapi/error#Error1" title="http://org.semanticweb.owlapi/error#Error1">
+            <span>error1</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Gender" title="https://github.com/asteriusj/semanticdatamaster/Gender">Gender</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/IntegerValueObject" title="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">
+            <span>integer value object</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Kind" title="https://github.com/asteriusj/semanticdatamaster/Kind">Kind</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Name" title="https://github.com/asteriusj/semanticdatamaster/Name">
+            <span>Name</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Organization" title="https://github.com/asteriusj/semanticdatamaster/Organization">Organization</a>
+      </li>
+      <li>
+         <a href="#http://schema.org/Person" title="http://schema.org/Person">
+            <span>person</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://xmlns.com/foaf/0.1/Person" title="http://xmlns.com/foaf/0.1/Person">
+            <span>person</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+      </li>
+      <li>
+         <a href="#http://schema.org/Thing" title="http://schema.org/Thing">
+            <span>thing</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Thing" title="https://github.com/asteriusj/semanticdatamaster/Thing">Thing</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/Type" title="https://github.com/asteriusj/semanticdatamaster/Type">Type</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/VCard" title="https://github.com/asteriusj/semanticdatamaster/VCard">VCard</a>
+      </li>
+   </ul>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Address">
+      <h3>Address<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Address</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>((<a href="#https://github.com/asteriusj/semanticdatamaster/country-name" title="https://github.com/asteriusj/semanticdatamaster/country-name">country name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/country-name" title="https://github.com/asteriusj/semanticdatamaster/country-name">country name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/locality" title="https://github.com/asteriusj/semanticdatamaster/locality">locality</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/locality" title="https://github.com/asteriusj/semanticdatamaster/locality">locality</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/postal-code" title="https://github.com/asteriusj/semanticdatamaster/postal-code">postal code</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/postal-code" title="https://github.com/asteriusj/semanticdatamaster/postal-code">postal code</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/region" title="https://github.com/asteriusj/semanticdatamaster/region">region</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/region" title="https://github.com/asteriusj/semanticdatamaster/region">region</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/street-address" title="https://github.com/asteriusj/semanticdatamaster/street-address">street address</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/street-address" title="https://github.com/asteriusj/semanticdatamaster/street-address">street address</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1))</dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/adr" title="https://github.com/asteriusj/semanticdatamaster/adr">address</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/hasAddress" title="https://github.com/asteriusj/semanticdatamaster/hasAddress">has address</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is also defined as</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Address">annotation property</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/vcard/ns#Contact">
+      <h3>contact<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#Contact</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Contact" title="https://github.com/asteriusj/semanticdatamaster/Contact">Contact</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Contact">
+      <h3>Contact<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Contact</p>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <span class="dotted" title="https://github.com/vocol/salesforce/Contact">contact</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Employee">
+      <h3>Employee<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Employee</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <span class="dotted" title="https://github.com/asteriusj/semanticdatamaster/Address">Address</span>, <a href="#https://github.com/asteriusj/semanticdatamaster/firstName" title="https://github.com/asteriusj/semanticdatamaster/firstName">First Name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/lastName" title="https://github.com/asteriusj/semanticdatamaster/lastName">Last Name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <span class="dotted" title="https://github.com/asteriusj/semanticdatamaster/Name">Name</span>, <a href="#https://github.com/asteriusj/semanticdatamaster/additional-name" title="https://github.com/asteriusj/semanticdatamaster/additional-name">additional name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">age</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/birthday" title="https://github.com/asteriusj/semanticdatamaster/birthday">birthday</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/family-name" title="https://github.com/asteriusj/semanticdatamaster/family-name">family name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/hasAddress" title="https://github.com/asteriusj/semanticdatamaster/hasAddress">has address</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/nick" title="https://github.com/asteriusj/semanticdatamaster/nick">nickname</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/prefix" title="https://github.com/asteriusj/semanticdatamaster/prefix">prefix</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://org.semanticweb.owlapi/error#Error1">
+      <h3>error1<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://org.semanticweb.owlapi/error#Error1</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Kind" title="https://github.com/asteriusj/semanticdatamaster/Kind">Kind</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Gender">
+      <h3>Gender<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Gender</p>
+      <div class="comment">
+         <p>Used for gender codes. The URI of the gender code must be used as the value for Gender.</p>
+
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">
+      <h3>integer value object<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/IntegerValueObject</p>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Thing" title="https://github.com/asteriusj/semanticdatamaster/Thing">Thing</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/hasIntegerValue" title="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue">has integer value</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">exactly</span> 1</dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/hasIntegerValue" title="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue">has integer value</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">age</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Kind">
+      <h3>Kind<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Kind</p>
+      <div class="comment">
+         <p>The parent class for all objects</p>
+
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/VCard" title="https://github.com/asteriusj/semanticdatamaster/VCard">VCard</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/hasMember" title="https://github.com/asteriusj/semanticdatamaster/hasMember">has member</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Name">
+      <h3>Name<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Name</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>((<a href="#https://github.com/asteriusj/semanticdatamaster/additional-name" title="https://github.com/asteriusj/semanticdatamaster/additional-name">additional name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/additional-name" title="https://github.com/asteriusj/semanticdatamaster/additional-name">additional name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">min</span> 0)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/family-name" title="https://github.com/asteriusj/semanticdatamaster/family-name">family name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/family-name" title="https://github.com/asteriusj/semanticdatamaster/family-name">family name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">max</span> 1)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/honorific-prefix" title="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">honorific prefix</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/honorific-prefix" title="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">honorific prefix</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">min</span> 0)) <span class="logic">or</span> ((<a href="#https://github.com/asteriusj/semanticdatamaster/honorific-suffix" title="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">honorific suffix</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">some</span> 
+            <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>) <span class="logic">and</span> (<a href="#https://github.com/asteriusj/semanticdatamaster/honorific-suffix" title="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">honorific suffix</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="logic">min</span> 0))</dd>
+         <dt>is also defined as</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Name">annotation property</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Organization">
+      <h3>Organization<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Organization</p>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">spatial thing</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dd>
+            <span class="dotted" title="http://xmlns.com/foaf/0.1/Agent">agent</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <span class="dotted" title="https://github.com/asteriusj/semanticdatamaster/Address">Address</span>, <a href="#https://github.com/asteriusj/semanticdatamaster/adr" title="https://github.com/asteriusj/semanticdatamaster/adr">address</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/org-name" title="https://github.com/asteriusj/semanticdatamaster/org-name">organization name</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://schema.org/Person">
+      <h3>person<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://schema.org/Person</p>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://schema.org/">http://schema.org/</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://xmlns.com/foaf/0.1/Person">
+      <h3>person<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://xmlns.com/foaf/0.1/Person</p>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Person">
+      <h3>Person<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Person</p>
+      <div class="comment">
+         <p>A person. A person (alive, dead, undead, or fictional).</p>
+
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <span class="dotted" title="https://github.com/vocol/salesforce/Person">person</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">spatial thing</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dd>
+            <span class="dotted" title="http://xmlns.com/foaf/0.1/Agent">agent</span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Contact" title="https://github.com/asteriusj/semanticdatamaster/Contact">Contact</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <span class="dotted" title="https://github.com/asteriusj/semanticdatamaster/Address">Address</span>, <a href="#https://github.com/asteriusj/semanticdatamaster/firstName" title="https://github.com/asteriusj/semanticdatamaster/firstName">First Name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/lastName" title="https://github.com/asteriusj/semanticdatamaster/lastName">Last Name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <span class="dotted" title="https://github.com/asteriusj/semanticdatamaster/Name">Name</span>, <a href="#https://github.com/asteriusj/semanticdatamaster/additional-name" title="https://github.com/asteriusj/semanticdatamaster/additional-name">additional name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/adr" title="https://github.com/asteriusj/semanticdatamaster/adr">address</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">age</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/birthday" title="https://github.com/asteriusj/semanticdatamaster/birthday">birthday</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/country-name" title="https://github.com/asteriusj/semanticdatamaster/country-name">country name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/family-name" title="https://github.com/asteriusj/semanticdatamaster/family-name">family name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/hasTitle" title="https://github.com/asteriusj/semanticdatamaster/hasTitle">has title</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/honorific-prefix" title="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">honorific prefix</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/honorific-suffix" title="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">honorific suffix</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/locality" title="https://github.com/asteriusj/semanticdatamaster/locality">locality</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/nick" title="https://github.com/asteriusj/semanticdatamaster/nick">nickname</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/postal-code" title="https://github.com/asteriusj/semanticdatamaster/postal-code">postal code</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/prefix" title="https://github.com/asteriusj/semanticdatamaster/prefix">prefix</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/region" title="https://github.com/asteriusj/semanticdatamaster/region">region</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/street-address" title="https://github.com/asteriusj/semanticdatamaster/street-address">street address</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/title" title="https://github.com/asteriusj/semanticdatamaster/title">title</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/hasMember" title="https://github.com/asteriusj/semanticdatamaster/hasMember">has member</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://schema.org/Thing">
+      <h3>thing<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://schema.org/Thing</p>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/Thing" title="https://github.com/asteriusj/semanticdatamaster/Thing">Thing</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Thing">
+      <h3>Thing<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Thing</p>
+      <div class="comment">
+         <p>The most generic type of item.</p>
+
+      </div>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#https://github.com/asteriusj/semanticdatamaster/IntegerValueObject" title="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">integer value object</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/Type">
+      <h3>Type<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/Type</p>
+      <div class="comment">
+         <p>Used for type codes. The URI of the type code must be used as the value for Type.</p>
+
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/VCard">
+      <h3>VCard<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/VCard</p>
+      <div class="comment">
+         <p>The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)</p>
+
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+      <dl class="description"></dl>
+   </div>
+</div><div id="objectproperties">
+   <h3 id="properties" class="list">Object Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/adr" title="https://github.com/asteriusj/semanticdatamaster/adr">address</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">
+            <span>age</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/hasAddress" title="https://github.com/asteriusj/semanticdatamaster/hasAddress">has address</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/hasMember" title="https://github.com/asteriusj/semanticdatamaster/hasMember">has member</a>
+      </li>
+   </ul>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/adr">
+      <h3>address<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/adr</p>
+      <div class="comment">
+         <p>This object property has been mapped</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has equivalent properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/hasAddress" title="https://github.com/asteriusj/semanticdatamaster/hasAddress">has address</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Organization" title="https://github.com/asteriusj/semanticdatamaster/Organization">Organization</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Address" title="https://github.com/asteriusj/semanticdatamaster/Address">Address</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/age">
+      <h3>age<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/age</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/IntegerValueObject" title="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">integer value object</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>is also defined as</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/age">data property</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/hasAddress">
+      <h3>has address<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/hasAddress</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has equivalent properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/adr" title="https://github.com/asteriusj/semanticdatamaster/adr">address</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Address" title="https://github.com/asteriusj/semanticdatamaster/Address">Address</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/hasMember">
+      <h3>has member<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/hasMember</p>
+      <div class="comment">
+         <p>To include a member in the group this object represents. (This property can only be used by Group individuals)</p>
+
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <span class="dotted" title="https://github.com/asteriusj/semanticdatamaster/Group">group</span>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Kind" title="https://github.com/asteriusj/semanticdatamaster/Kind">Kind</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="dataproperties">
+   <h3 id="dataproperties" class="list">Data Properties</h3>
+   <ul class="hlist">
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/additional-name" title="https://github.com/asteriusj/semanticdatamaster/additional-name">additional name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/age" title="https://github.com/asteriusj/semanticdatamaster/age">
+            <span>age</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/birthday" title="https://github.com/asteriusj/semanticdatamaster/birthday">birthday</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/country-name" title="https://github.com/asteriusj/semanticdatamaster/country-name">country name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/family-name" title="https://github.com/asteriusj/semanticdatamaster/family-name">family name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/firstName" title="https://github.com/asteriusj/semanticdatamaster/firstName">First Name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/hasIntegerValue" title="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue">
+            <span>has integer value</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/hasTitle" title="https://github.com/asteriusj/semanticdatamaster/hasTitle">has title</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/honorific-prefix" title="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">honorific prefix</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/honorific-suffix" title="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">honorific suffix</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/lastName" title="https://github.com/asteriusj/semanticdatamaster/lastName">Last Name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/locality" title="https://github.com/asteriusj/semanticdatamaster/locality">locality</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/nick" title="https://github.com/asteriusj/semanticdatamaster/nick">nickname</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/vcard/ns#organization-name" title="http://www.w3.org/2006/vcard/ns#organization-name">organization name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/org-name" title="https://github.com/asteriusj/semanticdatamaster/org-name">organization name</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/postal-code" title="https://github.com/asteriusj/semanticdatamaster/postal-code">postal code</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/prefix" title="https://github.com/asteriusj/semanticdatamaster/prefix">prefix</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/region" title="https://github.com/asteriusj/semanticdatamaster/region">region</a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/street-address" title="https://github.com/asteriusj/semanticdatamaster/street-address">street address</a>
+      </li>
+      <li>
+         <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+            <span>title</span>
+         </a>
+      </li>
+      <li>
+         <a href="#https://github.com/asteriusj/semanticdatamaster/title" title="https://github.com/asteriusj/semanticdatamaster/title">title</a>
+      </li>
+   </ul>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/additional-name">
+      <h3>additional name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/additional-name</p>
+      <div class="comment">
+         <p>The additional name associated with the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/age">
+      <h3>age<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/age</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>is also defined as</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/age">object property</a>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/birthday">
+      <h3>birthday<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/birthday</p>
+      <div class="comment">
+         <p>The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.</p>
+
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#date">date</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/country-name">
+      <h3>country name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/country-name</p>
+      <div class="comment">
+         <p>The country name associated with the address of the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/family-name">
+      <h3>family name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/family-name</p>
+      <div class="comment">
+         <p>The family name associated with the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/firstName">
+      <h3>First Name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/firstName</p>
+      <div class="comment">
+         <p>First or given name of contact person.</p>
+
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has equivalent properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/given-name">
+      <h3>given name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/given-name</p>
+      <div class="comment">
+         <p>The given name associated with the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has equivalent properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/firstName" title="https://github.com/asteriusj/semanticdatamaster/firstName">First Name</a>
+               <sup class="type-dp" title="data property">dp</sup>, <a href="#https://github.com/asteriusj/semanticdatamaster/lastName" title="https://github.com/asteriusj/semanticdatamaster/lastName">Last Name</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue">
+      <h3>has integer value<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/hasIntegerValue</p>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/IntegerValueObject" title="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">integer value object</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#int">int</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/hasTitle">
+      <h3>has title<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/hasTitle</p>
+      <div class="comment">
+         <p>Answers the question: What the  ?</p>
+
+      </div>
+      <dl>
+         <dt>Term rationale</dt>
+         <dd>Allows to store typical contact info </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">
+      <h3>honorific prefix<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/honorific-prefix</p>
+      <div class="comment">
+         <p>The honorific prefix of the name associated with the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">
+      <h3>honorific suffix<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/honorific-suffix</p>
+      <div class="comment">
+         <p>The honorific suffix of the name associated with the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/lastName">
+      <h3>Last Name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/lastName</p>
+      <div class="comment">
+         <p>Last or family name of contact person.</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has equivalent properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/given-name" title="https://github.com/asteriusj/semanticdatamaster/given-name">given name</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/locality">
+      <h3>locality<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/locality</p>
+      <div class="comment">
+         <p>The locality (e.g. city or town) associated with the address of the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/nick">
+      <h3>nickname<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/nick</p>
+      <div class="comment">
+         <p>A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/vcard/ns#organization-name">
+      <h3>organization name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#organization-name</p>
+      <div class="comment">
+         <p>To specify the organizational name associated with the object</p>
+
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2006/vcard/ns">http://www.w3.org/2006/vcard/ns</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/org-name" title="https://github.com/asteriusj/semanticdatamaster/org-name">organization name</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/org-name">
+      <h3>organization name<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/org-name</p>
+      <div class="comment">
+         <p>Answers the question: What is the name of the Organization?</p>
+
+      </div>
+      <dl>
+         <dt>Term rationale</dt>
+         <dd>Part of the standard properties for a vcard org</dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/vcard/ns#organization-name" title="http://www.w3.org/2006/vcard/ns#organization-name">organization name</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Organization" title="https://github.com/asteriusj/semanticdatamaster/Organization">Organization</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/postal-code">
+      <h3>postal code<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/postal-code</p>
+      <div class="comment">
+         <p>The postal code associated with the address of the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/prefix">
+      <h3>prefix<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/prefix</p>
+      <div class="comment">
+         <p>Salutation or title as prefix to name.</p>
+
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Employee" title="https://github.com/asteriusj/semanticdatamaster/Employee">Employee</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/region">
+      <h3>region<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/region</p>
+      <div class="comment">
+         <p>The region (e.g. state or province) associated with the address of the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/street-address">
+      <h3>street address<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/street-address</p>
+      <div class="comment">
+         <p>The street address associated with the address of the object</p>
+
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://purl.org/dc/terms/title">
+      <h3>title<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/title" title="https://github.com/asteriusj/semanticdatamaster/title">title</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="https://github.com/asteriusj/semanticdatamaster/title">
+      <h3>title<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> https://github.com/asteriusj/semanticdatamaster/title</p>
+      <div class="comment">
+         <p>Answers the question: What is the title of the... ?</p>
+
+      </div>
+      <dl>
+         <dt>Term rationale</dt>
+         <dd>Part of standard metadata for Entities</dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">title</a>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#https://github.com/asteriusj/semanticdatamaster/Person" title="https://github.com/asteriusj/semanticdatamaster/Person">Person</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#string">string</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
+</div>
+</div></div>
+     <div id="references"><h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>Add your references here. It is recommended to have them as a list.</p>
+
+</div>
+<div id="acknowledgements">
+<h2 id="ack" class="list">Acknowledgements <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+ 
+</div></body></html>

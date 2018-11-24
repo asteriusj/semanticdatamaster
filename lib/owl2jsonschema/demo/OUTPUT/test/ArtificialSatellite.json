@@ -1,0 +1,59 @@
+{
+	"id": "ArtificialSatellite.json",
+	"title": "ArtificialSatellite",
+	"description": "In the context of spaceflight, an artificial satellite is an artificial object which has been intentionally placed into orbit.",
+	"translations": {
+		"title": {
+			"de": "künstlicher Satellit",
+			"el": "τεχνητός δορυφόρος",
+			"fr": "satellite artificiel",
+			"ga": "satailít shaorga",
+			"nl": "kunstmatige satelliet",
+			"ja": "人工衛星"
+		},
+		"description": {
+			"de": "Satellit &amp;&#35;40;Raumfahrt&#41;, ein künstlicher Raumflugkörper, der einen Himmelskörper auf einer festen Umlaufbahn umrundet",
+			"el": "Στο πλαίσιο των διαστημικών πτήσεων, ένας τεχνητός δορυφόρος είναι ένα τεχνητό αντικείμενο το οποίο εκ προθέσεως έχει τοποθετηθεί σε τροχιά.",
+			"fr": "Un satellite artificiel est un objet placé intentionellement en orbite."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}, {"$ref": "Satellite.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ArtificialSatellite",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ArtificialSatellite"}
+}

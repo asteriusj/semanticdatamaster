@@ -1,0 +1,119 @@
+{
+	"id": "BaseballPlayer.json",
+	"title": "baseball player",
+	"translations": {
+		"title": {
+			"de": "Baseballspieler",
+			"el": "παίκτης μπέιζμπολ",
+			"fr": "joueur de baseball",
+			"it": "giocatore di baseball",
+			"ga": "imreoir daorchluiche",
+			"ko": "야구 선수",
+			"nl": "honkballer",
+			"pt": "jogador de basebol",
+			"ja": "野球選手"
+		},
+		"description": {"el": "Ο αθλητής &amp;&#35;40;άνδρας ή γυναίκα&#41; που συμμετέχει σε μία ομάδα μπέιζμπολ."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"throwingSide": {
+			"oneOf": [
+				{"$ref": "#/definitions/throwingSide"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/throwingSide"}
+				}
+			]
+		},
+		"statisticValue": {
+			"oneOf": [
+				{"$ref": "#/definitions/statisticValue"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/statisticValue"}
+				}
+			]
+		},
+		"statisticYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/statisticYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/statisticYear"}
+				}
+			]
+		},
+		"statisticLabel": {
+			"oneOf": [
+				{"$ref": "#/definitions/statisticLabel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/statisticLabel"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"throwingSide": {
+			"title": "throwing side",
+			"description": "",
+			"type": "string"
+		},
+		"statisticValue": {
+			"title": "statistic value",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"statisticYear": {
+			"title": "statistic year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"statisticLabel": {
+			"title": "statistic label",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BaseballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BaseballPlayer"}
+}

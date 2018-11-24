@@ -1,0 +1,54 @@
+{
+	"id": "Producer.json",
+	"title": "Producer",
+	"description": "a person who manages movies or music recordings.",
+	"translations": {
+		"title": {
+			"de": "Produzent",
+			"fr": "Producteur",
+			"da": "producent",
+			"nl": "producent",
+			"ja": "監督"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Producer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Producer"}
+}

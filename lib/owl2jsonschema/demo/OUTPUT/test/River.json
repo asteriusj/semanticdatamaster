@@ -1,0 +1,236 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}, {"$ref": "Stream.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluence": {
+			"title": "source confluence",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"description": "a large natural stream",
+	"format": "http://dbpedia.org/ontology/River",
+	"id": "River.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/River"},
+	"properties": {
+		"leftTributary": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthDistrict": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthMountain": {
+			"oneOf": [
+				{"$ref": "Mountain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Mountain.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthPlace": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthPosition": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthRegion": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mouthState": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"rightTributary": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"riverBranch": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"riverBranchOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"riverMouth": {
+			"oneOf": [
+				{"$ref": "BodyOfWater.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "BodyOfWater.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluence": {
+			"oneOf": [
+				{"$ref": "#/definitions/sourceConfluence"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sourceConfluence"}
+				}
+			]
+		},
+		"sourceConfluenceCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluenceMountain": {
+			"oneOf": [
+				{"$ref": "Mountain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Mountain.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluencePlace": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluencePosition": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluenceRegion": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceConfluenceState": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "river",
+	"translations": {
+		"title": {
+			"de": "Fluss",
+			"el": "ποτάμι",
+			"fr": "rivière",
+			"ga": "abhainn",
+			"ko": "강",
+			"nl": "rivier",
+			"pt": "rio",
+			"ja": "川"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

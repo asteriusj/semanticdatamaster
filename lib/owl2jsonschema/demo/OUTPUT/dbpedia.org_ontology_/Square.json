@@ -1,0 +1,53 @@
+{
+	"id": "Square.json",
+	"title": "square",
+	"translations": {
+		"title": {
+			"de": "Platz",
+			"fr": "place",
+			"ga": "cearnóg",
+			"nl": "plein",
+			"ja": "正方形"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Square",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Square"}
+}

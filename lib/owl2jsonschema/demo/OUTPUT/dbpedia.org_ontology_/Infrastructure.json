@@ -1,0 +1,167 @@
+{
+	"id": "Infrastructure.json",
+	"title": "infrastructure",
+	"translations": {
+		"title": {
+			"de": "Infrastruktur",
+			"el": "Υποδομή",
+			"fr": "infrastructure",
+			"da": "infrastruktur",
+			"nl": "infrastructure",
+			"ja": "インフラストラクチャー"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"passengersPerYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/passengersPerYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/passengersPerYear"}
+				}
+			]
+		},
+		"numberOfTracks": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfTracks"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfTracks"}
+				}
+			]
+		},
+		"iataLocationIdentifier": {
+			"oneOf": [
+				{"$ref": "#/definitions/iataLocationIdentifier"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iataLocationIdentifier"}
+				}
+			]
+		},
+		"passengersPerDay": {
+			"oneOf": [
+				{"$ref": "#/definitions/passengersPerDay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/passengersPerDay"}
+				}
+			]
+		},
+		"Infrastructure/length": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subsequentInfrastructure": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"road": {
+			"oneOf": [
+				{"$ref": "Road.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Road.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"caterer": {
+			"oneOf": [
+				{"$ref": "Caterer.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Caterer.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"previousInfrastructure": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"passengersPerYear": {
+			"title": "passengers per year",
+			"description": "Number of passengers per year.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfTracks": {
+			"title": "number of tracks",
+			"description": "Number of tracks of a railway or railway station.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"iataLocationIdentifier": {
+			"title": "IATA Location Identifier",
+			"description": "",
+			"type": "string"
+		},
+		"passengersPerDay": {
+			"title": "passengers per day",
+			"description": "Number of passengers per day.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Infrastructure",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Infrastructure"}
+}

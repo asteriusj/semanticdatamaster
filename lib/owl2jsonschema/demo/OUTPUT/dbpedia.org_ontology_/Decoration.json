@@ -1,0 +1,60 @@
+{
+	"id": "Decoration.json",
+	"title": "decoration",
+	"description": "An object, such as a medal or an order, that is awarded to honor the recipient ostentatiously.",
+	"translations": {
+		"title": {
+			"de": "Auszeichnung",
+			"el": "διακόσμηση",
+			"fr": "décoration",
+			"it": "onorificenza",
+			"es": "condecoración",
+			"ko": "장식",
+			"nl": "onderscheiding",
+			"ja": "勲章"
+		},
+		"description": {
+			"it": "Per onorificenza si intende un segno di onore che viene concesso da un&apos;autorità in riconoscimento di particolari atti benemeriti.",
+			"fr": "Une distinction honorifique en reconnaissance d&apos;un service civil ou militaire ."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Award.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Decoration",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Decoration"}
+}

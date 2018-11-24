@@ -1,0 +1,60 @@
+{
+	"id": "Economist.json",
+	"title": "economist",
+	"description": "An economist is a professional in the social science discipline of economics.",
+	"translations": {
+		"title": {
+			"de": "Ökonom",
+			"el": "οικονομολόγος",
+			"fr": "économiste",
+			"es": "economista",
+			"ga": "eacnamaí",
+			"ko": "경제학자",
+			"nl": "econoom",
+			"ja": "経済学者"
+		},
+		"description": {
+			"fr": "Le terme d’économiste désigne une personne experte en science économique.",
+			"es": "Un economista es un profesional de las ciencias sociales experto en economía teórica o aplicada."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Economist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Economist"}
+}

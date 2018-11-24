@@ -1,0 +1,56 @@
+{
+	"id": "Mineral.json",
+	"title": "mineral",
+	"description": "A naturally occurring solid chemical substance.",
+	"translations": {
+		"title": {
+			"de": "mineral",
+			"el": "ορυκτό",
+			"fr": "minéral",
+			"it": "minerale",
+			"ko": "광물",
+			"nl": "mineraal",
+			"ja": "鉱物"
+		},
+		"description": {"it": "Corpi naturali inorganici, in genere solidi."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "ChemicalSubstance.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Mineral",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Mineral"}
+}

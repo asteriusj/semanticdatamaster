@@ -1,0 +1,54 @@
+{
+	"id": "Pyramid.json",
+	"title": "Pyramid",
+	"description": "a structure whose shape is roughly that of a pyramid in the geometric sense.",
+	"translations": {
+		"title": {
+			"de": "Pyramide",
+			"fr": "Pyramide",
+			"ga": "pirimid",
+			"nl": "pyramide",
+			"ja": "ピラミッド"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Pyramid",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Pyramid"}
+}

@@ -1,0 +1,55 @@
+{
+	"id": "HandballTeam.json",
+	"title": "handball team",
+	"translations": {
+		"title": {
+			"de": "Handballmannschaft",
+			"el": "ομάδα χειροσφαίρισης",
+			"fr": "équipe de handball",
+			"it": "squadra di pallamano",
+			"ga": "foireann liathróid láimhe",
+			"da": "håndboldhold",
+			"nl": "handbal team"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HandballTeam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HandballTeam"}
+}

@@ -1,0 +1,55 @@
+{
+	"id": "FloweringPlant.json",
+	"title": "flowering plant",
+	"translations": {
+		"title": {
+			"de": "bedecktsamige Pflanze",
+			"el": "ανθοφόρο φυτό",
+			"fr": "angiospermes",
+			"it": "magnoliofita",
+			"es": "angiosperma",
+			"nl": "bedektzadigen",
+			"ja": "被子植物"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Plant.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FloweringPlant",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FloweringPlant"}
+}

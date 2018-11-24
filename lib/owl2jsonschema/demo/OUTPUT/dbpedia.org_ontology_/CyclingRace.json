@@ -1,0 +1,53 @@
+{
+	"id": "CyclingRace.json",
+	"title": "cycling race",
+	"translations": {
+		"title": {
+			"de": "Radrennen",
+			"el": "αγώνας ποδηλασίας",
+			"it": "corsa ciclistica",
+			"da": "cykelløb",
+			"nl": "wielerwedstrijd"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}, {"$ref": "Race.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CyclingRace",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CyclingRace"}
+}

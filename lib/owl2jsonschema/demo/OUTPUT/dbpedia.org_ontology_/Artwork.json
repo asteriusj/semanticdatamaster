@@ -1,0 +1,94 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dutchArtworkCode": {
+			"title": "Dutch artwork code",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A work of art, artwork, art piece, or art object is an aesthetic item or artistic creation.",
+	"format": "http://dbpedia.org/ontology/Artwork",
+	"id": "Artwork.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Artwork"},
+	"properties": {
+		"dutchArtworkCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/dutchArtworkCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dutchArtworkCode"}
+				}
+			]
+		},
+		"painter": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"museum": {
+			"oneOf": [
+				{"$ref": "Museum.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Museum.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "artwork",
+	"translations": {
+		"title": {
+			"de": "Kunstwerk",
+			"el": "έργο τέχνης",
+			"fr": "œuvre d&apos;art",
+			"it": "opera d&apos;arte",
+			"es": "obra de arte",
+			"ga": "saothar ealaíne",
+			"da": "kunstværk",
+			"ko": "작품",
+			"nl": "kunstwerk",
+			"ja": "作品"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

@@ -1,0 +1,56 @@
+{
+	"id": "ChristianBishop.json",
+	"title": "Christian Bishop",
+	"translations": {
+		"title": {
+			"pl": "biskup chrześcijański",
+			"de": "christlicher  Bischof",
+			"el": "Πληροφορίες Επισκόπου",
+			"fr": "évêque chrétien",
+			"it": "vescovo cristiano",
+			"ga": "Easpag Críostaí",
+			"ko": "기독교 주교",
+			"nl": "Christelijk bisschop"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Cleric.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChristianBishop",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChristianBishop"}
+}

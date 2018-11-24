@@ -1,0 +1,60 @@
+{
+	"id": "Chef.json",
+	"title": "chef",
+	"description": "a person who cooks professionally for other people",
+	"translations": {
+		"title": {
+			"da": "kok",
+			"de": "Koch",
+			"el": "αρχιμάγειρος",
+			"es": "cocinero",
+			"fr": "chef",
+			"ga": "cócaire",
+			"it": "chef",
+			"ja": "料理人",
+			"ko": "요리사",
+			"nl": "kok",
+			"pl": "szef kuchni"
+		},
+		"description": {"es": "una persona que cocina profesionalmente para otras"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Chef",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Chef"}
+}

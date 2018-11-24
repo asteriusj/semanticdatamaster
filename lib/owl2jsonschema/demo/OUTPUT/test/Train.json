@@ -1,0 +1,78 @@
+{
+	"id": "Train.json",
+	"title": "train",
+	"translations": {
+		"title": {
+			"de": "Zug",
+			"el": "τρένο",
+			"fr": "train",
+			"it": "treno",
+			"es": "tren",
+			"ga": "traein",
+			"da": "tog",
+			"nl": "trein",
+			"ja": "列車"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"locomotive": {
+			"oneOf": [
+				{"$ref": "Locomotive.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Locomotive.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"wagon": {
+			"oneOf": [
+				{"$ref": "TrainCarriage.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "TrainCarriage.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Train",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Train"}
+}

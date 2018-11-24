@@ -1,0 +1,55 @@
+{
+	"id": "Racecourse.json",
+	"title": "racecourse",
+	"description": "A racecourse is an alternate term for a horse racing track, found in countries such as the United Kingdom, Australia, Hong Kong, and the United Arab Emirates.",
+	"translations": {
+		"title": {
+			"de": "Rennbahn",
+			"el": "ιππόδρομος",
+			"it": "ippodromo",
+			"ga": "ráschúrsa",
+			"nl": "renbaan",
+			"ja": "競馬場"
+		},
+		"description": {"el": "Ο ιππόδρομος,εναλλακτικός όρος για την πίστα διεξαγωγής αγώνων μεταξύ ίππων,συναντάται σε χώρες όπως η Αγγλία, Αυστραλία, Χονγκ Κονγκ και τα Ηνωμένα Αραβικά Εμιράτα."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "SportFacility.json"}, {"$ref": "RaceTrack.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Racecourse",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Racecourse"}
+}

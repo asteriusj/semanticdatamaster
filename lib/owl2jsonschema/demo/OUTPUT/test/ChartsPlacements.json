@@ -1,0 +1,67 @@
+{
+	"id": "ChartsPlacements.json",
+	"title": "Place in the Music Charts",
+	"translations": {
+		"title": {
+			"de": "Chartplatzierungen",
+			"nl": "plaats op de muziek hitlijst"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"tempPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/tempPlace"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tempPlace"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tempPlace": {
+			"title": "Temporary Placement in the Music Charts",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChartsPlacements",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChartsPlacements"}
+}

@@ -1,0 +1,55 @@
+{
+	"id": "Archaea.json",
+	"title": "archaea",
+	"translations": {
+		"title": {
+			"de": "Archaeen",
+			"el": "αρχαία",
+			"fr": "archées",
+			"it": "archei",
+			"ko": "고세균",
+			"nl": "Archaea &amp;&#35;40;oerbacteriën&#41;",
+			"ja": "古細菌"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Archaea",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Archaea"}
+}

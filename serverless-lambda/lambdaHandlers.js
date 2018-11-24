@@ -30,6 +30,8 @@ const responses = {
 }
 
 const TransformServices = require('./TransformServices')
+const TranslateServices = require('./TranslateServices')
+const EnhanceServices = require('./EnhanceServices.js')
 
 /**
  * Initialises the TransformServices based on environment variables
@@ -54,6 +56,24 @@ module.exports.helloWorld = (event, context, callback) => {
   };
 
   callback(null, response);
+};
+
+
+
+module.exports.shacl2jsonschema = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false
+
+  const transform = createTransformServices()
+
+  console.log('event', event)
+  transform.SHACL2JSONSchema(event)
+    .then(hiyas => {
+      callback(null, responses.success(hiyas))
+    })
+    .catch(error => {
+      callback(null, responses.error('error:', error))
+    })
+
 };
 
 module.exports.jsonschema2shacl = (event, context, callback) => {
@@ -98,6 +118,90 @@ module.exports.owljsonld2jsonschema = (event, context, callback) => {
       callback(null, responses.success(hiyas))
     })
     .catch(error => {
+      callback(null, responses.error(error))
+    })
+
+};
+
+module.exports.jsonschema2formfield = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false
+
+  const transform = createTransformServices()
+
+  console.log('event', event)
+  transform.JSONSchema2FormField(event)
+    .then(hiyas => {
+      callback(null, responses.success(hiyas))
+    })
+    .catch(error => {
+      callback(null, responses.error('error:', error))
+    })
+
+};
+
+module.exports.formfield2jsonschema = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false
+
+  const transform = createTransformServices()
+
+  console.log('event', event)
+  transform.FormField2JSONSchema(event)
+    .then(hiyas => {
+      callback(null, responses.success(hiyas))
+    })
+    .catch(error => {
+      callback(null, responses.error('error:', error))
+    })
+
+};
+
+
+module.exports.jsonmetadata = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false
+
+  const enhance = new EnhanceServices()
+
+  enhance.JsonMetadata(event.body)
+    .then(data => {
+      console.log('enhance.JsonMetadata data', data)
+      callback(null, responses.success(data))
+    })
+    .catch(error => {
+      console.log('enhance.JsonMetadataerror', error)
+      callback(null, responses.error('error:', error))
+    })
+
+};
+
+module.exports.dbpedialookup = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false
+  console.log('event', event)
+  const enhance = new EnhanceServices()
+
+  let _entity = null
+  if (event.queryStringParameters != undefined) {
+    _entity = event.queryStringParameters.entity || _entity;
+  };
+  if (event.entity != undefined) {
+    _entity = event.entity || _entity;
+  };
+  let _string = null
+  if (event.pathParameters != undefined) {
+    _string = event.pathParameters.string || _string;
+  };
+  if (event.string != undefined) {
+    _string = event.string || _string;
+  };
+  let param = _entity || _string || ""
+  console.log('param:', param)
+
+  enhance.DBPediaLookUp(param)
+    .then(data => {
+      console.log('enhance.DBPediaLookUp data', data)
+      callback(null, responses.success(data))
+    })
+    .catch(error => {
+      console.log('enhance.DBPediaLookUp', error)
       callback(null, responses.error(error))
     })
 

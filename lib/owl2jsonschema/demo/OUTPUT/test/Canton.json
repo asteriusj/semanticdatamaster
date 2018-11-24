@@ -1,0 +1,60 @@
+{
+	"id": "Canton.json",
+	"title": "canton",
+	"description": "An administrative &amp;&#35;40;France&#41; or lawcourts (Netherlands) body governing a territorial unity on the municipal level or somewhat above",
+	"translations": {
+		"title": {
+			"de": "Kanton",
+			"fr": "canton",
+			"nl": "kanton",
+			"ja": "スイス連邦の州またはフランスの群"
+		},
+		"description": {"de": "Das Wort Kanton dient zur Bezeichnung verschiedener &amp;&#35;40;niederen&#41; Verwaltungsbezirke in Frankreich, Belgien, Kanada und anderen Ländern"}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Canton",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Canton"}
+}

@@ -1,0 +1,9 @@
+
+
+//
+//  serverless
+//
+
+$ npm install -g serverless
+
+$ serverless invoke local -f getSemDatSrvs

@@ -1,0 +1,71 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "Describes all musical instrument",
+	"format": "http://dbpedia.org/ontology/Instrument",
+	"id": "Instrument.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Instrument"},
+	"properties": {
+		"musicians": {
+			"oneOf": [
+				{"$ref": "MusicalArtist.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MusicalArtist.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Instrument",
+	"translations": {
+		"title": {
+			"de": "musikinstrument",
+			"el": "Μουσικό Όργανο",
+			"fr": "instrument de musique",
+			"it": "strumento musicale",
+			"es": "Instrumento",
+			"ga": "uirlis",
+			"sl": "Glasbilo",
+			"ko": "악기",
+			"nl": "muziekinstrument",
+			"ja": "楽器"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

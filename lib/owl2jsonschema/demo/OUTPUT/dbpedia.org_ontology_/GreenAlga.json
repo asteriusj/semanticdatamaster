@@ -1,0 +1,54 @@
+{
+	"id": "GreenAlga.json",
+	"title": "green alga",
+	"translations": {
+		"title": {
+			"de": "Grünalge",
+			"el": "πράσινο φύκος",
+			"fr": "algue verte",
+			"es": "alga verde",
+			"nl": "groenwieren",
+			"ja": "緑藻"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Plant.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GreenAlga",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GreenAlga"}
+}

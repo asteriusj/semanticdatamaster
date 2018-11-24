@@ -1,0 +1,323 @@
+{
+	"id": "GolfPlayer.json",
+	"title": "golf player",
+	"translations": {
+		"title": {
+			"de": "Golfspieler",
+			"el": "παίκτης γκολφ",
+			"fr": "golfeur",
+			"ga": "imreoir gailf",
+			"da": "golfspiller",
+			"nl": "golfspeler"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"winsAtAlpg": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtAlpg"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtAlpg"}
+				}
+			]
+		},
+		"winsAtAsia": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtAsia"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtAsia"}
+				}
+			]
+		},
+		"winsAtAus": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtAus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtAus"}
+				}
+			]
+		},
+		"winsAtChallenges": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtChallenges"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtChallenges"}
+				}
+			]
+		},
+		"winsAtChampionships": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtChampionships"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtChampionships"}
+				}
+			]
+		},
+		"winsAtJLPGA": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtJLPGA"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtJLPGA"}
+				}
+			]
+		},
+		"winsAtJapan": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtJapan"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtJapan"}
+				}
+			]
+		},
+		"winsAtKLPGA": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtKLPGA"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtKLPGA"}
+				}
+			]
+		},
+		"winsAtLAGT": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtLAGT"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtLAGT"}
+				}
+			]
+		},
+		"winsAtLET": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtLET"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtLET"}
+				}
+			]
+		},
+		"winsAtLPGA": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtLPGA"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtLPGA"}
+				}
+			]
+		},
+		"winsAtMajors": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtMajors"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtMajors"}
+				}
+			]
+		},
+		"winsAtNWIDE": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtNWIDE"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtNWIDE"}
+				}
+			]
+		},
+		"winsAtOtherTournaments": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtOtherTournaments"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtOtherTournaments"}
+				}
+			]
+		},
+		"winsAtPGA": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtPGA"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtPGA"}
+				}
+			]
+		},
+		"winsAtProTournaments": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtProTournaments"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtProTournaments"}
+				}
+			]
+		},
+		"winsAtSenEuro": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtSenEuro"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtSenEuro"}
+				}
+			]
+		},
+		"winsAtSun": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsAtSun"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsAtSun"}
+				}
+			]
+		},
+		"winsInEurope": {
+			"oneOf": [
+				{"$ref": "#/definitions/winsInEurope"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winsInEurope"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"winsAtAlpg": {
+			"title": "wins at ALPG",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtAsia": {
+			"title": "wins at ASIA",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtAus": {
+			"title": "wins at AUS",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtChallenges": {
+			"title": "wins at challenges",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtChampionships": {
+			"title": "wins at championships",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtJLPGA": {
+			"title": "wins at JLPGA",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtJapan": {
+			"title": "wins at japan",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtKLPGA": {
+			"title": "wins at KLPGA",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtLAGT": {
+			"title": "wins at LAGT",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtLET": {
+			"title": "wins at LET",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtLPGA": {
+			"title": "wins at LPGA",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtMajors": {
+			"title": "wins at majors",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtNWIDE": {
+			"title": "wins at NWIDE",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtOtherTournaments": {
+			"title": "wins at other tournaments",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtPGA": {
+			"title": "wins at pga",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtProTournaments": {
+			"title": "wins at pro tournaments",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtSenEuro": {
+			"title": "wins at Senior Euro",
+			"description": "",
+			"anyOf": []
+		},
+		"winsAtSun": {
+			"title": "wins at sun",
+			"description": "",
+			"anyOf": []
+		},
+		"winsInEurope": {
+			"title": "wins in Europe",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GolfPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GolfPlayer"}
+}

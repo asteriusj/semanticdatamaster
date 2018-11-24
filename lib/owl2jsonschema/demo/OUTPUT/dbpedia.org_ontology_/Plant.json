@@ -1,0 +1,76 @@
+{
+	"id": "Plant.json",
+	"title": "plant",
+	"translations": {
+		"title": {
+			"de": "pflanze",
+			"el": "φυτό",
+			"fr": "plante",
+			"it": "pianta",
+			"ga": "planda",
+			"nl": "plant",
+			"ja": "植物"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"cultivatedVariety": {
+			"oneOf": [
+				{"$ref": "CultivatedVariety.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "CultivatedVariety.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"hybrid": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Plant",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Plant"}
+}

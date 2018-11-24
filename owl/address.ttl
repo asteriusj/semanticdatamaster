@@ -1,0 +1,6 @@
+# address.ttl
+@prefix address: <http://www.semanticalllc.com/address/>.
+
+address:_Address1 a address: ;
+      address:hasStreet "1313 Mockingbird Ln"^^xsd:string;
+      .

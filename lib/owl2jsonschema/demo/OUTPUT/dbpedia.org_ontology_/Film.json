@@ -1,0 +1,360 @@
+{
+	"id": "Film.json",
+	"title": "movie",
+	"translations": {
+		"title": {
+			"ar": "فيلم",
+			"da": "film",
+			"de": "Film",
+			"el": "ταινία",
+			"es": "película",
+			"fr": "film",
+			"ga": "scannán",
+			"ja": "映画",
+			"ko": "영화",
+			"nl": "film",
+			"pl": "film"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"afdbId": {
+			"oneOf": [
+				{"$ref": "#/definitions/afdbId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/afdbId"}
+				}
+			]
+		},
+		"allcinemaId": {
+			"oneOf": [
+				{"$ref": "#/definitions/allcinemaId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/allcinemaId"}
+				}
+			]
+		},
+		"amgid": {
+			"oneOf": [
+				{"$ref": "#/definitions/amgid"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amgid"}
+				}
+			]
+		},
+		"bgafdId": {
+			"oneOf": [
+				{"$ref": "#/definitions/bgafdId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bgafdId"}
+				}
+			]
+		},
+		"cinematography": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"costumeDesigner": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"director": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"eTeatrId": {
+			"oneOf": [
+				{"$ref": "#/definitions/eTeatrId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eTeatrId"}
+				}
+			]
+		},
+		"editing": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"egafdId": {
+			"oneOf": [
+				{"$ref": "#/definitions/egafdId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/egafdId"}
+				}
+			]
+		},
+		"eurobabeIndexId": {
+			"oneOf": [
+				{"$ref": "#/definitions/eurobabeIndexId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eurobabeIndexId"}
+				}
+			]
+		},
+		"filmAudioType": {
+			"oneOf": [
+				{"$ref": "#/definitions/filmAudioType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/filmAudioType"}
+				}
+			]
+		},
+		"filmColourType": {
+			"oneOf": [
+				{"$ref": "#/definitions/filmColourType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/filmColourType"}
+				}
+			]
+		},
+		"filmRuntime": {
+			"oneOf": [
+				{"$ref": "#/definitions/filmRuntime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/filmRuntime"}
+				}
+			]
+		},
+		"firstBroadcast": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstBroadcast"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstBroadcast"}
+				}
+			]
+		},
+		"gross": {
+			"oneOf": [
+				{"$ref": "#/definitions/gross"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gross"}
+				}
+			]
+		},
+		"iafdId": {
+			"oneOf": [
+				{"$ref": "#/definitions/iafdId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iafdId"}
+				}
+			]
+		},
+		"idAllocine": {
+			"oneOf": [
+				{"$ref": "#/definitions/idAllocine"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/idAllocine"}
+				}
+			]
+		},
+		"makeupArtist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"producedBy": {
+			"oneOf": [
+				{"$ref": "Company.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Company.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"quebecerTitle": {
+			"oneOf": [
+				{"$ref": "#/definitions/quebecerTitle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/quebecerTitle"}
+				}
+			]
+		},
+		"setDesigner": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"specialEffects": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"titleLanguage": {
+			"oneOf": [
+				{"$ref": "#/definitions/titleLanguage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/titleLanguage"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"afdbId": {
+			"title": "afdb id",
+			"description": "",
+			"type": "string"
+		},
+		"allcinemaId": {
+			"title": "allcinema id",
+			"description": "",
+			"type": "string"
+		},
+		"amgid": {
+			"title": "amgId",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"bgafdId": {
+			"title": "bgafd id",
+			"description": "",
+			"type": "string"
+		},
+		"eTeatrId": {
+			"title": "e-teatr.pl id",
+			"description": "",
+			"type": "string"
+		},
+		"egafdId": {
+			"title": "egafd id",
+			"description": "",
+			"type": "string"
+		},
+		"eurobabeIndexId": {
+			"title": "eurobabe index id",
+			"description": "",
+			"type": "string"
+		},
+		"filmAudioType": {
+			"title": "film audio type",
+			"description": "specifies the audio type of the film i.e. &apos;sound' or 'silent'",
+			"type": "string"
+		},
+		"filmColourType": {
+			"title": "film colour type",
+			"description": "specifies the colour type of the film i.e. &apos;colour' or 'b/w'",
+			"type": "string"
+		},
+		"filmRuntime": {
+			"title": "film runtime &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"firstBroadcast": {
+			"title": "first broadcast",
+			"description": "",
+			"type": "string"
+		},
+		"gross": {
+			"title": "gross &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"iafdId": {
+			"title": "iafd id",
+			"description": "",
+			"type": "string"
+		},
+		"idAllocine": {
+			"title": "Allocine ID",
+			"description": "ID of a film on Allocine",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"quebecerTitle": {
+			"title": "quebecer title",
+			"description": "",
+			"type": "string"
+		},
+		"titleLanguage": {
+			"title": "title language",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Film",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Film"}
+}

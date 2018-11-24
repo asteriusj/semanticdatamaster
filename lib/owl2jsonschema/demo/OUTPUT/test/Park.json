@@ -1,0 +1,57 @@
+{
+	"id": "Park.json",
+	"title": "park",
+	"description": "A park is an area of open space provided for recreational use. http://en.wikipedia.org/wiki/Park",
+	"translations": {
+		"title": {
+			"de": "Park",
+			"el": "πάρκο",
+			"fr": "parc",
+			"ga": "páirc",
+			"ko": "공원",
+			"nl": "park",
+			"pt": "parque",
+			"ja": "公園"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Park",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Park"}
+}

@@ -1,0 +1,286 @@
+{
+	"id": "Artist.json",
+	"title": "artist",
+	"translations": {
+		"title": {
+			"be": "мастак",
+			"da": "kunstner",
+			"de": "Künstler",
+			"el": "καλλιτέχνης",
+			"fr": "artiste",
+			"ga": "ealaíontóir",
+			"it": "artista",
+			"ja": "芸術家",
+			"ko": "예술가",
+			"nl": "kunstenaar",
+			"pl": "artysta",
+			"ru": "художник"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"academyAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"afiAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"associatedAct": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"baftaAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"cesarAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"disciple": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dutchRKDCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/dutchRKDCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dutchRKDCode"}
+				}
+			]
+		},
+		"emmyAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"field": {
+			"oneOf": [
+				{"$ref": "#/definitions/field"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/field"}
+				}
+			]
+		},
+		"filmFareAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"gaudiAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"goldenGlobeAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"goyaAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"grammyAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"instrument": {
+			"oneOf": [
+				{"$ref": "Instrument.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Instrument.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mentor": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"movement": {
+			"oneOf": [
+				{"$ref": "#/definitions/movement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/movement"}
+				}
+			]
+		},
+		"polishFilmAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"style": {
+			"oneOf": [
+				{"$ref": "#/definitions/style"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/style"}
+				}
+			]
+		},
+		"tonyAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"training": {
+			"oneOf": [
+				{"$ref": "EducationalInstitution.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "EducationalInstitution.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"voiceType": {
+			"oneOf": [
+				{"$ref": "#/definitions/voiceType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/voiceType"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dutchRKDCode": {
+			"title": "Dutch RKD code",
+			"description": "",
+			"type": "string"
+		},
+		"voiceType": {
+			"title": "voice type",
+			"description": "voice type of a singer or an actor",
+			"anyOf": []
+		},
+		"field": {
+			"title": "field",
+			"description": "",
+			"anyOf": []
+		},
+		"style": {
+			"title": "style",
+			"description": "",
+			"anyOf": []
+		},
+		"movement": {
+			"title": "movement",
+			"description": "artistic movement or school with which artist is associated",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Artist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Artist"}
+}

@@ -1,0 +1,97 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"parkingLotsTrucks": {
+			"title": "number of parking lots for trucks",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"parkingLotsCars": {
+			"title": "number of parking lots for cars",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A rest area is part of a Road, meant to stop and rest. More often than not, there is a filling station",
+	"format": "http://dbpedia.org/ontology/RestArea",
+	"id": "RestArea.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RestArea"},
+	"properties": {
+		"parkingLotsTrucks": {
+			"oneOf": [
+				{"$ref": "#/definitions/parkingLotsTrucks"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/parkingLotsTrucks"}
+				}
+			]
+		},
+		"parkingLotsCars": {
+			"oneOf": [
+				{"$ref": "#/definitions/parkingLotsCars"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/parkingLotsCars"}
+				}
+			]
+		},
+		"fillingStation": {
+			"oneOf": [
+				{"$ref": "FillingStation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "FillingStation.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "rest area",
+	"translations": {
+		"title": {
+			"nl": "rustplaats",
+			"de": "Rasthof"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

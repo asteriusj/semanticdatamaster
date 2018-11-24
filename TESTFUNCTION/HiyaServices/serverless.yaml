@@ -1,0 +1,46 @@
+# Serverless definition file
+# --------------------------
+# Defines Lambda functions to be deployed to AWS using the Serverless Framework.
+# http://serverless.com
+
+service: hiya-services
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+  memorySize: 128
+  timeout: 30
+  environment: ${file(env.yml):${self:provider.stage}}
+
+functions:
+  # Get hiyas ----------------------------------------------------------------
+  getHiyas:
+    handler: lambdaHandlers.getHiyas
+    events:
+      - http:
+          path: hiyas
+          method: get
+          cors: 
+            origins:               
+              - '*'
+  # Get hiya -----------------------------------------------------------------
+  getHiya:
+    handler: lambdaHandlers.getHiya
+    events:
+      - http:
+          path: hiyas/{index}
+          method: get
+          cors: 
+            origins:               
+              - '*'
+  # Put hiya ----------------------------------------------------------------
+  puyHiya:
+    handler: lambdaHandlers.putHiya
+    events:
+      - http:
+          path: hiyas
+          method: post
+          cors: 
+            origins:               
+              - '*'

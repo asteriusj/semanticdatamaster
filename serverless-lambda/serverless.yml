@@ -5,15 +5,24 @@
 # uses to deploy your code to your provider of choice
 
 # The `service` block is the name of the service
-service: semantic-data-services
+service: semantic-data-service
 
+# custom:
+#   bucket: semanticdataservices.asteriusmedia.com
+  
 # The `provider` block defines where your service will be deployed
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   region: us-east-1
   memorySize: 128
   timeout: 30
+  environment: ${file(.env.yml):${self:provider.stage}}
+  # iamRoleStatements:
+  #   - Effect: Allow
+  #     Action:
+  #       - s3:PutObject
+  #     Resource: "arn:aws:s3:::${self:custom.bucket}/*"
 
 # The `functions` block defines what code to deploy
 functions:
@@ -25,6 +34,7 @@ functions:
           path: hello-world
           method: get
           cors: true
+  
   # transform jsonschema2shacl semantic-data-service ----------------------------------------------------------------
   jsonschema2shacl:
     handler: lambdaHandlers.jsonschema2shacl
@@ -40,24 +50,9 @@ functions:
           cors: 
             origins:               
               - '*'
-  # # transform jsonschema2shacl semantic-data-service ----------------------------------------------------------------
-  # jsonschema2shacl:
-  #   handler: lambdaHandlers.jsonschema2shacl
-  #   description: Read JSON Schema file and and convert to SHACL constraints
-  #   tags: 
-  #     function: transform
-  #     input: jsonschema
-  #     output: shacl
-  #   events:
-  #     - http:
-  #         path: transform/jsonschema2shacl/
-  #         method: post
-  #         cors: 
-  #           origins:               
-  #             - '*'
-  # transform shacljsonschema semantic-data-service ----------------------------------------------------------------
-  shacljsonschema:
-    handler: lambdaHandlers.shacljsonschema
+  # transform shacl2jsonschema semantic-data-service ----------------------------------------------------------------
+  shacl2jsonschema:
+    handler: lambdaHandlers.shacl2jsonschema
     description: Read SHACL constraints and and convert to JSON Schema
     tags: 
       function: transform
@@ -65,7 +60,7 @@ functions:
       output: jsonschema
     events:
       - http:
-          path: transform/shacljsonschema/
+          path: transform/shacl2jsonschema/
           method: post
           cors: 
             origins:               
@@ -266,7 +261,7 @@ functions:
           cors: 
             origins:               
               - '*'
-# translate ttl2jsonld semantic-data-service ----------------------------------------------------------------
+  # translate ttl2jsonld semantic-data-service ----------------------------------------------------------------
   ttl2jsonld:
     handler: lambdaHandlers.ttl2jsonld
     description: 
@@ -329,3 +324,48 @@ functions:
 
 ### owljsonld2uml
 
+
+  # jsonmetadata semantic-data-service ----------------------------------------------------------------
+  jsonmetadata:
+    handler: lambdaHandlers.jsonmetadata
+    description: Enhance JSON structure with metadata for _id, _etag, _guid, _kind _datepublished
+    tags: 
+      function: enhance
+      input: json
+      output: json
+    environment:
+      SLS_DEBUG: true
+    events:
+      - http:
+          path: enhance/jsonmetadata/
+          method: post
+          cors: 
+            origins:               
+              - '*'
+    
+  # dbpedialookup semantic-data-service ----------------------------------------------------------------
+  dbpedialookup:
+    handler: lambdaHandlers.dbpedialookup
+    description: Retrieve semantic linked open data properties from matching DBPedia entry 
+    tags: 
+      function: enhance
+      input: json
+      output: json
+    environment:
+      SLS_DEBUG: true
+    events:
+      - http:
+          path: enhance/dbpedialookup/{string}
+          method: get
+          request:
+            parameters:
+              querystrings:
+                entity: false
+              headers:
+              paths:
+                string: true
+          cors: 
+            origins:               
+              - '*'
+            
+        

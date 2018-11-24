@@ -1,0 +1,731 @@
+{
+	"id": "Settlement.json",
+	"title": "settlement",
+	"translations": {
+		"title": {
+			"de": "Siedlung",
+			"el": "οικισμός",
+			"fr": "zone peuplée",
+			"ga": "bardas",
+			"nl": "nederzetting",
+			"ja": "居住地"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"adjacentSettlement": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"administrativeCollectivity": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"administrativeDistrict": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"agglomerationPopulation": {
+			"oneOf": [
+				{"$ref": "Population.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Population.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"agglomerationPopulationYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/agglomerationPopulationYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/agglomerationPopulationYear"}
+				}
+			]
+		},
+		"associationOfLocalGovernment": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"bourgmestre": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"canton": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coastLine": {
+			"oneOf": [
+				{"$ref": "#/definitions/coastLine"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coastLine"}
+				}
+			]
+		},
+		"codeSettlement": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeSettlement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeSettlement"}
+				}
+			]
+		},
+		"collectivityMinority": {
+			"oneOf": [
+				{"$ref": "#/definitions/collectivityMinority"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/collectivityMinority"}
+				}
+			]
+		},
+		"commune": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"daira": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"day": {
+			"oneOf": [
+				{"$ref": "#/definitions/day"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/day"}
+				}
+			]
+		},
+		"distanceToBelfast": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToBelfast"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToBelfast"}
+				}
+			]
+		},
+		"distanceToCapital": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToCapital"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToCapital"}
+				}
+			]
+		},
+		"distanceToCardiff": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToCardiff"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToCardiff"}
+				}
+			]
+		},
+		"distanceToCharingCross": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToCharingCross"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToCharingCross"}
+				}
+			]
+		},
+		"distanceToDouglas": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToDouglas"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToDouglas"}
+				}
+			]
+		},
+		"distanceToDublin": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToDublin"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToDublin"}
+				}
+			]
+		},
+		"distanceToEdinburgh": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToEdinburgh"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToEdinburgh"}
+				}
+			]
+		},
+		"distanceToLondon": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToLondon"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToLondon"}
+				}
+			]
+		},
+		"distanceToNearestCity": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceToNearestCity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceToNearestCity"}
+				}
+			]
+		},
+		"employersCelebration": {
+			"oneOf": [
+				{"$ref": "#/definitions/employersCelebration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/employersCelebration"}
+				}
+			]
+		},
+		"federalState": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"frazioni": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"geolocDepartment": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"highestPoint": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"inseeCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/inseeCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/inseeCode"}
+				}
+			]
+		},
+		"isCityState": {
+			"oneOf": [
+				{"$ref": "#/definitions/isCityState"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isCityState"}
+				}
+			]
+		},
+		"isoCodeRegion": {
+			"oneOf": [
+				{"$ref": "#/definitions/isoCodeRegion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isoCodeRegion"}
+				}
+			]
+		},
+		"jointCommunity": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"landRegistryCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/landRegistryCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landRegistryCode"}
+				}
+			]
+		},
+		"largestMetro": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"locality": {
+			"oneOf": [
+				{"$ref": "#/definitions/locality"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/locality"}
+				}
+			]
+		},
+		"lowestPoint": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mergedSettlement": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"minority": {
+			"oneOf": [
+				{"$ref": "Group.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Group.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"officialName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ofsCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/ofsCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ofsCode"}
+				}
+			]
+		},
+		"ons": {
+			"oneOf": [
+				{"$ref": "#/definitions/ons"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ons"}
+				}
+			]
+		},
+		"otherInformation": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherInformation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherInformation"}
+				}
+			]
+		},
+		"otherLanguage": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherLanguage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherLanguage"}
+				}
+			]
+		},
+		"phonePrefixLabel": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"politicalMajority": {
+			"oneOf": [
+				{"$ref": "PoliticalParty.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PoliticalParty.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"politicalSeats": {
+			"oneOf": [
+				{"$ref": "#/definitions/politicalSeats"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/politicalSeats"}
+				}
+			]
+		},
+		"populationTotalReference": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationTotalReference"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationTotalReference"}
+				}
+			]
+		},
+		"provCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/provCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/provCode"}
+				}
+			]
+		},
+		"reffBourgmestre": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sameName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"settlementAttached": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"summerTemperature": {
+			"oneOf": [
+				{"$ref": "#/definitions/summerTemperature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/summerTemperature"}
+				}
+			]
+		},
+		"twinTown": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"urbanArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/urbanArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/urbanArea"}
+				}
+			]
+		},
+		"wilaya": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"winterTemperature": {
+			"oneOf": [
+				{"$ref": "#/definitions/winterTemperature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/winterTemperature"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"agglomerationPopulationYear": {
+			"title": "agglomerationPopulationYear",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"coastLine": {
+			"title": "coast line &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"codeSettlement": {
+			"title": "settlement code",
+			"description": "",
+			"type": "string"
+		},
+		"collectivityMinority": {
+			"title": "collectivity minority",
+			"description": "",
+			"anyOf": []
+		},
+		"day": {
+			"title": "day",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"distanceToBelfast": {
+			"title": "distance to Belfast &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToCapital": {
+			"title": "distance to capital &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToCardiff": {
+			"title": "distance to Cardiff &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToCharingCross": {
+			"title": "distance to Charing Cross &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToDouglas": {
+			"title": "distance to Douglas &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToDublin": {
+			"title": "distance to Dublin &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToEdinburgh": {
+			"title": "distance to Edinburgh &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToLondon": {
+			"title": "distance to London &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"distanceToNearestCity": {
+			"title": "distance to nearest city &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"employersCelebration": {
+			"title": "employer&apos;s celebration",
+			"description": "",
+			"type": "string"
+		},
+		"inseeCode": {
+			"title": "INSEE code",
+			"description": "numerical indexing code used by the French National Institute for Statistics and Economic Studies &amp;&#35;40;INSEE&#41; to identify various entities",
+			"type": "string"
+		},
+		"isCityState": {
+			"title": "is a city state",
+			"description": "",
+			"type": "string"
+		},
+		"isoCodeRegion": {
+			"title": "ISO region code",
+			"description": "",
+			"type": "string"
+		},
+		"landRegistryCode": {
+			"title": "land registry code",
+			"description": "",
+			"type": "string"
+		},
+		"locality": {
+			"title": "locality of a switzerland settlement",
+			"description": "",
+			"type": "string"
+		},
+		"ofsCode": {
+			"title": "ofs code of a settlement",
+			"description": "Identifier used by the Swiss Federal Institute for Statistics",
+			"type": "string"
+		},
+		"ons": {
+			"title": "ons",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"otherInformation": {
+			"title": "other information of a settlement",
+			"description": "",
+			"type": "string"
+		},
+		"otherLanguage": {
+			"title": "other language of a settlement",
+			"description": "",
+			"type": "string"
+		},
+		"politicalSeats": {
+			"title": "political seats",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"populationTotalReference": {
+			"title": "total population reference",
+			"description": "",
+			"anyOf": []
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"provCode": {
+			"title": "prove code",
+			"description": "",
+			"type": "string"
+		},
+		"summerTemperature": {
+			"title": "summer temperature &amp;&#35;40;K&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"urbanArea": {
+			"title": "urban area",
+			"description": "",
+			"type": "string"
+		},
+		"winterTemperature": {
+			"title": "winter temperature &amp;&#35;40;K&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Settlement",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Settlement"}
+}

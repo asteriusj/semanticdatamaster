@@ -1,0 +1,69 @@
+{
+	"id": "MythologicalFigure.json",
+	"title": "mythological figure",
+	"translations": {
+		"title": {
+			"de": "mythologische Gestalt",
+			"el": "μυθικό πλάσμα",
+			"it": "figura mitologica",
+			"nl": "mythologisch figuur"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "FictionalCharacter.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"mythology": {
+			"oneOf": [
+				{"$ref": "#/definitions/mythology"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mythology"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mythology": {
+			"title": "mythology",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MythologicalFigure",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MythologicalFigure"}
+}

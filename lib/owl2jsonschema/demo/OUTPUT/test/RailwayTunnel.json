@@ -1,0 +1,69 @@
+{
+	"id": "RailwayTunnel.json",
+	"title": "railway tunnel",
+	"translations": {
+		"title": {
+			"de": "Eisenbahntunnel",
+			"el": "σιδηροδρομική σήραγγα",
+			"ga": "tollán iarnróid",
+			"nl": "spoorwegtunnel"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "RouteOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"railwayLineUsingTunnel": {
+			"oneOf": [
+				{"$ref": "#/definitions/railwayLineUsingTunnel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/railwayLineUsingTunnel"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"railwayLineUsingTunnel": {
+			"title": "railway line using tunnel",
+			"description": "Railway line that is using the tunnel.",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/RailwayTunnel",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RailwayTunnel"}
+}

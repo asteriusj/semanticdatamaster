@@ -1,0 +1,53 @@
+{
+	"id": "Attack.json",
+	"title": "attack",
+	"description": "An Attack is not necessarily part of a Military Conflict",
+	"translations": {
+		"title": {
+			"de": "Angriff, Anschlag",
+			"fr": "attaque, attentat",
+			"nl": "aanval, aanslag",
+			"ja": "攻撃"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Attack",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Attack"}
+}

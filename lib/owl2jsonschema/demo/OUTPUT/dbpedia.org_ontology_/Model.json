@@ -1,0 +1,55 @@
+{
+	"id": "Model.json",
+	"title": "model",
+	"translations": {
+		"title": {
+			"de": "model",
+			"el": "μοντέλο",
+			"fr": "mannequin",
+			"ga": "mainicín",
+			"ko": "모델",
+			"nl": "&amp;&#35;40;foto&#41;model",
+			"ja": "モデル_&amp;&#35;40;職業&#41;"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Model",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Model"}
+}

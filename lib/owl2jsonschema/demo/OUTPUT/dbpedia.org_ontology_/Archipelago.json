@@ -1,0 +1,55 @@
+{
+	"id": "Archipelago.json",
+	"title": "archipelago",
+	"translations": {
+		"title": {
+			"de": "Archipel",
+			"el": "αρχιπέλαγος",
+			"fr": "archipel",
+			"es": "archipiélago",
+			"nl": "archipel",
+			"pt": "arquipélago",
+			"ja": "多島海"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Archipelago",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Archipelago"}
+}

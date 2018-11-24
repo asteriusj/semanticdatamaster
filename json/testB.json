@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "id": "Person.json",
+  "title": "Person",
+  "description": "A Person is an Entity of type...",
+  "format": "http://schema.org/Person",
+  "media": {
+    "type": "application/json;profile=http://schema.org/Person"
+  },
+  "allOf": [
+    {
+      "$ref": "Thing.json"
+    }
+  ],
+  "required": [
+    
+  ],
+  "properties": {
+    "s1": {
+      "type": "string",
+      "title": "A validated string",
+      "minLength": 1,
+      "maxLength": 2,
+      "pattern": "a",
+      "description": "A string of length `1` or `2` characters long and containing `'a'`"
+    },
+    "givenName": {
+      "title": "Given Name",
+      "description": "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the Name property.",
+      "type": "string"
+    },
+    "familyName": {
+      "title": "Family Name",
+      "description": "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the Name property.",
+      "type": "string"
+    },
+    "nickname": {
+      "title": "Nickname",
+      "description": "Nickname allowed",
+      "type": "string"
+    },
+    "fullname": {
+      "title": "Full Name",
+      "description": "First Middle and Last Names",
+      "type": "string"
+    },
+    "additionalName": {
+      "title": "Additional Name",
+      "description": "An additional name for a Person, can be used for a middle name.",
+      "type": "string"
+    },
+    "age": {
+      "type": "integer",
+      "format": "range",
+      "title": "Age",
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "maximum": 100,
+      "exclusiveMaximum": true,
+      "description": "A integer between `1` and `99` (inclusive). This example makes use of `exclusiveMinimum` and `exclusiveMaximum` schema keywords"
+    },
+    "birthDate": {
+      "title": "Birth Date",
+      "description": "Date of birth.",
+      "type": "string",
+      "format": "date"
+    },
+    "gender": {
+      "title": "Gender",
+      "description": "Gender of the person.",
+      "type": "string",
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "alien"
+      ]
+    }
+  },
+  "definitions": {
+    "array": {
+      "type": "array",
+      "items": {
+        "$ref": "#"
+      }
+    }
+  }
+}

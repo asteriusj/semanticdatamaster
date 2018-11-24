@@ -1,0 +1,53 @@
+{
+	"id": "Ligament.json",
+	"title": "ligament",
+	"translations": {
+		"title": {
+			"de": "Band &amp;&#35;40;Anatomie&#41;",
+			"el": "σύνδεσμος",
+			"nl": "bindweefsel",
+			"pt": "ligamento",
+			"ja": "靭帯"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Ligament",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Ligament"}
+}

@@ -1,0 +1,68 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "PeriodicalLiterature.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dutchWinkelID": {
+			"title": "Dutch PPN code",
+			"description": "Dutch Winkel ID is a code for an underground publication, as attributed by Lydia Winkel&apos;s work on the underground WW II press in the Netherlands.",
+			"type": "string"
+		}
+	},
+	"description": "An underground journal is, although over time there have always been publications forbidden by law, a phenomenon typical of countries occupied by the Germans during the Second World War. The writing in the underground press aims at stiffening a spirit of resistance against Nazi occupation. The distribution of underground journals had to be very secretive and was, therefore, very much dependant on illegal distribution circuits and the hazards of persecution by the occupant.",
+	"format": "http://dbpedia.org/ontology/UndergroundJournal",
+	"id": "UndergroundJournal.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/UndergroundJournal"},
+	"properties": {
+		"dutchWinkelID": {
+			"oneOf": [
+				{"$ref": "#/definitions/dutchWinkelID"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dutchWinkelID"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "underground journal",
+	"translations": {
+		"title": {
+			"de": "Underground Zeitschrift",
+			"nl": "verzetsblad"
+		},
+		"description": {"nl": "Ondergrondse bladen zijn, hoewel een verschijnsel van alle tijden, een verschijnsel dat sterk wordt geassocieerd met het verzet tegen de Duitse bezetter in de Tweede Wereldoorlog. De artikelen in deze bladen waren erop gericht de verzetsgeest levend te houden of aan te wakkeren. De verspreiding van illegale tijdschriften was sterk afhankelijk van illegale distributiekanalen en van het falen of succes van de Duitse pogingen om deze kanalen op te rollen."}
+	},
+	"type": "object"
+}

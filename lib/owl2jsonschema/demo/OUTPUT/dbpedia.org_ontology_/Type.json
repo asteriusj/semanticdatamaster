@@ -1,0 +1,55 @@
+{
+	"id": "Type.json",
+	"title": "type",
+	"description": "a category within a classification system",
+	"translations": {
+		"title": {
+			"de": "Typ",
+			"el": "τύπος",
+			"fr": "régime de classification",
+			"ga": "cineál",
+			"nl": "type",
+			"ja": "型"
+		},
+		"description": {"nl": "categorie binnen een classificatiesysteem"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Type",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Type"}
+}

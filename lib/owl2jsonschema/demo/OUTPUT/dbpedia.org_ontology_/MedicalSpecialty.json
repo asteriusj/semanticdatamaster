@@ -1,0 +1,55 @@
+{
+	"id": "MedicalSpecialty.json",
+	"title": "medical specialty",
+	"translations": {
+		"title": {
+			"de": "medizinisches Fachgebiet",
+			"el": "ιατρική ειδικότητα",
+			"fr": "spécialité médicale",
+			"it": "specializzazione medica",
+			"ko": "진료과",
+			"nl": "medisch specialisme",
+			"ja": "診療科"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MedicalSpecialty",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MedicalSpecialty"}
+}

@@ -1,0 +1,54 @@
+{
+	"id": "Painter.json",
+	"title": "painter",
+	"translations": {
+		"title": {
+			"de": "Maler",
+			"el": "ζωγράφος",
+			"fr": "peintre",
+			"da": "maler",
+			"nl": "schilder",
+			"ja": "画家"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Painter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Painter"}
+}

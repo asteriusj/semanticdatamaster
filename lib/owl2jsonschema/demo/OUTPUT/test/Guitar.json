@@ -1,0 +1,62 @@
+{
+	"id": "Guitar.json",
+	"title": "guitar",
+	"description": "Describes the guitar",
+	"translations": {
+		"title": {
+			"de": "Gitarre",
+			"el": "κιθάρα",
+			"fr": "guitare",
+			"es": "guitarra",
+			"ga": "giotar",
+			"da": "guitar",
+			"nl": "gitaar",
+			"ja": "ギター"
+		},
+		"description": {
+			"el": "Περιγράφει την κιθάρα",
+			"fr": "Décrit la guitare",
+			"es": "Describe la guitarra",
+			"nl": "beschrijving van de gitaar"
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}, {"$ref": "Instrument.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Guitar",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Guitar"}
+}

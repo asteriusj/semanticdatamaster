@@ -1,0 +1,246 @@
+{
+	"id": "Aircraft.json",
+	"title": "aircraft",
+	"translations": {
+		"title": {
+			"da": "fly",
+			"de": "Flugzeug",
+			"el": "αεροσκάφος",
+			"es": "avión",
+			"fr": "avion",
+			"ga": "aerárthach",
+			"gl": "avión",
+			"it": "aereo",
+			"ja": "航空機",
+			"ko": "비행기",
+			"nl": "vliegtuig",
+			"pl": "samolot",
+			"ro": "avion",
+			"zh": "飛機"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"aircraftType": {
+			"oneOf": [
+				{"$ref": "#/definitions/aircraftType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/aircraftType"}
+				}
+			]
+		},
+		"aircraftUser": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ceiling": {
+			"oneOf": [
+				{"$ref": "#/definitions/ceiling"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ceiling"}
+				}
+			]
+		},
+		"gun": {
+			"oneOf": [
+				{"$ref": "#/definitions/gun"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gun"}
+				}
+			]
+		},
+		"numberBuilt": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberBuilt"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberBuilt"}
+				}
+			]
+		},
+		"numberOfBombs": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfBombs"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfBombs"}
+				}
+			]
+		},
+		"numberOfRockets": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfRockets"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfRockets"}
+				}
+			]
+		},
+		"productionYears": {
+			"oneOf": [
+				{"$ref": "#/definitions/productionYears"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/productionYears"}
+				}
+			]
+		},
+		"programCost": {
+			"oneOf": [
+				{"$ref": "#/definitions/programCost"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/programCost"}
+				}
+			]
+		},
+		"unitCost": {
+			"oneOf": [
+				{"$ref": "#/definitions/unitCost"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/unitCost"}
+				}
+			]
+		},
+		"wingArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/wingArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wingArea"}
+				}
+			]
+		},
+		"wingspan": {
+			"oneOf": [
+				{"$ref": "#/definitions/wingspan"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wingspan"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"aircraftType": {
+			"title": "aircraft type",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"ceiling": {
+			"title": "ceiling",
+			"description": "Maximum distance to the earth surface, to be expressed in kilometers",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"gun": {
+			"title": "aircraft gun",
+			"description": "",
+			"type": "string"
+		},
+		"numberBuilt": {
+			"title": "number built",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfBombs": {
+			"title": "number of bombs",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfRockets": {
+			"title": "number of rockets",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"productionYears": {
+			"title": "production years",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"programCost": {
+			"title": "program cost &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"unitCost": {
+			"title": "unit cost &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"wingArea": {
+			"title": "wing area &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"wingspan": {
+			"title": "wingspan &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Aircraft",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Aircraft"}
+}

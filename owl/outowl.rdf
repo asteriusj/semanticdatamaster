@@ -1,0 +1,224 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+    xmlns:dbo="http://dbpedia.org/ontology/"
+    xmlns:schema="http://schema.org/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:sf="https://github.com/vocol/salesforce/"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:prov="http://www.w3.org/ns/prov#"
+    xmlns:con="http://www.w3.org/2000/10/swap/pim/contact#"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+    xmlns:sdm="https://github.com/asteriusj/semanticdatamaster/"
+    xmlns:org="http://www.w3.org/ns/org#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema#" > 
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtSlogan">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>Slogan</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.slogan</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtMiddleName">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>middleName</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.middlename</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/ddlIndustrySector">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>Industry Sector</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>organization.sector</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtDescription">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtDescription</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.description</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/adult">
+    <rdfs:range>xsd:boolean</rdfs:range>
+    <rdfs:label>adult</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>level2.level1.level0.image</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtFullName">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>fullName</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.fullname</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/dateOfBirth">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>dateOfBirth</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.dateofbirth</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/ddlGender">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>gender</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.gender</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/ddlClientType">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>ClientType</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.type</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtAddress2">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtAddress2</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.address.address2</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtPrefix">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>prefix</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.prefix</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtSuffix">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>suffix</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.suffix</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtEmailAddres">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>emailAddres</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.emailaddress</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtPostalCode">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtPostalCode</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.address.postalcode</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtLocaleCity">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtLocaleCity</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.address.localecity</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtPersonUID">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>PersonUID</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.uid</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/Person">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtMobileNumber">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>mobileNumber</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.mobilenumber</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtName">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>ClientName</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.name</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtRegionState">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtRegionState</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.address.regionstate</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtLastName">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>familyName</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.familyname</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtAddress">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>address</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>place.address</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtGivenName">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>givenName</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.givenname</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtWebsite">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>Website</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.website</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtNickName">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>nickName</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.informalname</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="customer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf>sdm:Person</rdfs:subClassOf>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtAddress1">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtAddress1</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.address.address1</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtCountryCode">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>txtCountryCode</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>client.organization.address.countrycode</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/txtPhoneNumber">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>phoneNumber</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>employee.person.phonenumber</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/imgProfileThumbnail">
+    <rdfs:range>xsd:string</rdfs:range>
+    <rdfs:label>ProfileThumbnail</rdfs:label>
+    <rdfs:doman>sdm:Person</rdfs:doman>
+    <rdfs:comment>thumbnail.image</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+</rdf:RDF>

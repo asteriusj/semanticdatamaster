@@ -1,0 +1,53 @@
+{
+	"id": "RugbyClub.json",
+	"title": "rugby club",
+	"translations": {
+		"title": {
+			"de": "Rugby-Club",
+			"el": "ομάδα ράγκμπι",
+			"fr": "club de rugby",
+			"ga": "club rugbaí",
+			"nl": "rugby club"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/RugbyClub",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RugbyClub"}
+}

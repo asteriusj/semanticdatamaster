@@ -1,0 +1,56 @@
+{
+	"id": "ProgrammingLanguage.json",
+	"title": "programming language",
+	"translations": {
+		"title": {
+			"de": "Programmiersprache",
+			"el": "γλώσσα προγραμματισμού",
+			"fr": "langage de programmation",
+			"ga": "teanga ríomhchlárúcháin",
+			"da": "programmeringssprog",
+			"ko": "프로그래밍 언어",
+			"nl": "programmeertaal",
+			"pt": "linguagem de programação"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Language.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ProgrammingLanguage",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ProgrammingLanguage"}
+}

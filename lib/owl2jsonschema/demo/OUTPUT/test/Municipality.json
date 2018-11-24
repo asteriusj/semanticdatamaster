@@ -1,0 +1,133 @@
+{
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"departmentCode": {
+			"title": "code of the department",
+			"description": "",
+			"type": "string"
+		},
+		"municipalityType": {
+			"title": "type of municipality",
+			"description": "",
+			"type": "string"
+		},
+		"amsterdamCode": {
+			"title": "Amsterdam Code",
+			"description": "",
+			"type": "string"
+		},
+		"municipalityRenamedTo": {
+			"title": "a municipality&apos;s new name",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "An administrative body governing a territorial unity on the lower level, administering one or a few more settlements",
+	"format": "http://dbpedia.org/ontology/Municipality",
+	"id": "Municipality.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Municipality"},
+	"properties": {
+		"departmentCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/departmentCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/departmentCode"}
+				}
+			]
+		},
+		"municipalityType": {
+			"oneOf": [
+				{"$ref": "#/definitions/municipalityType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/municipalityType"}
+				}
+			]
+		},
+		"amsterdamCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/amsterdamCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amsterdamCode"}
+				}
+			]
+		},
+		"municipalityRenamedTo": {
+			"oneOf": [
+				{"$ref": "#/definitions/municipalityRenamedTo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/municipalityRenamedTo"}
+				}
+			]
+		},
+		"hasAbsorbedMunicipality": {
+			"oneOf": [
+				{"$ref": "FormerMunicipality.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "FormerMunicipality.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "municipality",
+	"translations": {
+		"title": {
+			"de": "Gemeinde",
+			"el": "δήμος",
+			"fr": "commune",
+			"es": "municipio",
+			"nl": "gemeente",
+			"ja": "基礎自治体"
+		},
+		"description": {
+			"el": "Δήμος ονομάζεται μία οντότητα της δημόσιας διοίκησης, η οποία στα περισσότερα κράτη αποτελεί τη βασική αυτοδιοικητική μονάδα και κατά κανόνα περιλαμβάνει μια πόλη ή κωμόπολη και τα γύρω χωριά της.",
+			"es": "Un Municipio es el ente local definido en el artículo 140 de la Constitución española y la entidad básica de la organización territorial del Estado según el artículo 1 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local. Tiene personalidad jurídica y plena capacidad para el cumplimiento de sus fines. La delimitación territorial de Municipio está recogida del REgistro Central de Cartografía del IGN"
+		}
+	},
+	"type": "object"
+}

@@ -1,0 +1,66 @@
+{
+	"id": "Horse.json",
+	"title": "horse",
+	"translations": {
+		"title": {
+			"de": "Pferd",
+			"fr": "cheval",
+			"ga": "capall",
+			"da": "hest",
+			"nl": "paard",
+			"ja": "ウマ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Animal.json"}, {"$ref": "Mammal.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"jockey": {
+			"oneOf": [
+				{"$ref": "Jockey.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Jockey.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Horse",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Horse"}
+}

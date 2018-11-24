@@ -1,0 +1,461 @@
+{
+	"id": "Island.json",
+	"title": "island",
+	"translations": {
+		"title": {
+			"da": "ø",
+			"de": "Insel",
+			"el": "νησί",
+			"es": "Isla",
+			"fr": "île",
+			"ga": "oileán",
+			"ja": "島",
+			"ko": "섬",
+			"nl": "eiland",
+			"pl": "wyspa",
+			"pt": "ilha"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"archipelago": {
+			"oneOf": [
+				{"$ref": "#/definitions/archipelago"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/archipelago"}
+				}
+			]
+		},
+		"building": {
+			"oneOf": [
+				{"$ref": "Building.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Building.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capitalCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capitalDistrict": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capitalElevation": {
+			"oneOf": [
+				{"$ref": "#/definitions/capitalElevation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/capitalElevation"}
+				}
+			]
+		},
+		"capitalMountain": {
+			"oneOf": [
+				{"$ref": "Mountain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Mountain.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capitalPlace": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capitalPosition": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capitalRegion": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"discovery": {
+			"oneOf": [
+				{"$ref": "#/definitions/discovery"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/discovery"}
+				}
+			]
+		},
+		"eruption": {
+			"oneOf": [
+				{"$ref": "#/definitions/eruption"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eruption"}
+				}
+			]
+		},
+		"government": {
+			"oneOf": [
+				{"$ref": "#/definitions/government"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/government"}
+				}
+			]
+		},
+		"governmentCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"governmentElevation": {
+			"oneOf": [
+				{"$ref": "#/definitions/governmentElevation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/governmentElevation"}
+				}
+			]
+		},
+		"governmentMountain": {
+			"oneOf": [
+				{"$ref": "Mountain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Mountain.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"governmentPlace": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"governmentPosition": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"governmentRegion": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"highestPointIsland": {
+			"oneOf": [
+				{"$ref": "#/definitions/highestPointIsland"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/highestPointIsland"}
+				}
+			]
+		},
+		"highestRegion": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"highestState": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"leftChild": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"localization": {
+			"oneOf": [
+				{"$ref": "#/definitions/localization"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/localization"}
+				}
+			]
+		},
+		"lowestRegion": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lowestState": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mainIslands": {
+			"oneOf": [
+				{"$ref": "#/definitions/mainIslands"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mainIslands"}
+				}
+			]
+		},
+		"majorIsland": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"managementCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"managementRegion": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfIslands": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfIslands"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfIslands"}
+				}
+			]
+		},
+		"observatory": {
+			"oneOf": [
+				{"$ref": "#/definitions/observatory"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/observatory"}
+				}
+			]
+		},
+		"rightChild": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subdivisionName": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"volcanicActivity": {
+			"oneOf": [
+				{"$ref": "#/definitions/volcanicActivity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/volcanicActivity"}
+				}
+			]
+		},
+		"volcanicType": {
+			"oneOf": [
+				{"$ref": "#/definitions/volcanicType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/volcanicType"}
+				}
+			]
+		},
+		"volcanoId": {
+			"oneOf": [
+				{"$ref": "#/definitions/volcanoId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/volcanoId"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"archipelago": {
+			"title": "archipelago",
+			"description": "",
+			"anyOf": []
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"capitalElevation": {
+			"title": "capital elevation &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"discovery": {
+			"title": "date when the island has been discovered",
+			"description": "",
+			"type": "string"
+		},
+		"eruption": {
+			"title": "eruption",
+			"description": "",
+			"type": "string"
+		},
+		"government": {
+			"title": "government",
+			"description": "",
+			"anyOf": []
+		},
+		"governmentElevation": {
+			"title": "government elevation &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"highestPointIsland": {
+			"title": "highest point of the island",
+			"description": "",
+			"type": "string"
+		},
+		"localization": {
+			"title": "localization of the island",
+			"description": "",
+			"type": "string"
+		},
+		"mainIslands": {
+			"title": "main islands",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfIslands": {
+			"title": "number of islands",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"observatory": {
+			"title": "observatory",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"volcanicActivity": {
+			"title": "volcanic activity",
+			"description": "",
+			"type": "string"
+		},
+		"volcanicType": {
+			"title": "volcanic type",
+			"description": "",
+			"type": "string"
+		},
+		"volcanoId": {
+			"title": "volcano id",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Island",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Island"}
+}

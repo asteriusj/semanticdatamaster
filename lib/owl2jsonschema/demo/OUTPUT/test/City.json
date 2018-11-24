@@ -1,0 +1,83 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Settlement.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"crownDependency": {
+			"title": "crown dependency",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "a relatively large and permanent settlement, particularly a large urban settlement",
+	"format": "http://dbpedia.org/ontology/City",
+	"id": "City.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/City"},
+	"properties": {
+		"crownDependency": {
+			"oneOf": [
+				{"$ref": "#/definitions/crownDependency"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/crownDependency"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "city",
+	"translations": {
+		"title": {
+			"da": "by",
+			"de": "Stadt",
+			"el": "πόλη",
+			"es": "ciudad",
+			"fr": "ville",
+			"ga": "cathair",
+			"gl": "cidade",
+			"hi": "शहर",
+			"it": "città",
+			"ja": "市",
+			"ko": "도시",
+			"nl": "stad",
+			"pl": "miasto",
+			"pt": "cidade"
+		},
+		"description": {
+			"es": "un asentamiento permanente y relativamente grande, especialmente un gran asentamiento urbano",
+			"gl": "Actualmente considérase como unha entidade urbana con alta densidade de poboación na que predominan fundamentalmente a industria e os servizos."
+		}
+	},
+	"type": "object"
+}

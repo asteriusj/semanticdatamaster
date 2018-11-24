@@ -1,0 +1,309 @@
+{
+  "schema": {
+    "definitions": {
+      "restrictions": {
+        "type": "object",
+        "properties": {
+          "disabled": {
+            "type": "string",
+            "title": "disabled",
+            "description": "Specifies that an input field should be disabled"
+          },
+          "max": {
+            "type": "string",
+            "title": "max",
+            "description": "Specifies the maximum value for an input field"
+          },
+          "maxlength": {
+            "type": "string",
+            "title": "maxlength",
+            "description": "Specifies the maximum number of character for an input field"
+          },
+          "min": {
+            "type": "string",
+            "title": "min",
+            "description": "Specifies the minimum value for an input field"
+          },
+          "pattern": {
+            "type": "string",
+            "title": "pattern",
+            "description": "Specifies a regular expression to check the input value against"
+          },
+          "readonly": {
+            "type": "string",
+            "title": "readonly",
+            "description": "Specifies that an input field is read only (cannot be changed)"
+          },
+          "required": {
+            "type": "string",
+            "title": "required",
+            "description": "Specifies that an input field is required (must be filled out)"
+          },
+          "size": {
+            "type": "string",
+            "title": "size",
+            "description": "Specifies the width (in characters) of an input field"
+          },
+          "step": {
+            "type": "string",
+            "title": "step",
+            "description": "Specifies the legal number intervals for an input field"
+          },
+          "value": {
+            "type": "string",
+            "title": "value",
+            "description": "Specifies the default value for an input field"
+          }
+        }
+      },
+      "attributes": {
+        "type": "object",
+        "properties": {
+            "id": {
+          "type": "string",
+          "title": "id"
+        },
+        "title": {
+          "type": "string",
+          "title": "title"
+        },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "autocomplete": {
+            "type": "string",
+            "title": "autocomplete"
+          },
+          "autofocus": {
+            "type": "string",
+            "title": "autofocus"
+          },
+          "src": {
+            "type": "string",
+            "title": "src"
+          },
+          "alt": {
+            "type": "string",
+            "title": "alt"
+          },
+          "width": {
+            "type": "string",
+            "title": "width"
+          },
+          "height": {
+            "type": "string",
+            "title": "height"
+          },
+          "list": {
+            "type": "string",
+            "title": "list"
+          },
+          
+        }
+      }
+    },
+    "maker": {
+            "type": "object",
+            "title": "Maker",
+            "description" : "Codeless, custom commands",
+ 
+    "properties": {
+      "string": {
+        "type": "string",
+        "title": "string",
+        "properties": {
+          "$ref": "#/definitions/common"
+        }
+      },
+      "number": {
+        "type": "string",
+        "title": "Input Type Number",
+        "description": "Defines a numeric input field. You can also set restrictions on what numbers are accepted.",
+        "properties": {
+          
+        }
+      },
+      "boolean": {
+        "type": "string",
+        "title": "boolean",
+        "enum": [
+          "Positive",
+          "Negative",
+          "n/a"
+        ]
+      },
+      "text": {
+        "type": "string",
+        "title": "Input Type Text",
+        "description": "",
+        "properties": {
+          
+        }
+      },
+      "textarea": {
+        "type": "string",
+        "title": "textarea"
+      },
+      "password": {
+        "type": "string",
+        "title": "Input Type Password",
+        "description": "",
+        "properties": {
+          
+        }
+      },
+      
+      "checkbox": {
+        "type": "string",
+        "title": "Input Type Checkbox"
+      },
+      "radio": {
+        "type": "string",
+        "title": "Input Type Radio"
+      },
+      "select": {
+        "type": "string",
+        "title": "select"
+      },
+      "file": {
+        "type": "string",
+        "title": "file"
+      },
+      "date": {
+        "type": "object",
+        "title": "Input Type Date",
+        "description": "Is used for input fields that should contain a date.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "Help Text": {
+            "type": "string",
+            "title": "Help Text"
+          },
+          "placeholder": {
+            "type": "string",
+            "title": "Placeholder text"
+          },
+          "Class": {
+            "type": "string",
+            "title": "Class"
+          },
+          "readonly": {
+            "type": "boolean",
+            "title": "Read Only"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required"
+          },
+          "disabled": {
+            "type": "boolean",
+            "title": "disabled"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value"
+          },
+          "autocomplete": {
+            "type": "string",
+            "title": "autocomplete",
+            "enum": [
+              "off",
+              "on"
+            ]
+          },
+          "autofocus": {
+            "type": "boolean",
+            "title": "autofocus"
+          },
+          "min:": {
+            "type": "date",
+            "title": "min"
+          },
+          "max:": {
+            "type": "date",
+            "title": "max"
+          }
+        }
+      },
+      "datetime-local": {
+        "type": "object",
+        "title": "datetime-local"
+      },
+      "color": {
+        "type": "object",
+        "title": "color"
+      },
+      "image": {
+        "type": "object",
+        "title": "image"
+      },
+      "array": {
+        "type": "object",
+        "title": "array",
+        "properties": {
+
+        }
+      },
+      "object": {
+        "type": "object",
+        "title": "object",
+        "properties": {
+          
+        }
+      },
+      "code": {
+        "type": "string",
+        "title": "code"
+      },
+      "fieldtypes": {
+        "type": "string",
+        "title": "fieldtypes",
+        "description": "",
+        "enum": [
+          "string",
+          "number",
+          "boolean",
+          "text",
+          "textarea",
+          "password",
+          "checkbox",
+          "radio",
+          "select",
+          "file",
+          "date",
+          "color",
+          "image",
+          "array",
+          "object",
+          "code"
+        ],
+        "default": "date"
+      }
+    }
+    }
+  },
+  "form": [
+    {
+
+      "type": "fieldset",
+      "title": "HTML Form Fields",
+      "expandable": false,
+      "order": -100
+    }
+  ],
+  "value": {
+    
+  }
+}

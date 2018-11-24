@@ -1,0 +1,53 @@
+{
+	"id": "ClassicalMusicComposition.json",
+	"title": "classical music composition",
+	"translations": {
+		"title": {
+			"de": "Komposition klassischer Musik",
+			"el": "σύνθεση κλασικής μουσικής",
+			"fr": "composition de musique classique",
+			"it": "composizione di musica classica",
+			"nl": "compositie klassieke muziek"
+		},
+		"description": {"el": "Η σύνθεση κλασικής μουσικής μπορεί να πραγματοποιηθεί και με τη βοήθεια ειδικών προγραμμάτων στον υπολογιστή που χρησιμοποιούν συγκεκριμένο αλγόριθμο."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "MusicalWork.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ClassicalMusicComposition",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ClassicalMusicComposition"}
+}

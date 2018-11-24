@@ -1,0 +1,127 @@
+{
+	"id": "CollegeCoach.json",
+	"title": "college coach",
+	"translations": {
+		"title": {
+			"de": "College-Trainer",
+			"el": "προπονητής κολεγίου",
+			"fr": "entraîneur universitaire",
+			"ga": "traenálaí coláiste",
+			"ko": "대학 코치",
+			"nl": "school coach"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Coach.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"currentRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/currentRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/currentRecord"}
+				}
+			]
+		},
+		"coachingRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/coachingRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coachingRecord"}
+				}
+			]
+		},
+		"overallRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/overallRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/overallRecord"}
+				}
+			]
+		},
+		"bowlRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/bowlRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bowlRecord"}
+				}
+			]
+		},
+		"tournamentRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/tournamentRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tournamentRecord"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"currentRecord": {
+			"title": "current record",
+			"description": "",
+			"type": "string"
+		},
+		"coachingRecord": {
+			"title": "coaching record",
+			"description": "",
+			"type": "string"
+		},
+		"overallRecord": {
+			"title": "overall record",
+			"description": "",
+			"type": "string"
+		},
+		"bowlRecord": {
+			"title": "bowl record",
+			"description": "",
+			"type": "string"
+		},
+		"tournamentRecord": {
+			"title": "tournament record",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CollegeCoach",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CollegeCoach"}
+}

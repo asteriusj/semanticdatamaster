@@ -1,0 +1,593 @@
+{
+	"id": "SpaceMission.json",
+	"title": "space mission",
+	"translations": {
+		"title": {
+			"de": "Weltraummission",
+			"el": "διαστημική αποστολή",
+			"fr": "mission spatiale",
+			"es": "misión espacial",
+			"ga": "misean spáís",
+			"ko": "우주 임무",
+			"nl": "ruimtemissie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"SpaceMission/cmpEvaDuration": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/distanceTraveled": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/lunarEvaTime": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/lunarOrbitTime": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/lunarSampleMass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/lunarSurfaceTime": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/mass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/missionDuration": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/day.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/day.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/stationEvaDuration": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceMission/stationVisitDuration": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"booster": {
+			"oneOf": [
+				{"$ref": "Rocket.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Rocket.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"cmpEvaDuration": {
+			"oneOf": [
+				{"$ref": "#/definitions/cmpEvaDuration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cmpEvaDuration"}
+				}
+			]
+		},
+		"commandModule": {
+			"oneOf": [
+				{"$ref": "#/definitions/commandModule"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/commandModule"}
+				}
+			]
+		},
+		"crewMember": {
+			"oneOf": [
+				{"$ref": "Astronaut.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Astronaut.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"crewSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/crewSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/crewSize"}
+				}
+			]
+		},
+		"distanceTraveled": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceTraveled"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceTraveled"}
+				}
+			]
+		},
+		"landingDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/landingDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landingDate"}
+				}
+			]
+		},
+		"landingSite": {
+			"oneOf": [
+				{"$ref": "#/definitions/landingSite"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landingSite"}
+				}
+			]
+		},
+		"landingVehicle": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"launchDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/launchDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/launchDate"}
+				}
+			]
+		},
+		"launchPad": {
+			"oneOf": [
+				{"$ref": "LaunchPad.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "LaunchPad.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"launchSite": {
+			"oneOf": [
+				{"$ref": "Building.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Building.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"launchVehicle": {
+			"oneOf": [
+				{"$ref": "#/definitions/launchVehicle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/launchVehicle"}
+				}
+			]
+		},
+		"lunarEvaTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/lunarEvaTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lunarEvaTime"}
+				}
+			]
+		},
+		"lunarLandingSite": {
+			"oneOf": [
+				{"$ref": "#/definitions/lunarLandingSite"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lunarLandingSite"}
+				}
+			]
+		},
+		"lunarModule": {
+			"oneOf": [
+				{"$ref": "#/definitions/lunarModule"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lunarModule"}
+				}
+			]
+		},
+		"lunarOrbitTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/lunarOrbitTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lunarOrbitTime"}
+				}
+			]
+		},
+		"lunarRover": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lunarSampleMass": {
+			"oneOf": [
+				{"$ref": "#/definitions/lunarSampleMass"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lunarSampleMass"}
+				}
+			]
+		},
+		"lunarSurfaceTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/lunarSurfaceTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lunarSurfaceTime"}
+				}
+			]
+		},
+		"missionDuration": {
+			"oneOf": [
+				{"$ref": "#/definitions/missionDuration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/missionDuration"}
+				}
+			]
+		},
+		"nextMission": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfOrbits": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfOrbits"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfOrbits"}
+				}
+			]
+		},
+		"orbitalInclination": {
+			"oneOf": [
+				{"$ref": "#/definitions/orbitalInclination"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/orbitalInclination"}
+				}
+			]
+		},
+		"previousMission": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"satcat": {
+			"oneOf": [
+				{"$ref": "#/definitions/satcat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/satcat"}
+				}
+			]
+		},
+		"serviceModule": {
+			"oneOf": [
+				{"$ref": "#/definitions/serviceModule"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/serviceModule"}
+				}
+			]
+		},
+		"shuttle": {
+			"oneOf": [
+				{"$ref": "SpaceShuttle.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SpaceShuttle.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"spacecraft": {
+			"oneOf": [
+				{"$ref": "Spacecraft.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Spacecraft.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"spacestation": {
+			"oneOf": [
+				{"$ref": "SpaceStation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SpaceStation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"spacewalkBegin": {
+			"oneOf": [
+				{"$ref": "#/definitions/spacewalkBegin"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/spacewalkBegin"}
+				}
+			]
+		},
+		"spacewalkEnd": {
+			"oneOf": [
+				{"$ref": "#/definitions/spacewalkEnd"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/spacewalkEnd"}
+				}
+			]
+		},
+		"stationEvaDuration": {
+			"oneOf": [
+				{"$ref": "#/definitions/stationEvaDuration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/stationEvaDuration"}
+				}
+			]
+		},
+		"stationVisitDuration": {
+			"oneOf": [
+				{"$ref": "#/definitions/stationVisitDuration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/stationVisitDuration"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"cmpEvaDuration": {
+			"title": "CMP EVA duration &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"commandModule": {
+			"title": "command module",
+			"description": "",
+			"type": "string"
+		},
+		"crewSize": {
+			"title": "crew size",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"distanceTraveled": {
+			"title": "distance traveled &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"landingDate": {
+			"title": "landing date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"landingSite": {
+			"title": "landing site",
+			"description": "",
+			"type": "string"
+		},
+		"launchDate": {
+			"title": "launch date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"launchVehicle": {
+			"title": "launch vehicle",
+			"description": "",
+			"anyOf": []
+		},
+		"lunarEvaTime": {
+			"title": "lunar EVA time &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"lunarLandingSite": {
+			"title": "lunar landing site",
+			"description": "",
+			"type": "string"
+		},
+		"lunarModule": {
+			"title": "lunar module",
+			"description": "",
+			"type": "string"
+		},
+		"lunarOrbitTime": {
+			"title": "lunar orbit time &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"lunarSampleMass": {
+			"title": "lunar sample mass &amp;&#35;40;g&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"lunarSurfaceTime": {
+			"title": "lunar surface time &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"missionDuration": {
+			"title": "mission duration &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"numberOfOrbits": {
+			"title": "number of orbits",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"orbitalInclination": {
+			"title": "orbital inclination",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"satcat": {
+			"title": "SATCAT",
+			"description": "satellite catalogue number, omit leading zeroes &amp;&#35;40;e.g. 25544&#41;",
+			"type": "string"
+		},
+		"serviceModule": {
+			"title": "service module",
+			"description": "",
+			"type": "string"
+		},
+		"spacewalkBegin": {
+			"title": "spacewalk begin",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"spacewalkEnd": {
+			"title": "spacewalk end",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"stationEvaDuration": {
+			"title": "station EVA duration &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"stationVisitDuration": {
+			"title": "station visit duration &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SpaceMission",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SpaceMission"}
+}

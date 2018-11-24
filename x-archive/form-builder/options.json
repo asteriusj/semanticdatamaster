@@ -1,0 +1,21 @@
+{
+    "fields": {
+        "email": {
+            "type": "text",
+            "label": "Email Address"
+        },
+        "password": {
+            "type": "password",
+            "label": "Password"
+        },
+        "file": {
+            "type": "file",
+            "label": "File Upload"
+        },
+        "check": {
+            "type": "checkbox",
+            "rightLabel": "Sign me up for the News Letter!",
+            "label": "Newsletter"
+        }
+    }
+}

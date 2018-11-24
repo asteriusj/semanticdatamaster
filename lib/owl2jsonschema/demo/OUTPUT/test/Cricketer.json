@@ -1,0 +1,92 @@
+{
+	"id": "Cricketer.json",
+	"title": "cricketer",
+	"translations": {
+		"title": {
+			"de": "Cricketspieler",
+			"el": "παίκτης του κρίκετ",
+			"fr": "joueur de cricket",
+			"ga": "imreoir cruicéid",
+			"ko": "크리켓 선수",
+			"nl": "cricketspeler",
+			"ja": "クリケット選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"fc": {
+			"oneOf": [
+				{"$ref": "#/definitions/fc"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fc"}
+				}
+			]
+		},
+		"fcRuns": {
+			"oneOf": [
+				{"$ref": "#/definitions/fcRuns"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fcRuns"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fc": {
+			"title": "FC",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"fcRuns": {
+			"title": "FC runs",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Cricketer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Cricketer"}
+}

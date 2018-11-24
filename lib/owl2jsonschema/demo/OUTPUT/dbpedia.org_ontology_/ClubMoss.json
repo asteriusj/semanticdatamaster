@@ -1,0 +1,54 @@
+{
+	"id": "ClubMoss.json",
+	"title": "club moss",
+	"translations": {
+		"title": {
+			"de": "Bärlapp",
+			"el": "Μούσκλια",
+			"fr": "lycopodiopsida",
+			"ko": "석송강",
+			"nl": "wolfsklauw",
+			"ja": "ヒカゲノカズラ綱"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Plant.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ClubMoss",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ClubMoss"}
+}

@@ -1,0 +1,53 @@
+{
+	"id": "HistoricalRegion.json",
+	"title": "Historical region",
+	"description": "a place which used to be a region.",
+	"translations": {
+		"title": {
+			"de": "historischer Region",
+			"fr": "Ancienne région",
+			"ga": "réigiún stairiúil",
+			"nl": "voormalige regio"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Region.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricalRegion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricalRegion"}
+}

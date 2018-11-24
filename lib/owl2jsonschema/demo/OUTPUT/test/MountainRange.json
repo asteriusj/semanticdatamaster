@@ -1,0 +1,67 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "a chain of mountains bordered by highlands or separated from other mountains by passes or valleys.",
+	"format": "http://dbpedia.org/ontology/MountainRange",
+	"id": "MountainRange.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MountainRange"},
+	"properties": {
+		"highest": {
+			"oneOf": [
+				{"$ref": "Mountain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Mountain.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "mountain range",
+	"translations": {
+		"title": {
+			"de": "Bergkette",
+			"el": "Οροσειρά",
+			"fr": "chaîne de montagne",
+			"ko": "산맥",
+			"nl": "bergketen",
+			"pt": "cadeia montanhosa"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

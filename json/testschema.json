@@ -1,0 +1,156 @@
+{    
+  "schema": {
+    "title": "Person",
+    "name": "person",
+    "type": "object",
+    "description" : "A person. A person (alive, dead, undead, or fictional).",
+    "x_semantic": "foaf:Person",
+    "x_contentmap": "person",
+    "properties": {
+      "txtGivenName": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtGivenName",
+        "name": "givenName",
+        "title": "First or given name  ",
+        "placeholder": "Fisrst Name goes here  ",
+        "value": "Michael",
+        "x_semantic": "foaf:givenName,foaf:firstName,foaf:surname",
+        "x_contentmap": "person.givenname",
+        "size": 13,
+        "autocomplete": "FALSE",
+        "required": true,
+        "helpMessage": "First name to be used ",
+        "default": "Michael"
+      },
+      "txtLastName": {
+        "control": "input",
+        "type": "string",
+        "format": "text",
+        "id": "txtLastName",
+        "name": "familyName",
+        "title": "Last Name",
+        "x_semantic": "foaf:familyName",
+        "x_contentmap": "person.familyname",
+        "size": 13,
+        "autocomplete": "FALSE",
+        "required": true
+      },
+      "ddlGender": {
+        "control": "select",
+        "type": "string",
+        "format": "datalist",
+        "enum": "[\"male\",\"female\",\"alien\"]",
+        "id": "ddlGender",
+        "name": "gender",
+        "title": "Gender",
+        "enum": ["Male","Female","Alien"],
+        "x_semantic": "foaf:gender",
+        "x_contentmap": "person.gender",
+        "required": true,
+        "helpMessage": "Is you m or f?"
+      },
+      
+      "bAdult": {
+        "type": "boolean",
+        "id": "bAdult",
+        "title": "is Adult ?",
+        "x_semantic": "foaf:age",
+        "x_contentmap": "person.adult"
+      },
+       "intAge": {
+        "type": "number" ,
+        "format": "range",
+        "id": "intAge",
+        "title": "Age?",
+        "placeholder": "multiple of 1",
+        "step": 1, 
+        "minimum": 13,
+        "maximum": 19,
+        "multipleOf": 1,
+        "x_semantic": "person.age",
+        "x_contentmap": "level2.level1.level0.image"
+      },
+      "dateOfBirth": {
+        "control": "datepicker",
+        "type": "string",
+        "format": "date",
+        "id": "dateOfBirth",
+        "name": "dateOfBirth",
+        "title": "DateOfBirth",
+        "placeholder": "Date of birth mm/dd/yyyy",
+        "value": "01/01/1971",
+        "x_semantic": "dbo:dateOfBirth",
+        "x_contentmap": "person.dateofbirth",
+        "default": "01/01/1971"
+      },
+      "txtEmailAddres": {
+        "control": "input",
+        "type": "string",
+
+        "format": "email",
+        "id": "txtEmailAddres",
+        "name": "emailAddres",
+        "title": "Email Addres",
+        "x_semantic": "foaf:mbox",
+        "x_contentmap": "person.emailaddress",
+        "size": 30,
+        "maxLength": 60,
+        "minLength": 0,
+        "pattern": "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$",
+        "required": true
+      }
+    },
+    "definitions": {
+      "age": {
+        "type": "number",
+        "format": "date",
+        "id": "age",
+        "step": 1,
+        "min": 13,
+        "max": 19
+      },
+      "sdm:Address": {
+        "type": "object",
+        "format": "",
+        "id": "sdm:Address",
+        "label": "Address",
+        "comment": "To specify the components of the delivery address for the  object"
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "txtGivenName",
+      "control": "input",
+      "placeholder": "Fisrst Name goes here  "
+    },
+    {
+      "key": "txtLastName",
+      "control": "input"
+    },
+
+    {
+      "key": "dateOfBirth",
+      "control": "datepicker",
+      "type": "date",
+      "placeholder": "Date of birth mm/dd/yyyy"
+    }
+    
+  ],
+  "values": {
+    "txtGivenName": {
+      "contentmap": "person.givenname",
+      "value": "Michael"
+    },
+    "txtMiddleName": {
+      "contentmap": "person.middlename",
+      "value": "Alan"
+    },
+    "dateOfBirth": {
+      "contentmap": "person.dateofbirth",
+      "value": "01/01/1971"
+    }
+  }
+}

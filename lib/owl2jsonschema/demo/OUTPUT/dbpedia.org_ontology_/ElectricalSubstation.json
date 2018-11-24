@@ -1,0 +1,50 @@
+{
+	"id": "ElectricalSubstation.json",
+	"title": "electrical substation",
+	"translations": {
+		"title": {
+			"nl": "transformatorhuisje",
+			"de": "Transformatorenstation"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Infrastucture.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ElectricalSubstation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ElectricalSubstation"}
+}

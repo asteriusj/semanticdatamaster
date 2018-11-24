@@ -1,0 +1,58 @@
+{
+	"id": "Fish.json",
+	"title": "fish",
+	"translations": {
+		"title": {
+			"pl": "ryba",
+			"de": "Fisch",
+			"el": "ψάρι",
+			"fr": "poisson",
+			"es": "pescado",
+			"ga": "iasc",
+			"da": "fisk",
+			"nl": "vis",
+			"pt": "peixe",
+			"ja": "魚類"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Animal.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Fish",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Fish"}
+}

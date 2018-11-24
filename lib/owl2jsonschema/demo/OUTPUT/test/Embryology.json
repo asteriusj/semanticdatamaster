@@ -1,0 +1,55 @@
+{
+	"id": "Embryology.json",
+	"title": "embryology",
+	"translations": {
+		"title": {
+			"de": "Embryologie",
+			"el": "εμβρυολογία",
+			"fr": "embryologie",
+			"ga": "sutheolaíocht",
+			"ko": "발생학",
+			"nl": "embryologie",
+			"ja": "発生学"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Embryology",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Embryology"}
+}

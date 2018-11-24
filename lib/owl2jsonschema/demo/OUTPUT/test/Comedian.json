@@ -1,0 +1,95 @@
+{
+	"id": "Comedian.json",
+	"title": "comedian",
+	"translations": {
+		"title": {
+			"de": "Komiker",
+			"el": "κωμικός",
+			"fr": "comédien",
+			"ga": "fuirseoir",
+			"ko": "희극 배우",
+			"nl": "komiek",
+			"pt": "comediante",
+			"ja": "お笑い芸人"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"britishComedyAwards": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"olivierAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"peabodyAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"americanComedyAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Comedian",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Comedian"}
+}

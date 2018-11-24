@@ -1,0 +1,55 @@
+{
+	"id": "Manga.json",
+	"title": "manga",
+	"description": "Manga are comics created in Japan",
+	"translations": {
+		"title": {
+			"de": "manga",
+			"el": "κινούμενα σχέδια",
+			"fr": "manga",
+			"it": "manga",
+			"nl": "manga",
+			"ja": "日本の漫画"
+		},
+		"description": {"nl": "Manga is het Japanse equivalent van het stripverhaal"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "Comic.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Manga",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Manga"}
+}

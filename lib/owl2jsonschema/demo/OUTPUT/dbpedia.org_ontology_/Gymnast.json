@@ -1,0 +1,55 @@
+{
+	"id": "Gymnast.json",
+	"title": "gymnast",
+	"description": "A gymnast is one who performs gymnastics",
+	"translations": {
+		"title": {
+			"de": "Turner",
+			"el": "γυμναστής",
+			"ga": "gleacaí",
+			"da": "gymnast",
+			"nl": "turner",
+			"ja": "体操選手"
+		},
+		"description": {"el": "Ένας γυμναστής είναι ένας που εκτελεί γυμναστικές ασκήσεις"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Gymnast",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Gymnast"}
+}

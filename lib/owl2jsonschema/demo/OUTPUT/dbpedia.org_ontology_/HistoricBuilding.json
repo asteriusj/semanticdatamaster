@@ -1,0 +1,66 @@
+{
+	"id": "HistoricBuilding.json",
+	"title": "historic building",
+	"translations": {
+		"title": {
+			"de": "historisches Gebäude",
+			"el": "ιστορικό κτίριο",
+			"fr": "bâtiment historique",
+			"ga": "foirgneamh stairiúil",
+			"nl": "historisch gebouw",
+			"ja": "歴史的建造物"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"pastor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricBuilding",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricBuilding"}
+}

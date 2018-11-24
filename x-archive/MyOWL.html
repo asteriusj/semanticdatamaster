@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My OWL Ontology</title>
+    <link rel="stylesheet" style="text/css" href="deps/opt/bootstrap.css" />
+    
+    <!--<script type="application/json" src="json/defaultschema.json"></script>-->
+    <script type="application/ttl" src="owl/defaultontology.ttl"></script>
+
+ 
+    <script type="text/javascript" src="deps/jquery.min.js"></script>
+    <script type="text/javascript" src="deps/underscore.js"></script>
+    <script type="text/javascript" src="deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="lib/jsonform.js"></script>
+
+    <script type="text/javascript" src="js/common.js"></script>
+    
+  </head>
+  <body  onload="getOWLData()">
+     <script>
+        function doNext() { 
+            doOWL() 
+        }
+    </script>
+    
+    
+    <h1>My OWL Ontolog</h1>
+    <form>hiya</form>
+    <div id="res" class="alert"></div>
+    
+ 
+    
+    
+    <script>
+    function doOWL() {
+      console.log('doOWL')
+      
+      let owl0 = ""
+   
+      console.log('myOwl',myOwl)
+      var _owl = myOwl || owl0 ;
+      console.log('_owl', _owl)
+      
+      var formcontents = 
+      '<textarea>' +
+        _owl +
+      '</textareea>' 
+      console.log(formcontents)
+      
+      console.log($("form"))
+      $("form").html(formcontents) ;
+      
+    } // end doOWL
+    </script>
+    
+    
+  </body>
+</html>

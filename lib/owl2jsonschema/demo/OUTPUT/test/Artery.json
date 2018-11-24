@@ -1,0 +1,69 @@
+{
+	"id": "Artery.json",
+	"title": "artery",
+	"translations": {
+		"title": {
+			"pl": "tętnica",
+			"de": "Arterie",
+			"el": "αρτηρία",
+			"fr": "artère",
+			"it": "arteria",
+			"ga": "artaire",
+			"ko": "동맥",
+			"nl": "slagader",
+			"ja": "動脈"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"supplies": {
+			"oneOf": [
+				{"$ref": "AnatomicalStructure.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "AnatomicalStructure.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Artery",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Artery"}
+}

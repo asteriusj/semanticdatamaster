@@ -1,0 +1,116 @@
+{
+	"id": "SportCompetitionResult.json",
+	"title": "results of a sport competition",
+	"translations": {
+		"title": {
+			"de": "Ergebnisse eines Sportwettbewerbs",
+			"el": "αποτελέσματα αθλητικού διαγωνισμού",
+			"fr": "résultats d&apos;une compétition sportive",
+			"es": "resultados de una competición deportiva",
+			"nl": "uitslag van een sport competitie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfGoldMedalsWon": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfGoldMedalsWon"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfGoldMedalsWon"}
+				}
+			]
+		},
+		"numberOfSilverMedalsWon": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSilverMedalsWon"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSilverMedalsWon"}
+				}
+			]
+		},
+		"numberOfBronzeMedalsWon": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfBronzeMedalsWon"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfBronzeMedalsWon"}
+				}
+			]
+		},
+		"competition": {
+			"oneOf": [
+				{"$ref": "Event.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Event.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfGoldMedalsWon": {
+			"title": "number of gold medals won",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfSilverMedalsWon": {
+			"title": "number of silver medals won",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfBronzeMedalsWon": {
+			"title": "number of bronze medals won",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SportCompetitionResult",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SportCompetitionResult"}
+}

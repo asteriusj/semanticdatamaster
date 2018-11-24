@@ -1,0 +1,96 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "A group of people related by common descent, a lineage.",
+	"format": "http://dbpedia.org/ontology/Family",
+	"id": "Family.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Family"},
+	"properties": {
+		"primogenitor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"familyMember": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastFamilyMember": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"headOfFamily": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "family",
+	"translations": {
+		"title": {
+			"de": "Familie",
+			"el": "οικογένεια",
+			"fr": "famille",
+			"es": "familia",
+			"ga": "teaghlach",
+			"da": "familie",
+			"nl": "familie",
+			"ja": "家族"
+		},
+		"description": {"el": "Μια ομάδα ανθρώπων που συνδέονται με κοινή καταγωγή, μια γενεαλογία."}
+	},
+	"type": "object"
+}

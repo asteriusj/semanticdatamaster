@@ -1,0 +1,85 @@
+
+
+<dom-module id="test-myform">
+    
+    <p>Example my-form Shadow DOM:</p>
+
+    <template id="MyFormTemplate">
+       
+        <div class="outer">
+          <div class="boilerplate">
+            MyForm {{name}}
+          </div>
+          <div class="myform">
+            <content></content>
+          </div>
+        </div>
+        
+    </template>
+    
+    <script>
+    (function () {
+        if (!window.HTMLTemplateElement ||
+            !HTMLElement.prototype.createShadowRoot) {
+        //   remove('#ex2b');
+          return;
+        }
+    
+        // get form content
+        // var txtform = '<form id="newform"><textarea>Sam</textarea></form>';
+        var txtform = '<form id="newform"><div><div class="control-group jsonform-error-prefix"><label class="control-label" for="jsonform-0-elt-prefix">Prefix</label><div class="controls"><input type="text" name="prefix" value="" id="jsonform-0-elt-prefix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-firstName jsonform-required"><label class="control-label" for="jsonform-0-elt-firstName"> First Name</label><div class="controls"><input type="text" name="firstName" value="" id="jsonform-0-elt-firstName" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-middlename"><label class="control-label" for="jsonform-0-elt-middlename">Middle Name</label><div class="controls"><input type="text" name="middlename" value="" id="jsonform-0-elt-middlename"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-lastname jsonform-required"><label class="control-label" for="jsonform-0-elt-lastname">Last Name</label><div class="controls"><input type="text" name="lastname" value="" id="jsonform-0-elt-lastname" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-suffix"><label class="control-label" for="jsonform-0-elt-suffix">Suffix</label><div class="controls"><input type="text" name="suffix" value="" id="jsonform-0-elt-suffix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-fullName"><label class="control-label" for="jsonform-0-elt-fullName">Full Name</label><div class="controls"><input type="text" name="fullName" value="" id="jsonform-0-elt-fullName"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-age"><label class="control-label" for="jsonform-0-elt-age">Age</label><div class="controls"><input type="text" name="age" value="" id="jsonform-0-elt-age"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-birthdate"><label class="control-label" for="jsonform-0-elt-birthdate">Birthday</label><div class="controls"><input type="date" name="birthdate" value="" id="jsonform-0-elt-birthdate"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="form-actions "><input type="submit" class="btn btn-primary " value="Submit"></div></div></form>';
+
+        // create a new div area for new form element content
+        var elnew =  document.createElement("div")
+        elnew.id="MyFormNew";
+        elnew.innerHTML = txtform;
+        document.body.appendChild(elnew);
+        console.log('elnew',elnew) 
+
+        // // create shadow root for new element
+        // var shadow = this.querySelector('#MyFormNew').createShadowRoot();
+        // console.log('shadow',shadow)
+      
+        // // get template area with <content> element 
+        // var template = this.querySelector('template#MyFormTemplate');
+        // console.log('template',template)
+      
+        // apply new shadow root element to <contant> tag
+        // shadow.appendChild(template.content);
+        // template.remove();
+    })();
+    </script>
+    
+    <script>    
+    // Create a class for the element
+    class TestMyForm extends HTMLElement {
+      static get is() { return "test-myform"; }
+      
+      // set this element's propertys
+      constructor() {
+        // Always call super first in constructor
+        super();
+        this.name = "Bubba"
+           
+        // Create a shadow root
+        var shadow = this.attachShadow({mode: 'open'});
+    
+        // // Create a standard img element and set its attributes.
+        // var img = document.createElement('img');
+        // img.alt = this.getAttribute('data-name');
+        // img.src = this.getAttribute('data-img');
+        // img.width = '150';
+        // img.height = '150';
+        // img.className = 'product-img';
+    
+        // // Add the image to the shadow root.
+        // shadow.appendChild(img);
+
+
+      }
+    }
+    // Define the new element
+    customElements.define(TestMyForm.is, TestMyForm);
+    </script>
+
+</dom-module>

@@ -1,0 +1,232 @@
+{
+  "@graph": [
+    {
+      "@id": "_:b0",
+      "sh:class": {
+        "@id": "schema:Person"
+      },
+      "disjoint": "schema:sibling",
+      "sh:maxCount": 2,
+      "name": "parent",
+      "nodeKind": "sh:IRI",
+      "path": "schema:parent"
+    },
+    {
+      "@id": "_:b1",
+      "datatype": "xsd:string",
+      "name": "given name",
+      "path": "schema:givenName"
+    },
+    {
+      "@id": "_:b10",
+      ":class": {
+        "@id": ":_Gender_Female"
+      },
+      "path": ":hasGender"
+    },
+    {
+      "@id": "_:b11",
+      "inversePath": "schema:parent"
+    },
+    {
+      "@id": "_:b12",
+      "hasValue": "female",
+      "path": "schema:gender"
+    },
+    {
+      "@id": "_:b14",
+      "@type": "owl:Restriction",
+      "owl:hasValue": {
+        "@id": ":_Gender_Female"
+      },
+      "onProperty": ":hasGender"
+    },
+    {
+      "@id": "_:b2",
+      "path": "schema:parent",
+      "sh:qualifiedMaxCount": 1,
+      "qualifiedValueShape": ":FemalePerson"
+    },
+    {
+      "@id": "_:b3",
+      "datatype": "xsd:string",
+      "sh:in": {
+        "@list": [
+          "female",
+          "male"
+        ]
+      },
+      "sh:maxCount": 1,
+      "name": "gender",
+      "path": "schema:gender"
+    },
+    {
+      "@id": "_:b4",
+      "datatype": "xsd:string",
+      "name": "family name",
+      "path": "schema:familyName"
+    },
+    {
+      "@id": "_:b5",
+      "comment": "Children are represented by using the schema:parent relationship in the inverse direction.",
+      "sh:class": {
+        "@id": "schema:Person"
+      },
+      "name": "child",
+      "nodeKind": "sh:IRI",
+      "path": "_:b11"
+    },
+    {
+      "@id": "_:b6",
+      "path": "schema:parent",
+      "sh:qualifiedMaxCount": 1,
+      "qualifiedValueShape": ":MalePerson"
+    },
+    {
+      "@id": "_:b7",
+      "datatype": "xsd:date",
+      "sh:maxCount": 1,
+      "name": "death date",
+      "path": "schema:deathDate"
+    },
+    {
+      "@id": "_:b8",
+      "comment": "Birth date must be before death date (in this example)",
+      "datatype": "xsd:date",
+      "lessThan": "schema:deathDate",
+      "sh:maxCount": 1,
+      "name": "birth date",
+      "path": "schema:birthDate"
+    },
+    {
+      "@id": "schema:Person",
+      "@type": "sh:NodeShape",
+      "property": [
+        "_:b0",
+        "_:b1",
+        "_:b2",
+        "_:b3",
+        "_:b4",
+        "_:b5",
+        "_:b6",
+        "_:b7",
+        "_:b8"
+      ]
+    },
+    {
+      "@id": "./",
+      "@type": "owl:Ontology",
+      "subClassOf": "./",
+      "label": {
+        "@language": "en",
+        "@value": "person micro-ontology"
+      }
+    },
+    {
+      "@id": ":DefinesWoman",
+      "@type": "sh:NodeShape",
+      "property": "_:b10",
+      "targetClass": "./"
+    },
+    {
+      "@id": ":FemalePerson",
+      "@type": "sh:NodeShape",
+      "label": "Female person",
+      "property": "_:b12"
+    },
+    {
+      "@id": ":_JaneDoe",
+      "@type": "owl:Class",
+      "hasAddress": "address:_Address1"
+    }
+  ],
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@context": {
+    "property": {
+      "@id": "http://www.w3.org/ns/shacl#property",
+      "@type": "@id"
+    },
+    "name": "http://www.w3.org/ns/shacl#name",
+    "maxCount": {
+      "@id": "http://www.w3.org/ns/shacl#maxCount",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "in": {
+      "@id": "http://www.w3.org/ns/shacl#in",
+      "@type": "@id"
+    },
+    "datatype": {
+      "@id": "http://www.w3.org/ns/shacl#datatype",
+      "@type": "@id"
+    },
+    "path": {
+      "@id": "http://www.w3.org/ns/shacl#path",
+      "@type": "@id"
+    },
+    "qualifiedValueShape": {
+      "@id": "http://www.w3.org/ns/shacl#qualifiedValueShape",
+      "@type": "@id"
+    },
+    "qualifiedMaxCount": {
+      "@id": "http://www.w3.org/ns/shacl#qualifiedMaxCount",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "subClassOf": {
+      "@id": "http://www.semanticalllc.com/person/subClassOf",
+      "@type": "@id"
+    },
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "targetClass": {
+      "@id": "http://www.w3.org/ns/shacl#targetClass",
+      "@type": "@id"
+    },
+    "inversePath": {
+      "@id": "http://www.w3.org/ns/shacl#inversePath",
+      "@type": "@id"
+    },
+    "hasValue": "http://www.w3.org/ns/shacl#hasValue",
+    "nodeKind": {
+      "@id": "http://www.w3.org/ns/shacl#nodeKind",
+      "@type": "@id"
+    },
+    "class": "http://www.semanticalllc.com/person/",
+    "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+    "rest": {
+      "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+      "@type": "@id"
+    },
+    "first": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+    "lessThan": {
+      "@id": "http://www.w3.org/ns/shacl#lessThan",
+      "@type": "@id"
+    },
+    "onProperty": {
+      "@id": "http://www.w3.org/2002/07/owl#onProperty",
+      "@type": "@id"
+    },
+    "hasAddress": {
+      "@id": "http://www.semanticalllc.com/person/hasAddress",
+      "@type": "@id"
+    },
+    "disjoint": {
+      "@id": "http://www.w3.org/ns/shacl#disjoint",
+      "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "@base": "http://www.semanticalllc.com/person/",
+    "": "http://www.semanticalllc.com/person/",
+    "address": "http://www.semanticalllc.com/address/",
+    "woman": "http://www.semanticalllc.com/person/",
+    "shape": "http://www.semanticalllc.com/person/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vocabulary": "http://www.semanticalllc.com/person/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xml": "http://www.w3.org/XML/1998/namespace",
+    "person": "http://www.semanticalllc.com/person/",
+    "rdfa": "http://www.w3.org/ns/rdfa#"
+  }
+}

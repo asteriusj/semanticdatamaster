@@ -1,0 +1,194 @@
+@prefix schema: <http://schema.org/> .
+@prefix con:   <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dbo:   <http://dbpedia.org/ontology/> .
+@prefix sf:    <https://github.com/vocol/salesforce/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xs:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix sdm:   <https://github.com/asteriusj/semanticdatamaster/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+sdm:txtAddress1  a    owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.address.address1" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtAddress1" ;
+        rdfs:range    "xsd:string" .
+
+sdm:ddlGender  a      owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.gender" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "gender" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtPrefix  a      owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.prefix" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "prefix" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtPhoneNumber  a  owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.phonenumber" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "phoneNumber" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtWebsite  a     owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.website" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "Website" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtMobileNumber  a  owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.mobilenumber" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "mobileNumber" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtSlogan  a      owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.slogan" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "Slogan" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtFullName  a    owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.fullname" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "fullName" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtName  a        owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.name" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "ClientName" ;
+        rdfs:range    "xsd:string" .
+
+sdm:adult  a          owl:DatatypeProperty ;
+        rdfs:comment  "level2.level1.level0.image" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "adult" ;
+        rdfs:range    "xsd:boolean" .
+
+sdm:txtAddress  a     owl:DatatypeProperty ;
+        rdfs:comment  "place.address" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "address" ;
+        rdfs:range    "xsd:string" .
+
+<customer>  a            owl:Class ;
+        rdfs:subClassOf  "sdm:Person" .
+
+sdm:ddlIndustrySector
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "organization.sector" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "Industry Sector" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtNickName  a    owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.informalname" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "nickName" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtRegionState  a  owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.address.regionstate" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtRegionState" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtMiddleName  a  owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.middlename" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "middleName" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtPersonUID  a   owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.uid" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "PersonUID" ;
+        rdfs:range    "xsd:string" .
+
+sdm:dateOfBirth  a    owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.dateofbirth" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "dateOfBirth" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtLocaleCity  a  owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.address.localecity" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtLocaleCity" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtEmailAddres  a  owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.emailaddress" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "emailAddres" ;
+        rdfs:range    "xsd:string" .
+
+sdm:Person  a   owl:Class .
+
+sdm:txtLastName  a    owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.familyname" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "familyName" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtSuffix  a      owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.suffix" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "suffix" ;
+        rdfs:range    "xsd:string" .
+
+sdm:ddlClientType  a  owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.type" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "ClientType" ;
+        rdfs:range    "xsd:string" .
+
+sdm:    a       owl:Ontology .
+
+sdm:txtCountryCode  a  owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.address.countrycode" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtCountryCode" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtAddress2  a    owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.address.address2" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtAddress2" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtPostalCode  a  owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.address.postalcode" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtPostalCode" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtDescription  a  owl:DatatypeProperty ;
+        rdfs:comment  "client.organization.description" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "txtDescription" ;
+        rdfs:range    "xsd:string" .
+
+sdm:imgProfileThumbnail
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "thumbnail.image" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "ProfileThumbnail" ;
+        rdfs:range    "xsd:string" .
+
+sdm:txtGivenName  a   owl:DatatypeProperty ;
+        rdfs:comment  "employee.person.givenname" ;
+        rdfs:doman    "sdm:Person" ;
+        rdfs:label    "givenName" ;
+        rdfs:range    "xsd:string" .

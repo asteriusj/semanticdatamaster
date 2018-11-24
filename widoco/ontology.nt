@@ -1,0 +1,605 @@
+<https://github.com/asteriusj/semanticdatamaster/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/elements/1.1/creator> <http://github.com/asteriusj> .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/elements/1.1/date> "$Date: 2018-02-04 20:18:26 $" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/elements/1.1/description> "The proof of concept aims to provide semantic data model conceptual information for selected objects and properties.\n" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/elements/1.1/publisher> <http://github.com/asteriusj> .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/elements/1.1/title> "Semantic Data Master (SDM) Ontology" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/terms/abstract> ""@en .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/terms/created> "$Date: 2018-02-04 20:18:26 $" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/terms/issued> "$Date: 2018-02-04 20:18:26 $" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/2.0/" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/dc/terms/modified> "$Date: 2018-02-04 20:18:26 $" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/ontology/bibo/status> "Draft"@en .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "sdm" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://github.com/asteriusj/semanticdatamaster#" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://schema.org/contributor> <http://LinkedIn.com/jeffreyastewart/> .
+<https://github.com/asteriusj/semanticdatamaster/> <http://schema.org/contributor> <http://github.com/asteriusj> .
+<https://github.com/asteriusj/semanticdatamaster/> <http://www.w3.org/2000/01/rdf-schema#comment> "An experimental ontology for defining entity relationships and data property definitions and constraints\n" .
+<https://github.com/asteriusj/semanticdatamaster/> <http://www.w3.org/2000/01/rdf-schema#label> "Ontology for Semantic Data Model"@en .
+<https://github.com/asteriusj/semanticdatamaster/> <http://www.w3.org/2002/07/owl#versionIRI> "https://github.com/asteriusj/semanticdatamaster/Draft"@en .
+<https://github.com/asteriusj/semanticdatamaster/> <http://www.w3.org/2002/07/owl#versionInfo> "Draft"@en .
+<https://github.com/asteriusj/semanticdatamaster/> <http://www.w3.org/ns/prov#generatedAtTime> "$Date: 2018-02-04 20:18:26 $" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/vocab/vann/example
+<http://purl.org/vocab/vann/example> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.linkedmodel.org/schema/vaem#rationale
+<http://www.linkedmodel.org/schema/vaem#rationale> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2002/07/owl#minQualifiedCardinality
+<http://www.w3.org/2002/07/owl#minQualifiedCardinality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status
+<http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Address
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Organization> .
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Name
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://github.com/asteriusj/semanticdatamaster/adr
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/2002/07/owl#equivalentProperty> <https://github.com/asteriusj/semanticdatamaster/hasAddress> .
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Organization> .
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/2000/01/rdf-schema#range> <https://github.com/asteriusj/semanticdatamaster/Address> .
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/2000/01/rdf-schema#comment> "This object property has been mapped"@en .
+<https://github.com/asteriusj/semanticdatamaster/adr> <http://www.w3.org/2000/01/rdf-schema#label> "address"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/age
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/2000/01/rdf-schema#range> <https://github.com/asteriusj/semanticdatamaster/IntegerValueObject> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/hasAddress
+<https://github.com/asteriusj/semanticdatamaster/hasAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://github.com/asteriusj/semanticdatamaster/hasAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://github.com/asteriusj/semanticdatamaster/hasAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/hasAddress> <http://www.w3.org/2000/01/rdf-schema#range> <https://github.com/asteriusj/semanticdatamaster/Address> .
+<https://github.com/asteriusj/semanticdatamaster/hasAddress> <http://www.w3.org/2000/01/rdf-schema#label> "has address"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/hasMember
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Group> .
+<https://github.com/asteriusj/semanticdatamaster/Group> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/2000/01/rdf-schema#range> <https://github.com/asteriusj/semanticdatamaster/Kind> .
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/2000/01/rdf-schema#range> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/2000/01/rdf-schema#comment> "To include a member in the group this object represents. (This property can only be used by Group individuals)"@en .
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/hasMember> <http://www.w3.org/2000/01/rdf-schema#label> "has member"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+# 
+# http://www.w3.org/2006/vcard/ns#organization-name
+<http://www.w3.org/2006/vcard/ns#organization-name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/2006/vcard/ns#organization-name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.w3.org/2006/vcard/ns#organization-name> <http://www.w3.org/2000/01/rdf-schema#comment> "To specify the organizational name associated with the object"@en .
+<http://www.w3.org/2006/vcard/ns#organization-name> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<http://www.w3.org/2006/vcard/ns#organization-name> <http://www.w3.org/2000/01/rdf-schema#label> "organization name"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/additional-name
+<https://github.com/asteriusj/semanticdatamaster/additional-name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/additional-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/additional-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/additional-name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/additional-name> <http://www.w3.org/2000/01/rdf-schema#comment> "The additional name associated with the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/additional-name> <http://www.w3.org/2000/01/rdf-schema#label> "additional name"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/age
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/birthday
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/2000/01/rdf-schema#comment> "\nThe birthday of this Agent, represented in mm-dd string form, eg. '12-31'.\n" .
+<https://github.com/asteriusj/semanticdatamaster/birthday> <http://www.w3.org/2000/01/rdf-schema#label> "birthday" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/country-name
+<https://github.com/asteriusj/semanticdatamaster/country-name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/country-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/country-name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/country-name> <http://www.w3.org/2000/01/rdf-schema#comment> "The country name associated with the address of the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/country-name> <http://www.w3.org/2000/01/rdf-schema#label> "country name"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/family-name
+<https://github.com/asteriusj/semanticdatamaster/family-name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/family-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/family-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/family-name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/family-name> <http://www.w3.org/2000/01/rdf-schema#comment> "The family name associated with the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/family-name> <http://www.w3.org/2000/01/rdf-schema#label> "family name"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/firstName
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/2002/07/owl#equivalentProperty> <https://github.com/asteriusj/semanticdatamaster/given-name> .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/2000/01/rdf-schema#comment> "\nFirst or given name of contact person.\n " .
+<https://github.com/asteriusj/semanticdatamaster/firstName> <http://www.w3.org/2000/01/rdf-schema#label> "First Name" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/given-name
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/2002/07/owl#equivalentProperty> <https://github.com/asteriusj/semanticdatamaster/lastName> .
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/2000/01/rdf-schema#comment> "The given name associated with the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/given-name> <http://www.w3.org/2000/01/rdf-schema#label> "given name"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/hasIntegerValue
+<https://github.com/asteriusj/semanticdatamaster/hasIntegerValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/hasIntegerValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://github.com/asteriusj/semanticdatamaster/hasIntegerValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/IntegerValueObject> .
+<https://github.com/asteriusj/semanticdatamaster/hasIntegerValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/hasTitle
+<https://github.com/asteriusj/semanticdatamaster/hasTitle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/hasTitle> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/hasTitle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/hasTitle> <http://www.linkedmodel.org/schema/vaem#rationale> "Allows to store typical contact info "@en .
+<https://github.com/asteriusj/semanticdatamaster/hasTitle> <http://www.w3.org/2000/01/rdf-schema#comment> "Answers the question: What the  ?"@en .
+<https://github.com/asteriusj/semanticdatamaster/hasTitle> <http://www.w3.org/2000/01/rdf-schema#label> "has title"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/honorific-prefix
+<https://github.com/asteriusj/semanticdatamaster/honorific-prefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/honorific-prefix> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/honorific-prefix> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/honorific-prefix> <http://www.w3.org/2000/01/rdf-schema#comment> "The honorific prefix of the name associated with the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/honorific-prefix> <http://www.w3.org/2000/01/rdf-schema#label> "honorific prefix"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/honorific-suffix
+<https://github.com/asteriusj/semanticdatamaster/honorific-suffix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/honorific-suffix> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/honorific-suffix> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/honorific-suffix> <http://www.w3.org/2000/01/rdf-schema#comment> "The honorific suffix of the name associated with the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/honorific-suffix> <http://www.w3.org/2000/01/rdf-schema#label> "honorific suffix"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/lastName
+<https://github.com/asteriusj/semanticdatamaster/lastName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/lastName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/lastName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/lastName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://github.com/asteriusj/semanticdatamaster/lastName> <http://www.w3.org/2000/01/rdf-schema#comment> "Last or family name of contact person." .
+<https://github.com/asteriusj/semanticdatamaster/lastName> <http://www.w3.org/2000/01/rdf-schema#label> "Last Name" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/locality
+<https://github.com/asteriusj/semanticdatamaster/locality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/locality> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/locality> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/locality> <http://www.w3.org/2000/01/rdf-schema#comment> "The locality (e.g. city or town) associated with the address of the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/locality> <http://www.w3.org/2000/01/rdf-schema#label> "locality"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/nick
+<https://github.com/asteriusj/semanticdatamaster/nick> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/nick> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/nick> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/nick> <http://www.w3.org/2000/01/rdf-schema#comment> "\nA short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).\n" .
+<https://github.com/asteriusj/semanticdatamaster/nick> <http://www.w3.org/2000/01/rdf-schema#label> "nickname" .
+<https://github.com/asteriusj/semanticdatamaster/nick> <http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/org-name
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/vcard/ns#organization-name> .
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Organization> .
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.linkedmodel.org/schema/vaem#rationale> "Part of the standard properties for a vcard org"@en .
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.w3.org/2000/01/rdf-schema#comment> "Answers the question: What is the name of the Organization?"@en .
+<https://github.com/asteriusj/semanticdatamaster/org-name> <http://www.w3.org/2000/01/rdf-schema#label> "organization name"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/postal-code
+<https://github.com/asteriusj/semanticdatamaster/postal-code> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/postal-code> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/postal-code> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/postal-code> <http://www.w3.org/2000/01/rdf-schema#comment> "The postal code associated with the address of the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/postal-code> <http://www.w3.org/2000/01/rdf-schema#label> "postal code"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/prefix
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Employee> .
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/2000/01/rdf-schema#comment> "\nSalutation or title as prefix to name.\n " .
+<https://github.com/asteriusj/semanticdatamaster/prefix> <http://www.w3.org/2000/01/rdf-schema#label> "prefix" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/region
+<https://github.com/asteriusj/semanticdatamaster/region> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/region> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/region> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/region> <http://www.w3.org/2000/01/rdf-schema#comment> "The region (e.g. state or province) associated with the address of the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/region> <http://www.w3.org/2000/01/rdf-schema#label> "region"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/street-address
+<https://github.com/asteriusj/semanticdatamaster/street-address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/street-address> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/street-address> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/street-address> <http://www.w3.org/2000/01/rdf-schema#comment> "The street address associated with the address of the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/street-address> <http://www.w3.org/2000/01/rdf-schema#label> "street address"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/title
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://purl.org/dc/terms/title> .
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.w3.org/2000/01/rdf-schema#domain> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.linkedmodel.org/schema/vaem#rationale> "Part of standard metadata for Entities"@en .
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.w3.org/2000/01/rdf-schema#comment> "Answers the question: What is the title of the... ?"@en .
+<https://github.com/asteriusj/semanticdatamaster/title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://org.semanticweb.owlapi/error#Error1> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/asteriusj/semanticdatamaster/Kind> .
+# 
+# http://schema.org/Person
+<http://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/Person> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<http://schema.org/Person> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://schema.org/> .
+# 
+# http://schema.org/Thing
+<http://schema.org/Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://schema.org/Thing> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/asteriusj/semanticdatamaster/Thing> .
+# 
+# http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2006/vcard/ns#Contact
+<http://www.w3.org/2006/vcard/ns#Contact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/vcard/ns#Contact> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/asteriusj/semanticdatamaster/Contact> .
+# 
+# http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://xmlns.com/foaf/0.1/> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Address
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid27 .
+_:genid27 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid31 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/country-name> .
+_:genid31 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid29 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/country-name> .
+_:genid29 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid21 .
+_:genid21 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid25 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/locality> .
+_:genid25 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid23 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/locality> .
+_:genid23 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/postal-code> .
+_:genid19 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid16 .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/postal-code> .
+_:genid17 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/region> .
+_:genid13 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid11 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/region> .
+_:genid11 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/street-address> .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/street-address> .
+_:genid5 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Contact
+<https://github.com/asteriusj/semanticdatamaster/Contact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Contact> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/vocol/salesforce/Contact> .
+<https://github.com/vocol/salesforce/Contact> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Contact> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/Contact> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/Contact> <http://www.w3.org/2000/01/rdf-schema#label> "Contact"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Employee
+<https://github.com/asteriusj/semanticdatamaster/Employee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Employee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/Employee> <http://www.w3.org/2000/01/rdf-schema#label> "Employee"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Gender
+<https://github.com/asteriusj/semanticdatamaster/Gender> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Gender> <http://www.w3.org/2000/01/rdf-schema#comment> "Used for gender codes. The URI of the gender code must be used as the value for Gender."@en .
+<https://github.com/asteriusj/semanticdatamaster/Gender> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/Gender> <http://www.w3.org/2000/01/rdf-schema#label> "Gender"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Group
+# 
+# https://github.com/asteriusj/semanticdatamaster/IntegerValueObject
+<https://github.com/asteriusj/semanticdatamaster/IntegerValueObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/IntegerValueObject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://github.com/asteriusj/semanticdatamaster/Thing> .
+<https://github.com/asteriusj/semanticdatamaster/IntegerValueObject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid32 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/hasIntegerValue> .
+_:genid32 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Kind
+<https://github.com/asteriusj/semanticdatamaster/Kind> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Kind> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/asteriusj/semanticdatamaster/VCard> .
+<https://github.com/asteriusj/semanticdatamaster/Kind> <http://www.w3.org/2000/01/rdf-schema#comment> "The parent class for all objects"@en .
+<https://github.com/asteriusj/semanticdatamaster/Kind> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/Kind> <http://www.w3.org/2000/01/rdf-schema#label> "Kind"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Name
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid33 <http://www.w3.org/2002/07/owl#unionOf> _:genid58 .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid59 .
+_:genid59 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid62 .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid63 .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid63 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/additional-name> .
+_:genid63 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid60 .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid61 .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid61 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/additional-name> .
+_:genid61 <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid52 .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid53 .
+_:genid53 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid56 .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid57 .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid57 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/family-name> .
+_:genid57 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid54 .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid55 .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid55 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/family-name> .
+_:genid55 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid46 .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid47 .
+_:genid47 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid51 .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid51 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/given-name> .
+_:genid51 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid49 .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid49 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/given-name> .
+_:genid49 <http://www.w3.org/2002/07/owl#maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid41 .
+_:genid41 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid44 .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid45 .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid45 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/honorific-prefix> .
+_:genid45 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid43 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/honorific-prefix> .
+_:genid43 <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid35 .
+_:genid35 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid39 .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid39 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/honorific-suffix> .
+_:genid39 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid37 <http://www.w3.org/2002/07/owl#onProperty> <https://github.com/asteriusj/semanticdatamaster/honorific-suffix> .
+_:genid37 <http://www.w3.org/2002/07/owl#minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Organization
+<https://github.com/asteriusj/semanticdatamaster/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<https://github.com/asteriusj/semanticdatamaster/Organization> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<https://github.com/asteriusj/semanticdatamaster/Organization> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Person
+<https://github.com/asteriusj/semanticdatamaster/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Person> <http://www.w3.org/2002/07/owl#equivalentClass> <https://github.com/vocol/salesforce/Person> .
+<https://github.com/vocol/salesforce/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+<https://github.com/asteriusj/semanticdatamaster/Person> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<https://github.com/asteriusj/semanticdatamaster/Person> <http://www.w3.org/2000/01/rdf-schema#comment> "A person. A person (alive, dead, undead, or fictional)." .
+<https://github.com/asteriusj/semanticdatamaster/Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Thing
+<https://github.com/asteriusj/semanticdatamaster/Thing> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Thing> <http://www.w3.org/2000/01/rdf-schema#comment> "The most generic type of item." .
+<https://github.com/asteriusj/semanticdatamaster/Thing> <http://www.w3.org/2000/01/rdf-schema#label> "Thing" .
+# 
+# https://github.com/asteriusj/semanticdatamaster/Type
+<https://github.com/asteriusj/semanticdatamaster/Type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/Type> <http://www.w3.org/2000/01/rdf-schema#comment> "Used for type codes. The URI of the type code must be used as the value for Type."@en .
+<https://github.com/asteriusj/semanticdatamaster/Type> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/Type> <http://www.w3.org/2000/01/rdf-schema#label> "Type"@en .
+# 
+# https://github.com/asteriusj/semanticdatamaster/VCard
+<https://github.com/asteriusj/semanticdatamaster/VCard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://github.com/asteriusj/semanticdatamaster/VCard> <http://www.w3.org/2000/01/rdf-schema#comment> "The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"@en .
+<https://github.com/asteriusj/semanticdatamaster/VCard> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/2006/vcard/ns> .
+<https://github.com/asteriusj/semanticdatamaster/VCard> <http://www.w3.org/2000/01/rdf-schema#label> "VCard"@en .
+# 
+# https://github.com/vocol/salesforce/Contact
+# 
+# https://github.com/vocol/salesforce/Person
+# 
+_:genid64 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/2000/01/rdf-schema#comment> "To specify the components of the delivery address for the  object"@en .
+<https://github.com/asteriusj/semanticdatamaster/Address> <http://www.w3.org/2000/01/rdf-schema#label> "Address"@en .
+# 
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/2000/01/rdf-schema#comment> "To specify the components of the name of the object"@en .
+<https://github.com/asteriusj/semanticdatamaster/Name> <http://www.w3.org/2000/01/rdf-schema#label> "Name"@en .
+# 
+<https://github.com/asteriusj/semanticdatamaster/age> <http://www.w3.org/2000/01/rdf-schema#label> "age" .
+# 
+<https://github.com/asteriusj/semanticdatamaster/name> <http://schema.org/domainIncludes> <https://github.com/asteriusj/semanticdatamaster/Contact> .
+<https://github.com/asteriusj/semanticdatamaster/name> <http://schema.org/domainIncludes> <https://github.com/asteriusj/semanticdatamaster/Organization> .
+<https://github.com/asteriusj/semanticdatamaster/name> <http://schema.org/domainIncludes> <https://github.com/asteriusj/semanticdatamaster/Person> .
+<https://github.com/asteriusj/semanticdatamaster/name> <http://schema.org/domainIncludes> <https://github.com/asteriusj/semanticdatamaster/Thing> .
+<https://github.com/asteriusj/semanticdatamaster/name> <http://schema.org/rangeIncludes> <http://schema.org/Text> .
+<https://github.com/asteriusj/semanticdatamaster/name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the item." .
+<https://github.com/asteriusj/semanticdatamaster/name> <http://www.w3.org/2000/01/rdf-schema#label> "name" .
+# 
+# Generated by the OWL API (version 5.1.0) https://github.com/owlcs/owlapi/

@@ -1,0 +1,55 @@
+{
+	"id": "Atoll.json",
+	"title": "atoll",
+	"translations": {
+		"title": {
+			"de": "Atoll",
+			"el": "ατόλη",
+			"fr": "atoll",
+			"it": "atollo",
+			"ko": "환초",
+			"nl": "atol",
+			"ja": "環礁"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Island.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Atoll",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Atoll"}
+}

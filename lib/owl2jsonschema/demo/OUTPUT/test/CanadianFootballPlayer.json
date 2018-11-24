@@ -1,0 +1,55 @@
+{
+	"id": "CanadianFootballPlayer.json",
+	"title": "canadian football Player",
+	"translations": {
+		"title": {
+			"de": "kanadischer Footballspieler",
+			"el": "καναδός παίκτης ποδοσφαίρου",
+			"fr": "joueur de football canadien",
+			"it": "giocatore di football canadese",
+			"ko": "캐나다 축구 선수",
+			"nl": "Canadese football speler",
+			"pt": "jogador de futebol canadense"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}, {"$ref": "GridironFootballPlayer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CanadianFootballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CanadianFootballPlayer"}
+}

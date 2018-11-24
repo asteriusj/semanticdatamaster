@@ -1,0 +1,58 @@
+{
+	"id": "BoxingLeague.json",
+	"title": "boxing league",
+	"description": "A group of sports teams or fighters that compete against each other in Boxing",
+	"translations": {
+		"title": {
+			"de": "Box-Liga",
+			"el": "πρωτάθλημα πυγμαχίας",
+			"fr": "ligue de boxe",
+			"it": "lega di pugilato",
+			"es": "liga de boxeo",
+			"ga": "sraith dornálaíochta",
+			"ko": "권투 리그",
+			"nl": "box competitie",
+			"ja": "ボクシングリーグ"
+		},
+		"description": {"el": "Μία διοργάνωση στην οποία μεμονωμένοι πυγμάχοι είτε ομάδες πυγμάχων συναγωνίζονται μεταξύ τους με σκοπό την νίκη."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsLeague.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BoxingLeague",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BoxingLeague"}
+}

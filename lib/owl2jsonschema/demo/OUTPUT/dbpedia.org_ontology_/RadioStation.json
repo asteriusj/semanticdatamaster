@@ -1,0 +1,104 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Broadcaster.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"radioStation": {
+			"title": "radio station",
+			"description": "",
+			"type": "string"
+		},
+		"airDate": {
+			"title": "airdate",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"facilityId": {
+			"title": "facility id",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		}
+	},
+	"description": "A radio station has one line up. For instance the radio station BBC Radio 1. Not to be confused with the broadcasting network BBC, which has many radio stations.",
+	"format": "http://dbpedia.org/ontology/RadioStation",
+	"id": "RadioStation.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RadioStation"},
+	"properties": {
+		"radioStation": {
+			"oneOf": [
+				{"$ref": "#/definitions/radioStation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/radioStation"}
+				}
+			]
+		},
+		"airDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/airDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/airDate"}
+				}
+			]
+		},
+		"facilityId": {
+			"oneOf": [
+				{"$ref": "#/definitions/facilityId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/facilityId"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "radio station",
+	"translations": {
+		"title": {
+			"de": "Radiosender",
+			"el": "ραδιοφωνικός σταθμός",
+			"fr": "station de radio",
+			"es": "emisora de radio",
+			"ga": "stáisiún raidió",
+			"nl": "radiozender",
+			"ja": "ラジオ放送局"
+		},
+		"description": {"de": "Ein Radiosender hat genau ein Programm, zum Beispiel der Sender NDR Kultur. Nicht zu verwechseln mit der Rundfunkanstalt NDR, welche mehrere Radiosender hat."}
+	},
+	"type": "object"
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My JSON Schema and jsonform via Web Components</title>
+    <script src="https://polygit.org/webcomponentsjs+1.0.0-rc.5/components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="./webcomponents/wc-form-editjs.html">
+    <link rel="import" href="./webcomponents/wc-form-jsonform.html">
+    
+    <link rel="import" href="./webcomponents/vimeo-embed.html">
+    <style type="text/css">
+        .h2 {
+            
+        }
+        .wrapper {
+            max-width: 480px;
+            margin: 60px auto 100px;
+        }
+    </style>
+  </head>
+  <!--<body onload="getSchemaData()">-->
+  <body>
+    <h2>My Form</h2>
+    
+    <div class="wrapper">
+        <wc-form-editjs name="Bobby Joe" jscript="" jschema="sampleschema.js"></wc-form-editjs>
+    </div> 
+    
+    <div class="wrapper">
+        <!--<wc-form-jsonform name="Robert Tester" jschema="sampleschema.js"></wc-form-jsonform>-->
+    </div> 
+    
+  </body>
+</html>

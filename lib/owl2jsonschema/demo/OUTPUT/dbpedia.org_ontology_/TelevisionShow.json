@@ -1,0 +1,180 @@
+{
+	"id": "TelevisionShow.json",
+	"title": "television show",
+	"translations": {
+		"title": {
+			"de": "Fernsehsendung",
+			"el": "τηλεοπτική σειρά",
+			"fr": "émission de télévision",
+			"es": "serie de televisión",
+			"ga": "clár teilifíse",
+			"sl": "televizijska oddaja",
+			"nl": "televisie show",
+			"ja": "テレビ番組"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"coExecutiveProducer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coProducer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"creativeDirector": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"endingTheme": {
+			"oneOf": [
+				{"$ref": "Work.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Work.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfEpisodes": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfEpisodes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfEpisodes"}
+				}
+			]
+		},
+		"numberOfSeasons": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSeasons"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSeasons"}
+				}
+			]
+		},
+		"openingTheme": {
+			"oneOf": [
+				{"$ref": "Work.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Work.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"presenter": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"showJudge": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"storyEditor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tvComId": {
+			"oneOf": [
+				{"$ref": "#/definitions/tvComId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tvComId"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfSeasons": {
+			"title": "number of seasons",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"tvComId": {
+			"title": "tv.com id",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"numberOfEpisodes": {
+			"title": "number of episodes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TelevisionShow",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TelevisionShow"}
+}

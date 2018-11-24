@@ -1,0 +1,57 @@
+{
+	"id": "WaterTower.json",
+	"title": "Water tower",
+	"description": "a construction designed to store larger quantities of water at a place of some elevation in order to keep pressure on the water provision system",
+	"translations": {
+		"title": {
+			"de": "Wasserturm",
+			"el": "πύργος νερού",
+			"fr": "Château d&apos;eau",
+			"it": "Serbatoio idrico a torre",
+			"nl": "Watertoren"
+		},
+		"description": {
+			"el": "μια κατασκευή σχεδιασμένη για αποθήκευση μεγάλων ποσοτήτων νερού σε μέρος με κάποια ανύψωση, ώστε να διατηρήσει πίεση στο σύστημα παροχής νερού",
+			"fr": "une construction destinée à entreposer l&apos;eau, et placée en général sur un sommet géographique pour permettre de la distribuer sous pression"
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Tower.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/WaterTower",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WaterTower"}
+}

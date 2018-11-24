@@ -1,0 +1,110 @@
+{
+	"id": "FormulaOneRacing.json",
+	"title": "formula one racing",
+	"translations": {
+		"title": {
+			"de": "Formel-1 Rennen",
+			"el": "φόρμουλα ένας αγώνας",
+			"nl": "Formule 1-r‎ace"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsLeague.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"circuitName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfLaps": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLaps"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLaps"}
+				}
+			]
+		},
+		"raceLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/raceLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/raceLength"}
+				}
+			]
+		},
+		"circuitLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/circuitLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/circuitLength"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfLaps": {
+			"title": "number of laps",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"raceLength": {
+			"title": "race length &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"circuitLength": {
+			"title": "circuit length &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FormulaOneRacing",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FormulaOneRacing"}
+}

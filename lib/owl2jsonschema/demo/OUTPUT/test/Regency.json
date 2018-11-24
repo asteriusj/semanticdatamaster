@@ -1,0 +1,80 @@
+{
+	"id": "Regency.json",
+	"title": "regency",
+	"translations": {
+		"title": {
+			"de": "Regentschaft",
+			"el": "αντιβασιλεία",
+			"id": "kabupaten",
+			"nl": "regentschap &amp;&#35;40;regering&#41;",
+			"ja": "摂政"
+		},
+		"description": {"id": "bagian wilayah administratif dibawah provinsi"}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfDistricts": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfDistricts"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfDistricts"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfDistricts": {
+			"title": "number of districts",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Regency",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Regency"}
+}

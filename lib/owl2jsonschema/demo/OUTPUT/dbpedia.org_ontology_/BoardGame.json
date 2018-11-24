@@ -1,0 +1,58 @@
+{
+	"id": "BoardGame.json",
+	"title": "board game",
+	"description": "come from http://en.wikipedia.org/wiki/Category:Board_games",
+	"translations": {
+		"title": {
+			"de": "Brettspiel",
+			"el": "επιτραπέζιο παιχνίδι",
+			"fr": "jeu de société",
+			"it": "gioco da tavolo",
+			"es": "juego de mesa",
+			"da": "brætspil",
+			"ko": "보드 게임",
+			"nl": "bordspel",
+			"ja": "ボードゲーム"
+		},
+		"description": {"it": "Un gioco da tavolo è un gioco che richiede una ben definita superficie di gioco, che viene detta di solito tabellone o plancia."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Activity.json"}, {"$ref": "Game.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BoardGame",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BoardGame"}
+}

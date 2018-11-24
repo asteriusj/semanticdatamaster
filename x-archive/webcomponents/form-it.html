@@ -1,0 +1,27 @@
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+
+<dom-module id="form-it">
+
+  <template>
+    <!-- bind to the "owner" property -->
+    This is <b>[[owner]]</b>'s form-it element.
+  </template>
+  
+  <script>
+    class FormIt extends Polymer.Element {
+      static get is() { return "form-it"; }
+      // configure owner property
+      static get properties() {
+        return {
+          owner: {
+            type: String,
+            value: "Default Guy",
+          }
+        };
+      }
+    }
+    customElements.define(FormIt.is, FormIt);
+    console.log('FormIt')
+  </script>
+
+</dom-module>

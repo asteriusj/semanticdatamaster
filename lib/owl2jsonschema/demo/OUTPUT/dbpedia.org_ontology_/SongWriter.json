@@ -1,0 +1,53 @@
+{
+	"id": "SongWriter.json",
+	"title": "songwriter",
+	"description": "a person who writes songs.",
+	"translations": {
+		"title": {
+			"de": "Liedschreiber",
+			"fr": "auteur-compositeur",
+			"da": "sangskriver",
+			"nl": "songwriter &amp;&#35;40;tekstdichter&#41;"
+		},
+		"description": {"nl": "een persoon die de muziek en/of de tekst voor populaire muzieknummers schrijft."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Writer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SongWriter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SongWriter"}
+}

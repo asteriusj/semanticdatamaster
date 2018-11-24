@@ -1,0 +1,109 @@
+{
+	"id": "Constellation.json",
+	"title": "constellation",
+	"translations": {
+		"title": {
+			"de": "Sternbild",
+			"el": "αστερισμός",
+			"fr": "constellation",
+			"it": "costellazione",
+			"es": "constelación",
+			"ga": "réaltbhuíon",
+			"ko": "별자리",
+			"nl": "samenstel",
+			"tr": "takımyıldızı",
+			"ja": "星座"
+		},
+		"description": {"it": "Una costellazione è ognuna delle 88 parti in cui la sfera celeste è convenzionalmente suddivisa allo scopo di mappare le stelle."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfStars": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStars"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStars"}
+				}
+			]
+		},
+		"neighbourConstellations": {
+			"oneOf": [
+				{"$ref": "#/definitions/neighbourConstellations"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/neighbourConstellations"}
+				}
+			]
+		},
+		"declination": {
+			"oneOf": [
+				{"$ref": "#/definitions/declination"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/declination"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfStars": {
+			"title": "number of stars",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"neighbourConstellations": {
+			"title": "neighbour constellations",
+			"description": "",
+			"type": "string"
+		},
+		"declination": {
+			"title": "declination",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Constellation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Constellation"}
+}

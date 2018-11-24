@@ -1,0 +1,85 @@
+{
+	"id": "SupremeCourtOfTheUnitedStatesCase.json",
+	"title": "Supreme Court of the United States case",
+	"translations": {
+		"title": {
+			"de": "Fall Oberster Gerichtshof der Vereinigten",
+			"fr": "cas juridique de la Cour suprême des États-Unis"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "UnitOfWork.json"}, {"$ref": "Case.json"}, {"$ref": "LegalCase.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"argueDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/argueDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/argueDate"}
+				}
+			]
+		},
+		"decideDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/decideDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/decideDate"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"argueDate": {
+			"title": "argue date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"decideDate": {
+			"title": "decide date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SupremeCourtOfTheUnitedStatesCase",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SupremeCourtOfTheUnitedStatesCase"}
+}

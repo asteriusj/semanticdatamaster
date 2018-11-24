@@ -1,0 +1,147 @@
+{
+	"id": "Activity.json",
+	"title": "activity",
+	"translations": {
+		"title": {
+			"da": "aktivitet",
+			"de": "Aktivität",
+			"el": "Δραστηριότητα",
+			"es": "actividad",
+			"fr": "activité",
+			"ga": "gníomhaíocht",
+			"gl": "actividade",
+			"it": "attività",
+			"ja": "活動",
+			"ko": "활동",
+			"nl": "activiteit",
+			"pl": "aktywność",
+			"pt": "atividade",
+			"zh": "活動"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfPlayers": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPlayers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPlayers"}
+				}
+			]
+		},
+		"numberOfPeopleLicensed": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPeopleLicensed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPeopleLicensed"}
+				}
+			]
+		},
+		"numberOfProfessionals": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfProfessionals"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfProfessionals"}
+				}
+			]
+		},
+		"numberOfClubs": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfClubs"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfClubs"}
+				}
+			]
+		},
+		"equipment": {
+			"oneOf": [
+				{"$ref": "#/definitions/equipment"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/equipment"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfPlayers": {
+			"title": "number of players",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfPeopleLicensed": {
+			"title": "number of licensed",
+			"description": "nombre de personnes ayant une license pour pratiquer cette activité",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfProfessionals": {
+			"title": "number of professionals",
+			"description": "number of people who earns his living from a specified activity.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfClubs": {
+			"title": "number of clubs",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"equipment": {
+			"title": "equipment",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Activity",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Activity"}
+}

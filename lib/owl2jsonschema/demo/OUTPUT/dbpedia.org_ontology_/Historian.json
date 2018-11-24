@@ -1,0 +1,55 @@
+{
+	"id": "Historian.json",
+	"title": "historian",
+	"translations": {
+		"title": {
+			"de": "Historiker",
+			"el": "ιστορικός",
+			"fr": "historien",
+			"it": "storico",
+			"ga": "staraí",
+			"nl": "historicus",
+			"ja": "歴史学者"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Writer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Historian",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Historian"}
+}

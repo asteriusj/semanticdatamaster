@@ -1,0 +1,165 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "RouteOfTransportation.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"loadLimit": {
+			"title": "load limit &amp;&#35;40;g&#41;",
+			"description": "Load limit of the bridge.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"numberOfSpans": {
+			"title": "number of spans",
+			"description": "Number of spans or arches.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"unitedStatesNationalBridgeId": {
+			"title": "United States National Bridge ID",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfPiersInWater": {
+			"title": "number of piers in water",
+			"description": "Number of piers standing in a river or other water in normal conditions.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"bridgeCarries": {
+			"title": "bridge carries",
+			"description": "Type of vehicles the bridge carries.",
+			"type": "string"
+		},
+		"mainspan": {
+			"title": "mainspan &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"description": "A bridge is a structure built to span physical obstacles such as a body of water, valley, or road, for the purpose of providing passage over the obstacle &amp;&#35;40;http://en.wikipedia.org/wiki/Bridge&#41;.",
+	"format": "http://dbpedia.org/ontology/Bridge",
+	"id": "Bridge.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Bridge"},
+	"properties": {
+		"loadLimit": {
+			"oneOf": [
+				{"$ref": "#/definitions/loadLimit"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/loadLimit"}
+				}
+			]
+		},
+		"numberOfSpans": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSpans"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSpans"}
+				}
+			]
+		},
+		"unitedStatesNationalBridgeId": {
+			"oneOf": [
+				{"$ref": "#/definitions/unitedStatesNationalBridgeId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/unitedStatesNationalBridgeId"}
+				}
+			]
+		},
+		"numberOfPiersInWater": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPiersInWater"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPiersInWater"}
+				}
+			]
+		},
+		"bridgeCarries": {
+			"oneOf": [
+				{"$ref": "#/definitions/bridgeCarries"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bridgeCarries"}
+				}
+			]
+		},
+		"mainspan": {
+			"oneOf": [
+				{"$ref": "#/definitions/mainspan"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mainspan"}
+				}
+			]
+		},
+		"crosses": {
+			"oneOf": [
+				{"$ref": "River.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "River.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "bridge",
+	"translations": {
+		"title": {
+			"bn": "সেতু",
+			"da": "bro",
+			"de": "Brücke",
+			"el": "γέφυρα",
+			"fr": "pont",
+			"ga": "droichead",
+			"it": "ponte",
+			"ja": "橋",
+			"ko": "다리",
+			"nl": "brug",
+			"pt": "ponte",
+			"sl": "most"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

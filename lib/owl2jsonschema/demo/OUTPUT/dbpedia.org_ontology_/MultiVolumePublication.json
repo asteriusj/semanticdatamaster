@@ -1,0 +1,71 @@
+{
+	"id": "MultiVolumePublication.json",
+	"title": "multi volume publication",
+	"translations": {
+		"title": {
+			"de": "mehrbändige Publikation",
+			"nl": "meerdelige publicatie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"umbrellaTitle": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"volumes": {
+			"oneOf": [
+				{"$ref": "WrittenWork.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "WrittenWork.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MultiVolumePublication",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MultiVolumePublication"}
+}

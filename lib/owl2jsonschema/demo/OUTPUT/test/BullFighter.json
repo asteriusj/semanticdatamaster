@@ -1,0 +1,58 @@
+{
+	"id": "BullFighter.json",
+	"title": "bullfighter",
+	"translations": {
+		"title": {
+			"pl": "toreador",
+			"de": "Stierkämpfer",
+			"el": "ταυρομάχος",
+			"fr": "torero",
+			"it": "torero",
+			"es": "torero",
+			"ga": "tarbhchomhraiceoir",
+			"ko": "투우사",
+			"nl": "stierenvechter",
+			"ja": "闘牛士"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BullFighter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BullFighter"}
+}

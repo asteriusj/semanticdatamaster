@@ -1,0 +1,98 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Food.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"discontinued": {
+			"title": "discontinued",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"percentageAlcohol": {
+			"title": "percentage of alcohol",
+			"description": "percentage of alcohol present in a beverage",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A drink, or beverage, is a liquid which is specifically prepared for human consumption.",
+	"format": "http://dbpedia.org/ontology/Beverage",
+	"id": "Beverage.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Beverage"},
+	"properties": {
+		"discontinued": {
+			"oneOf": [
+				{"$ref": "#/definitions/discontinued"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/discontinued"}
+				}
+			]
+		},
+		"percentageAlcohol": {
+			"oneOf": [
+				{"$ref": "#/definitions/percentageAlcohol"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/percentageAlcohol"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "beverage",
+	"translations": {
+		"title": {
+			"de": "Getränk",
+			"el": "αναψυκτικό",
+			"fr": "boisson",
+			"it": "bevanda",
+			"es": "bebida",
+			"ga": "deoch",
+			"da": "drik",
+			"ko": "음료",
+			"nl": "drank",
+			"ja": "飲料"
+		},
+		"description": {
+			"de": "Ein Getränk ist eine zum Trinken zubereitete Flüssigkeit. Getränke werden entweder zum Stillen von Durst und damit zur Wasseraufnahme des Körpers, als Nahrungsmittel oder auch als reine Genussmittel aufgenommen.",
+			"el": "Ένα πόσιμο υγρό ρόφημα, συνήθως με μηδενική ή ελάχιστη περιεκτικότητα αλκοόλης."
+		}
+	},
+	"type": "object"
+}

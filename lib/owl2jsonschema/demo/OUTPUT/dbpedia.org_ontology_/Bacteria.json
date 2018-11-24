@@ -1,0 +1,57 @@
+{
+	"id": "Bacteria.json",
+	"title": "bacteria",
+	"translations": {
+		"title": {
+			"de": "bakterium",
+			"el": "βακτήρια",
+			"fr": "bactérie",
+			"it": "batterio",
+			"es": "bacteria",
+			"ga": "baictéir",
+			"ko": "세균",
+			"nl": "bacterie",
+			"ja": "真正細菌"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Bacteria",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Bacteria"}
+}

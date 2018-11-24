@@ -1,0 +1,80 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "PeriodicalLiterature.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "Magazines, periodicals, glossies or serials are publications, generally published on a regular schedule, containing a variety of articles. They are generally financed by advertising, by a purchase price, by pre-paid magazine subscriptions, or all three.",
+	"format": "http://dbpedia.org/ontology/Magazine",
+	"id": "Magazine.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Magazine"},
+	"properties": {
+		"editorTitle": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"previousEditor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "magazine",
+	"translations": {
+		"title": {
+			"de": "Publikumszeitschrift",
+			"el": "Περιοδικό",
+			"fr": "magazine",
+			"ga": "irisleabhar",
+			"ko": "잡지",
+			"nl": "tijdschrift",
+			"ja": "雑誌"
+		},
+		"description": {
+			"el": "Περιοδικά ή γυαλιστερές φωτογραφίες περιοδικών εκδόσεων δημοσιεύονται σε τακτά χρονικά διαστήματα, περιέχει μια ποικιλία από αντικείμενα.Γενικά χρηματοδοτείται από διαφημίσεις, με τιμή αγοράς, με προπληρωμένες συνδρομές περιοδικών, ή και των τριών.",
+			"de": "Als Publikumszeitschrift &amp;&#35;40;auch Magazin&#41; bezeichnet man eine Gattung von Zeitschriften, die sich an eine sehr breite Zielgruppe wendet und keine fachlichen Prägungen oder andere spezifische Merkmale voraussetzt. Publikumszeitschriften dienen der Unterhaltung und Information, sie sollen unangestrengt gelesen werden können."
+		}
+	},
+	"type": "object"
+}

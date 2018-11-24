@@ -1,0 +1,895 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://github.com/asteriusj/semanticdatamaster/"
+     xml:base="https://github.com/asteriusj/semanticdatamaster/"
+     xmlns:schema="http://schema.org/"
+     xmlns:vaem="http://www.linkedmodel.org/schema/vaem#"
+     xmlns:ns="http:/s/www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:semanticdatamaster="https://github.com/asteriusj/semanticdatamaster/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="https://github.com/asteriusj/semanticdatamaster/">
+        <dc:creator rdf:resource="http://github.com/asteriusj"/>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$Date: 2018-02-04 20:18:26 $</dc:date>
+        <dc:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The proof of concept aims to provide semantic data model conceptual information for selected objects and properties.
+</dc:description>
+        <dc:publisher rdf:resource="http://github.com/asteriusj"/>
+        <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Semantic Data Master (SDM) Ontology</dc:title>
+        <terms:abstract xml:lang="en"></terms:abstract>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$Date: 2018-02-04 20:18:26 $</terms:created>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$Date: 2018-02-04 20:18:26 $</terms:issued>
+        <terms:license rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://creativecommons.org/licenses/by/2.0/</terms:license>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$Date: 2018-02-04 20:18:26 $</terms:modified>
+        <bibo:status xml:lang="en">Draft</bibo:status>
+        <vann:preferredNamespacePrefix rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sdm</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/asteriusj/semanticdatamaster#</vann:preferredNamespaceUri>
+        <schema:contributor rdf:resource="http://LinkedIn.com/jeffreyastewart/"/>
+        <schema:contributor rdf:resource="http://github.com/asteriusj"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An experimental ontology for defining entity relationships and data property definitions and constraints
+</rdfs:comment>
+        <rdfs:label xml:lang="en">Ontology for Semantic Data Model</rdfs:label>
+        <owl:versionIRI xml:lang="en">https://github.com/asteriusj/semanticdatamaster/Draft</owl:versionIRI>
+        <owl:versionInfo xml:lang="en">Draft</owl:versionInfo>
+        <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">$Date: 2018-02-04 20:18:26 $</prov:generatedAtTime>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/vocab/vann/example -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/example"/>
+    
+
+
+    <!-- http://schema.org/domainIncludes -->
+
+
+    <owl:AnnotationProperty rdf:about="http://schema.org/domainIncludes"/>
+    
+
+
+    <!-- http://schema.org/rangeIncludes -->
+
+
+    <owl:AnnotationProperty rdf:about="http://schema.org/rangeIncludes"/>
+    
+
+
+    <!-- http://www.linkedmodel.org/schema/vaem#rationale -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.linkedmodel.org/schema/vaem#rationale"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#minQualifiedCardinality -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#minQualifiedCardinality"/>
+    
+
+
+    <!-- http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+
+    <owl:AnnotationProperty rdf:about="http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Address -->
+
+
+    <owl:AnnotationProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/Address">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Organization"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Name -->
+
+
+    <owl:AnnotationProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/Name">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/adr -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/adr">
+        <owl:equivalentProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/hasAddress"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Organization"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="https://github.com/asteriusj/semanticdatamaster/Address"/>
+        <rdfs:comment xml:lang="en">This object property has been mapped</rdfs:comment>
+        <rdfs:label xml:lang="en">address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/age -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/age">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/hasAddress -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/hasAddress">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:range rdf:resource="https://github.com/asteriusj/semanticdatamaster/Address"/>
+        <rdfs:label xml:lang="en">has address</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/hasMember -->
+
+
+    <owl:ObjectProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/hasMember">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Group"/>
+        <rdfs:range rdf:resource="https://github.com/asteriusj/semanticdatamaster/Kind"/>
+        <rdfs:range rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:comment xml:lang="en">To include a member in the group this object represents. (This property can only be used by Group individuals)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/title">
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#organization-name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/vcard/ns#organization-name">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">To specify the organizational name associated with the object</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">organization name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/additional-name -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/additional-name">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The additional name associated with the object</rdfs:comment>
+        <rdfs:label xml:lang="en">additional name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/age -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/age">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/birthday -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/birthday">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+The birthday of this Agent, represented in mm-dd string form, eg. &apos;12-31&apos;.
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">birthday</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/country-name -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/country-name">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The country name associated with the address of the object</rdfs:comment>
+        <rdfs:label xml:lang="en">country name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/family-name -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/family-name">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The family name associated with the object</rdfs:comment>
+        <rdfs:label xml:lang="en">family name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/firstName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/firstName">
+        <owl:equivalentProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/given-name"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+First or given name of contact person.
+ </rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">First Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/given-name -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/given-name">
+        <owl:equivalentProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/lastName"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The given name associated with the object</rdfs:comment>
+        <rdfs:label xml:lang="en">given name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/hasIntegerValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/hasTitle -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/hasTitle">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <vaem:rationale xml:lang="en">Allows to store typical contact info </vaem:rationale>
+        <rdfs:comment xml:lang="en">Answers the question: What the  ?</rdfs:comment>
+        <rdfs:label xml:lang="en">has title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/honorific-prefix -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/honorific-prefix">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The honorific prefix of the name associated with the object</rdfs:comment>
+        <rdfs:label xml:lang="en">honorific prefix</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/honorific-suffix -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/honorific-suffix">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The honorific suffix of the name associated with the object</rdfs:comment>
+        <rdfs:label xml:lang="en">honorific suffix</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/lastName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/lastName">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Last or family name of contact person.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Last Name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/locality -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/locality">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The locality (e.g. city or town) associated with the address of the object</rdfs:comment>
+        <rdfs:label xml:lang="en">locality</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/nick -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/nick">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).
+</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nickname</rdfs:label>
+        <ns:term_status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">testing</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/org-name -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/org-name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/vcard/ns#organization-name"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Organization"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <vaem:rationale xml:lang="en">Part of the standard properties for a vcard org</vaem:rationale>
+        <rdfs:comment xml:lang="en">Answers the question: What is the name of the Organization?</rdfs:comment>
+        <rdfs:label xml:lang="en">organization name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/postal-code -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/postal-code">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The postal code associated with the address of the object</rdfs:comment>
+        <rdfs:label xml:lang="en">postal code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/prefix -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/prefix">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Employee"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+Salutation or title as prefix to name.
+ </rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">prefix</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/region -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/region">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The region (e.g. state or province) associated with the address of the object</rdfs:comment>
+        <rdfs:label xml:lang="en">region</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/street-address -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/street-address">
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The street address associated with the address of the object</rdfs:comment>
+        <rdfs:label xml:lang="en">street address</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/title -->
+
+
+    <owl:DatatypeProperty rdf:about="https://github.com/asteriusj/semanticdatamaster/title">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/title"/>
+        <rdfs:domain rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <vaem:rationale xml:lang="en">Part of standard metadata for Entities</vaem:rationale>
+        <rdfs:comment xml:lang="en">Answers the question: What is the title of the... ?</rdfs:comment>
+        <rdfs:label xml:lang="en">title</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://org.semanticweb.owlapi/error#Error1 -->
+
+
+    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error1">
+        <owl:equivalentClass rdf:resource="https://github.com/asteriusj/semanticdatamaster/Kind"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+
+    <owl:Class rdf:about="http://schema.org/Person">
+        <owl:equivalentClass rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:isDefinedBy rdf:resource="http://schema.org/"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Thing -->
+
+
+    <owl:Class rdf:about="http://schema.org/Thing">
+        <owl:equivalentClass rdf:resource="https://github.com/asteriusj/semanticdatamaster/Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    
+
+
+    <!-- http://www.w3.org/2006/vcard/ns#Contact -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/vcard/ns#Contact">
+        <owl:equivalentClass rdf:resource="https://github.com/asteriusj/semanticdatamaster/Contact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <owl:equivalentClass rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Address -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Address">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/country-name"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/country-name"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/locality"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/locality"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/postal-code"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/postal-code"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/region"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/region"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/street-address"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/street-address"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Contact -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Contact">
+        <owl:equivalentClass rdf:resource="https://github.com/vocol/salesforce/Contact"/>
+        <rdfs:subClassOf rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">Contact</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Employee -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Employee">
+        <rdfs:subClassOf rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <rdfs:label xml:lang="en">Employee</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Gender -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Gender">
+        <rdfs:comment xml:lang="en">Used for gender codes. The URI of the gender code must be used as the value for Gender.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">Gender</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Group -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Group"/>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/IntegerValueObject -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/IntegerValueObject">
+        <rdfs:subClassOf rdf:resource="https://github.com/asteriusj/semanticdatamaster/Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/hasIntegerValue"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Kind -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Kind">
+        <owl:equivalentClass rdf:resource="https://github.com/asteriusj/semanticdatamaster/VCard"/>
+        <rdfs:comment xml:lang="en">The parent class for all objects</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">Kind</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Name -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Name">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/additional-name"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/additional-name"/>
+                                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/family-name"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/family-name"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/given-name"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/given-name"/>
+                                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/honorific-prefix"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/honorific-prefix"/>
+                                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/honorific-suffix"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://github.com/asteriusj/semanticdatamaster/honorific-suffix"/>
+                                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Organization -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Organization">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">Organization</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Person -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Person">
+        <owl:equivalentClass rdf:resource="https://github.com/vocol/salesforce/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A person. A person (alive, dead, undead, or fictional).</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Thing -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Thing">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The most generic type of item.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/Type -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/Type">
+        <rdfs:comment xml:lang="en">Used for type codes. The URI of the type code must be used as the value for Type.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/asteriusj/semanticdatamaster/VCard -->
+
+
+    <owl:Class rdf:about="https://github.com/asteriusj/semanticdatamaster/VCard">
+        <rdfs:comment xml:lang="en">The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2006/vcard/ns"/>
+        <rdfs:label xml:lang="en">VCard</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/vocol/salesforce/Contact -->
+
+
+    <owl:Class rdf:about="https://github.com/vocol/salesforce/Contact"/>
+    
+
+
+    <!-- https://github.com/vocol/salesforce/Person -->
+
+
+    <owl:Class rdf:about="https://github.com/vocol/salesforce/Person"/>
+    <rdf:Description>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/Address">
+        <rdfs:comment xml:lang="en">To specify the components of the delivery address for the  object</rdfs:comment>
+        <rdfs:label xml:lang="en">Address</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/Name">
+        <rdfs:comment xml:lang="en">To specify the components of the name of the object</rdfs:comment>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/age">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">age</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://github.com/asteriusj/semanticdatamaster/name">
+        <schema:domainIncludes rdf:resource="https://github.com/asteriusj/semanticdatamaster/Contact"/>
+        <schema:domainIncludes rdf:resource="https://github.com/asteriusj/semanticdatamaster/Organization"/>
+        <schema:domainIncludes rdf:resource="https://github.com/asteriusj/semanticdatamaster/Person"/>
+        <schema:domainIncludes rdf:resource="https://github.com/asteriusj/semanticdatamaster/Thing"/>
+        <schema:rangeIncludes rdf:resource="http://schema.org/Text"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The name of the item.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.0) https://github.com/owlcs/owlapi/ -->
+
+

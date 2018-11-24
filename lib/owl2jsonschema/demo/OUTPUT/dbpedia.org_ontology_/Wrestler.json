@@ -1,0 +1,82 @@
+{
+	"id": "Wrestler.json",
+	"title": "wrestler",
+	"translations": {
+		"title": {
+			"de": "Ringer",
+			"el": "παλαιστής",
+			"fr": "lutteur",
+			"ga": "coraí",
+			"nl": "worstelaar",
+			"ja": "レスラー"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"debut": {
+			"oneOf": [
+				{"$ref": "#/definitions/debut"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/debut"}
+				}
+			]
+		},
+		"billed": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"debut": {
+			"title": "debut",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Wrestler",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Wrestler"}
+}

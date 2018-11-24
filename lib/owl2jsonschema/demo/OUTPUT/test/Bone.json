@@ -1,0 +1,58 @@
+{
+	"id": "Bone.json",
+	"title": "bone",
+	"translations": {
+		"title": {
+			"de": "Knochen",
+			"el": "οστό",
+			"fr": "os",
+			"it": "osso",
+			"es": "hueso",
+			"ga": "cnámh",
+			"ko": "뼈",
+			"nl": "bot",
+			"pt": "osso",
+			"ja": "骨"
+		},
+		"description": {"el": "Η βασική μονάδα του συστήματος στήριξης των σπονδυλωτών οργανισμών."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Bone",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Bone"}
+}

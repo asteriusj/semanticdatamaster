@@ -1,0 +1,55 @@
+{
+	"id": "CyclingLeague.json",
+	"title": "cycling league",
+	"description": "a group of sports teams that compete against each other in Cycling",
+	"translations": {
+		"title": {
+			"de": "Rad-Liga",
+			"el": "Ομοσπονδία Ποδηλασίας",
+			"fr": "ligue de cyclisme",
+			"es": "liga de ciclismo",
+			"ko": "사이클 리그",
+			"nl": "wielerronde"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsLeague.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CyclingLeague",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CyclingLeague"}
+}

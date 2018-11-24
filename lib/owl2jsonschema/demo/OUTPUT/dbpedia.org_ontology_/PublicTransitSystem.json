@@ -1,0 +1,134 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Company.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"reportingMark": {
+			"title": "reporting mark",
+			"description": "A reporting mark is a two-, three-, or four-letter alphabetic code used to identify owners or lessees of rolling stock and other equipment used on the North American railroad network.",
+			"type": "string"
+		},
+		"numberOfLines": {
+			"title": "number of lines",
+			"description": "Number of lines in the transit system.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfVehicles": {
+			"title": "number of vehicles",
+			"description": "Number of vehicles used in the transit system.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A public transit system is a shared passenger transportation service which is available for use by the general public. Public transport modes include buses, trolleybuses, trams and trains, &apos;rapid transit' &amp;&#35;40;metro/subways/undergrounds etc&#41; and ferries. Intercity public transport is dominated by airlines, coaches, and intercity rail. (http://en.wikipedia.org/wiki/Public_transit).",
+	"format": "http://dbpedia.org/ontology/PublicTransitSystem",
+	"id": "PublicTransitSystem.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PublicTransitSystem"},
+	"properties": {
+		"reportingMark": {
+			"oneOf": [
+				{"$ref": "#/definitions/reportingMark"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/reportingMark"}
+				}
+			]
+		},
+		"numberOfLines": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLines"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLines"}
+				}
+			]
+		},
+		"numberOfVehicles": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfVehicles"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfVehicles"}
+				}
+			]
+		},
+		"importantStation": {
+			"oneOf": [
+				{"$ref": "Station.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Station.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"vehiclesInFleet": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"destination": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "public transit system",
+	"translations": {
+		"title": {
+			"de": "Öffentliches Personenverkehrssystem",
+			"el": "μέσα μαζικής μεταφοράς",
+			"es": "Sistema de Transporte Público",
+			"nl": "openbaar vervoer systeem"
+		},
+		"description": {
+			"el": "Τα μέσα μαζικής μεταφοράς &amp;&#35;40;συντομογραφία ΜΜΜ&#41; είναι τα δημόσια συγκοινωνιακά μέσα, που περιλαμβάνουν τα λεωφορεία, τα τρόλεϊ, τα τραμ, τα τρένα, το μετρό, τα πλοία. Υπάρχουν και τα ταχεία μέσα συγκοινωνίας που περιλαμβάνουν τα αεροπλάνα, υπερταχεία τρένα.",
+			"de": "Ein System des Öffentlichen Personenverkehrs auf Straße, Schiene oder Wasser."
+		}
+	},
+	"type": "object"
+}

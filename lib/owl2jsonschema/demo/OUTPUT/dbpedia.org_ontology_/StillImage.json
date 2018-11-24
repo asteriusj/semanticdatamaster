@@ -1,0 +1,52 @@
+{
+	"id": "StillImage.json",
+	"title": "still image",
+	"description": "A visual document that is not intended to be animated; equivalent to http://purl.org/dc/dcmitype/StillImage",
+	"translations": {
+		"title": {
+			"de": "Standbild",
+			"fr": "image fixe",
+			"nl": "stilstaand beeld"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Document.json"}, {"$ref": "Image.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/StillImage",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/StillImage"}
+}

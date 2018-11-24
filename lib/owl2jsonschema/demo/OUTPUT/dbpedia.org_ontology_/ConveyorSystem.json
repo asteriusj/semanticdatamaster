@@ -1,0 +1,108 @@
+{
+	"id": "ConveyorSystem.json",
+	"title": "conveyor system",
+	"translations": {
+		"title": {
+			"de": "Fördersystem",
+			"fr": "système convoyeur",
+			"nl": "transportsysteem"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}, {"$ref": "On-SiteTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"ConveyorSystem/height": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ConveyorSystem/width": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ConveyorSystem/weight": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ConveyorSystem/length": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ConveyorSystem/diameter": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ConveyorSystem/mass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ConveyorSystem",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ConveyorSystem"}
+}

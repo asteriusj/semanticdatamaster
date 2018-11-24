@@ -1,0 +1,114 @@
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+
+<link rel="import" href="my-form-imports.html">
+
+<dom-module id="my-form">
+  
+  
+  
+  <template>
+    
+       
+    <h1>My JSON Form</h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    
+  </template>
+
+     <script>
+        function doNext() { 
+            console.log('doNext')
+            doForm() 
+        }
+    </script>
+    
+    
+    <script>
+    function doForm() {
+      console.log('doForm')
+      
+      let schema0 = 
+        {
+          name: {
+            type: 'string',
+            title: 'Name',
+            required: true
+          },
+          age: {
+            type: 'number',
+            title: 'Age'
+          }
+        } ;
+        
+      let schema1 = 
+        {
+          firstName: {
+            type: 'string',
+            title: 'First Name',
+            required: true
+          },
+          lastName: {
+            type: 'string',
+            title: 'First Name',
+            required: true
+          },
+          birthDay: {
+            type: 'date',
+            title: 'Birthday'
+          }
+        } ;
+
+      let schema2 = {}
+      let schema3 = {}
+    
+      console.log('mySchema',mySchema)
+      var _schema = mySchema || schema1 ;
+      console.log('_schema', _schema)
+      
+      
+      var formObject = {
+        schema: _schema,
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>I beg your pardon?</p>');
+          }
+          else {
+            var _name = name || firstName
+            var _age = age || ""
+            var _birth = birthDay || ""
+            $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+              (values.age ? '<br/>You are ' + values.age + '.' : '') +
+              (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+              '</p>');
+          }
+        } 
+      }
+      console.log('formObject',formObject)
+      
+      // Render the form
+      $('#form').jsonForm(formObject);
+      // $('form').jsonForm({
+      //   schema: _schema,
+      //   onSubmit: function (errors, values) {
+      //     if (errors) {
+      //       $('#res').html('<p>I beg your pardon?</p>');
+      //     }
+      //     else {
+      //       var _name = name || firstName
+      //       var _age = age || ""
+      //       var _birth = birthDay || ""
+      //       $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+      //         (values.age ? '<br/>You are ' + values.age + '.' : '') +
+      //         (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+      //         '</p>');
+      //     }
+      //   }
+      // });
+      
+    } // end doForm
+    </script>
+
+
+
+        
+</dom-module>

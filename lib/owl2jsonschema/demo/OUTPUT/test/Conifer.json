@@ -1,0 +1,59 @@
+{
+	"id": "Conifer.json",
+	"title": "conifer",
+	"translations": {
+		"title": {
+			"de": "Konifere",
+			"el": "κωνοφόρο",
+			"fr": "conifere",
+			"es": "conífera",
+			"ga": "cónaiféar",
+			"ko": "침엽수",
+			"nl": "conifeer",
+			"ja": "球果植物門"
+		},
+		"description": {
+			"it": "Le conifere sono piante vascolari, con semi contenuti in un cono. Sono piante legnose, perlopiù sono alberi e solo poche sono arbusti.",
+			"es": "Las coníferas son plantas vasculares, con las semillas contenidas en un cono. Son plantas leñosas."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Plant.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Conifer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Conifer"}
+}

@@ -1,0 +1,74 @@
+{
+	"id": "SkiResort.json",
+	"title": "ski resort",
+	"translations": {
+		"title": {
+			"de": "Skigebiet",
+			"el": "θέρετρο σκι",
+			"fr": "station de ski",
+			"ga": "baile sciála",
+			"nl": "skioord"
+		},
+		"description": {"el": "Το θέρετρο σκι χρησιμοποιείται για να περιγράψει έναν τόπο διακοπών με τις απαραίτητες εγκαταστάσεις διαμονής και εξάσκησης του χειμερινού αθλήματος της χιονοδρομίας"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "SportFacility.json"}, {"$ref": "SkiArea.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"massif": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"linkedTo": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SkiResort",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SkiResort"}
+}

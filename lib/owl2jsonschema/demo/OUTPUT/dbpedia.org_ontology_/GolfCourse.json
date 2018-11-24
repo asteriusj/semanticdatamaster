@@ -1,0 +1,71 @@
+{
+	"id": "GolfCourse.json",
+	"title": "golf course",
+	"translations": {
+		"title": {
+			"de": "Golfplatz",
+			"el": "γήπεδο γκολφ",
+			"it": "campo da golf",
+			"ga": "cúrsa gailf",
+			"nl": "golfbaan"
+		},
+		"description": {"el": "Σε ένα γήπεδο γκολφ οι τρύπες συχνά κρύβουν κινδύνους, που ορίζονται ως ειδικές περιοχές για τις οποίες ισχύουν επιπρόσθετοι κανόνες διεξαγωγής του παιχνιδιού."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "SportFacility.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfHoles": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfHoles"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfHoles"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfHoles": {
+			"title": "number of holes",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GolfCourse",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GolfCourse"}
+}

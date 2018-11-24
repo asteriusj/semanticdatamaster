@@ -1,0 +1,84 @@
+{
+	"id": "Astronaut.json",
+	"title": "astronaut",
+	"translations": {
+		"title": {
+			"de": "Astronaut",
+			"el": "αστροναύτης",
+			"fr": "astronaute",
+			"it": "astronauta",
+			"es": "astronauta",
+			"ga": "spásaire",
+			"ko": "우주인",
+			"nl": "ruimtevaarder",
+			"pt": "astronauta",
+			"ja": "宇宙飛行士"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"Astronaut/timeInSpace": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/minute.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/minute.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"selection": {
+			"oneOf": [
+				{"$ref": "#/definitions/selection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/selection"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"selection": {
+			"title": "selection",
+			"description": "when &amp;&#35;40;or in which project&#41; the person was selected to train as an astronaut",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Astronaut",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Astronaut"}
+}

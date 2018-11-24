@@ -1,0 +1,126 @@
+
+<template id="kurtTaggerTemplate">
+  <div class="tagAreaContainer">
+    <div class="tagArea">
+      
+    </div>
+    <div class="tagList"></div>
+  </div>
+  <style>
+  :root {
+  
+}
+    
+    kurt-tagger {
+      display:block;
+    }    
+.tagArea {
+  display:block;
+  width:400px;
+  height:120px;
+  border:inset 2px lightGray;
+  padding:3px;
+  resize:both;
+  overflow-y:auto;
+  background:linear-gradient(to bottom,white,lightBlue);
+}
+
+.tag {
+  display:inline-block;
+  border:solid 1.5px Blue;
+  background-color:lightBlue;
+  border-radius:5px;
+  font-size:9pt;
+  padding:3px;
+  margin-top:2px;
+  cursor:pointer;
+}
+    
+    .tag:hover {
+      background-color:white;
+    }
+    .tag:active {
+      background-color:blue;
+      border-color:navy;
+      color:white;
+    }
+    .tag[data-selected='true']{
+      background-color:white;
+    }
+.tagList {
+  display:block;
+  margin-top:5px;
+  width:405px;
+  border:inset 2px lightGray;
+  min-height:25px;
+}
+
+  </style>
+
+  
+</template>  
+
+<template id="kurtDefsTemplate">
+  <div class="defs-container">
+     <template name="term">
+       <div>
+            ﻿<span class="term">{name}</span> 
+            <span class="pos">{pos}<span> 
+            <span class="pr">{pr}</span>
+       ﻿</div>
+       <div class="et">{et}</div>
+      </div>
+    </template>
+    <ol class="def">
+       <template name="defs">
+           <li>{def}</li>
+       </template>
+    </ol>  
+  </div>  
+  <style>
+    .defs-container {
+      border:inset 2px gray;
+      width:400px;
+      min-height:200px;
+      padding:5px;
+    }
+    .def {}
+    .term {
+      font-weight:bold;
+      text-transform: capitalize;
+    }
+    .et {font-style:italic;
+      margin-top:5px;
+      margin-left:5px;}
+  </style>   
+</template> 
+
+
+<template id="suggestTemplate">
+  <div class="suggest-container">
+    <template name="suggestHeader">
+    <div class="term">Suggestions for {term}</div>
+    <p>No definition exists for this term, but the following may be what you are looking for:</p>
+    </template>
+     <ol class="suggestion">
+     <template name="suggestionsTemplate">          
+             <li>{suggestion}</li>
+    </template>
+       </ol> 
+  </div>  
+  <style>
+    .suggest-container {
+      border:inset 2px gray;
+      width:400px;
+      min-height:200px;
+      padding:5px;
+    }
+    .term {
+      font-weight:bold;
+      text-transform: capitalize;
+    }
+    .suggestion {font-style:italic;
+      margin-top:5px;
+      margin-left:5px;}
+  </style>   
+</template>  

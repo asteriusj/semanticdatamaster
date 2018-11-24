@@ -1,0 +1,58 @@
+{
+	"id": "Area.json",
+	"title": "area",
+	"description": "Area of something. Use&quot;value&quot;for the value,&quot;min&quot;&amp;&quot;max&quot;for a range &amp;&#35;40;if uncertain&#41; and&quot;rank&quot;&amp;&#35;40;integer&#41; for the rank of that thing amongst its siblings (eg regions ordered by area)",
+	"translations": {
+		"title": {
+			"de": "Bereich",
+			"el": "εμβαδόν",
+			"fr": "aire",
+			"ga": "ceantar",
+			"nl": "gebied",
+			"ja": "面積"
+		},
+		"description": {
+			"fr": "Mesure d&apos;une surface.",
+			"el": "Εμβαδόν ή έκταση είναι το μέγεθος μέτρησης των επιφανειών."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Area",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Area"}
+}

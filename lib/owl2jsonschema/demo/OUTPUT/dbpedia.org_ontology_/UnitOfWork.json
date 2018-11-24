@@ -1,0 +1,52 @@
+{
+	"id": "UnitOfWork.json",
+	"title": "unit of work",
+	"description": "This class is meant to convey the notion of an amount work to be done. It is different from Activity in that it has a definite end and is being measured.",
+	"translations": {
+		"title": {
+			"ga": "aonad oibre",
+			"de": "Arbeitseinheit",
+			"nl": "werkeenheid"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/UnitOfWork",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/UnitOfWork"}
+}

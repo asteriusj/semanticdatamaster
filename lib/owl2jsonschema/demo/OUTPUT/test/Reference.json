@@ -1,0 +1,112 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "Annotation.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"reference": {
+			"title": "reference",
+			"description": "Structured reference providing info about the subject",
+			"type": "string"
+		},
+		"atPage": {
+			"title": "page number",
+			"description": "Page &amp;#35; where the referenced resource is to be found in the source document",
+			"type": "string"
+		},
+		"atRowNumber": {
+			"title": "row number",
+			"description": "Row &amp;#35; where the referenced resource is to be found in the source file",
+			"type": "string"
+		},
+		"connectsReferencedTo": {
+			"title": "connects referenced to",
+			"description": "connects a referenced resource to another resource. This property is important to connect non-extracted resources to extracted ones",
+			"anyOf": []
+		}
+	},
+	"description": "Reference to a work &amp;&#35;40;book, movie, website&#41;  providing info about the subject",
+	"format": "http://dbpedia.org/ontology/Reference",
+	"id": "Reference.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Reference"},
+	"properties": {
+		"reference": {
+			"oneOf": [
+				{"$ref": "#/definitions/reference"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/reference"}
+				}
+			]
+		},
+		"atPage": {
+			"oneOf": [
+				{"$ref": "#/definitions/atPage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/atPage"}
+				}
+			]
+		},
+		"atRowNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/atRowNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/atRowNumber"}
+				}
+			]
+		},
+		"connectsReferencedTo": {
+			"oneOf": [
+				{"$ref": "#/definitions/connectsReferencedTo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/connectsReferencedTo"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Reference",
+	"translations": {
+		"title": {
+			"de": "Referenz",
+			"el": "αναφορά",
+			"nl": "Verwijzing",
+			"ja": "参考文献"
+		},
+		"description": {"nl": "Verwijzing naar een plaats in een boek of film"}
+	},
+	"type": "object"
+}

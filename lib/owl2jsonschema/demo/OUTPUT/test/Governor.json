@@ -1,0 +1,54 @@
+{
+	"id": "Governor.json",
+	"title": "governor",
+	"translations": {
+		"title": {
+			"de": "Gouverneur",
+			"el": "κυβερνήτης",
+			"fr": "gouverneur",
+			"ga": "gobharnóir",
+			"nl": "gouverneur",
+			"ja": "知事"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Governor",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Governor"}
+}

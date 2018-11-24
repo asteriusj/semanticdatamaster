@@ -1,0 +1,76 @@
+<!-- https://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/ -->
+
+<p>Here is a live example using Shadow DOM:</p>
+
+<div id="ex2bNameTag">Bob</div>
+
+    <p>
+    <label for="ex2bNewName">New name:</label>
+    <input name="ex2bNewName" value="Shellie">
+    <button onclick="updateClicked('#ex2bNameTag', 'input[name=ex2bNewName]');">Update</button>
+    </p>
+
+    <script>
+    function updateClicked(nameTagSelector, textBoxSelector) {
+      var text = document.querySelector(textBoxSelector);
+      document.querySelector(nameTagSelector).textContent = text.value;
+      text.value = '';
+      text.focus();
+    }
+    </script>
+
+
+    <template id="ex2bNameTagTemplate">
+        <style>
+        .outer {
+          border: 2px solid brown;
+          border-radius: 1em;
+          background: red;
+          font-size: 20pt;
+          width: 12em;
+          height: 7em;
+          text-align: center;
+        }
+        .boilerplate {
+          color: white;
+          font-family: sans-serif;
+          padding: 0.5em;
+        }
+        .name {
+          color: black;
+          background: white;
+          font-family: "Marker Felt", cursive;
+          font-size: 45pt;
+          padding-top: 0.2em;
+          height: 55pt;
+          overflow: hidden;
+        }
+        </style>
+        
+        <div class="outer">
+          <div class="boilerplate">
+            Hi! My name is
+          </div>
+          <div class="name">
+            &nbsp;<content></content>&nbsp;
+          </div>
+        </div>
+        
+    </template>
+    
+    <script>
+    (function () {
+      if (!window.HTMLTemplateElement ||
+          !HTMLElement.prototype.createShadowRoot) {
+        remove('#ex2b');
+        return;
+      }
+    
+      var shadow = document.querySelector('#ex2bNameTag').createShadowRoot();
+      var template = document.querySelector('#ex2bNameTagTemplate');
+      shadow.appendChild(template.content);
+      template.remove();
+    })();
+    </script>
+    
+</div>

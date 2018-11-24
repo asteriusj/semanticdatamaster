@@ -1,0 +1,293 @@
+{
+	"id": "FictionalCharacter.json",
+	"title": "fictional character",
+	"translations": {
+		"title": {
+			"de": "fiktiver Charakter",
+			"el": "πλασματικός χαρακτήρας",
+			"fr": "personnage de fiction",
+			"ga": "carachtar ficseanúil",
+			"nl": "personage &amp;&#35;40;fictie&#41;",
+			"ja": "キャラクター"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"affiliate": {
+			"oneOf": [
+				{"$ref": "#/definitions/affiliate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/affiliate"}
+				}
+			]
+		},
+		"colorChart": {
+			"oneOf": [
+				{"$ref": "#/definitions/colorChart"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/colorChart"}
+				}
+			]
+		},
+		"comic": {
+			"oneOf": [
+				{"$ref": "Comic.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Comic.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"drama": {
+			"oneOf": [
+				{"$ref": "Drama.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Drama.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"enemy": {
+			"oneOf": [
+				{"$ref": "Species.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Species.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"entourage": {
+			"oneOf": [
+				{"$ref": "Species.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Species.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"episode": {
+			"oneOf": [
+				{"$ref": "#/definitions/episode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/episode"}
+				}
+			]
+		},
+		"eyes": {
+			"oneOf": [
+				{"$ref": "#/definitions/eyes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eyes"}
+				}
+			]
+		},
+		"feature": {
+			"oneOf": [
+				{"$ref": "#/definitions/feature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/feature"}
+				}
+			]
+		},
+		"firstAppearance": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstAppearance"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstAppearance"}
+				}
+			]
+		},
+		"free": {
+			"oneOf": [
+				{"$ref": "#/definitions/free"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/free"}
+				}
+			]
+		},
+		"freeLabel": {
+			"oneOf": [
+				{"$ref": "#/definitions/freeLabel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/freeLabel"}
+				}
+			]
+		},
+		"hairs": {
+			"oneOf": [
+				{"$ref": "#/definitions/hairs"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hairs"}
+				}
+			]
+		},
+		"lastAppearance": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastAppearance"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastAppearance"}
+				}
+			]
+		},
+		"novel": {
+			"oneOf": [
+				{"$ref": "Novel.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Novel.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"performer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"portrayer": {
+			"oneOf": [
+				{"$ref": "#/definitions/portrayer"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/portrayer"}
+				}
+			]
+		},
+		"power": {
+			"oneOf": [
+				{"$ref": "#/definitions/power"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/power"}
+				}
+			]
+		},
+		"work": {
+			"oneOf": [
+				{"$ref": "#/definitions/work"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/work"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"affiliate": {
+			"title": "affiliate",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"colorChart": {
+			"title": "colorChart",
+			"description": "",
+			"type": "string"
+		},
+		"episode": {
+			"title": "episode",
+			"description": "",
+			"type": "string"
+		},
+		"eyes": {
+			"title": "eyes",
+			"description": "",
+			"type": "string"
+		},
+		"feature": {
+			"title": "feature",
+			"description": "",
+			"type": "string"
+		},
+		"firstAppearance": {
+			"title": "first appearance",
+			"description": "",
+			"type": "string"
+		},
+		"free": {
+			"title": "free",
+			"description": "",
+			"type": "string"
+		},
+		"freeLabel": {
+			"title": "freeLabel",
+			"description": "",
+			"type": "string"
+		},
+		"hairs": {
+			"title": "hairs",
+			"description": "",
+			"type": "string"
+		},
+		"lastAppearance": {
+			"title": "last appearance",
+			"description": "",
+			"anyOf": []
+		},
+		"portrayer": {
+			"title": "portrayer",
+			"description": "",
+			"anyOf": []
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"power": {
+			"title": "power",
+			"description": "",
+			"type": "string"
+		},
+		"work": {
+			"title": "work",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FictionalCharacter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FictionalCharacter"}
+}

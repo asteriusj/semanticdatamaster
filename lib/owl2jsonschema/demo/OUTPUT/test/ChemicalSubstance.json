@@ -1,0 +1,400 @@
+{
+	"id": "ChemicalSubstance.json",
+	"title": "chemical substance",
+	"translations": {
+		"title": {
+			"de": "chemische Substanz",
+			"el": "χημική ουσία",
+			"fr": "substance chimique",
+			"it": "sostanza chimica",
+			"ga": "ceimiceán",
+			"ko": "화학 물질",
+			"nl": "chemische substantie",
+			"pt": "substância química",
+			"ja": "化学物質"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"ChemicalSubstance/boilingPoint": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ChemicalSubstance/density": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogramPerCubicMetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogramPerCubicMetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ChemicalSubstance/meltingPoint": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aggregation": {
+			"oneOf": [
+				{"$ref": "#/definitions/aggregation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/aggregation"}
+				}
+			]
+		},
+		"boilingPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/boilingPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/boilingPoint"}
+				}
+			]
+		},
+		"carcinogen": {
+			"oneOf": [
+				{"$ref": "#/definitions/carcinogen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/carcinogen"}
+				}
+			]
+		},
+		"chEMBL": {
+			"oneOf": [
+				{"$ref": "#/definitions/chEMBL"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/chEMBL"}
+				}
+			]
+		},
+		"chemSpiderId": {
+			"oneOf": [
+				{"$ref": "#/definitions/chemSpiderId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/chemSpiderId"}
+				}
+			]
+		},
+		"chemicalFormula": {
+			"oneOf": [
+				{"$ref": "#/definitions/chemicalFormula"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/chemicalFormula"}
+				}
+			]
+		},
+		"flashPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/flashPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/flashPoint"}
+				}
+			]
+		},
+		"formula": {
+			"oneOf": [
+				{"$ref": "#/definitions/formula"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/formula"}
+				}
+			]
+		},
+		"kegg": {
+			"oneOf": [
+				{"$ref": "#/definitions/kegg"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/kegg"}
+				}
+			]
+		},
+		"lethalOnChickens": {
+			"oneOf": [
+				{"$ref": "#/definitions/lethalOnChickens"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lethalOnChickens"}
+				}
+			]
+		},
+		"lethalOnMice": {
+			"oneOf": [
+				{"$ref": "#/definitions/lethalOnMice"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lethalOnMice"}
+				}
+			]
+		},
+		"lethalOnRabbits": {
+			"oneOf": [
+				{"$ref": "#/definitions/lethalOnRabbits"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lethalOnRabbits"}
+				}
+			]
+		},
+		"lethalOnRats": {
+			"oneOf": [
+				{"$ref": "#/definitions/lethalOnRats"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lethalOnRats"}
+				}
+			]
+		},
+		"molecularWeight": {
+			"oneOf": [
+				{"$ref": "#/definitions/molecularWeight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/molecularWeight"}
+				}
+			]
+		},
+		"notSolubleIn": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"partitionCoefficient": {
+			"oneOf": [
+				{"$ref": "#/definitions/partitionCoefficient"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/partitionCoefficient"}
+				}
+			]
+		},
+		"pubchem": {
+			"oneOf": [
+				{"$ref": "#/definitions/pubchem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/pubchem"}
+				}
+			]
+		},
+		"solubility": {
+			"oneOf": [
+				{"$ref": "#/definitions/solubility"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/solubility"}
+				}
+			]
+		},
+		"solvent": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"solventWithBadSolubility": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"solventWithGoodSolubility": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"solventWithMediocreSolubility": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"unNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/unNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/unNumber"}
+				}
+			]
+		},
+		"vaporPressure": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/hectopascal.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/hectopascal.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"aggregation": {
+			"title": "Aggregation",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"boilingPoint": {
+			"title": "boiling point &amp;&#35;40;K&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"carcinogen": {
+			"title": "carcinogen",
+			"description": "",
+			"type": "string"
+		},
+		"chEMBL": {
+			"title": "ChEMBL",
+			"description": "ChEMBL is a manually curated chemical database of bioactive molecules with drug-like properties.",
+			"type": "string"
+		},
+		"chemSpiderId": {
+			"title": "ChemSpider Id",
+			"description": "identifier in a free chemical database, owned by the Royal Society of Chemistry",
+			"type": "string"
+		},
+		"chemicalFormula": {
+			"title": "chemical formula",
+			"description": "",
+			"type": "string"
+		},
+		"flashPoint": {
+			"title": "flash point",
+			"description": "lowest temperature at which a substance can vaporize and start burning",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"formula": {
+			"title": "formula",
+			"description": "",
+			"type": "string"
+		},
+		"kegg": {
+			"title": "KEGG",
+			"description": "Bioinformatics resource for deciphering the genome.",
+			"type": "string"
+		},
+		"lethalOnChickens": {
+			"title": "lethal when given to chickens",
+			"description": "",
+			"type": "string"
+		},
+		"lethalOnMice": {
+			"title": "lethal when given to mice",
+			"description": "",
+			"type": "string"
+		},
+		"lethalOnRabbits": {
+			"title": "lethal when given to rabbits",
+			"description": "",
+			"type": "string"
+		},
+		"lethalOnRats": {
+			"title": "lethal when given to rats",
+			"description": "",
+			"type": "string"
+		},
+		"molecularWeight": {
+			"title": "molecular weight",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"partitionCoefficient": {
+			"title": "Partition coefficient",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"pubchem": {
+			"title": "PubChem",
+			"description": "",
+			"type": "string"
+		},
+		"solubility": {
+			"title": "solubility",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"unNumber": {
+			"title": "UN number",
+			"description": "four-digit numbers that identify hazardous substances, and articles in the framework of international transport",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChemicalSubstance",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChemicalSubstance"}
+}

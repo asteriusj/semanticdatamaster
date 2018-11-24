@@ -1,0 +1,71 @@
+{
+	"id": "Region.json",
+	"title": "region",
+	"translations": {
+		"title": {
+			"de": "Region",
+			"el": "περιοχή",
+			"fr": "région",
+			"ga": "réigiún",
+			"nl": "regio",
+			"ja": "地域"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"dutchCOROPCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/dutchCOROPCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dutchCOROPCode"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dutchCOROPCode": {
+			"title": "Dutch COROP code",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Region",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Region"}
+}

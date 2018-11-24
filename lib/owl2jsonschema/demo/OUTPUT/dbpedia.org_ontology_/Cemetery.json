@@ -1,0 +1,76 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfGraves": {
+			"title": "number of graves",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A burial place",
+	"format": "http://dbpedia.org/ontology/Cemetery",
+	"id": "Cemetery.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Cemetery"},
+	"properties": {
+		"numberOfGraves": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfGraves"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfGraves"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "cemetery",
+	"translations": {
+		"title": {
+			"de": "Friedhof",
+			"el": "νεκροταφείο",
+			"fr": "cimetière",
+			"es": "cementerio",
+			"ga": "reilig",
+			"nl": "begraafplaats",
+			"ja": "墓地"
+		},
+		"description": {
+			"el": "Νεκροταφείο &amp;&#35;40;ή Κοιμητήριο&#41; ονομάζεται ο χώρος ο προορισμένος για την ταφή των νεκρών.",
+			"fr": "Un cimetière est un groupement de sépultures monumentales."
+		}
+	},
+	"type": "object"
+}

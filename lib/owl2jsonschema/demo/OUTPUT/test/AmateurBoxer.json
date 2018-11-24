@@ -1,0 +1,57 @@
+{
+	"id": "AmateurBoxer.json",
+	"title": "amateur boxer",
+	"translations": {
+		"title": {
+			"de": "Amateurboxer",
+			"el": "ερασιτέχνης μποξέρ",
+			"fr": "boxeur amateur",
+			"it": "pugile amatoriale",
+			"ga": "dornálaí amaitéarach",
+			"gl": "boxeador afeccionado",
+			"ko": "아마추어 권투 선수",
+			"nl": "amateur boxer",
+			"ja": "アマチュアボクサー"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}, {"$ref": "Boxer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AmateurBoxer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AmateurBoxer"}
+}

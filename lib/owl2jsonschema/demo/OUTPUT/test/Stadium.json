@@ -1,0 +1,55 @@
+{
+	"id": "Stadium.json",
+	"title": "stadium",
+	"translations": {
+		"title": {
+			"de": "Stadion",
+			"el": "στάδιο",
+			"fr": "stade",
+			"ga": "staidiam",
+			"ko": "경기장",
+			"nl": "stadion",
+			"ja": "スタジアム"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}, {"$ref": "Venue.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Stadium",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Stadium"}
+}

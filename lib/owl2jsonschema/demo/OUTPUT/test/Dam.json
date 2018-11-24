@@ -1,0 +1,56 @@
+{
+	"id": "Dam.json",
+	"title": "dam",
+	"description": "A dam is part of a landscape infrastructure, like waterworks &amp;&#35;40;canals&#41; or roads, much more than a building, though, of course, it has been built, too.",
+	"translations": {
+		"title": {
+			"de": "Damm",
+			"el": "φράγμα",
+			"fr": "barrage",
+			"it": "diga",
+			"ga": "damba",
+			"nl": "dam",
+			"ja": "ダム"
+		},
+		"description": {"el": "Ένα φράγμα είναι μια κατασκευή που εμποδίζει, ανακατευθύνει ή επιβραδύνει την φυσική ροή υδάτων."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Dam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Dam"}
+}

@@ -1,0 +1,58 @@
+{
+  "schema": {
+    "choice": {
+      "type": "string",
+      "enum": [
+        "text",
+        "cat",
+        "sector"
+      ]
+    },
+    "txtText": {
+      "type": "string",
+      "title": "Text"
+    },
+    "ddlIndustrySector": {
+      "type": "string",
+      "enum": [
+        "one",
+        "two",
+        "three"
+      ],
+      "title": "Industry Sector"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "Geography",
+        "Entertainment",
+        "History",
+        "Arts",
+        "Science",
+        "Sports"
+      ]
+    }
+  },
+  "form": [
+    {
+      "type": "selectfieldset",
+      "key": "choice",
+      "title": "Make choice",
+      "titleMap": {
+        "text": "Search by text",
+        "cat": "Search by category",
+        "sector": "Search by sector"
+      },
+      "items": [
+        "txtText",
+        "category",
+        "ddlIndustrySector"
+      ]
+    },
+    {
+      "type": "submit",
+      "value": "Submit"
+    }
+  ]
+}

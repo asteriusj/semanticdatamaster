@@ -1,0 +1,55 @@
+{
+	"id": "Crustacean.json",
+	"title": "crustacean",
+	"translations": {
+		"title": {
+			"de": "Krebstier",
+			"el": "αστρακόδερμο",
+			"fr": "crustacés",
+			"ga": "crústach",
+			"ko": "갑각류",
+			"nl": "schaaldier",
+			"ja": "甲殻類"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Animal.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Crustacean",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Crustacean"}
+}

@@ -1,0 +1,84 @@
+{
+	"id": "Globularswarm.json",
+	"title": "Globular Swarm",
+	"translations": {
+		"title": {
+			"nl": "globulaire zwerm &amp;&#35;40;cluster&#41;",
+			"de": "Kugelschwarm",
+			"el": "Σφαιρωτό σμήνος"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}, {"$ref": "Swarm.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"radius_ly": {
+			"oneOf": [
+				{"$ref": "#/definitions/radius_ly"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/radius_ly"}
+				}
+			]
+		},
+		"v_hb": {
+			"oneOf": [
+				{"$ref": "#/definitions/v_hb"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/v_hb"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"radius_ly": {
+			"title": "Radius_ly",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"v_hb": {
+			"title": "V_hb",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Globularswarm",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Globularswarm"}
+}

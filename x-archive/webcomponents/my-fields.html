@@ -1,0 +1,59 @@
+<!-- import polymer-element -->
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+
+<!-- import template repeater --> 
+<link rel="import"  href="https://polygit.org/components/polymer/lib/elements/dom-repeat.html">
+
+<dom-module id="my-fields">
+  <template>
+    <div> Field list: </div>
+    <p></p>
+    <script>
+        // var schemaobj = [[jsonobj]]
+        // var fieldarray = []
+    </script>
+    <p>This is {{schemaobj.schema.birthDay.date}}  date element.</p>
+      
+    <!--<template is="dom-repeat" items="{{employees}}">-->
+    <!--    <div>First name: <span>{{item.first}}</span></div>-->
+    <!--    <div>Last name: <span>{{item.last}}</span></div>-->
+    <!--    <p></p>-->
+    <!--</template>-->
+  </template>
+  <script>
+    class MyFieldList extends Polymer.Element {
+      static get is() { return "my-fields"; }
+      
+      
+      // configure schema property
+      static get properties() {
+        var schemaobj = { 
+          schema: {
+            birthDay: {
+              type: 'date',
+              title: 'Birthday'
+            }
+          }
+        } 
+        console.log('schemaobj',schemaobj)
+        // var sobj = schemaobj.schema  
+        // console.log('sobj',sobj)
+        return {
+           schemaobj
+        };
+      }
+      
+    //   // set this element's xxx property
+    //   constructor() {
+    //     super();
+    //     this.schemaobj = [
+            
+    //         jsonobj.schema
+            
+    //     ]
+    //   }
+    }
+  customElements.define(MyFieldList.is, MyFieldList);
+  </script>
+
+</dom-module>

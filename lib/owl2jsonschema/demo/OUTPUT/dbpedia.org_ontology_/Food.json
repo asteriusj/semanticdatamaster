@@ -1,0 +1,338 @@
+{
+	"allOf": [{"$ref": "Thing.json"}],
+	"definitions": {
+		"approximateCalories": {
+			"title": "approximate calories &amp;&#35;40;J&#41;",
+			"description": "Approximate calories per serving.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"carbohydrate": {
+			"title": "carbohydrate &amp;&#35;40;g&#41;",
+			"description": "Amount of carbohydrates per servingSize of a Food",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"complexity": {
+			"title": "complexity",
+			"description": "Complexity of preparing a Food &amp;&#35;40;recipe&#41;",
+			"type": "string"
+		},
+		"fat": {
+			"title": "fat &amp;&#35;40;g&#41;",
+			"description": "Amount of fat per servingSize of a Food",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"glycemicIndex": {
+			"title": "glycemic index",
+			"description": "Indicates a Food&apos;s effect on a person's blood glucose &amp;&#35;40;blood sugar&#41; level. Typically ranges between 50 and 100, where 100 represents the standard, an equivalent amount of pure glucose",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"ingredient": {
+			"title": "ingredient",
+			"description": "Main ingredient used to prepare a specific Food or Beverage. For strings use ingredientName, for objects use ingredient.",
+			"anyOf": []
+		},
+		"ingredientName": {
+			"title": "ingredient name &amp;&#35;40;literal&#41;",
+			"description": "Main ingredient used to prepare a specific Food or Beverage. For strings use ingredientName, for objects use ingredient.",
+			"type": "string"
+		},
+		"maxTime": {
+			"title": "maximum preparation time &amp;&#35;40;s&#41;",
+			"description": "Maximum preparation time of a recipe / Food",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"minTime": {
+			"title": "minimum preparation time &amp;&#35;40;s&#41;",
+			"description": "Minimum preparation time of a recipe / Food",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"percentageFat": {
+			"title": "percentage of fat",
+			"description": "how much fat &amp;&#35;40;as a percentage&#41; does this food contain. Mostly applies to Cheese",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"productShape": {
+			"title": "product shape",
+			"description": "",
+			"type": "string"
+		},
+		"protein": {
+			"title": "protein &amp;&#35;40;g&#41;",
+			"description": "Amount of proteins per servingSize of a Food",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"servingSize": {
+			"title": "serving size &amp;&#35;40;g&#41;",
+			"description": "Default serving size &amp;&#35;40;eg&quot;100 g&quot;for the standard 100 g serving size&amp;&#35;41;. approximateCalories apply to this serving size",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"servingTemperature": {
+			"title": "serving temperature",
+			"description": "Serving temperature for the food &amp;&#35;40;e.g.: hot, cold, warm or room temperature&#41;.",
+			"type": "string"
+		},
+		"taste": {
+			"title": "taste or flavour",
+			"description": "",
+			"type": "string"
+		},
+		"typeOfGrain": {
+			"title": "type of grain &amp;&#35;40;wheat etc.&#41;",
+			"description": "",
+			"type": "string"
+		},
+		"typeOfStorage": {
+			"title": "type of storage",
+			"description": "",
+			"type": "string"
+		},
+		"typeOfYeast": {
+			"title": "type of yeast",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "Food is any eatable or drinkable substance that is normally consumed by humans.",
+	"format": "http://dbpedia.org/ontology/Food",
+	"id": "Food.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Food"},
+	"properties": {
+		"approximateCalories": {
+			"oneOf": [
+				{"$ref": "#/definitions/approximateCalories"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/approximateCalories"}
+				}
+			]
+		},
+		"carbohydrate": {
+			"oneOf": [
+				{"$ref": "#/definitions/carbohydrate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/carbohydrate"}
+				}
+			]
+		},
+		"complexity": {
+			"oneOf": [
+				{"$ref": "#/definitions/complexity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/complexity"}
+				}
+			]
+		},
+		"creatorOfDish": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fat": {
+			"oneOf": [
+				{"$ref": "#/definitions/fat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fat"}
+				}
+			]
+		},
+		"glycemicIndex": {
+			"oneOf": [
+				{"$ref": "#/definitions/glycemicIndex"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/glycemicIndex"}
+				}
+			]
+		},
+		"ingredient": {
+			"oneOf": [
+				{"$ref": "#/definitions/ingredient"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ingredient"}
+				}
+			]
+		},
+		"ingredientName": {
+			"oneOf": [
+				{"$ref": "#/definitions/ingredientName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ingredientName"}
+				}
+			]
+		},
+		"maxTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/maxTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maxTime"}
+				}
+			]
+		},
+		"minTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/minTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/minTime"}
+				}
+			]
+		},
+		"percentageFat": {
+			"oneOf": [
+				{"$ref": "#/definitions/percentageFat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/percentageFat"}
+				}
+			]
+		},
+		"productShape": {
+			"oneOf": [
+				{"$ref": "#/definitions/productShape"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/productShape"}
+				}
+			]
+		},
+		"protein": {
+			"oneOf": [
+				{"$ref": "#/definitions/protein"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/protein"}
+				}
+			]
+		},
+		"servingSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/servingSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/servingSize"}
+				}
+			]
+		},
+		"servingTemperature": {
+			"oneOf": [
+				{"$ref": "#/definitions/servingTemperature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/servingTemperature"}
+				}
+			]
+		},
+		"taste": {
+			"oneOf": [
+				{"$ref": "#/definitions/taste"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/taste"}
+				}
+			]
+		},
+		"typeOfGrain": {
+			"oneOf": [
+				{"$ref": "#/definitions/typeOfGrain"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/typeOfGrain"}
+				}
+			]
+		},
+		"typeOfStorage": {
+			"oneOf": [
+				{"$ref": "#/definitions/typeOfStorage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/typeOfStorage"}
+				}
+			]
+		},
+		"typeOfYeast": {
+			"oneOf": [
+				{"$ref": "#/definitions/typeOfYeast"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/typeOfYeast"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Food",
+	"translations": {
+		"title": {
+			"da": "mad",
+			"de": "Lebensmittel",
+			"el": "φαγητό",
+			"es": "alimento",
+			"fr": "nourriture",
+			"ga": "bia",
+			"ja": "食品",
+			"ko": "음식",
+			"nl": "voedsel",
+			"pl": "jedzenie",
+			"pt": "comida"
+		},
+		"description": {
+			"el": "Φαγητό είναι οποιαδήποτε φαγώσιμη ή πόσιμη ουσία που καταναλώνεται κανονικά από ανθρώπους.",
+			"de": "Lebensmittel umfasst als Oberbegriff sowohl Getränke als auch die Nahrungsmittel und Genussmittel."
+		}
+	},
+	"type": "object"
+}

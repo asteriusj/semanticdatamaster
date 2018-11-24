@@ -1,0 +1,55 @@
+{
+	"id": "Fungus.json",
+	"title": "fungus",
+	"translations": {
+		"title": {
+			"de": "Pilz",
+			"el": "μύκητας",
+			"fr": "fungi",
+			"es": "hongos",
+			"ga": "fungas",
+			"nl": "schimmel",
+			"ja": "菌類"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Fungus",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Fungus"}
+}

@@ -1,0 +1,94 @@
+{
+	"id": "ChessPlayer.json",
+	"title": "chess player",
+	"translations": {
+		"title": {
+			"pl": "szachista",
+			"de": "Schachspieler",
+			"el": "παίκτης σκάκι",
+			"fr": "joueur d&apos;échecs",
+			"it": "giocatore di scacchi",
+			"ga": "imreoir fichille",
+			"ko": "체스 선수",
+			"nl": "schaker",
+			"ja": "チェスプレーヤー"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"eloRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/eloRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eloRecord"}
+				}
+			]
+		},
+		"elo": {
+			"oneOf": [
+				{"$ref": "#/definitions/elo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elo"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"eloRecord": {
+			"title": "maximum ELO rating",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"elo": {
+			"title": "ELO rating",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChessPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChessPlayer"}
+}

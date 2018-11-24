@@ -1,0 +1,886 @@
+{
+	"id": "Athlete.json",
+	"title": "athlete",
+	"translations": {
+		"title": {
+			"de": "Athlet",
+			"el": "αθλητής",
+			"fr": "athlète",
+			"it": "atleta",
+			"ga": "lúthchleasaí",
+			"ko": "운동 선수",
+			"nl": "atleet",
+			"ja": "アスリート"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"asiaChampionship": {
+			"oneOf": [
+				{"$ref": "#/definitions/asiaChampionship"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/asiaChampionship"}
+				}
+			]
+		},
+		"athleticsDiscipline": {
+			"oneOf": [
+				{"$ref": "Athletics.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athletics.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"backhand": {
+			"oneOf": [
+				{"$ref": "#/definitions/backhand"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/backhand"}
+				}
+			]
+		},
+		"battingSide": {
+			"oneOf": [
+				{"$ref": "#/definitions/battingSide"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/battingSide"}
+				}
+			]
+		},
+		"bowlingSide": {
+			"oneOf": [
+				{"$ref": "#/definitions/bowlingSide"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bowlingSide"}
+				}
+			]
+		},
+		"britishOpen": {
+			"oneOf": [
+				{"$ref": "#/definitions/britishOpen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/britishOpen"}
+				}
+			]
+		},
+		"club": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coachClub": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coachSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/coachSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coachSeason"}
+				}
+			]
+		},
+		"collegeHof": {
+			"oneOf": [
+				{"$ref": "#/definitions/collegeHof"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/collegeHof"}
+				}
+			]
+		},
+		"currentLeague": {
+			"oneOf": [
+				{"$ref": "SportsLeague.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsLeague.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"currentTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"debutTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"draftLeague": {
+			"oneOf": [
+				{"$ref": "#/definitions/draftLeague"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/draftLeague"}
+				}
+			]
+		},
+		"draftPosition": {
+			"oneOf": [
+				{"$ref": "#/definitions/draftPosition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/draftPosition"}
+				}
+			]
+		},
+		"draftTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"espnId": {
+			"oneOf": [
+				{"$ref": "#/definitions/espnId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/espnId"}
+				}
+			]
+		},
+		"europeanChampionship": {
+			"oneOf": [
+				{"$ref": "#/definitions/europeanChampionship"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/europeanChampionship"}
+				}
+			]
+		},
+		"fedCup": {
+			"oneOf": [
+				{"$ref": "#/definitions/fedCup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fedCup"}
+				}
+			]
+		},
+		"fibahof": {
+			"oneOf": [
+				{"$ref": "#/definitions/fibahof"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fibahof"}
+				}
+			]
+		},
+		"finalLostTeam": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalLostTeam"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalLostTeam"}
+				}
+			]
+		},
+		"firstProMatch": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstProMatch"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstProMatch"}
+				}
+			]
+		},
+		"formerTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"heightAgainst": {
+			"oneOf": [
+				{"$ref": "#/definitions/heightAgainst"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/heightAgainst"}
+				}
+			]
+		},
+		"heightAttack": {
+			"oneOf": [
+				{"$ref": "#/definitions/heightAttack"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/heightAttack"}
+				}
+			]
+		},
+		"heisman": {
+			"oneOf": [
+				{"$ref": "#/definitions/heisman"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/heisman"}
+				}
+			]
+		},
+		"hof": {
+			"oneOf": [
+				{"$ref": "#/definitions/hof"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hof"}
+				}
+			]
+		},
+		"hopmanCup": {
+			"oneOf": [
+				{"$ref": "#/definitions/hopmanCup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hopmanCup"}
+				}
+			]
+		},
+		"horseRidingDiscipline": {
+			"oneOf": [
+				{"$ref": "Sport.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Sport.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ithfDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/ithfDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ithfDate"}
+				}
+			]
+		},
+		"juniorTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastProMatch": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastProMatch"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastProMatch"}
+				}
+			]
+		},
+		"laterality": {
+			"oneOf": [
+				{"$ref": "#/definitions/laterality"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/laterality"}
+				}
+			]
+		},
+		"managerClub": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mvp": {
+			"oneOf": [
+				{"$ref": "#/definitions/mvp"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mvp"}
+				}
+			]
+		},
+		"nationalChampionship": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalChampionship"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalChampionship"}
+				}
+			]
+		},
+		"nationalTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ncaaSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/ncaaSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ncaaSeason"}
+				}
+			]
+		},
+		"ncaaTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ncbhof": {
+			"oneOf": [
+				{"$ref": "#/definitions/ncbhof"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ncbhof"}
+				}
+			]
+		},
+		"nflCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/nflCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nflCode"}
+				}
+			]
+		},
+		"nflSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/nflSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nflSeason"}
+				}
+			]
+		},
+		"nflTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"number": {
+			"oneOf": [
+				{"$ref": "#/definitions/number"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/number"}
+				}
+			]
+		},
+		"oldTeamCoached": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"otherSportsExperience": {
+			"oneOf": [
+				{"$ref": "Athletics.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Athletics.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"probowlPick": {
+			"oneOf": [
+				{"$ref": "#/definitions/probowlPick"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/probowlPick"}
+				}
+			]
+		},
+		"qatarClassic": {
+			"oneOf": [
+				{"$ref": "#/definitions/qatarClassic"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/qatarClassic"}
+				}
+			]
+		},
+		"selectionPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/selectionPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/selectionPoint"}
+				}
+			]
+		},
+		"selectionYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/selectionYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/selectionYear"}
+				}
+			]
+		},
+		"sportCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sportSpecialty": {
+			"oneOf": [
+				{"$ref": "Sport.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Sport.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"stateOfOriginPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/stateOfOriginPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/stateOfOriginPoint"}
+				}
+			]
+		},
+		"stateOfOriginTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"stateOfOriginYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/stateOfOriginYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/stateOfOriginYear"}
+				}
+			]
+		},
+		"superbowlWin": {
+			"oneOf": [
+				{"$ref": "#/definitions/superbowlWin"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/superbowlWin"}
+				}
+			]
+		},
+		"supplementalDraftRound": {
+			"oneOf": [
+				{"$ref": "#/definitions/supplementalDraftRound"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/supplementalDraftRound"}
+				}
+			]
+		},
+		"teamCoached": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"teamPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/teamPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/teamPoint"}
+				}
+			]
+		},
+		"teamTitle": {
+			"oneOf": [
+				{"$ref": "#/definitions/teamTitle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/teamTitle"}
+				}
+			]
+		},
+		"tournamentOfChampions": {
+			"oneOf": [
+				{"$ref": "#/definitions/tournamentOfChampions"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tournamentOfChampions"}
+				}
+			]
+		},
+		"trainer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"worldChampionTitleYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/worldChampionTitleYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worldChampionTitleYear"}
+				}
+			]
+		},
+		"worldOpen": {
+			"oneOf": [
+				{"$ref": "#/definitions/worldOpen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worldOpen"}
+				}
+			]
+		},
+		"worldTeamCup": {
+			"oneOf": [
+				{"$ref": "#/definitions/worldTeamCup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worldTeamCup"}
+				}
+			]
+		},
+		"youthClub": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"asiaChampionship": {
+			"title": "asia championship",
+			"description": "",
+			"type": "string"
+		},
+		"backhand": {
+			"title": "backhand",
+			"description": "",
+			"type": "string"
+		},
+		"battingSide": {
+			"title": "batting side",
+			"description": "",
+			"type": "string"
+		},
+		"bowlingSide": {
+			"title": "bowling side",
+			"description": "",
+			"type": "string"
+		},
+		"britishOpen": {
+			"title": "britishOpen",
+			"description": "",
+			"type": "string"
+		},
+		"coachSeason": {
+			"title": "coach season",
+			"description": "",
+			"type": "string"
+		},
+		"collegeHof": {
+			"title": "college hof",
+			"description": "",
+			"type": "string"
+		},
+		"draftLeague": {
+			"title": "draft league",
+			"description": "",
+			"type": "string"
+		},
+		"draftPosition": {
+			"title": "draft position",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"espnId": {
+			"title": "ESPN id",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"europeanChampionship": {
+			"title": "european championship",
+			"description": "",
+			"type": "string"
+		},
+		"fedCup": {
+			"title": "fed cup",
+			"description": "",
+			"type": "string"
+		},
+		"fibahof": {
+			"title": "fibahof",
+			"description": "",
+			"type": "string"
+		},
+		"finalLostTeam": {
+			"title": "final lost team",
+			"description": "",
+			"type": "string"
+		},
+		"firstProMatch": {
+			"title": "first pro match",
+			"description": "",
+			"type": "string"
+		},
+		"heightAgainst": {
+			"title": "height against",
+			"description": "",
+			"type": "string"
+		},
+		"heightAttack": {
+			"title": "height attack",
+			"description": "",
+			"type": "string"
+		},
+		"heisman": {
+			"title": "heisman",
+			"description": "",
+			"type": "string"
+		},
+		"hof": {
+			"title": "hof",
+			"description": "",
+			"type": "string"
+		},
+		"hopmanCup": {
+			"title": "hopman cup",
+			"description": "",
+			"type": "string"
+		},
+		"ithfDate": {
+			"title": "ithf date",
+			"description": "",
+			"type": "string"
+		},
+		"lastProMatch": {
+			"title": "last pro match",
+			"description": "",
+			"type": "string"
+		},
+		"laterality": {
+			"title": "laterality",
+			"description": "",
+			"type": "string"
+		},
+		"mvp": {
+			"title": "mvp",
+			"description": "",
+			"type": "string"
+		},
+		"nationalChampionship": {
+			"title": "national championship",
+			"description": "",
+			"type": "string"
+		},
+		"ncaaSeason": {
+			"title": "ncaa season",
+			"description": "",
+			"type": "string"
+		},
+		"ncbhof": {
+			"title": "ncbhof",
+			"description": "",
+			"type": "string"
+		},
+		"nflCode": {
+			"title": "nfl code",
+			"description": "",
+			"type": "string"
+		},
+		"nflSeason": {
+			"title": "nfl season",
+			"description": "",
+			"type": "string"
+		},
+		"number": {
+			"title": "number",
+			"description": "Jersey number of an Athlete &amp;&#35;40;sports player, eg&quot;99&quot;&amp;&#35;41; or sequential number of an Album &#40;eg&quot;Third studio album&quot;&amp;&#35;41;",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"probowlPick": {
+			"title": "pro bowl pick",
+			"description": "",
+			"type": "string"
+		},
+		"qatarClassic": {
+			"title": "qatar classic",
+			"description": "",
+			"type": "string"
+		},
+		"selectionPoint": {
+			"title": "selection point",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"selectionYear": {
+			"title": "selection year",
+			"description": "",
+			"type": "string"
+		},
+		"stateOfOriginPoint": {
+			"title": "state of origin point",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"stateOfOriginYear": {
+			"title": "state of origin year",
+			"description": "",
+			"type": "string"
+		},
+		"superbowlWin": {
+			"title": "superbowl win",
+			"description": "",
+			"type": "string"
+		},
+		"supplementalDraftRound": {
+			"title": "supplemental draft round",
+			"description": "",
+			"type": "string"
+		},
+		"teamPoint": {
+			"title": "team point",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"teamTitle": {
+			"title": "team title",
+			"description": "",
+			"type": "string"
+		},
+		"tournamentOfChampions": {
+			"title": "tournament of champions",
+			"description": "",
+			"type": "string"
+		},
+		"worldChampionTitleYear": {
+			"title": "year of world champion title",
+			"description": "can be one or several years",
+			"type": "string"
+		},
+		"worldOpen": {
+			"title": "world open",
+			"description": "",
+			"type": "string"
+		},
+		"worldTeamCup": {
+			"title": "world team cup",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Athlete",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Athlete"}
+}

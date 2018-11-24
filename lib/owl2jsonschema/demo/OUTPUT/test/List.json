@@ -1,0 +1,60 @@
+{
+	"id": "List.json",
+	"title": "list",
+	"description": "A general list of items.",
+	"translations": {
+		"title": {
+			"de": "Liste",
+			"el": "λίστα",
+			"fr": "liste",
+			"ga": "liosta",
+			"da": "liste",
+			"nl": "lijst",
+			"ja": "一覧"
+		},
+		"description": {
+			"fr": "une liste d&apos;éléments.",
+			"nl": "Een geordende verzameling objecten.",
+			"el": "Μια γενική λίστα από αντικείμενα."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/List",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/List"}
+}

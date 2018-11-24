@@ -1,0 +1,203 @@
+{
+	"allOf": [{"$ref": "Thing.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"ecNumber": {
+			"title": "EC number",
+			"description": "",
+			"type": "string"
+		},
+		"ensembl": {
+			"title": "ensemble",
+			"description": "",
+			"type": "string"
+		},
+		"entrezgene": {
+			"title": "EntrezGene",
+			"description": "",
+			"type": "string"
+		},
+		"hgncid": {
+			"title": "HGNCid",
+			"description": "",
+			"type": "string"
+		},
+		"mgiid": {
+			"title": "mgiid",
+			"description": "Mouse Genomic Informatics ID",
+			"type": "string"
+		},
+		"omim": {
+			"title": "OMIM id",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"refseqmrna": {
+			"title": "refseq mRNA",
+			"description": "",
+			"type": "string"
+		},
+		"refseqprotein": {
+			"title": "refseq protein",
+			"description": "",
+			"type": "string"
+		},
+		"symbol": {
+			"title": "Symbol",
+			"description": "HUGO Gene Symbol",
+			"type": "string"
+		},
+		"uniprot": {
+			"title": "UniProt",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "equivalent to http://ccdb.ucsd.edu/NIF/BIRNLex-OBO-UBO.owl&amp;#35;birnlex_22.",
+	"format": "http://dbpedia.org/ontology/Biomolecule",
+	"id": "Biomolecule.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Biomolecule"},
+	"properties": {
+		"ecNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/ecNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ecNumber"}
+				}
+			]
+		},
+		"refseqmrna": {
+			"oneOf": [
+				{"$ref": "#/definitions/refseqmrna"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refseqmrna"}
+				}
+			]
+		},
+		"hgncid": {
+			"oneOf": [
+				{"$ref": "#/definitions/hgncid"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hgncid"}
+				}
+			]
+		},
+		"symbol": {
+			"oneOf": [
+				{"$ref": "#/definitions/symbol"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/symbol"}
+				}
+			]
+		},
+		"entrezgene": {
+			"oneOf": [
+				{"$ref": "#/definitions/entrezgene"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/entrezgene"}
+				}
+			]
+		},
+		"ensembl": {
+			"oneOf": [
+				{"$ref": "#/definitions/ensembl"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ensembl"}
+				}
+			]
+		},
+		"uniprot": {
+			"oneOf": [
+				{"$ref": "#/definitions/uniprot"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/uniprot"}
+				}
+			]
+		},
+		"omim": {
+			"oneOf": [
+				{"$ref": "#/definitions/omim"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/omim"}
+				}
+			]
+		},
+		"mgiid": {
+			"oneOf": [
+				{"$ref": "#/definitions/mgiid"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mgiid"}
+				}
+			]
+		},
+		"refseqprotein": {
+			"oneOf": [
+				{"$ref": "#/definitions/refseqprotein"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refseqprotein"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Biomolecule",
+	"translations": {
+		"title": {
+			"de": "Biomolekül",
+			"el": "βιομόριο",
+			"fr": "biomolécule",
+			"it": "biomolecola",
+			"ko": "생체 분자",
+			"nl": "Biomolecuul",
+			"ja": "生体物質"
+		},
+		"description": {
+			"nl": "Een molecuul wat van nature voorkomt in een organisme en gevormd kan worden door organismen.",
+			"el": "Κάθε μόριο που παράγεται σε έναν ζωντανό οργανισμό. Συνήθως μεγαλομοριακές ενώσεις που χρησιμεύουν στην δομή και στο μεταβολισμό του κυττάρου. Πρωτεΐνες, νουκλεϊνικά οξέα, υδατάνθρακες και λιπίδια."
+		}
+	},
+	"type": "object"
+}

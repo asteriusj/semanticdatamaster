@@ -1,0 +1,55 @@
+{
+	"id": "ArtisticGenre.json",
+	"title": "artistic genre",
+	"description": "Genres of art, e.g. Pointillist, Modernist",
+	"translations": {
+		"title": {
+			"de": "Kunstgattung",
+			"nl": "kunstsoort",
+			"fr": "genre artistique"
+		},
+		"description": {
+			"de": "Gattung nennt man in den Kunstwissenschaften die auf das künstlerische Ausdrucksmedium bezogenen Formen der Kunst.",
+			"fr": "genre d&apos;art, ex: Pointillisme, Modernisme"
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}, {"$ref": "Genre.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ArtisticGenre",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ArtisticGenre"}
+}

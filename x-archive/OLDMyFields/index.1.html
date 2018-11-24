@@ -1,0 +1,748 @@
+<!--https://github.com/bopoda/ace/blob/master/form-elements.html-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>My JSON Form Field</title>
+
+		<meta name="description" content="form field elements and layouts" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="ace/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="ace/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+        
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="ace/assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/chosen.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-colorpicker.min.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="ace/assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="ace/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="ace/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="ace/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="ace/assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+        <!-- Handlebars -->
+        <!--<script type="text/javascript" src="http://www.alpacajs.org/lib/handlebars/handlebars.min.js"></script>-->
+
+        <!-- Alpaca -->
+        <!--<link href="http://www.alpacajs.org/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">-->
+        <!--<link type="text/css" href="http://www.alpacajs.org/lib/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />-->
+
+        <!--<script type="text/javascript" src="http://www.alpacajs.org/lib/alpaca/bootstrap/alpaca.js"></script>-->
+        <!--<link type="text/css" href="http://www.alpacajs.org/lib/alpaca/bootstrap/alpaca.css" rel="stylesheet" />-->
+
+    
+    
+    <link rel="stylesheet" style="text/css" href="../deps/opt/bootstrap.css" />
+    
+    <link rel="stylesheet" style="text/css" href="../styles/styles.css" />
+    
+    <style>
+        .myheader {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .button-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 400px;
+    
+        }
+        .myjson {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+        }
+        #editor {
+            width: 260px;
+            height: 240px;
+        }
+        
+        .modal-wrapper {
+            position: absolute;
+            top: 120px;
+            left: 320px;
+    
+        }
+        .modal-dialog {
+            width: 440px;
+            height: 480px;
+            margin: 2px;
+        }
+        .myform {
+            position: absolute;
+            top: 500px;
+            left: 20px;
+        }
+        #res {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+    
+    <script>
+        // create schema global variables from files
+        // set myOWL via getOWLData in common
+        // set myFieldEditSchema via getFieldEditData in cpmmon
+        // set myJSONFormSchema via getJSONFormSchemaData in common
+        //
+        // create field selection list from myFieldEditSchema
+        // when field in select list is changed, get field specific schema
+        //
+        // create myFieldJSON via getFieldJSON() and myFieldEditSchema
+        // create Field Schema ACE editor via setJSONSchemaEditor() and myFieldJSON
+        // update myFieldJSON via updateFieldJSON() with change to Field Editor
+        // update myJSONFormSchema with updateJSONFormSchema() and myJSONFormSchema
+        //
+        // create myEditProperties via getEditProperties() and myFieldJSON
+        // create Field Editor via setModalFieldEditor() and myEditProperties
+        // update myEditProperties via updateEditProperties() with changes to Field Schema
+        // update myFieldEditSchema with updateFieldEditSchema() and myEditProperties
+        
+        
+    </script>
+    <script>
+        function setOwl(_myowl) {
+            console.log('setOwl',_myowl)
+            let myOWL = _myowl;
+            return true;
+        }
+        function getOWL() {
+            console.log('getOWL',myOWL)
+            return myOWL;
+        }
+    </script>
+    <script>
+        function setFieldEditSchema(_myfieldeditschema) {
+            console.log('setFieldEditSchema',_myfieldeditschema)
+            let myFieldEditSchema = _myfieldeditschema;
+            
+            return true;
+        } // end setFieldEditSchema
+        
+        function getFieldEditSchema() {
+            console.log('getFieldEditSchema')
+            let _myfieldeditschema = myFieldEditSchema ;
+
+            return _myfieldeditschema;
+        } //end getFieldEditSchema
+        
+        // update myFieldEditSchema with updateFieldEditSchema() 
+        // and myEditProperties via getEditProperties(_myFieldJSON)
+        function updateFieldEditSchema(fieldeditschema, editproperties) {
+            console.log('updateFieldEditSchema',fieldeditschema, editproperties)
+            let _fieldeditschema = null 
+            
+            if (fieldeditschema != null) {
+                _fieldeditschema = fieldeditschema ;
+                
+            } else if (editproperties != null) {
+                let _myEditProperties = getEditProperties(_fieldjson) ;
+                let _myType = _myEditProperties.type ;
+                
+                
+                
+            } else {
+                _fieldeditschema = getFieldEditSchema() ;
+            }
+            
+            return _fieldeditschema
+        } // end updateFieldEditSchema
+            
+    </script>
+    <script>
+        function setEditProperties(_myEditProperties) {
+            console.log('_myEditProperties',_myEditProperties)
+            let myEditProperties = _myEditProperties;
+            return true ;
+        }
+        
+        // create myEditProperties via getEditProperties(myFieldJSON) 
+        function getEditProperties(_myFieldJSON) {
+            console.log('getEditProperties',_myFieldJSON)
+            
+             var _ke = Object.keys(_fieldjson)[0] ;
+            let _fieldname = _ke ;
+            var _el = _fieldjson[_ke] ;
+            let _fieldtype = _el.type ;
+            
+            
+            _myFieldEditSchema = myFieldEditSchema
+            console.log('_myFieldEditSchema',_myFieldEditSchema)
+            let _fieldeditjson = {}
+            _fieldeditjson = getFieldEditSchema()
+            console.log('_fieldeditjson',_fieldeditjson)
+      
+            let _specifictype = {}
+            _specifictype = _fieldeditjson.schema[_fieldtype] 
+            console.log('_specifictype',_specifictype)
+           
+            let _props = {}
+            _props = _specifictype.properties
+            console.log('_props',JSON.stringify(_props))
+            let _type =  _specifictype.type ;
+    
+            let _id = _specifictype.id ;
+            let _title = _specifictype.title ;
+            let _description = _specifictype.description ;
+            //   console.log('_type, _title, _description', _type, _title, _description)
+         
+            _props.name.default = _fieldname;
+            for (f in _fieldjson[_fieldname]) {
+                // console.log('_fieldjson[_fieldname][f] f',_fieldjson[_fieldname][f], f)
+                for (p in _props) {
+                    // console.log('_props p',p)
+                    if ( f === p ) {
+                        console.log('f p ',f,p) 
+                        _props[p].default = _fieldjson[_fieldname][f] ;
+                        console.log(' f', f)
+                        console.log('  ', _fieldjson[_fieldname][f])
+                        console.log(' p', p)
+                        console.log('  ', _props[p].default) 
+                    } // end if
+                } // end for p
+            } // end for f
+           
+            _props.required.default = _fieldjson.required;
+            _props.title.default = _fieldjson.title;
+            _props.default.default = _fieldjson.value;
+            console.log('_props ',_props)
+            
+            _specifictype.properties = _props
+            _fieldeditjson.schema[_fieldtype] = _specifictype
+            
+            cpnsole.log('_props',_props)
+            return (_props)
+        }
+        function updateEditProperties(_myEditProperties) {
+            console.log('updateEditProperties',_myEditProperties)
+            
+            
+        }
+    </script>
+    <script>
+        // create myJSONFormSchema
+        function setJSONFormSchema(_myschema) {
+            console.log('setJSONFormSchema',_myschema)
+            let myJSONFormSchema = _myschema;
+            
+            return true;
+        }
+        
+        // get myJSONFormSchema from set value 
+        function getJSONFormSchema() {
+            console.log('getJSONFormSchema')
+            let _jsonformschema = myJSONFormSchema ;
+            
+            return _jsonformschema;
+        }
+        
+        // from changes ro myFieldJSON or to ...
+        function updateJSONFormSchema(jsonformschema, fieldjson) {
+            console.log('updateJSONFormSchema',jsonformschema,fieldjson)
+            let _jsonformschema = null 
+            
+            _jsonformschema = jsonformschema ;
+            
+            setJSONFormSchema(_jsonformschema) ;
+            
+            return _jsonformschema;
+        }
+    </script>
+    <script>
+        // create myFieldJSON
+        function setFieldJSON(_fieldjson) {
+            console.log('setFieldJSON',_fieldjson)
+            let myFieldJSON = _fieldjson
+            
+            return true
+        }
+        
+        // get myFieldJSON from myJSONFormSchema and fieldtype
+        // or from set value of fieldtype is null
+        function getFieldJSON(fieldtype) {
+            console.log('getFieldJSON',fieldtype)
+            let _fieldjson = null ;
+            
+            if (fieldtype != null) {
+                _fieldjson = myJSONFormSchema[fieldtype] 
+                 
+            } else {
+                _fieldjson = myFieldJSON
+            }
+            
+            return _fieldjson
+        } // end getFieldJSON
+        
+        // create myFieldJSON via getFieldJSON() and myFieldEditSchema and selelcetd field
+        // from changes to Field Schama or Field Editor
+        function updateFieldJSON(fieldjson,fieldtype) {
+            console.log('updateFieldJSON',fieldjson,fieldtype)
+            let _fieldjson = null ;
+            
+            if (fieldjson != null) {
+                _fieldjson = fieldjson ;
+                
+            } else if (fieldtype != null) {
+                _fieldjson = getFieldJSON(fieldtype) ;
+                
+            } else {
+                _fieldjson = myFieldJSON ;
+            }
+            
+            setFieldJSON(_fieldjson) ;
+            updateFieldEditSchema(_fieldjson) ;
+            updateFieldEditor(_fieldjson) ;
+            
+            return _fieldjson ;
+        }
+    </script>
+
+  
+    <!--<script type="application/json" src="json/defaultschema.json"></script>-->
+    <!--<script type="application/ttl" src="../owl/defaultontology.ttl"></script>-->
+
+ 
+    <script type="text/javascript" src="../deps/jquery.min.js"></script>
+    <script type="text/javascript" src="../deps/underscore.js"></script>
+    <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="../lib/jsonform.js"></script>
+
+    <script type="text/javascript" src="../js/common.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles()">
+     <script>
+         function doOWLData() {
+             
+         }
+         
+         function doFieldEditData(_data) {
+             console.log('doFieldEditData',_data)
+             setFieldEditSchema(_data)
+             
+         }
+           
+         function doJSONSchemaData(_data) {
+            console.log('doJSONSchemaData',_data)
+             setJSONFormSchema(_data)
+             
+             let _schema = getJSONFormSchema()
+             doFieldSelect(_schema)
+             
+            //  doForm(_schema)
+             
+         }
+         
+        function doNext() { 
+            
+        }
+    </script>
+    
+    <div class="myheader">
+      <h2>My JSON Form Fields</h2>
+      <div id="selectFieldList">Select Field: </div>
+      
+      <div id="" class="button-wrapper" >
+        <button type="button" value="Update JSON" alt="update JSON Field Schema" onclick="updateFieldSchema()" >
+            <span class="">Update JSON</span>
+        </button>
+        <button type="button" value="Update Field" alt="update Field Edit Schema" onclick="updateFieldEditor()" >
+           <span class="">Update Field</span>
+        </button>
+      </div>
+    </div>
+    
+<script>
+    function updateFieldSchema() {
+        let _fe = getModalFieldEditor();
+        let _sc = updateJSONFormSchema(_fe)
+        setJSONSchemaEditor(_sc)
+    }
+    function updateFieldEditor() {
+        let _sc = getJSONSchemaEditor() ;
+        setModalFieldEditor(_sc)
+    }
+</script>
+    
+    
+<!--START modalFieldSchema-->
+ <!--<div id="modalFieldSchema"  class="modal-wrapper" style="visibility: visible;">-->
+    <div class="myjson">
+      <h4>Field Schema</h4>
+      <!--https://github.com/ajaxorg/ace-->
+      <div id="editor">{ }</div>
+      <script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
+      <script src="ace/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+      <script src="ace/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+      <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+        editor.session.setMode(new JavaScriptMode());
+        // console.log('editor',editor)
+    
+        function setJSONSchemaEditor(_fieldjson) {
+            console.log('setJSONSchemaEditor',setJSONSchemaEditor)
+            
+            editor.setValue(JSON.stringify(_fieldjson, null, '\t'));
+            
+            // let json = _fieldjson
+            // function setACEJSON(json) {
+            //     console.log('setACEJSON',json)
+                
+                
+            // }
+            return true ;
+        }
+        function getJSONSchemaEditor() {
+            let contents = editor.getValue() ;
+            console.log('contents',contents)
+            return contents ;  
+        }
+
+      </script>
+    </div>
+ <!--</div>-->
+<!--End modalFieldSchema-->
+
+
+
+<!--START modalFieldEditor-->
+ <div id="modalFieldEditor"  class="modal-wrapper" style="visibility: visible;">
+     <h4>Field Editor</h4>
+  <div class="modal-dialog">    
+   <div class="modal-content">  
+    <div class="modal-header">                         
+    
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title"><span id="fieldtitle"></span></h4>                     
+    </div>                     
+    <div class="modal-body">    
+        <span id="fieldinfo"></span>
+        
+        <div>
+            <form id="fieldeditform"></form>
+            <!--<div id="formresult" class="alert"></div>-->
+        </div>
+        
+    </div>
+   </div>
+  </div>
+ </div>
+ <script>
+    function setModalFieldEditor(_fieldjson) {
+        console.log('setModalFieldEditor',_fieldjson)
+        
+        if(_fieldjson != null){
+            //   var mySpan = document.getElementById("fieldinfo");
+            //   mySpan.textContent = JSON.stringify(_fieldjson) ;
+           
+            
+           
+            var _ke = Object.keys(_fieldjson)[0] ;
+            let _fieldname = _ke ;
+            var _el = _fieldjson[_ke] ;
+            let _fieldtype = _el.type ;
+            let _title = _el.title ;
+            console.log('_fieldtype',_fieldtype)
+    
+            var myTitle = document.getElementById("fieldtitle");
+            myTitle.textContent = _title ;
+           
+           
+            // populate field proerties with values from _fieldjson
+            console.log('_fieldjson _fieldname',_fieldjson, _fieldname)
+           
+           
+            let _properties = updateFieldEditSchema(_fieldjson)
+            
+            // reset form     
+            var myEditForm = document.getElementById("fieldeditform");
+            myEditForm.textContent = "" ;
+            $('#fieldeditform').jsonForm({
+                schema: _properties,
+                // onSubmit: function (errors, values) {
+                //   if (errors) {
+                //     $('#formresult').html('<p>I beg your pardon?</p>');
+                //   }
+                //   else {
+                //     // var _name = name || firstName
+                //     // var _age = age || ""
+                //     // var _birth = birthDay || ""
+                //     // $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+                //     //   (values.age ? '<br/>You are ' + values.age + '.' : '') +
+                //     //   (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+                //     //   '</p>');
+                //   }
+                // }
+            }); // end jsonForm
+            //   var myfieldeditformhtml = $('#fieldeditform').html()
+            //   console.log('myfieldeditformhtml',myfieldeditformhtml)
+            //   $('div#formresult').html(myfieldeditformhtml)
+           
+           
+            var myModal = document.getElementById("modalFieldEditor");
+               myModal.style.visibility='visible' ;
+       
+        } // end != null
+    } // end setModalFieldEditor
+    
+    function getModalFieldEditor() {
+        console.log('getModalFieldEditor')
+        var myEditForm = document.getElementById("fieldeditform");
+        let contents = myEditForm.textContent ;
+        console.log('contents',contents)
+        return contents ;
+    } // end getModalFieldEditor
+ </script>
+<!--End modalFieldEditor-->
+    
+   
+    
+    
+    
+    
+    <!--<div class="myform">-->
+    <!--  <h4>Form</h4>-->
+    <!--  <form style='display: none;'></form>-->
+    <!--  <div id="res" class="alert"></div>-->
+
+    <!--</div>-->
+ 
+    
+
+      
+    
+    
+    <script>
+    function doFieldSelect(_schema) {
+        console.log('doFieldSelect',_schema)
+            
+        // get field select list from schema
+        var _props = _schema.schema;
+        
+        setFieldSelectList(_props)
+    }
+ 
+    
+    
+    function setFieldSelectList(_schema) {
+        console.log('setFieldSelectList',_schema)
+        
+        // var _props = _schema.schema.properties
+        
+        var myDiv = document.getElementById("selectFieldList");
+        
+        var selectList = document.createElement("select");
+        selectList.id = "mySelect";
+        myDiv.appendChild(selectList);
+        
+        for (key in _schema) {
+            console.log('key',key)
+            var option = document.createElement("option");
+            option.value = key;
+            option.text = _schema[key].title || key;
+            selectList.appendChild(option);
+            
+        }
+        console.log('selectList',selectList)
+        // console.log('_schema[key]',_schema[key])
+            
+        // set onchange listener for select
+        myDiv.addEventListener("change", onchangeSelectFieldList)
+        console.log('myDiv',myDiv)
+        
+        // set current field schema in editor
+        onchangeSelectFieldList();
+    }
+
+    
+    function onchangeSelectFieldList() {
+        console.log('onchangeSelectFieldList')
+        console.log('myJSONFormSchema',myJSONFormSchema)
+        
+        var myDiv = document.getElementById("mySelect");
+        // console.log('myDiv',myDiv)
+        var key = document.getElementById("mySelect").value;
+        console.log('key',key)
+        
+        let fieldjson = {}
+        fieldjson[key] = myJSONFormSchema.schema[key] ;
+        console.log('fieldjson',fieldjson);
+        
+
+        setJSONSchemaEditor(fieldjson) ;
+        
+        
+        
+        // close modals 
+        // var modelWrappers = document.getElementsByClassName('modal-wrapper'), i;
+        // for (var i = 0; i < modelWrappers.length; i ++) {
+        //     // modelWrappers[i].style.display = 'none';
+        //     modelWrappers[i].style.visibility='hidden' ;
+        // }
+        
+        // console.log('fieldjson',fieldjson[0],Object.keys(fieldjson)[0],fieldjson)
+        var ke = Object.keys(fieldjson)[0] ;
+        var el = fieldjson[ke] ;
+        
+        setModalFieldEditor(fieldjson)
+        
+        // if (el.type === 'boolean') {
+        //     setModalBoolean(fieldjson)
+        // } else if (el.type === 'date') {
+        //     setModalDate(fieldjson)
+        // } else if (el.type === 'string') {
+        //     setModalSingleline(fieldjson)
+        // }
+            
+      } // end onchange
+    </script>
+    
+    
+    <script>
+    function doForm(myschema) {
+      console.log('doForm')
+      
+      
+    //   console.log('myFormFieldEditSchema',myFormFieldEditSchema)
+    //   var _schema = myschema || schema0 ;
+    
+      
+      
+      
+      let schema0 = 
+        {
+  "firstName": {
+    "type": "string",
+    "title": "First Name",
+    "required": true,
+    "value": "Jonny"
+  },
+  "lastName": {
+    "type": "string",
+    "title": "Last Name",
+    "required": true,
+    "value": "Doe"
+  },
+  "birthDay":{
+    "type": "date",
+    "title": "Birthday"
+  },
+  "email": {
+    "type": "string",
+    "required": false
+  },
+  "password": {
+    "type": "string",
+    "required": false,
+    "pattern": {
+      
+    }
+  },
+  "file": {
+    "type": "string",
+    "required": false
+  },
+  "check": {
+    "type": "boolean",
+    "required": false,
+    "default": true
+  }
+} ;
+
+let schema1 = {
+  "name": {
+    "type": "string",
+    "title": "name",
+    "required": true,
+    "value": ""
+  },
+  "id": {
+    "type": "string",
+    "title": "id",
+    "required": false,
+    "value": ""
+  },
+    "value": {
+    "type": "string",
+    "title": "value",
+    "required": false,
+    "value": ""
+  }
+};
+    
+    console.log('myschema',myschema)
+    var _schema = myschema.schema || schema0 ;
+    console.log('_schema', _schema)
+    // set global var for full schema
+    mySchema = _schema ;
+      
+      _schema = schema1
+      
+      $('form').jsonForm({
+        schema: _schema,
+        onSubmit: function (errors, values) {
+          if (errors) {
+            $('#res').html('<p>I beg your pardon?</p>');
+          }
+          else {
+            var _name = name || firstName
+            var _age = age || ""
+            var _birth = birthDay || ""
+            $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+              (values.age ? '<br/>You are ' + values.age + '.' : '') +
+              (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+              '</p>');
+          }
+        }
+      });
+      var myformhtml = $('form').html()
+      console.log('myformhtml',myformhtml)
+      $('div#res').html(myformhtml)
+      
+     
+    } // end doForm
+    </script>
+    
+    
+    
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,304 @@
+{
+	"id": "EducationalInstitution.json",
+	"title": "educational institution",
+	"translations": {
+		"title": {
+			"de": "Bildungseinrichtung",
+			"el": "εκπαιδευτικό ίδρυμα",
+			"fr": "établissement d&apos;enseignement",
+			"es": "institución educativa",
+			"da": "uddannelsesinstitution",
+			"ko": "교육 기관",
+			"nl": "onderwijsinstelling"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"actingHeadteacher": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"alumni": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"assistantPrincipal": {
+			"oneOf": [
+				{"$ref": "#/definitions/assistantPrincipal"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/assistantPrincipal"}
+				}
+			]
+		},
+		"campusType": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"closed": {
+			"oneOf": [
+				{"$ref": "#/definitions/closed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/closed"}
+				}
+			]
+		},
+		"custodian": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dean": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"educationSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/educationSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/educationSystem"}
+				}
+			]
+		},
+		"facultySize": {
+			"oneOf": [
+				{"$ref": "#/definitions/facultySize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/facultySize"}
+				}
+			]
+		},
+		"head": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nationalRanking": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalRanking"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalRanking"}
+				}
+			]
+		},
+		"numberOfAcademicStaff": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfAcademicStaff"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfAcademicStaff"}
+				}
+			]
+		},
+		"numberOfGraduateStudents": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfGraduateStudents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfGraduateStudents"}
+				}
+			]
+		},
+		"numberOfStudents": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStudents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStudents"}
+				}
+			]
+		},
+		"numberOfUndergraduateStudents": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfUndergraduateStudents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfUndergraduateStudents"}
+				}
+			]
+		},
+		"offeredClasses": {
+			"oneOf": [
+				{"$ref": "#/definitions/offeredClasses"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/offeredClasses"}
+				}
+			]
+		},
+		"officialSchoolColour": {
+			"oneOf": [
+				{"$ref": "#/definitions/officialSchoolColour"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/officialSchoolColour"}
+				}
+			]
+		},
+		"principal": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"rector": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"assistantPrincipal": {
+			"title": "assistant principal",
+			"description": "",
+			"anyOf": []
+		},
+		"closed": {
+			"title": "closed",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"educationSystem": {
+			"title": "education system",
+			"description": "",
+			"anyOf": []
+		},
+		"facultySize": {
+			"title": "faculty size",
+			"description": "number of faculty members",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"nationalRanking": {
+			"title": "national ranking",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"numberOfAcademicStaff": {
+			"title": "number of academic staff",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfGraduateStudents": {
+			"title": "number of graduate students",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfStudents": {
+			"title": "number of students",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfUndergraduateStudents": {
+			"title": "number of undergraduate students",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"offeredClasses": {
+			"title": "offered classes",
+			"description": "",
+			"type": "string"
+		},
+		"officialSchoolColour": {
+			"title": "official school colour",
+			"description": "The official colour of the EducationalInstitution represented by the colour name &amp;&#35;40;e.g.: red or green&#41;.",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/EducationalInstitution",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/EducationalInstitution"}
+}

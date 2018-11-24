@@ -1,0 +1,306 @@
+{
+  "@id": "urn:x-arq:DefaultGraph",
+  "@context": {
+    "schema": "http://schema.org/",
+    "con": "http://www.w3.org/2000/10/swap/pim/contact#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "org": "http://www.w3.org/ns/org#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "dbo": "http://dbpedia.org/ontology/",
+    "sf": "https://github.com/vocol/salesforce/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xs": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "sdm": "https://github.com/asteriusj/semanticdatamaster/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "dc": "http://purl.org/dc/elements/1.1/"
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/asteriusj/semanticdatamaster/",
+      "@type": "owl:Ontology",
+      "date": "$Date: 2017-10-07 23:18:26 $",
+      "description": "\nThe \n",
+      "title": "Semantic Data Master (SDM) Ontology",
+      "comment": "\n\n",
+      "label": {
+        "@language": "en",
+        "@value": "Ontology for Semantic Data Model"
+      },
+      "versionInfo": {
+        "@language": "en",
+        "@value": "Draft"
+      }
+    },
+    {
+      "key": "Thing",
+      "@id": "sdm:Person",
+      "@type": "owl:Class",
+      "label": "DefaultJSONSchema",
+      "comment": "Base Class for default JSON Schema",
+      "subClassOf": "owl:Thing"
+    },
+    {
+      "key": "txtAddress",
+      "@id": "sdm:txtAddress",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "address",
+      "rdfs:comment": "place.address",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtAddress1",
+      "@id": "sdm:txtAddress1",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtAddress1",
+      "rdfs:comment": "client.organization.address.address1",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtAddress2",
+      "@id": "sdm:txtAddress2",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtAddress2",
+      "rdfs:comment": "client.organization.address.address2",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtPersonUID",
+      "@id": "sdm:txtPersonUID",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "PersonUID",
+      "rdfs:comment": "employee.person.uid",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtGivenName",
+      "@id": "sdm:txtGivenName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "givenName",
+      "rdfs:comment": "employee.person.givenname",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtMiddleName",
+      "@id": "sdm:txtMiddleName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "middleName",
+      "rdfs:comment": "employee.person.middlename",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtLastName",
+      "@id": "sdm:txtLastName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "familyName",
+      "rdfs:comment": "employee.person.familyname",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtNickName",
+      "@id": "sdm:txtNickName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "nickName",
+      "rdfs:comment": "employee.person.informalname",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtPrefix",
+      "@id": "sdm:txtPrefix",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "prefix",
+      "rdfs:comment": "employee.person.prefix",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtSuffix",
+      "@id": "sdm:txtSuffix",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "suffix",
+      "rdfs:comment": "employee.person.suffix",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtFullName",
+      "@id": "sdm:txtFullName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "fullName",
+      "rdfs:comment": "employee.person.fullname",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "ddlGender",
+      "@id": "sdm:ddlGender",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "gender",
+      "rdfs:comment": "employee.person.gender",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "adult",
+      "@id": "sdm:adult",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "adult",
+      "rdfs:comment": "level2.level1.level0.image",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:boolean"
+    },
+    {
+      "key": "dateOfBirth",
+      "@id": "sdm:dateOfBirth",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "dateOfBirth",
+      "rdfs:comment": "employee.person.dateofbirth",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtEmailAddres",
+      "@id": "sdm:txtEmailAddres",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "emailAddres",
+      "rdfs:comment": "employee.person.emailaddress",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtPhoneNumber",
+      "@id": "sdm:txtPhoneNumber",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "phoneNumber",
+      "rdfs:comment": "employee.person.phonenumber",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtMobileNumber",
+      "@id": "sdm:txtMobileNumber",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "mobileNumber",
+      "rdfs:comment": "employee.person.mobilenumber",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "imgProfileThumbnail",
+      "@id": "sdm:imgProfileThumbnail",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "ProfileThumbnail",
+      "rdfs:comment": "thumbnail.image",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtLocaleCity",
+      "@id": "sdm:txtLocaleCity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtLocaleCity",
+      "rdfs:comment": "client.organization.address.localecity",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtRegionState",
+      "@id": "sdm:txtRegionState",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtRegionState",
+      "rdfs:comment": "client.organization.address.regionstate",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtPostalCode",
+      "@id": "sdm:txtPostalCode",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtPostalCode",
+      "rdfs:comment": "client.organization.address.postalcode",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtCountryCode",
+      "@id": "sdm:txtCountryCode",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtCountryCode",
+      "rdfs:comment": "client.organization.address.countrycode",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "ddlClientType",
+      "@id": "sdm:ddlClientType",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "ClientType",
+      "rdfs:comment": "client.organization.type",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtName",
+      "@id": "sdm:txtName",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "ClientName",
+      "rdfs:comment": "client.organization.name",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtDescription",
+      "@id": "sdm:txtDescription",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "txtDescription",
+      "rdfs:comment": "client.organization.description",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtSlogan",
+      "@id": "sdm:txtSlogan",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "Slogan",
+      "rdfs:comment": "client.organization.slogan",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "txtWebsite",
+      "@id": "sdm:txtWebsite",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "Website",
+      "rdfs:comment": "client.organization.website",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "ddlIndustrySector",
+      "@id": "sdm:ddlIndustrySector",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:label": "Industry Sector",
+      "rdfs:comment": "organization.sector",
+      "rdfs:doman": "sdm:Person",
+      "rdfs:range": "xsd:string"
+    },
+    {
+      "key": "customer",
+      "@id": "customer",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "sdm:Person"
+    }
+  ]
+}

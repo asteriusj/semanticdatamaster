@@ -1,0 +1,179 @@
+{
+	"id": "LaunchPad.json",
+	"title": "launch pad",
+	"translations": {
+		"title": {
+			"de": "Startrampe",
+			"el": "ράμπα φορτώσεως",
+			"fr": "rampe de lancement",
+			"ga": "ceap lainseála",
+			"nl": "lanceerbasis"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"lastLaunchDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastLaunchDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastLaunchDate"}
+				}
+			]
+		},
+		"launches": {
+			"oneOf": [
+				{"$ref": "#/definitions/launches"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/launches"}
+				}
+			]
+		},
+		"maximumInclination": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumInclination"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumInclination"}
+				}
+			]
+		},
+		"minimumInclination": {
+			"oneOf": [
+				{"$ref": "#/definitions/minimumInclination"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/minimumInclination"}
+				}
+			]
+		},
+		"firstLaunchDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstLaunchDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstLaunchDate"}
+				}
+			]
+		},
+		"numberOfPads": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPads"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPads"}
+				}
+			]
+		},
+		"firstLaunchRocket": {
+			"oneOf": [
+				{"$ref": "Rocket.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Rocket.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"associatedRocket": {
+			"oneOf": [
+				{"$ref": "Rocket.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Rocket.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastLaunchRocket": {
+			"oneOf": [
+				{"$ref": "Rocket.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Rocket.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastLaunchDate": {
+			"title": "last launch date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"launches": {
+			"title": "launches",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"maximumInclination": {
+			"title": "maximum inclination",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"minimumInclination": {
+			"title": "minimum inclination",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"firstLaunchDate": {
+			"title": "first launch date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"numberOfPads": {
+			"title": "number of pads",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/LaunchPad",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LaunchPad"}
+}

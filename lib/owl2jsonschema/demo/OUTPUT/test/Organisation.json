@@ -1,0 +1,435 @@
+{
+	"id": "Organisation.json",
+	"title": "organisation",
+	"translations": {
+		"title": {
+			"da": "organisation",
+			"de": "Organisation",
+			"el": "οργάνωση",
+			"es": "organización",
+			"fr": "organisation",
+			"ja": "組織",
+			"ko": "조직",
+			"nl": "organisatie",
+			"pt": "organização",
+			"ru": "Организация",
+			"sl": "organizacija"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"administrator": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ceo": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"chairperson": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"chaplain": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"childOrganisation": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"endowment": {
+			"oneOf": [
+				{"$ref": "#/definitions/endowment"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/endowment"}
+				}
+			]
+		},
+		"formationDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/formationDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/formationDate"}
+				}
+			]
+		},
+		"formationYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/formationYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/formationYear"}
+				}
+			]
+		},
+		"foundationPlace": {
+			"oneOf": [
+				{"$ref": "City.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "City.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"headquarter": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"leaderFunction": {
+			"oneOf": [
+				{"$ref": "PersonFunction.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PersonFunction.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"legalForm": {
+			"oneOf": [
+				{"$ref": "#/definitions/legalForm"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/legalForm"}
+				}
+			]
+		},
+		"locationCity": {
+			"oneOf": [
+				{"$ref": "City.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "City.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mainOrgan": {
+			"oneOf": [
+				{"$ref": "#/definitions/mainOrgan"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mainOrgan"}
+				}
+			]
+		},
+		"membership": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mergedWith": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfEmployees": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfEmployees"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfEmployees"}
+				}
+			]
+		},
+		"numberOfLocations": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLocations"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLocations"}
+				}
+			]
+		},
+		"numberOfStaff": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStaff"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStaff"}
+				}
+			]
+		},
+		"numberOfVolunteers": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfVolunteers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfVolunteers"}
+				}
+			]
+		},
+		"organisationMember": {
+			"oneOf": [
+				{"$ref": "OrganisationMember.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "OrganisationMember.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"parentOrganisation": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"product": {
+			"oneOf": [
+				{"$ref": "#/definitions/product"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/product"}
+				}
+			]
+		},
+		"ranking": {
+			"oneOf": [
+				{"$ref": "#/definitions/ranking"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ranking"}
+				}
+			]
+		},
+		"regionServed": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"revenue": {
+			"oneOf": [
+				{"$ref": "#/definitions/revenue"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/revenue"}
+				}
+			]
+		},
+		"secretaryGeneral": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"service": {
+			"oneOf": [
+				{"$ref": "#/definitions/service"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/service"}
+				}
+			]
+		},
+		"staff": {
+			"oneOf": [
+				{"$ref": "#/definitions/staff"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/staff"}
+				}
+			]
+		},
+		"superintendent": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"trustee": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"endowment": {
+			"title": "endowment &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"formationDate": {
+			"title": "formation date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"formationYear": {
+			"title": "formation year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"legalForm": {
+			"title": "legal form",
+			"description": "There are many types of business entity defined in the legal systems of various countries. These include corporations, cooperatives, partnerships, sole traders, limited liability company and other specialized types of organization.",
+			"anyOf": []
+		},
+		"mainOrgan": {
+			"title": "main organ",
+			"description": "",
+			"anyOf": []
+		},
+		"numberOfEmployees": {
+			"title": "number of employees",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfLocations": {
+			"title": "number of locations",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfStaff": {
+			"title": "number of staff",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfVolunteers": {
+			"title": "number of volunteers",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"product": {
+			"title": "product",
+			"description": "",
+			"anyOf": []
+		},
+		"ranking": {
+			"title": "ranking",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"revenue": {
+			"title": "revenue &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"service": {
+			"title": "service",
+			"description": "",
+			"anyOf": []
+		},
+		"staff": {
+			"title": "staff",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Organisation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Organisation"}
+}

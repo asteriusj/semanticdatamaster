@@ -1,0 +1,54 @@
+{
+	"id": "BusCompany.json",
+	"title": "bus company",
+	"translations": {
+		"title": {
+			"de": "Busunternehmen",
+			"el": "εταιρία λεωφορείων",
+			"fr": "compagnie d&apos;autobus",
+			"es": "compañía de autobuses",
+			"ga": "comhlacht bus",
+			"nl": "busmaatschappij"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Company.json"}, {"$ref": "PublicTransitSystem.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BusCompany",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BusCompany"}
+}

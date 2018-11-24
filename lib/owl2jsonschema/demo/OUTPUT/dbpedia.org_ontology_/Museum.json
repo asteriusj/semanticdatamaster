@@ -1,0 +1,97 @@
+{
+	"id": "Museum.json",
+	"title": "museum",
+	"translations": {
+		"title": {
+			"pl": "muzeum",
+			"de": "Museum",
+			"el": "μουσείο",
+			"fr": "musée",
+			"ga": "músaem",
+			"ko": "박물관",
+			"nl": "museum",
+			"pt": "museu",
+			"ja": "博物館"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"collection": {
+			"oneOf": [
+				{"$ref": "#/definitions/collection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/collection"}
+				}
+			]
+		},
+		"museumType": {
+			"oneOf": [
+				{"$ref": "#/definitions/museumType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/museumType"}
+				}
+			]
+		},
+		"curator": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"collection": {
+			"title": "collection",
+			"description": "",
+			"type": "string"
+		},
+		"museumType": {
+			"title": "museumType",
+			"description": "This property has been added  because &apos;buildingType' is much more about the place, whereas 'museumType' is about the way the place is being &amp;&#35;40;or:was&#41; used",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Museum",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Museum"}
+}

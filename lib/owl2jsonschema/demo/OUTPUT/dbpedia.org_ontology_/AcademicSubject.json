@@ -1,0 +1,54 @@
+{
+	"id": "AcademicSubject.json",
+	"title": "academic subject",
+	"description": "Genres of art, e.g. Mathematics, History, Philosophy, Medicine",
+	"translations": {
+		"title": {
+			"pl": "dyscyplina naukowa",
+			"de": "akademisches Fach",
+			"fr": "sujet académique",
+			"gl": "disciplina académica",
+			"nl": "academische hoofdstudierichting"
+		},
+		"description": {"gl": "Unha disciplina académica é unha rama do coñecemento que unha comunidade de especialistas desenvolve con metodoloxías de investigación."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AcademicSubject",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AcademicSubject"}
+}

@@ -1,0 +1,73 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"id": {
+			"title": "id",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A UNESCO World Heritage Site is a site &amp;&#35;40;such as a forest, mountain, lake, desert, monument, building, complex, or city&#41; that is on the list that is maintained by the international World Heritage Programme administered by the UNESCO World Heritage Committee, composed of 21 state parties which are elected by their General Assembly for a four-year term. A World Heritage Site is a place of either cultural or physical significance.",
+	"format": "http://dbpedia.org/ontology/WorldHeritageSite",
+	"id": "WorldHeritageSite.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WorldHeritageSite"},
+	"properties": {
+		"id": {
+			"oneOf": [
+				{"$ref": "#/definitions/id"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/id"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "World Heritage Site",
+	"translations": {
+		"title": {
+			"de": "Weltkulturerbe",
+			"el": "Μνημείο Παγκόσμιας Πολιτιστικής Κληρονομιάς &amp;&#35;40;Πληροφορίες ΠΠΚ&#41;",
+			"fr": "site du patrimoine mondial",
+			"ga": "Láithreán Oidhreachta Domhanda",
+			"ko": "세계유산",
+			"nl": "werelderfgoed",
+			"ja": "世界遺産"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

@@ -1,0 +1,510 @@
+{
+  "@graph" : [ {
+    "@id" : "_:b100",
+    "property" : "_:b94"
+  }, {
+    "@id" : "_:b108",
+    "path" : "schema:parent",
+    "sh:qualifiedMaxCount" : 1,
+    "qualifiedValueShape" : "schemashacl:MalePerson"
+  }, {
+    "@id" : "_:b115",
+    "and" : {
+      "@list" : [ "_:b6", "_:b2" ]
+    }
+  }, {
+    "@id" : "_:b124",
+    "datatype" : "xsd:string",
+    "sh:in" : {
+      "@list" : [ "female", "male" ]
+    },
+    "sh:maxCount" : 1,
+    "name" : "gender",
+    "path" : "schema:gender"
+  }, {
+    "@id" : "_:b125",
+    "datatype" : "xsd:string",
+    "name" : "given name",
+    "path" : "schema:givenName"
+  }, {
+    "@id" : "_:b16",
+    "property" : "_:b65"
+  }, {
+    "@id" : "_:b19",
+    "property" : [ "_:b58", "_:b51" ]
+  }, {
+    "@id" : "_:b2",
+    "property" : "_:b3"
+  }, {
+    "@id" : "_:b23",
+    "comment" : "The number of items in this list is derived by counting the values of schema:itemListElement.",
+    "derivedValues" : "_:b24",
+    "path" : "schema:numberOfItems"
+  }, {
+    "@id" : "_:b24",
+    "@type" : "sh:SPARQLValuesDeriver",
+    "select" : "SELECT (COUNT(?element) AS ?value)\r\nWHERE {\r\n    $this schema:itemListElement ?element .\r\n}"
+  }, {
+    "@id" : "_:b27",
+    "path" : "rdfs:comment",
+    "pattern" : "^at [0-9]* km/h$"
+  }, {
+    "@id" : "_:b28",
+    "@type" : "sh:PrefixDeclaration",
+    "namespace" : "http://schema.org/",
+    "prefix" : "schema"
+  }, {
+    "@id" : "_:b3",
+    "path" : "rdfs:comment",
+    "pattern" : "^at [0-9]* mi/h$"
+  }, {
+    "@id" : "_:b30",
+    "sh:minCount" : 1,
+    "path" : "schema:ratingValue"
+  }, {
+    "@id" : "_:b31",
+    "datatype" : "xsd:date",
+    "sh:maxCount" : 1,
+    "name" : "death date",
+    "path" : "schema:deathDate"
+  }, {
+    "@id" : "_:b33",
+    "property" : "_:b27"
+  }, {
+    "@id" : "_:b34",
+    "class" : "schema:Person",
+    "disjoint" : "schema:sibling",
+    "sh:maxCount" : 2,
+    "name" : "parent",
+    "nodeKind" : "sh:IRI",
+    "path" : "schema:parent"
+  }, {
+    "@id" : "_:b39",
+    "property" : "_:b40"
+  }, {
+    "@id" : "_:b4",
+    "node" : "_:b5",
+    "path" : "schema:fuelConsumption"
+  }, {
+    "@id" : "_:b40",
+    "hasValue" : "us",
+    "path" : "schema:addressCountry"
+  }, {
+    "@id" : "_:b44",
+    "sh:maxCount" : 1,
+    "or" : "dash:DateOrDateTime",
+    "path" : "schema:endDate"
+  }, {
+    "@id" : "_:b47",
+    "comment" : "Start date must be before end date",
+    "lessThanOrEquals" : "schema:endDate",
+    "sh:maxCount" : 1,
+    "or" : "dash:DateOrDateTime",
+    "path" : "schema:startDate"
+  }, {
+    "@id" : "_:b48",
+    "comment" : "There must be a base salary of more than 0, but less than 1 billion (slightly artificial example of sh:maxExclusive).",
+    "maxExclusive" : "1000000000",
+    "minExclusive" : "0",
+    "path" : "schema:baseSalary"
+  }, {
+    "@id" : "_:b5",
+    "@type" : "sh:NodeShape",
+    "comment" : "The fuel consumption must be either stated in Liter per 100 km accompanied by a km/h speed, or in gallons per 100 miles accompanied by a miles/h speed.",
+    "or" : {
+      "@list" : [ "_:b70", "_:b115" ]
+    }
+  }, {
+    "@id" : "_:b50",
+    "property" : [ "_:b86", "_:b87" ]
+  }, {
+    "@id" : "_:b51",
+    "sh:in" : {
+      "@list" : [ "ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA" ]
+    },
+    "sh:maxCount" : 1,
+    "sh:minCount" : 1,
+    "path" : "schema:addressRegion"
+  }, {
+    "@id" : "_:b54",
+    "path" : "schema:parent",
+    "sh:qualifiedMaxCount" : 1,
+    "qualifiedValueShape" : "schemashacl:FemalePerson"
+  }, {
+    "@id" : "_:b55",
+    "comment" : "Children are represented by using the schema:parent relationship in the inverse direction.",
+    "class" : "schema:Person",
+    "name" : "child",
+    "nodeKind" : "sh:IRI",
+    "path" : "_:b56"
+  }, {
+    "@id" : "_:b56",
+    "inversePath" : "schema:parent"
+  }, {
+    "@id" : "_:b58",
+    "datatype" : "xsd:string",
+    "sh:maxCount" : 1,
+    "sh:maxLength" : 4,
+    "sh:minCount" : 1,
+    "sh:minLength" : 4,
+    "name" : "postal code",
+    "path" : "schema:postalCode",
+    "pattern" : "^\\d{4}$"
+  }, {
+    "@id" : "_:b6",
+    "property" : "_:b7"
+  }, {
+    "@id" : "_:b62",
+    "comment" : "The currency code (here) is a mandatory property consisting of three upper-case letters",
+    "datatype" : "xsd:string",
+    "flags" : "i",
+    "sh:maxCount" : 1,
+    "sh:minCount" : 1,
+    "path" : "schema:currency",
+    "pattern" : "^[A-Z]{3}$"
+  }, {
+    "@id" : "_:b63",
+    "comment" : "Ensures that the values of schema:name are either strings or strings with a language tag, but no language tag can be used more than once.",
+    "name" : "name",
+    "or" : "dash:StringOrLangString",
+    "path" : "schema:name",
+    "sh:uniqueLang" : true
+  }, {
+    "@id" : "_:b65",
+    "hasValue" : "au",
+    "path" : "schema:addressCountry"
+  }, {
+    "@id" : "_:b66",
+    "comment" : "Produce a warning if there is not at least one starRating that actually has a ratingValue.",
+    "path" : "schema:starRating",
+    "sh:qualifiedMinCount" : 1,
+    "qualifiedValueShape" : "_:b67",
+    "severity" : "sh:Warning"
+  }, {
+    "@id" : "_:b67",
+    "@type" : "sh:NodeShape",
+    "property" : "_:b30"
+  }, {
+    "@id" : "_:b7",
+    "hasValue" : "gal/100 mi",
+    "path" : "schema:unitText"
+  }, {
+    "@id" : "_:b70",
+    "and" : {
+      "@list" : [ "_:b100", "_:b33" ]
+    }
+  }, {
+    "@id" : "_:b71",
+    "datatype" : "xsd:float",
+    "sh:maxCount" : 1,
+    "sh:minCount" : 1,
+    "path" : "schema:amount"
+  }, {
+    "@id" : "_:b79",
+    "message" : "Hotel has been rated by {?author} more than once",
+    "prefixes" : "http://topbraid.org/examples/schemashacl",
+    "select" : "SELECT DISTINCT $this ?author\r\nWHERE {\r\n    $this schema:starRating ?rating1 .\r\n\t?rating1 schema:author ?author .\r\n\t$this schema:starRating ?rating2 .\r\n\t?rating2 schema:author ?author .\r\n\tFILTER (?rating1 != ?rating2) .\r\n}",
+    "severity" : "sh:Warning"
+  }, {
+    "@id" : "_:b8",
+    "hasValue" : "female",
+    "path" : "schema:gender"
+  }, {
+    "@id" : "_:b82",
+    "sh:maxCount" : 1,
+    "sh:maxInclusive" : 180,
+    "sh:minInclusive" : -180,
+    "path" : "schema:longitude"
+  }, {
+    "@id" : "_:b83",
+    "sh:maxCount" : 1,
+    "sh:maxInclusive" : 90,
+    "sh:minInclusive" : -90,
+    "path" : "schema:latitude"
+  }, {
+    "@id" : "_:b85",
+    "comment" : "Birth date must be before death date (in this example)",
+    "datatype" : "xsd:date",
+    "lessThan" : "schema:deathDate",
+    "sh:maxCount" : 1,
+    "name" : "birth date",
+    "path" : "schema:birthDate"
+  }, {
+    "@id" : "_:b86",
+    "datatype" : "xsd:string",
+    "sh:maxCount" : 1,
+    "sh:minCount" : 1,
+    "name" : "zip code",
+    "path" : "schema:postalCode",
+    "pattern" : "^\\d{5}(?:[-\\s]\\d{4})?$"
+  }, {
+    "@id" : "_:b87",
+    "sh:in" : {
+      "@list" : [ "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MH", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "PR", "PW", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VI", "VT", "WA", "WI", "WV", "WY" ]
+    },
+    "sh:maxCount" : 1,
+    "sh:minCount" : 1,
+    "path" : "schema:addressRegion"
+  }, {
+    "@id" : "_:b92",
+    "datatype" : "xsd:string",
+    "name" : "family name",
+    "path" : "schema:familyName"
+  }, {
+    "@id" : "_:b94",
+    "hasValue" : "L/100 km",
+    "path" : "schema:unitText"
+  }, {
+    "@id" : "_:b99",
+    "hasValue" : "male",
+    "path" : "schema:gender"
+  }, {
+    "@id" : "schema:DatedMoneySpecification",
+    "@type" : "sh:NodeShape",
+    "sh:closed" : true,
+    "ignoredProperties" : {
+      "@list" : [ "rdf:type" ]
+    },
+    "property" : [ "_:b47", "_:b44", "_:b62", "_:b71" ]
+  }, {
+    "@id" : "schema:GeoCoordinates",
+    "@type" : "sh:NodeShape",
+    "property" : [ "_:b82", "_:b83" ]
+  }, {
+    "@id" : "schema:Hotel",
+    "@type" : "sh:NodeShape",
+    "property" : "_:b66",
+    "sparql" : "_:b79"
+  }, {
+    "@id" : "schema:ItemList",
+    "@type" : "sh:NodeShape",
+    "property" : "_:b23"
+  }, {
+    "@id" : "schema:Person",
+    "@type" : "sh:NodeShape",
+    "property" : [ "_:b31", "_:b55", "_:b54", "_:b124", "_:b85", "_:b92", "_:b34", "_:b125", "_:b108" ]
+  }, {
+    "@id" : "schema:PriceSpecification",
+    "@type" : "sh:NodeShape",
+    "property" : "_:b48"
+  }, {
+    "@id" : "schema:Vehicle",
+    "@type" : "sh:NodeShape",
+    "property" : "_:b4"
+  }, {
+    "@id" : "http://topbraid.org/examples/schemashacl",
+    "@type" : "owl:Ontology",
+    "comment" : "This SHACL file contains a small selection of hand-crafted shapes on classes and properties from the schema.org namespace. In addition to illustrating possible use cases of SHACL and helping with test cases, the goal of this file is cover all of the features of SHACL for demos and tests.",
+    "label" : "Schema.org SHACL example shapes",
+    "imports" : [ "http://datashapes.org/schema", "http://datashapes.org/dash" ],
+    "declare" : "_:b28"
+  }, {
+    "@id" : "schemashacl:AustralianAddressShape",
+    "@type" : "sh:NodeShape",
+    "comment" : "This shape constrains those instances of schema:PostalAddress that have \"au\" as their country.",
+    "label" : "Australian address shape",
+    "or" : {
+      "@list" : [ "sh:not", "_:b16", "_:b19" ]
+    },
+    "targetClass" : "schema:PostalAddress"
+  }, {
+    "@id" : "schemashacl:FemalePerson",
+    "@type" : "sh:NodeShape",
+    "label" : "Female person",
+    "property" : "_:b8"
+  }, {
+    "@id" : "schemashacl:MalePerson",
+    "@type" : "sh:NodeShape",
+    "label" : "Male person",
+    "property" : "_:b99"
+  }, {
+    "@id" : "schemashacl:USAddressShape",
+    "@type" : "sh:NodeShape",
+    "comment" : "This shape constrains those instances of schema:PostalAddress that have \"us\" as their country.",
+    "label" : "US address shape",
+    "or" : {
+      "@list" : [ "sh:not", "_:b39", "_:b50" ]
+    },
+    "targetClass" : "schema:PostalAddress"
+  }, {
+    "@id" : "schemashacl:nameShape",
+    "@type" : "sh:NodeShape",
+    "comment" : "This shape applies to all subject that have at least one value for schema:name.",
+    "label" : "name shape",
+    "property" : "_:b63",
+    "targetSubjectsOf" : "schema:name"
+  } ],
+  "@id" : "urn:x-arq:DefaultGraphNode",
+  "@context" : {
+    "rest" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+      "@type" : "@id"
+    },
+    "first" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+    "property" : {
+      "@id" : "http://www.w3.org/ns/shacl#property",
+      "@type" : "@id"
+    },
+    "node" : {
+      "@id" : "http://www.w3.org/ns/shacl#node",
+      "@type" : "@id"
+    },
+    "path" : {
+      "@id" : "http://www.w3.org/ns/shacl#path",
+      "@type" : "@id"
+    },
+    "hasValue" : "http://www.w3.org/ns/shacl#hasValue",
+    "derivedValues" : {
+      "@id" : "http://www.w3.org/ns/shacl#derivedValues",
+      "@type" : "@id"
+    },
+    "comment" : "http://www.w3.org/2000/01/rdf-schema#comment",
+    "pattern" : "http://www.w3.org/ns/shacl#pattern",
+    "prefix" : "http://www.w3.org/ns/shacl#prefix",
+    "namespace" : {
+      "@id" : "http://www.w3.org/ns/shacl#namespace",
+      "@type" : "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "minCount" : {
+      "@id" : "http://www.w3.org/ns/shacl#minCount",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "name" : "http://www.w3.org/ns/shacl#name",
+    "maxCount" : {
+      "@id" : "http://www.w3.org/ns/shacl#maxCount",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "datatype" : {
+      "@id" : "http://www.w3.org/ns/shacl#datatype",
+      "@type" : "@id"
+    },
+    "nodeKind" : {
+      "@id" : "http://www.w3.org/ns/shacl#nodeKind",
+      "@type" : "@id"
+    },
+    "disjoint" : {
+      "@id" : "http://www.w3.org/ns/shacl#disjoint",
+      "@type" : "@id"
+    },
+    "class" : {
+      "@id" : "http://www.w3.org/ns/shacl#class",
+      "@type" : "@id"
+    },
+    "or" : {
+      "@id" : "http://www.w3.org/ns/shacl#or",
+      "@type" : "@id"
+    },
+    "lessThanOrEquals" : {
+      "@id" : "http://www.w3.org/ns/shacl#lessThanOrEquals",
+      "@type" : "@id"
+    },
+    "minExclusive" : {
+      "@id" : "http://www.w3.org/ns/shacl#minExclusive",
+      "@type" : "http://www.w3.org/2001/XMLSchema#float"
+    },
+    "maxExclusive" : {
+      "@id" : "http://www.w3.org/ns/shacl#maxExclusive",
+      "@type" : "http://www.w3.org/2001/XMLSchema#float"
+    },
+    "label" : "http://www.w3.org/2000/01/rdf-schema#label",
+    "in" : {
+      "@id" : "http://www.w3.org/ns/shacl#in",
+      "@type" : "@id"
+    },
+    "qualifiedValueShape" : {
+      "@id" : "http://www.w3.org/ns/shacl#qualifiedValueShape",
+      "@type" : "@id"
+    },
+    "qualifiedMaxCount" : {
+      "@id" : "http://www.w3.org/ns/shacl#qualifiedMaxCount",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "minLength" : {
+      "@id" : "http://www.w3.org/ns/shacl#minLength",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "maxLength" : {
+      "@id" : "http://www.w3.org/ns/shacl#maxLength",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "flags" : "http://www.w3.org/ns/shacl#flags",
+    "targetSubjectsOf" : {
+      "@id" : "http://www.w3.org/ns/shacl#targetSubjectsOf",
+      "@type" : "@id"
+    },
+    "severity" : {
+      "@id" : "http://www.w3.org/ns/shacl#severity",
+      "@type" : "@id"
+    },
+    "qualifiedMinCount" : {
+      "@id" : "http://www.w3.org/ns/shacl#qualifiedMinCount",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "select" : "http://www.w3.org/ns/shacl#select",
+    "prefixes" : {
+      "@id" : "http://www.w3.org/ns/shacl#prefixes",
+      "@type" : "@id"
+    },
+    "message" : "http://www.w3.org/ns/shacl#message",
+    "targetClass" : {
+      "@id" : "http://www.w3.org/ns/shacl#targetClass",
+      "@type" : "@id"
+    },
+    "and" : {
+      "@id" : "http://www.w3.org/ns/shacl#and",
+      "@type" : "@id"
+    },
+    "lessThan" : {
+      "@id" : "http://www.w3.org/ns/shacl#lessThan",
+      "@type" : "@id"
+    },
+    "ignoredProperties" : {
+      "@id" : "http://www.w3.org/ns/shacl#ignoredProperties",
+      "@type" : "@id"
+    },
+    "closed" : {
+      "@id" : "http://www.w3.org/ns/shacl#closed",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "inversePath" : {
+      "@id" : "http://www.w3.org/ns/shacl#inversePath",
+      "@type" : "@id"
+    },
+    "minInclusive" : {
+      "@id" : "http://www.w3.org/ns/shacl#minInclusive",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "maxInclusive" : {
+      "@id" : "http://www.w3.org/ns/shacl#maxInclusive",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "declare" : {
+      "@id" : "http://www.w3.org/ns/shacl#declare",
+      "@type" : "@id"
+    },
+    "imports" : {
+      "@id" : "http://www.w3.org/2002/07/owl#imports",
+      "@type" : "@id"
+    },
+    "sparql" : {
+      "@id" : "http://www.w3.org/ns/shacl#sparql",
+      "@type" : "@id"
+    },
+    "uniqueLang" : {
+      "@id" : "http://www.w3.org/ns/shacl#uniqueLang",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "schema" : "http://schema.org/",
+    "schemax" : "http://topbraid.org/schemax/",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "sh" : "http://www.w3.org/ns/shacl#",
+    "tosh" : "http://topbraid.org/tosh#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "dash" : "http://datashapes.org/dash#",
+    "swa" : "http://topbraid.org/swa#",
+    "schemashacl" : "http://topbraid.org/examples/schemashacl#",
+    "vs" : "http://www.w3.org/2003/06/sw-vocab-status/ns#"
+  }
+}

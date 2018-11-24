@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Entity Graph </title>
+<meta name="description" content="A force diretd graph of entities" />
+<!-- Copyright 1998-2017 by Northwoods Software Corporation. -->
+<meta charset="UTF-8">
+
+<script src="https://gojs.net/latest/release/go.js"></script>
+
+<!--<script src="./nodelinkarrays.js"></script>-->
+<!--<script src="./SaaSnodes.js"></script>-->
+<script src="./SaaSnodeslinks.js"></script>
+<!--<script src="./greenlitenodeslinks.js"></script>-->
+
+<script id="code">
+function init() {
+
+  
+    // For conciseness. See the "Building Parts" intro page for more
+    var $ = go.GraphObject.make;  // for conciseness in defining templates
+
+        
+    myDiagram =
+      $(go.Diagram, "myDiagramDiv",  // must be the ID or reference to div
+        {
+          // have mouse wheel events zoom in and out instead of scroll up and down
+          "toolManager.mouseWheelBehavior": go.ToolManager.WheelZoom,
+        
+          initialAutoScale: go.Diagram.UniformToFill,
+          
+          layout: $(go.ForceDirectedLayout)
+          
+          // layout: $(go.TreeLayout,
+          //           { comparer: go.LayoutVertex.smartComparer }) // have the comparer sort by numbers as well as letters
+          //           // other properties are set by the layout function, defined below
+          
+          // layout: $(go.LayeredDigraphLayout)
+          // // other Layout properties are set by the layout function, defined below
+          
+          
+        });
+    
+    
+    var forelayer = myDiagram.findLayer("Foreground");
+    myDiagram.addLayerBefore($(go.Layer, { name: "blue" }), forelayer);
+    myDiagram.addLayerBefore($(go.Layer, { name: "green" }), forelayer);
+    myDiagram.addLayerBefore($(go.Layer, { name: "orange" }), forelayer);
+  
+
+    // node template helpers
+      var sharedToolTip =
+        $(go.Adornment, "Auto",
+          $(go.Shape, "RoundedRectangle", { fill: "lightyellow" }),
+          $(go.TextBlock, { margin: 2 },
+            // new go.Binding("text",  "" , function(d) { return d.category; })));
+          new go.Binding("text",  "" , function(d) { return d.description; })));
+
+
+    // define some common property settings
+    
+      // function groupStyle() {
+      //   return [new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+      //           new go.Binding("isShadowed", "isSelected").ofObject(),
+      //           {
+      //             selectionAdorned: false,
+      //             shadowOffset: new go.Point(0, 0),
+      //             shadowBlur: 15,
+      //             shadowColor: "blue",
+      //             toolTip: sharedToolTip
+      //           }];
+      // }
+      
+      function nodeStyle() {
+        return [new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+                new go.Binding("isShadowed", "isSelected").ofObject(),
+                {
+                  selectionAdorned: false,
+                  shadowOffset: new go.Point(0, 0),
+                  shadowBlur: 15,
+                  shadowColor: "blue",
+                  toolTip: sharedToolTip
+                }];
+      }
+
+      function shapeStyle() {
+        return {
+          name: "NODESHAPE",
+          fill: "lightgray",
+          stroke: "darkslategray",
+          desiredSize: new go.Size(40, 40),
+          strokeWidth: 2
+        };
+      }
+
+      function portStyle(input) {
+        return {
+          desiredSize: new go.Size(6, 6),
+          fill: "black",
+          fromSpot: go.Spot.Right,
+          fromLinkable: !input,
+          toSpot: go.Spot.Left,
+          toLinkable: input,
+          toMaxLinks: 1,
+          cursor: "pointer"
+        };
+      }
+ 
+ 
+  
+    myDiagram.nodeTemplate =
+        $(go.Node, "Auto",  // the whole node panel - set layers so selected thing is on top
+          new go.Binding("layerName", "color"),
+          { isTreeExpanded: false },  // by default collapsed
+          $(go.Shape, "Ellipse",
+              { 
+                width: 100, 
+                height: 80, 
+                minSize: new go.Size(100, 80), 
+                maxSize: new go.Size(120, 90),
+                margin: 3, 
+                fill: "CornflowerBlue", 
+                stroke: "grey", 
+  
+              },
+              new go.Binding("fill", "color")
+            ),
+ 
+          $(go.TextBlock,
+              
+              { 
+                font: "bold 10pt helvetica, bold arial, sans-serif", 
+                textAlign: "center", 
+                margin: 2,
+                maxSize: new go.Size(80, NaN), 
+                editable: true, 
+                isMultiline: false 
+                
+              },
+              new go.Binding("text", "text").makeTwoWay()),
+              { toolTip: groupToolTip },
+
+          // $("TreeExpanderButton",
+          //     {
+          //       name: 'TREEBUTTON',
+          //       width: 10, height: 10,
+          //       alignment: go.Spot.TopRight,
+          //       alignmentFocus: go.Spot.Center
+          //     },
+          //     { visible: false }
+          //   ),  // end TreeExpanderButton
+          $("TreeExpanderButton",
+            {
+              name: 'TREEBUTTON',
+              width: 20, height: 20,
+              alignment: go.Spot.TopRight,
+              alignmentFocus: go.Spot.Center,
+              // customize the expander behavior to
+              // create children if the node has never been expanded
+              click: function (e, obj) {  // OBJ is the Button
+                  var node = obj.part;  // get the Node containing this Button
+                  if (node === null) return;
+                  e.handled = true;
+                  expandNode(node);
+                }
+            }
+          ),  // end TreeExpanderButton
+        
+          // bring selected node to top
+          {
+            selectionChanged: function(p) {
+              p.layerName = (p.isSelected ? "Foreground" : p.data.color);
+            },
+            layerChanged: function(p, oldLayer, newLayer) {
+              // if (newLayer !== null) p.elt(1).text = newLayer.name;
+            }
+          }
+        );
+    // for the default category, "", use the same template that Diagrams use by default;
+    // this just shows the key value as a simple TextBlock
+    myDiagram.nodeTemplateMap.add("", myDiagram.nodeTemplate);
+    
+    
+    var linkTemplate =
+        $(go.Link,
+          // new go.Binding("routing", "routing"),
+          // { routing: go.Link.AvoidsNodes },  // link route should avoid nodes
+          // { curve: go.Link.Bezier },  // Bezier curve
+          // { routing: go.Link.AvoidsNodes,  // may be either Orthogonal or AvoidsNodes
+          //   curve: go.Link.JumpGap },
+          $(go.Shape,
+            new go.Binding("stroke", "color"),  // shape.stroke = data.color
+            new go.Binding("strokeWidth", "thick")),  // shape.strokeWidth = data.thick
+          // $(go.Shape,
+          //   { toArrow: "OpenTriangle", fill: null },
+          //   new go.Binding("stroke", "color"),  // shape.stroke = data.color
+          //   new go.Binding("strokeWidth", "thick")),  // shape.strokeWidth = data.thick
+          $(go.Shape, { toArrow: "Standard" }),
+          $(go.Panel, "Auto",  // this whole Panel is a link label
+              $(go.Shape, "RoundedRectangle", 
+                { 
+                  fill: "whitesmoke", 
+                  stroke:  "whitesmoke" 
+                  
+                }
+                ),
+              $(go.TextBlock, 
+                { 
+                  font: " 9pt helvetica,  arial, sans-serif", 
+                  margin: 1,  
+                  editable: true, 
+                  isMultiline: false  
+                  
+                },
+                new go.Binding("text", "text").makeTwoWay())
+            )
+        );
+    myDiagram.linkTemplateMap.add("", linkTemplate);
+
+
+ 
+    var groupToolTip =
+        $(go.Adornment, "Auto",
+          $(go.Shape, "RoundedRectangle", { fill: "lightyellow" }),
+          $(go.TextBlock, { margin: 2 },
+            // new go.Binding("text",  "" , function(d) { return d.category; })));
+          new go.Binding("text",  "" , function(d) { return d.description; })));
+
+    // create group box for elements in it
+    var groupTemplate =
+      $(go.Group, "Auto",
+        // declare the Group.layout:
+        { layout: $(go.LayeredDigraphLayout,
+                    { direction: 0, columnSpacing: 10 }) },
+        $(go.Shape, "RoundedRectangle",  // surrounds everything
+          { parameter1: 10, fill: "rgba(128,128,128,0.33)" }),
+        $(go.Panel, "Vertical",  // position header above the subgraph
+          $(go.TextBlock,     // group title near top, next to button
+            { font: "Bold 12pt Sans-Serif" },
+            new go.Binding("text", "key")),
+            { toolTip: groupToolTip },
+          $(go.Placeholder,     // represents area for all member parts
+            { padding: 5, background: "white" })
+        )
+      );
+    myDiagram.groupTemplateMap.add("", groupTemplate);
+    
+           
+    //  it4it object templates
+    var it4itTemplate =
+      $(go.Group, "Auto",
+          // declare the Group.layout:
+          // { layout: $(go.LayeredDigraphLayout,
+          //             { direction: 0, columnSpacing: 10 }) },
+          $(go.Shape, "RoundedRectangle",  // surrounds everything
+            { parameter1: 10, fill: "rgba(128,128,128,0.33)" }),
+          $(go.Panel, "Vertical",  // position header above the subgraph
+            $(go.TextBlock,     // group title near top, next to button
+              { 
+                font: "Bold 12pt Sans-Serif",
+                    textAlign: "center", 
+                    margin: 4,
+                    // maxSize: new go.Size(80, NaN), 
+                    editable: true, 
+                    isMultiline: false 
+              },
+              new go.Binding("text", "text")),
+              {
+                toolTip: groupToolTip
+              },
+            $(go.Placeholder,    // represents area for all member parts
+              { padding: 5, background: "Silver" })
+          )
+        );
+      myDiagram.groupTemplateMap.add("it4it", it4itTemplate);  
+
+
+      // logical view object templates
+      var logicalTemplate =
+        $(go.Group, "Auto", 
+        // $(go.Group, "Auto", groupStyle(),
+          // declare the Group.layout:
+          // { layout: $(go.LayeredDigraphLayout,
+          //             { direction: 0, columnSpacing: 10 }) },
+          $(go.Shape, "RoundedRectangle",  // surrounds everything
+            { parameter1: 10, fill: "LightSteelBlue" }),  
+          $(go.Panel, "Vertical",  // position header above the subgraph
+            $(go.TextBlock,     // group title near top, next to button
+              { 
+                font: "Bold 12pt Sans-Serif",
+                    textAlign: "center", 
+                    margin: 4,
+                    // maxSize: new go.Size(80, NaN), 
+                    editable: true, 
+                    isMultiline: false 
+              },
+              new go.Binding("text", "text")),
+              {
+                toolTip: groupToolTip
+              },
+            $(go.Placeholder,    // represents area for all member parts
+              { padding: 5, background: "AliceBlue" })
+          )
+        );
+      myDiagram.groupTemplateMap.add("logical", logicalTemplate);  
+    
+    
+      //  domain object template
+      var domainTemplate =
+        $(go.Group, "Auto",
+        // declare the Group.layout:
+        // { layout: $(go.LayeredDigraphLayout,
+        //             { direction: 0, columnSpacing: 10 }) },
+          
+        $(go.Shape, "RoundedRectangle",  // surrounds everything
+            { parameter1: 10, fill: "rgba(128,128,128,0.33)" }),
+          
+          $(go.Panel, "Vertical",  // position header above the subgraph
+            
+            $(go.TextBlock,     // group title near top, next to button
+              { 
+                font: "Bold 11pt Sans-Serif",
+                    textAlign: "center", 
+                    margin: 4,
+                    // maxSize: new go.Size(80, NaN), 
+                    editable: true, 
+                    isMultiline: false 
+              },
+              new go.Binding("text", "text")),
+              {
+                toolTip: groupToolTip
+              },
+              
+            $(go.Placeholder,    // represents area for all member parts
+              { padding: 5, background: "WhiteSmoke" }))
+   
+        );
+      myDiagram.groupTemplateMap.add("domain", domainTemplate);  
+      
+      
+      //  entity object template
+      var entityTemplate =
+        $(go.Node, "Spot", nodeStyle(),
+        
+          $(go.Shape, "Ellipse",
+              { 
+                width: 100, 
+                height: 50, 
+                minSize: new go.Size(90, 50), 
+                maxSize: new go.Size(110, 60),
+                margin: 3, 
+                fill: "CornflowerBlue", 
+                stroke: "grey", 
+  
+              },
+              new go.Binding("fill", "color")),
+ 
+          $(go.TextBlock,
+              
+              { 
+                font: "bold 8pt helvetica, bold arial, sans-serif", 
+                textAlign: "center", 
+                margin: 3,
+                // maxSize: new go.Size(80, NaN), 
+                editable: true, 
+                isMultiline: false 
+                
+              },
+              new go.Binding("text", "text").makeTwoWay())
+ 
+        );
+      myDiagram.nodeTemplateMap.add("entity", entityTemplate);  
+      
+      
+      // Technical component object template
+      var techcompTemplate =
+        $(go.Node, "Spot", nodeStyle(),
+          $(go.Shape, "Rectangle",
+              { 
+                width: 99, 
+                height: 49, 
+                minSize: new go.Size(99, 49), 
+                maxSize: new go.Size(129, 64),
+                margin: 2, 
+                fill: "Cornsilk", 
+                stroke: "grey", 
+  
+              },
+              new go.Binding("fill", "color")),
+              
+          $(go.TextBlock,
+              { 
+                font: "bold 9pt helvetica, bold arial, sans-serif", 
+                textAlign: "center", 
+                margin: 4,
+                maxSize: new go.Size(91, NaN), 
+                editable: true, 
+                isMultiline: false 
+                
+              },
+              new go.Binding("text", "text").makeTwoWay())
+              
+        );
+     myDiagram.nodeTemplateMap.add("techcomp", techcompTemplate);
+    
+    
+    
+      
+      
+    
+    console.log("nodeDataArray:",nodeDataArray)
+    console.log("linkDataArray:",linkDataArray)
+    // the Model holds only the essential information describing the diagram
+    myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+
+    // set initial alignment
+    myDiagram.initialContentAlignment = go.Spot.Center;
+    
+    
+    
+    
+     // define a function named "addChild" that is invoked by a button click
+    addChild = function() {
+        var selnode = myDiagram.selection.first();
+        if (!(selnode instanceof go.Node)) return;
+        myDiagram.startTransaction("add node and link");
+        console.log('selnode',selnode)
+        // have the Model add a new node data
+        var newnode = { key: "N" , color:selnode.data.color};
+        myDiagram.model.addNodeData(newnode);  // this makes sure the key is unique
+        // and then add a link data connecting the original node with the new one
+        var newlink = { from: selnode.data.key, to: newnode.key };
+        // add the new link to the model
+        myDiagram.model.addLinkData(newlink);
+        // finish the transaction
+        myDiagram.commitTransaction("add node and link");
+      };
+  
+    // enable Ctrl-Z to undo and Ctrl-Y to redo
+    myDiagram.undoManager.isEnabled = true;
+    
+    // After the nodes and links have been created,
+    // expand each of the tree roots to 2/3 levels deep.
+    myDiagram.addDiagramListener("InitialLayoutCompleted", function(e) {
+        e.diagram.findTreeRoots().each(function(r) { r.expandTree(3); });
+        // e.diagram.findTreeRoots().each( function(r) { 
+        //   r.expandTree(2)
+        //   console.log('r',r) 
+        //   console.log('r.Zd.key',r.Zd.key) 
+        //   console.log('r.Zd.expanded',r.Zd.expanded) 
+        //   });
+      });
+    
+
+    function expandNode(node) {
+        var diagram = node.diagram;
+        diagram.startTransaction("CollapseExpandTree");
+        // this behavior is specific to this incrementalTree sample:
+        var data = node.data;
+        // if (!data.expanded) {
+        //   diagram.commandHandler.expandTree(node);
+        // } else {
+        //   diagram.commandHandler.expandTree(node);
+        // }
+        // if (!data.everExpanded) {
+        //   // only create children once per node
+        //   diagram.model.setDataProperty(data, "everExpanded", true);
+        //   var numchildren = diagram.findNodesByExample({parent: node.data.key }).count;
+        //   if (numchildren === 0) {  // now known no children: don't need Button!
+        //     node.findObject('TREEBUTTON').visible = false;
+        //   }
+        // }
+        // this behavior is generic for most expand/collapse tree buttons:
+        if (node.isTreeExpanded) {
+          
+          if (node.data.expanded) {
+            diagram.commandHandler.collapseTree(node);
+          } else{
+            diagram.commandHandler.expandTree(node);
+          }
+          
+        } else {
+          diagram.commandHandler.expandTree(node);
+        }
+        diagram.commitTransaction("CollapseExpandTree");
+        // myDiagram.zoomToFit();
+      }
+      
+} // end init
+
+function zoomToFit() {
+  myDiagram.zoomToFit();
+}
+// Show the diagram's model in JSON format
+function save() {
+  document.getElementById("mySavedModel").value = myDiagram.model.toJson();
+}
+function load() {
+  myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+}
+
+</script>
+</head>
+<body onload="init()">
+<div id="sample">
+  <!--<div id="myDiagramDiv" style="background-color: whitesmoke; border: solid 1px black; width: 100%; height: 700px"></div>-->
+  <div id="myDiagramDiv" style="background-color: whitesmoke; border: solid 1px black; width: 98%; height: 700px"></div>
+  <div>
+    <input type="button" onclick="zoomToFit()" value="zoomToFit()" />
+
+    <input type="button" onclick="addChild()" value="addChild() to selected Node" />
+  </div>
+  <div>
+    <div>
+      <button id="SaveButton" onclick="save()">Save</button>
+      <button onclick="load()">Load</button>
+      Diagram Model saved in JSON format:
+    </div>
+    <textarea id="mySavedModel" style="width:100%;height:300px">
+
+    </textarea>
+</div>
+</body>
+</html>

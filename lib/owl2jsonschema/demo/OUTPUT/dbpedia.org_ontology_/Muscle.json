@@ -1,0 +1,66 @@
+{
+	"id": "Muscle.json",
+	"title": "muscle",
+	"translations": {
+		"title": {
+			"de": "Muskel",
+			"el": "μυς",
+			"fr": "muscle",
+			"ga": "matán",
+			"nl": "spier",
+			"ja": "筋肉"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "AnatomicalStructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"origo": {
+			"oneOf": [
+				{"$ref": "AnatomicalStructure.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "AnatomicalStructure.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Muscle",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Muscle"}
+}

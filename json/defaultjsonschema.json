@@ -1,0 +1,299 @@
+{
+  "schema": {
+    "title": "DefaultJSONSchema",
+    "description": "Base Class for default JSON Schema",
+    "x_semantic": "Person",
+    "type": "object",
+    "properties": {
+      "txtAddress": {
+        "type": "string",
+        "id": "txtAddress",
+        "name": "address",
+        "title": "address",
+        "x_semantic": "",
+        "x_contentmap": "place.address",
+        "description": "place.address"
+      },
+      "txtAddress1": {
+        "type": "string",
+        "id": "txtAddress1",
+        "name": "txtAddress1",
+        "title": "txtAddress1",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.address1",
+        "description": "client.organization.address.address1"
+      },
+      "txtAddress2": {
+        "type": "string",
+        "id": "txtAddress2",
+        "name": "txtAddress2",
+        "title": "txtAddress2",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.address2",
+        "description": "client.organization.address.address2"
+      },
+      "txtPersonUID": {
+        "type": "string",
+        "id": "txtPersonUID",
+        "name": "PersonUID",
+        "title": "PersonUID",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.uid",
+        "description": "employee.person.uid"
+      },
+      "txtGivenName": {
+        "type": "string",
+        "id": "txtGivenName",
+        "name": "givenName",
+        "title": "givenName",
+        "required": true,
+        "x_semantic": "",
+        "x_contentmap": "employee.person.givenname",
+        "description": "employee.person.givenname"
+      },
+      "txtMiddleName": {
+        "type": "string",
+        "id": "txtMiddleName",
+        "name": "middleName",
+        "title": "middleName",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.middlename",
+        "description": "employee.person.middlename"
+      },
+      "txtLastName": {
+        "type": "string",
+        "id": "txtLastName",
+        "name": "familyName",
+        "title": "familyName",
+        "required": true,
+        "x_semantic": "",
+        "x_contentmap": "employee.person.familyname",
+        "description": "employee.person.familyname"
+      },
+      "txtNickName": {
+        "type": "string",
+        "id": "txtNickName",
+        "name": "nickName",
+        "title": "nickName",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.informalname",
+        "description": "employee.person.informalname",
+        "default": "Billy"
+      },
+      "txtPrefix": {
+        "type": "string",
+        "id": "txtPrefix",
+        "name": "prefix",
+        "title": "prefix",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.prefix",
+        "description": "employee.person.prefix"
+      },
+      "txtSuffix": {
+        "type": "string",
+        "id": "txtSuffix",
+        "name": "suffix",
+        "title": "suffix",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.suffix",
+        "description": "employee.person.suffix"
+      },
+      "txtFullName": {
+        "type": "string",
+        "id": "txtFullName",
+        "name": "fullName",
+        "title": "fullName",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.fullname",
+        "description": "employee.person.fullname"
+      },
+      "ddlGender": {
+        "type": "string",
+        "id": "ddlGender",
+        "name": "gender",
+        "title": "gender",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.gender",
+        "description": "employee.person.gender",
+        "default": "Alien"
+      },
+      "adult": {
+        "type": "boolean",
+        "id": "adult",
+        "name": "adult",
+        "title": "adult",
+        "readonly": true,
+        "x_semantic": "",
+        "x_contentmap": "level2.level1.level0.image",
+        "description": "level2.level1.level0.image",
+        "default": true
+      },
+      "dateOfBirth": {
+        "type": "string",
+        "id": "dateOfBirth",
+        "name": "dateOfBirth",
+        "title": "dateOfBirth",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.dateofbirth",
+        "description": "employee.person.dateofbirth"
+      },
+      "txtEmailAddres": {
+        "type": "string",
+        "id": "txtEmailAddres",
+        "name": "emailAddres",
+        "title": "emailAddres",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.emailaddress",
+        "description": "employee.person.emailaddress"
+      },
+      "txtPhoneNumber": {
+        "type": "string",
+        "id": "txtPhoneNumber",
+        "name": "phoneNumber",
+        "title": "phoneNumber",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.phonenumber",
+        "description": "employee.person.phonenumber"
+      },
+      "txtMobileNumber": {
+        "type": "string",
+        "id": "txtMobileNumber",
+        "name": "mobileNumber",
+        "title": "mobileNumber",
+        "x_semantic": "",
+        "x_contentmap": "employee.person.mobilenumber",
+        "description": "employee.person.mobilenumber"
+      },
+      "imgProfileThumbnail": {
+        "type": "string",
+        "id": "imgProfileThumbnail",
+        "name": "ProfileThumbnail",
+        "title": "ProfileThumbnail",
+        "x_semantic": "",
+        "x_contentmap": "thumbnail.image",
+        "description": "thumbnail.image"
+      },
+      "txtLocaleCity": {
+        "type": "string",
+        "id": "txtLocaleCity",
+        "name": "txtLocaleCity",
+        "title": "txtLocaleCity",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.localecity",
+        "description": "client.organization.address.localecity"
+      },
+      "txtRegionState": {
+        "type": "string",
+        "id": "txtRegionState",
+        "name": "txtRegionState",
+        "title": "txtRegionState",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.regionstate",
+        "description": "client.organization.address.regionstate"
+      },
+      "txtPostalCode": {
+        "type": "string",
+        "id": "txtPostalCode",
+        "name": "txtPostalCode",
+        "title": "txtPostalCode",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.postalcode",
+        "description": "client.organization.address.postalcode"
+      },
+      "txtCountryCode": {
+        "type": "string",
+        "id": "txtCountryCode",
+        "name": "txtCountryCode",
+        "title": "txtCountryCode",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.address.countrycode",
+        "description": "client.organization.address.countrycode"
+      },
+      "ddlClientType": {
+        "type": "string",
+        "id": "ddlClientType",
+        "name": "ClientType",
+        "title": "ClientType",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.type",
+        "description": "client.organization.type"
+      },
+      "txtName": {
+        "type": "string",
+        "id": "txtName",
+        "name": "ClientName",
+        "title": "ClientName",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.name",
+        "description": "client.organization.name"
+      },
+      "txtDescription": {
+        "type": "string",
+        "id": "txtDescription",
+        "name": "txtDescription",
+        "title": "txtDescription",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.description",
+        "description": "client.organization.description"
+      },
+      "txtSlogan": {
+        "type": "string",
+        "id": "txtSlogan",
+        "name": "Slogan",
+        "title": "Slogan",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.slogan",
+        "description": "client.organization.slogan"
+      },
+      "txtWebsite": {
+        "type": "string",
+        "id": "txtWebsite",
+        "name": "Website",
+        "title": "Website",
+        "x_semantic": "",
+        "x_contentmap": "client.organization.website",
+        "description": "client.organization.website"
+      },
+      "ddlIndustrySector": {
+        "type": "string",
+        "id": "ddlIndustrySector",
+        "name": "Industry Sector",
+        "title": "Industry Sector",
+        "x_semantic": "",
+        "x_contentmap": "organization.sector",
+        "description": "organization.sector"
+      },
+      "customer": {
+        "type": "object",
+        "title": "Customer",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "gender": {
+            "type": "string",
+            "title": "Gender",
+            "enum": [
+              "male",
+              "female",
+              "alien"
+            ]
+          },
+          "magic": {
+            "type": "integer",
+            "title": "Magic number",
+            "default": 42
+          }
+        },
+        "default": {
+          "gender": "alien",
+          "magic": 36
+        }
+      }
+    },
+    "definitions": {
+      
+    }
+  }
+}

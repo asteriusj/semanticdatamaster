@@ -1,0 +1,97 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"notifyDate": {
+			"title": "notify date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"interest": {
+			"title": "interest",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A Site of Special Scientific Interest &amp;&#35;40;SSSI&#41; is a conservation designation denoting a protected area in the United Kingdom. SSSIs are the basic building block of site-based nature conservation legislation and most other legal nature/geological conservation designations in Great Britain are based upon them, including National Nature Reserves, Ramsar Sites, Special Protection Areas, and Special Areas of Conservation.",
+	"format": "http://dbpedia.org/ontology/SiteOfSpecialScientificInterest",
+	"id": "SiteOfSpecialScientificInterest.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SiteOfSpecialScientificInterest"},
+	"properties": {
+		"notifyDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/notifyDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/notifyDate"}
+				}
+			]
+		},
+		"interest": {
+			"oneOf": [
+				{"$ref": "#/definitions/interest"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/interest"}
+				}
+			]
+		},
+		"areaOfSearch": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Site of Special Scientific Interest",
+	"translations": {
+		"title": {
+			"de": "wissenschaftliche Interessenvertretung für Denkmalschutz",
+			"el": "Τοποθεσία Ειδικού Επιστημονικού Ενδιαφέροντος",
+			"fr": "site d&apos;intérêt scientifique particulier",
+			"ga": "Láithreán Sainspéis Eolaíochta",
+			"nl": "plaats met bijzonder wetenschappelijk belang",
+			"ja": "自然保護協会特別指定地区"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

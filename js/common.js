@@ -26,6 +26,7 @@ function getDataFiles(datefiletype) {
   if (datefiletype === "FieldSchemaData") getFieldSchemaData();
   if (datefiletype === "JSONSchemaData") getJSONSchemaData();
   if (datefiletype === "FormFieldDefData") getFormFieldDefData();
+  if (datefiletype === "ContentTreeData") getContentTreeData();
   // ()
 
 
@@ -67,7 +68,7 @@ function getOWLJSONLDData() {
 // load OWL JSONLD data file
 //
 function loadOWLJSONLDData() {
-  console.log('loadJSONSchemaData')
+  console.log('loadOWLJSONLDData')
   // Return a new promise.
   return new Promise(function (resolve, reject) {
     try {
@@ -462,7 +463,7 @@ function loadJSONSchemaData() {
       var result = false;
 
       // get schema
-      var URL = "../json/defaultjsonformschema.json";
+      var URL = "../json/defaultjsonschema.json";
       console.log('loadJSONSchemaData URL', URL)
       /*global $*/
       $.getJSON(URL, {
@@ -884,6 +885,208 @@ function getFormFieldDef() {
 //
 // ENDING FormFieldDef Functions  
 //
+
+
+
+
+
+
+
+
+
+//
+// STARTING ContentTree Functions  
+//
+//  * getContentTreeData
+//  * loadContentTreeData
+//  * create createContentTree
+//  * setContentTree
+//  * getContentTree
+//
+// create myContentTree
+//
+function getContentTreeData() {
+  console.log('getContentTreeData')
+
+  // Get local data if available - if not available load from fil
+  getContentTree().then(function (_json) {
+    console.log('call getContentTree _json', _json)
+
+    if (_json === null) {
+      loadContentTreeData();
+    }
+    else if (JSON.stringify(_json) != '{}') {
+      doContentTreeData(_json);
+    }
+    else {
+      loadContentTreeData();
+    }
+
+  }).catch(function (e) {
+    console.error('call getContentTree Fail! e', e)
+  });
+
+} // end get
+
+//
+// load Form Field data file
+//
+function loadContentTreeData() {
+  console.log('loadContentTreeData')
+  // Return a new promise.
+  return new Promise(function (resolve, reject) {
+    try {
+
+      var result = false;
+
+      // get schema
+      var URL = "../json/defaultcontenttree.json";
+      console.log('loadContentTreeData URL', URL)
+      /*global $*/
+      $.getJSON(URL, {
+          // tags: "mount rainier",
+          // tagmode: "any",
+          // format: "json"
+          dataType: 'json',
+        })
+        .done(function (data) {
+          console.log('loadContentTreeData done data:', data)
+          result = true;
+
+          createContentTree(data).then(function (result) {
+            console.log('call createContentTree result', result)
+            result = true;
+
+            getContentTree().then(function (_json) {
+              console.log('call getContentTree _json', _json)
+
+
+              doContentTreeData(_json);
+
+              result = true;
+
+            }).catch(function (e) {
+              console.error('call getContentTree Fail! e', e)
+              result = false;
+              reject(err)
+            });
+          }).catch(function (e) {
+            console.error('call createContentTree Fail! e', e)
+            result = false;
+            reject(err)
+          });
+
+        })
+        .fail(function (jqxhr, textStatus, error) {
+          var err = textStatus + ", " + error;
+          console.log("loadContentTreeData fail: " + err);
+          result = false;
+          reject(err)
+        })
+        .always(function () {
+          console.log("loadContentTreeData always");
+          resolve(result)
+        });
+
+    }
+    catch (e) {
+      console.error('loadContentTreeData e', e)
+      reject(e);
+
+    }; // end try
+  }); // end promise
+}; // end loadContentTreeData
+
+//
+// create myContentTree
+//
+function createContentTree(_ContentTree) {
+  console.log('createContentTree', _ContentTree)
+  // Return a new promise.
+  return new Promise(function (resolve, reject) {
+    try {
+
+      if (localStorage.getItem('myContentTree') === null) localStorage.setItem('myContentTree', JSON.stringify(null));
+
+      if (_ContentTree != null) localStorage.setItem('myContentTree', JSON.stringify(_ContentTree))
+
+      var retrievedObject = localStorage.getItem('myContentTree')
+      console.log('createContentTree retrievedObject: ', JSON.parse(retrievedObject));
+
+      resolve(retrievedObject)
+
+    }
+    catch (e) {
+      console.error('createContentTree e', e)
+      reject(e);
+
+    }; // end try
+  }); // end promise
+};
+
+//
+// set myContentTree from _ContentTree 
+//
+function setContentTree(_formfielddef) {
+  console.log('setContentTree', _formfielddef)
+
+  return new Promise(function (resolve, reject) {
+    try {
+
+      let myContentTree = _formfielddef || {};
+
+      localStorage.setItem('myContentTree', JSON.stringify(myContentTree));
+
+      var retrievedObject = localStorage.getItem('myContentTree');
+
+      let _ContentTree = JSON.parse(retrievedObject);
+      console.log('_ContentTree', _ContentTree)
+
+      resolve(_ContentTree)
+
+    }
+    catch (e) {
+      console.error('setContentTree e', e)
+      reject(e);
+
+    };
+  });
+};
+
+//
+// get myContentTree from set value 
+//
+function getContentTree() {
+  console.log('getContentTree')
+
+  // Return a new promise.
+  var promise = new Promise(function (resolve, reject) {
+
+    try {
+
+      var retrievedObject = localStorage.getItem('myContentTree');
+      console.log('JSON.parse(retrievedObject)', JSON.parse(retrievedObject))
+
+      let _ContentTree = JSON.parse(retrievedObject);
+
+      resolve(_ContentTree)
+
+    }
+    catch (e) {
+      console.error('getContentTree e', e)
+      reject(e);
+
+    }; // end try 
+
+  });
+
+  return promise;
+} // end getContentTree
+//
+// ENDING ContentTree Functions  
+//
+
+
 
 
 

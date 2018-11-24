@@ -1,0 +1,52 @@
+{
+	"id": "MetroStation.json",
+	"title": "subway station",
+	"translations": {
+		"title": {
+			"de": "U-Bahn Station",
+			"el": "στάση μετρό",
+			"fr": "station de métro",
+			"nl": "metrostation"
+		},
+		"description": {"el": "Η στάση μετρό χρησιμοποιείται συνήθως για μια τοποθεσία ή σημείο όπου σταματάει το μεταφορικό μέσο μετρό"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "Station.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MetroStation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MetroStation"}
+}

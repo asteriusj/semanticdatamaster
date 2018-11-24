@@ -1,0 +1,60 @@
+{
+	"id": "MicroRegion.json",
+	"title": "micro-region",
+	"description": "A microregion is a - mainy statistical - region in Brazil, at an administrative level between a meso-region and a community",
+	"translations": {
+		"title": {
+			"de": "Mikroregion",
+			"el": "μικρο-περιφέρεια",
+			"nl": "microregio",
+			"pt": "microrregiao"
+		},
+		"description": {"el": "Η μικρο-περιφέρεια χρησιμοποιείται για να περιγράψει, κυρίως στατιστικά, μια περιοχή στη Βραζιλία σε διοικητικό επίπεδο μεταξύ μίας μεσο-περιφέρειας και μίας κοινότητα"}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MicroRegion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MicroRegion"}
+}

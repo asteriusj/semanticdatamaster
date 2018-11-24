@@ -1,0 +1,187 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"definitions": {
+		"ableToGrind": {
+			"title": "able to grind",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"grindingCapability": {
+			"title": "grinding capability",
+			"description": "grinding capability for Mills",
+			"type": "string"
+		},
+		"millSpan": {
+			"title": "mill span &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"millType": {
+			"title": "mill type",
+			"description": "",
+			"anyOf": []
+		},
+		"millsCodeBE": {
+			"title": "mill code BE",
+			"description": "mills code from the Belgian database on mills",
+			"type": "string"
+		},
+		"millsCodeDutch": {
+			"title": "mill code NL",
+			"description": "",
+			"type": "string"
+		},
+		"millsCodeNL": {
+			"title": "mill code NL",
+			"description": "mills code from the central Dutch database on mills",
+			"type": "string"
+		},
+		"millsCodeNLVerdwenen": {
+			"title": "mill dissapeared code NL",
+			"description": "",
+			"type": "string"
+		},
+		"millsCodeNLWindmotoren": {
+			"title": "millsCodeNLWindmotoren",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "a unit operation designed to break a solid material into smaller pieces",
+	"format": "http://dbpedia.org/ontology/Mill",
+	"id": "Mill.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Mill"},
+	"properties": {
+		"millsCodeNLWindmotoren": {
+			"oneOf": [
+				{"$ref": "#/definitions/millsCodeNLWindmotoren"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millsCodeNLWindmotoren"}
+				}
+			]
+		},
+		"millsCodeNLVerdwenen": {
+			"oneOf": [
+				{"$ref": "#/definitions/millsCodeNLVerdwenen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millsCodeNLVerdwenen"}
+				}
+			]
+		},
+		"millsCodeBE": {
+			"oneOf": [
+				{"$ref": "#/definitions/millsCodeBE"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millsCodeBE"}
+				}
+			]
+		},
+		"grindingCapability": {
+			"oneOf": [
+				{"$ref": "#/definitions/grindingCapability"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grindingCapability"}
+				}
+			]
+		},
+		"millSpan": {
+			"oneOf": [
+				{"$ref": "#/definitions/millSpan"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millSpan"}
+				}
+			]
+		},
+		"ableToGrind": {
+			"oneOf": [
+				{"$ref": "#/definitions/ableToGrind"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ableToGrind"}
+				}
+			]
+		},
+		"millsCodeDutch": {
+			"oneOf": [
+				{"$ref": "#/definitions/millsCodeDutch"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millsCodeDutch"}
+				}
+			]
+		},
+		"millsCodeNL": {
+			"oneOf": [
+				{"$ref": "#/definitions/millsCodeNL"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millsCodeNL"}
+				}
+			]
+		},
+		"millType": {
+			"oneOf": [
+				{"$ref": "#/definitions/millType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/millType"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Mill",
+	"translations": {
+		"title": {
+			"de": "Mühle",
+			"el": "Μύλος",
+			"fr": "Moulin",
+			"it": "mulino",
+			"ga": "muileann",
+			"da": "mølle",
+			"nl": "Molen",
+			"ja": "粉砕機"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

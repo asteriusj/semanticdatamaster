@@ -1,0 +1,54 @@
+{
+	"id": "Territory.json",
+	"title": "territory",
+	"description": "A territory may refer to a country subdivision, a non-sovereign geographic region.",
+	"translations": {
+		"title": {
+			"de": "Territorium",
+			"el": "περιοχή",
+			"fr": "territoire",
+			"nl": "territorium",
+			"ja": "国土"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Territory",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Territory"}
+}

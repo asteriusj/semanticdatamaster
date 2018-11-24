@@ -1,0 +1,59 @@
+{
+	"id": "GovernmentAgency.json",
+	"title": "government agency",
+	"description": "A government agency is a permanent or semi-permanent organization in the machinery of government that is responsible for the oversight and administration of specific functions, such as an intelligence agency.",
+	"translations": {
+		"title": {
+			"de": "Behörde",
+			"el": "κυβερνητική υπηρεσία",
+			"fr": "agence gouvernementale",
+			"es": "agencia del gobierno",
+			"ru": "Орган исполнительной власти",
+			"ko": "정부 기관",
+			"nl": "orgaan openbaar bestuur"
+		},
+		"description": {
+			"de": "Eine Behörde ist eine staatliche Einrichtung, die im weitesten Sinne für die Erfüllung von Aufgaben der Verwaltung des Staates und dabei insbesondere für Dienstleistungen des Staates gegenüber seinen Bürgern zuständig ist. Eine Behörde erhält ihren Auftrag aus den Gesetzen des Staates, in dem und für den sie tätig ist.",
+			"el": "Μια κυβερνητική υπηρεσία είναι μόνιμη ή ημι-μόνιμη οργάνωση στο μηχανισμό της κυβέρνησης, η οποία είναι υπεύθυνη για την εποπτεία και διαχείριση συγκεκριμένων λειτουργιών, όπως η υπηρεσία πληροφοριών."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GovernmentAgency",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GovernmentAgency"}
+}

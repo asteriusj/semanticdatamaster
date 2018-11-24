@@ -1,0 +1,120 @@
+{
+	"id": "ReligiousBuilding.json",
+	"title": "religious building",
+	"translations": {
+		"title": {
+			"de": "religiöses Gebäude",
+			"el": "θρησκευτικό κτίριο",
+			"fr": "édifice religieux",
+			"it": "edificio religioso",
+			"es": "edificio religioso",
+			"da": "religiøs bygning",
+			"ko": "종교 건물",
+			"nl": "cultusgebouw",
+			"ja": "宗教建築"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"relics": {
+			"oneOf": [
+				{"$ref": "#/definitions/relics"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/relics"}
+				}
+			]
+		},
+		"eparchy": {
+			"oneOf": [
+				{"$ref": "#/definitions/eparchy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eparchy"}
+				}
+			]
+		},
+		"cemetery": {
+			"oneOf": [
+				{"$ref": "Cemetery.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Cemetery.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"bishopric": {
+			"oneOf": [
+				{"$ref": "#/definitions/bishopric"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bishopric"}
+				}
+			]
+		},
+		"organ": {
+			"oneOf": [
+				{"$ref": "Organ.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organ.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"relics": {
+			"title": "relics",
+			"description": "Physical remains or personal effects of a saint or venerated person, preserved in a religious building",
+			"type": "string"
+		},
+		"eparchy": {
+			"title": "eparchy",
+			"description": "Compare with bishopric",
+			"anyOf": []
+		},
+		"bishopric": {
+			"title": "bishopric",
+			"description": "A bishopric &amp;&#35;40;diocese or episcopal see&#41; is a district under the supervision of a bishop. It is divided into parishes. Compare with eparchy",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ReligiousBuilding",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ReligiousBuilding"}
+}

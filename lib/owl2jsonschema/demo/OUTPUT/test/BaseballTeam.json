@@ -1,0 +1,56 @@
+{
+	"id": "BaseballTeam.json",
+	"title": "baseball team",
+	"translations": {
+		"title": {
+			"de": "Baseballmannschaft",
+			"el": "ομάδα μπέιζμπολ",
+			"fr": "équipe de baseball",
+			"it": "squadra di baseball",
+			"ga": "foireann daorchluiche",
+			"ko": "야구팀",
+			"nl": "honkbal team",
+			"ja": "野球チーム"
+		},
+		"description": {"el": "Ένας αριθμός από άνδρες ή γυναίκες που αποτελούν ένα διακριτό σύνολο με συγκεκριμένους στόχους σχετικά με το άθλημα του μπέιζμπολ."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BaseballTeam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BaseballTeam"}
+}

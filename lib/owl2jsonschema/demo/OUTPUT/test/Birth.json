@@ -1,0 +1,56 @@
+{
+	"id": "Birth.json",
+	"title": "birth",
+	"description": "someone&apos;s birth as a type of personal event",
+	"translations": {
+		"title": {
+			"de": "Geburt",
+			"el": "γέννηση",
+			"fr": "naissance",
+			"ga": "breith",
+			"da": "fødsel",
+			"nl": "geboorte",
+			"ja": "誕生"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "LifeCycleEvent.json"}, {"$ref": "PersonalEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Birth",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Birth"}
+}

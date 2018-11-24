@@ -1,0 +1,53 @@
+{
+	"id": "HistoricalPeriod.json",
+	"title": "historical period",
+	"description": "A historical Period should be linked to a Place by way of the property dct:spatial &amp;&#35;40;already defined&#41;",
+	"translations": {
+		"title": {
+			"de": "historische Periode",
+			"el": "ιστορική περίοδος",
+			"ga": "tréimhse sa stair",
+			"nl": "historische periode"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TimePeriod.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricalPeriod",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricalPeriod"}
+}

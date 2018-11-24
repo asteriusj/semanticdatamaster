@@ -1,0 +1,186 @@
+{
+	"id": "Engine.json",
+	"title": "engine",
+	"translations": {
+		"title": {
+			"de": "Motor",
+			"nl": "motor",
+			"ja": "機関 &amp;&#35;40;機械&#41;"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"Engine/acceleration": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/second.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/second.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/co2Emission": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/gramPerKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/gramPerKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/cylinderBore": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/diameter": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/displacement": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicCentimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicCentimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/height": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/length": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/pistonStroke": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/powerOutput": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilowatt.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilowatt.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/topSpeed": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometrePerHour.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometrePerHour.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/torqueOutput": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/newtonMetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/newtonMetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/weight": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Engine/width": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"powerOutput": {
+			"oneOf": [
+				{"$ref": "#/definitions/powerOutput"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/powerOutput"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"powerOutput": {
+			"title": "power output &amp;&#35;40;W&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Engine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Engine"}
+}

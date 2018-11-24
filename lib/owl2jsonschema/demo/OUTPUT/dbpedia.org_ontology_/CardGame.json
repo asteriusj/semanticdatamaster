@@ -1,0 +1,54 @@
+{
+	"id": "CardGame.json",
+	"title": "card game",
+	"description": "come from http://en.wikipedia.org/wiki/Category:Card_games",
+	"translations": {
+		"title": {
+			"de": "Kartenspiel",
+			"fr": "jeu de cartes",
+			"es": "juego de cartas",
+			"da": "kortspil",
+			"nl": "kaartspel"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Activity.json"}, {"$ref": "Game.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CardGame",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CardGame"}
+}

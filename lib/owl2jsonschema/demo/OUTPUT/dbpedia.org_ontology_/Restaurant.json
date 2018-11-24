@@ -1,0 +1,104 @@
+{
+	"id": "Restaurant.json",
+	"title": "restaurant",
+	"translations": {
+		"title": {
+			"pl": "restauracja",
+			"de": "Restaurant",
+			"el": "εστιατόριο",
+			"fr": "restaurant",
+			"ga": "bialann",
+			"nl": "restaurant",
+			"ja": "レストラン"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"reservations": {
+			"oneOf": [
+				{"$ref": "#/definitions/reservations"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/reservations"}
+				}
+			]
+		},
+		"dressCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/dressCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dressCode"}
+				}
+			]
+		},
+		"chef": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"headChef": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"reservations": {
+			"title": "reservations",
+			"description": "Are reservations required for the establishment or event?",
+			"type": "boolean"
+		},
+		"dressCode": {
+			"title": "dress code",
+			"description": "The recommended dress code for an establishment or event.",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Restaurant",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Restaurant"}
+}

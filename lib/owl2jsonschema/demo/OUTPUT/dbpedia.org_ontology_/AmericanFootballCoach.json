@@ -1,0 +1,54 @@
+{
+	"id": "AmericanFootballCoach.json",
+	"title": "american football coach",
+	"translations": {
+		"title": {
+			"de": "American-Football-Trainer",
+			"el": "προπονητής ράγκμπυ",
+			"fr": "entraineur de football américain",
+			"it": "allenatore di football americano",
+			"gl": "adestrador de fútbol americano",
+			"nl": "Amerikaanse football coach"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Coach.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AmericanFootballCoach",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AmericanFootballCoach"}
+}

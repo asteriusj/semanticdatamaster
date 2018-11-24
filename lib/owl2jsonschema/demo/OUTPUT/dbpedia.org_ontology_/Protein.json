@@ -1,0 +1,144 @@
+{
+	"id": "Protein.json",
+	"title": "protein",
+	"translations": {
+		"title": {
+			"de": "Protein",
+			"el": "πρωτεΐνη",
+			"fr": "protéine",
+			"it": "proteina",
+			"ga": "próitéin",
+			"ko": "단백질",
+			"nl": "proteïne",
+			"pt": "proteína",
+			"ja": "タンパク質"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Biomolecule.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"locusSupplementaryData": {
+			"oneOf": [
+				{"$ref": "#/definitions/locusSupplementaryData"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/locusSupplementaryData"}
+				}
+			]
+		},
+		"band": {
+			"oneOf": [
+				{"$ref": "#/definitions/band"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/band"}
+				}
+			]
+		},
+		"arm": {
+			"oneOf": [
+				{"$ref": "#/definitions/arm"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/arm"}
+				}
+			]
+		},
+		"chromosome": {
+			"oneOf": [
+				{"$ref": "#/definitions/chromosome"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/chromosome"}
+				}
+			]
+		},
+		"pdb": {
+			"oneOf": [
+				{"$ref": "#/definitions/pdb"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/pdb"}
+				}
+			]
+		},
+		"refseq": {
+			"oneOf": [
+				{"$ref": "#/definitions/refseq"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refseq"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"locusSupplementaryData": {
+			"title": "locus supplementary data",
+			"description": "",
+			"type": "string"
+		},
+		"band": {
+			"title": "band",
+			"description": "",
+			"type": "string"
+		},
+		"arm": {
+			"title": "arm",
+			"description": "",
+			"type": "string"
+		},
+		"chromosome": {
+			"title": "chromosome",
+			"description": "",
+			"type": "string"
+		},
+		"pdb": {
+			"title": "PDB ID",
+			"description": "gene entry for 3D structural data as per the PDB &amp;&#35;40;Protein Data Bank&#41; database",
+			"type": "string"
+		},
+		"refseq": {
+			"title": "RefSeq",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Protein",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Protein"}
+}

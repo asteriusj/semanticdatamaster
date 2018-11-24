@@ -1,0 +1,88 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"groupCommemorated": {
+			"title": "group commemorated",
+			"description": "Designates the category of people commemorated by a monument",
+			"type": "string"
+		},
+		"dateUnveiled": {
+			"title": "date unveiled",
+			"description": "Designates the unveiling date",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"description": "A type of structure &amp;&#35;40;a statue or an art object&#41; created to commemorate a person or important event, not necessarily of a catastrophic nature.",
+	"format": "http://dbpedia.org/ontology/Monument",
+	"id": "Monument.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Monument"},
+	"properties": {
+		"groupCommemorated": {
+			"oneOf": [
+				{"$ref": "#/definitions/groupCommemorated"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/groupCommemorated"}
+				}
+			]
+		},
+		"dateUnveiled": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateUnveiled"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateUnveiled"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "monument",
+	"translations": {
+		"title": {
+			"de": "Denkmal",
+			"el": "μνημείο",
+			"fr": "monument",
+			"ga": "séadchomhartha",
+			"nl": "monument",
+			"ja": "モニュメント"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

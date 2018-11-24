@@ -1,0 +1,325 @@
+{
+  "place": {
+    "address": {
+      "id": "txtAddress",
+      "name": "address",
+      "label": "Address",
+      "dbo": "",
+      "default": ""
+    }
+  },
+  "employee": {
+    "person": {
+      "place": {
+        "address": {
+          "id": "txtAddress1",
+          "name": "address",
+          "label": "Address",
+          "dbo": "streetAddress",
+          "default": "",
+          "address1": {
+            "id": "txtAddress1",
+            "name": "address",
+            "label": "Address",
+            "dbo": "streetAddress",
+            "default": ""
+          },
+          "address2": {
+            "id": "txtAddress2",
+            "name": "address",
+            "label": "Address",
+            "dbo": "streetAddress",
+            "default": ""
+          }
+        }
+      },
+      "uid": {
+        "id": "txtPersonUID",
+        "name": "PersonUID",
+        "label": "Person UID",
+        "dbo": "",
+        "default": ""
+      },
+      "givenname": {
+        "id": "txtGivenName",
+        "name": "givenName",
+        "label": "First Name",
+        "dbo": "foaf:givenName",
+        "default": "Michael"
+      },
+      "middlename": {
+        "id": "txtMiddleName",
+        "name": "middleName",
+        "label": "Middle",
+        "dbo": "middleName",
+        "default": "Alan"
+      },
+      "familyname": {
+        "id": "txtLastName",
+        "name": "familyName",
+        "label": "Last Name",
+        "dbo": "foaf:familyName",
+        "default": ""
+      },
+      "informalname": {
+        "id": "txtNickName",
+        "name": "nickName",
+        "label": "Informal Name",
+        "dbo": "foaf:nick",
+        "default": ""
+      },
+      "prefix": {
+        "id": "txtPrefix",
+        "name": "prefix",
+        "label": "Prefix",
+        "dbo": "dbp:prefix",
+        "default": ""
+      },
+      "suffix": {
+        "id": "txtSuffix",
+        "name": "suffix",
+        "label": "Suffix",
+        "dbo": "dbp:suffix",
+        "default": ""
+      },
+      "fullname": {
+        "id": "txtFullName",
+        "name": "fullName",
+        "label": "Name",
+        "dbo": "foaf:name",
+        "default": ""
+      },
+      "gender": {
+        "id": "ddlGender",
+        "name": "gender",
+        "label": "Gender",
+        "dbo": "foaf:gender",
+        "default": ""
+      },
+      "dateofbirth": {
+        "id": "dateOfBirth",
+        "name": "dateOfBirth",
+        "label": "DateOfBirth",
+        "dbo": "dbo:dateOfBirth",
+        "default": "01/01/1971"
+      },
+      "emailaddress": {
+        "id": "txtEmailAddres",
+        "name": "emailAddres",
+        "label": "Email Addres",
+        "dbo": "foaf:mbox",
+        "default": ""
+      },
+      "phonenumber": {
+        "id": "txtPhoneNumber",
+        "name": "phoneNumber",
+        "label": "Phone Number",
+        "dbo": "foaf:phone",
+        "default": ""
+      },
+      "mobilenumber": {
+        "id": "txtMobileNumber",
+        "name": "mobileNumber",
+        "label": "Mobile Number",
+        "dbo": "foaf:phone",
+        "default": ""
+      },
+      "address": {
+        "address2": {
+          "id": "txtAddress2",
+          "name": "address2",
+          "label": "Address 2",
+          "dbo": "streetAddress",
+          "default": ""
+        },
+        "localecity": {
+          "id": "txtLocaleCity",
+          "name": "localeCity",
+          "label": "City",
+          "dbo": "addressLocality",
+          "default": ""
+        },
+        "regionstate": {
+          "id": "txtRegionState",
+          "name": "regionState",
+          "label": "State",
+          "dbo": "dbo:state",
+          "default": ""
+        },
+        "postalcode": {
+          "id": "txtPostalCode",
+          "name": "postalCode",
+          "label": "Postal Code",
+          "dbo": "postalCode",
+          "default": ""
+        },
+        "countrycode": {
+          "id": "txtCountryCode",
+          "name": "countryCode",
+          "label": "Country code",
+          "dbo": "dbo:countryCode",
+          "default": ""
+        }
+      }
+    }
+  },
+  "person": {
+    "uid": {
+      "id": "",
+      "name": "",
+      "label": "",
+      "dbo": "",
+      "default": ""
+    }
+  },
+  "level3": {
+    "level2": {
+      "level1": {
+        "level0": {
+          "isadult": {
+            "id": "adult",
+            "name": "",
+            "label": "is Adult ?",
+            "dbo": "",
+            "default": ""
+          }
+        }
+      }
+    }
+  },
+  "level2": {
+    "level1": {
+      "level0": {
+        "image": {
+          "id": "adult",
+          "name": "",
+          "label": "is Adult ?",
+          "dbo": "",
+          "default": ""
+        }
+      }
+    }
+  },
+  "thumbnail": {
+    "image": {
+      "id": "imgProfileThumbnail",
+      "name": "ProfileThumbnail",
+      "label": "Profile Thumbnail",
+      "dbo": "foaf:thumbnail",
+      "default": ""
+    }
+  },
+  "client": {
+    "organization": {
+      "type": {
+        "id": "ddlClientType",
+        "name": "ClientType",
+        "label": "Type",
+        "dbo": "",
+        "default": ""
+      },
+      "name": {
+        "id": "txtName",
+        "name": "ClientName",
+        "label": "Client Name",
+        "dbo": "foaf:familyName",
+        "default": ""
+      },
+      "description": {
+        "id": "txtDescription",
+        "name": "",
+        "label": "",
+        "dbo": "",
+        "default": ""
+      },
+      "address": {
+        "uid": {
+          "id": "",
+          "name": "AddressUID",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "careof": {
+          "id": "",
+          "name": "ShipCareOf",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "address1": {
+          "id": "txtAddress1",
+          "name": "",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "address2": {
+          "id": "txtAddress2",
+          "name": "",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "localecity": {
+          "id": "txtLocaleCity",
+          "name": "",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "regionstate": {
+          "id": "txtRegionState",
+          "name": "",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "postalcode": {
+          "id": "txtPostalCode",
+          "name": "",
+          "label": "",
+          "dbo": "",
+          "default": ""
+        },
+        "countrycode": {
+          "id": "txtCountryCode",
+          "name": "",
+          "label": "",
+          "dbo": "",
+          "default": "US"
+        }
+      },
+      "slogan": {
+        "id": "txtSlogan",
+        "name": "Slogan",
+        "label": "",
+        "dbo": "",
+        "default": ""
+      },
+      "website": {
+        "id": "txtWebsite",
+        "name": "Website",
+        "label": "Wesite",
+        "dbo": "foaf:website",
+        "default": ""
+      }
+    }
+  },
+  "organization": {
+    "sector": {
+      "id": "ddlIndustrySector",
+      "name": "Industry Sector",
+      "label": "",
+      "dbo": "org:classification",
+      "default": ""
+    }
+  },
+  "org": {
+    "id": "",
+    "name": "",
+    "label": "",
+    "dbo": "",
+    "default": ""
+  }
+}

@@ -1,0 +1,202 @@
+{
+	"id": "Event.json",
+	"title": "event",
+	"translations": {
+		"title": {
+			"de": "Ereignis",
+			"el": "γεγονός",
+			"fr": "évènement",
+			"ga": "ócáid",
+			"ko": "사건",
+			"nl": "gebeurtenis",
+			"pt": "evento",
+			"ja": "イベント"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"causedBy": {
+			"oneOf": [
+				{"$ref": "#/definitions/causedBy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/causedBy"}
+				}
+			]
+		},
+		"damage": {
+			"oneOf": [
+				{"$ref": "Currency.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Currency.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"endDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/endDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/endDate"}
+				}
+			]
+		},
+		"endDateTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/endDateTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/endDateTime"}
+				}
+			]
+		},
+		"followingEvent": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nextEvent": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfPeopleAttending": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPeopleAttending"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPeopleAttending"}
+				}
+			]
+		},
+		"participant": {
+			"oneOf": [
+				{"$ref": "#/definitions/participant"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/participant"}
+				}
+			]
+		},
+		"previousEvent": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"startDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/startDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/startDate"}
+				}
+			]
+		},
+		"startDateTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/startDateTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/startDateTime"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"participant": {
+			"title": "participant",
+			"description": "",
+			"type": "string"
+		},
+		"endDate": {
+			"title": "end date",
+			"description": "The end date of the event.",
+			"type": "string",
+			"format": "date-time"
+		},
+		"startDateTime": {
+			"title": "start date and time",
+			"description": "The start date and time of the event.",
+			"type": "string",
+			"format": "date-time",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"endDateTime": {
+			"title": "end date and time",
+			"description": "The end date and time of the event.",
+			"type": "string",
+			"format": "date-time",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"numberOfPeopleAttending": {
+			"title": "number of people attending",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"startDate": {
+			"title": "start date",
+			"description": "The start date of the event.",
+			"type": "string",
+			"format": "date-time"
+		},
+		"causedBy": {
+			"title": "caused by",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Event",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Event"}
+}

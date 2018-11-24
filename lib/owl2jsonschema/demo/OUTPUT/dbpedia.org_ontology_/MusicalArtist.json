@@ -1,0 +1,118 @@
+{
+	"id": "MusicalArtist.json",
+	"title": "musical artist",
+	"translations": {
+		"title": {
+			"de": "musikalischer Künstler",
+			"el": "μουσικός",
+			"fr": "musicien",
+			"ko": "음악가",
+			"nl": "muziekartiest",
+			"pt": "artista musical",
+			"ja": "音楽家"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfLiveAlbums": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLiveAlbums"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLiveAlbums"}
+				}
+			]
+		},
+		"numberOfStudioAlbums": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStudioAlbums"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStudioAlbums"}
+				}
+			]
+		},
+		"numberOfAlbums": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfAlbums"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfAlbums"}
+				}
+			]
+		},
+		"musicBand": {
+			"oneOf": [
+				{"$ref": "Band.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Band.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfLiveAlbums": {
+			"title": "number of live albums",
+			"description": "the number of live albums released by the musical artist",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfStudioAlbums": {
+			"title": "number of studio albums",
+			"description": "the number of studio albums released by the musical artist",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfAlbums": {
+			"title": "number of albums",
+			"description": "the total number of albums released by the musical artist",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MusicalArtist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MusicalArtist"}
+}

@@ -1,0 +1,382 @@
+{
+	"id": "MeanOfTransportation.json",
+	"title": "mean of transportation",
+	"translations": {
+		"title": {
+			"de": "Transportmittel",
+			"el": "μεταφορικό μέσο",
+			"fr": "moyen de transport",
+			"nl": "vervoermiddel"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"MeanOfTransportation/diameter": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"MeanOfTransportation/height": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"MeanOfTransportation/length": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"MeanOfTransportation/mass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"MeanOfTransportation/weight": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"MeanOfTransportation/width": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"assembly": {
+			"oneOf": [
+				{"$ref": "#/definitions/assembly"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/assembly"}
+				}
+			]
+		},
+		"dischargeAverage": {
+			"oneOf": [
+				{"$ref": "#/definitions/dischargeAverage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dischargeAverage"}
+				}
+			]
+		},
+		"enginePower": {
+			"oneOf": [
+				{"$ref": "#/definitions/enginePower"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/enginePower"}
+				}
+			]
+		},
+		"engineType": {
+			"oneOf": [
+				{"$ref": "#/definitions/engineType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/engineType"}
+				}
+			]
+		},
+		"introductionDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/introductionDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/introductionDate"}
+				}
+			]
+		},
+		"modelEndDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/modelEndDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/modelEndDate"}
+				}
+			]
+		},
+		"modelEndYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/modelEndYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/modelEndYear"}
+				}
+			]
+		},
+		"modelLineVehicle": {
+			"oneOf": [
+				{"$ref": "#/definitions/modelLineVehicle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/modelLineVehicle"}
+				}
+			]
+		},
+		"modelStartDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/modelStartDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/modelStartDate"}
+				}
+			]
+		},
+		"modelStartYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/modelStartYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/modelStartYear"}
+				}
+			]
+		},
+		"numberOfCrew": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCrew"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCrew"}
+				}
+			]
+		},
+		"numberOfLaunches": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLaunches"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLaunches"}
+				}
+			]
+		},
+		"numberOfSeats": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSeats"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSeats"}
+				}
+			]
+		},
+		"powerType": {
+			"oneOf": [
+				{"$ref": "#/definitions/powerType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/powerType"}
+				}
+			]
+		},
+		"range": {
+			"oneOf": [
+				{"$ref": "#/definitions/range"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/range"}
+				}
+			]
+		},
+		"rebuilder": {
+			"oneOf": [
+				{"$ref": "#/definitions/rebuilder"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rebuilder"}
+				}
+			]
+		},
+		"relatedMeanOfTransportation": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"version": {
+			"oneOf": [
+				{"$ref": "#/definitions/version"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/version"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"assembly": {
+			"title": "assembly",
+			"description": "",
+			"anyOf": []
+		},
+		"dischargeAverage": {
+			"title": "discharge average &amp;&#35;40;m³/s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"enginePower": {
+			"title": "engine power",
+			"description": "Power to be expressed in Watts &amp;&#35;40;kiloWatt, megaWatt&#41;",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"engineType": {
+			"title": "engine type",
+			"description": "",
+			"anyOf": []
+		},
+		"introductionDate": {
+			"title": "introduction date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"modelEndDate": {
+			"title": "model end date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"modelEndYear": {
+			"title": "model end year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"modelLineVehicle": {
+			"title": "type series",
+			"description": "",
+			"type": "string"
+		},
+		"modelStartDate": {
+			"title": "model start date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"modelStartYear": {
+			"title": "model start year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"numberOfCrew": {
+			"title": "number of crew",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfLaunches": {
+			"title": "number of launches",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfSeats": {
+			"title": "number of seats",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"powerType": {
+			"title": "power type",
+			"description": "",
+			"anyOf": []
+		},
+		"range": {
+			"title": "range",
+			"description": "Maximum distance without refueling",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"rebuilder": {
+			"title": "rebuilder",
+			"description": "",
+			"anyOf": []
+		},
+		"version": {
+			"title": "version",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MeanOfTransportation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MeanOfTransportation"}
+}

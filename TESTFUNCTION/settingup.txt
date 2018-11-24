@@ -1,0 +1,290 @@
+https://docs.aws.amazon.com/lambda/latest/dg/with-on-demand-https-example-upload-deployment-pkg_1.html
+
+$ aws lambda create-function \
+--region us-east-1 \
+--function-name LambdaFunctionOverHttps  \
+--zip-file fileb:///home/ubuntu/workspace/TESTFUNCTION/LambdaFunctionOverHttps.zip \
+--role arn:aws:iam::588509383150:role/lambda-gateway-execution-role  \
+--handler LambdaFunctionOverHttps.handler \
+--runtime nodejs6.10 \
+--profile adminuser
+
+{
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    }, 
+    "CodeSha256": "ehO7DRLZrf0C/ehGVKPM24H8r6lwGRBZpcJG5tmHfgc=", 
+    "FunctionName": "LambdaFunctionOverHttps", 
+    "CodeSize": 675, 
+    "MemorySize": 128, 
+    "FunctionArn": "arn:aws:lambda:us-east-1:588509383150:function:LambdaFunctionOverHttps", 
+    "Version": "$LATEST", 
+    "Role": "arn:aws:iam::588509383150:role/lambda-gateway-execution-role", 
+    "Timeout": 3, 
+    "LastModified": "2018-01-21T18:43:50.681+0000", 
+    "Handler": "LambdaFunctionOverHttps.handler", 
+    "Runtime": "nodejs6.10", 
+    "Description": ""
+}
+
+
+// test
+input.txt
+{
+    "operation": "echo",
+    "payload": {
+        "somekey1": "somevalue1",
+        "somekey2": "somevalue2"
+    }
+}
+
+aws lambda  invoke \
+--invocation-type Event \
+--function-name LambdaFunctionOverHttps \
+--region us-east-1 \
+--payload file:///home/ubuntu/workspace/TESTFUNCTION/input.txt \
+outputfile.txt
+
+
+// API Gateway
+
+aws apigateway create-rest-api \
+--name DynamoDBOperations \
+--region us-east-1 \
+--profile profile
+
+{
+    "apiKeySource": "HEADER", 
+    "name": "DynamoDBOperations", 
+    "createdDate": 1516561703, 
+    "endpointConfiguration": {
+        "types": [
+            "EDGE"
+        ]
+    }, 
+    "id": "sd1tngka25"
+}
+
+aws apigateway get-resources \
+--rest-api-id sd1tngka25
+
+> --rest-api-id sd1tngka25
+{
+    "items": [
+        {
+            "path": "/", 
+            "id": "hvq1uv7qx0"
+        }
+    ]
+}
+
+aws apigateway create-resource \
+--rest-api-id sd1tngka25 \
+--parent-id hvq1uv7qx0 \
+--path-part DynamoDBManager
+
+https://console.aws.amazon.com/apigateway/home?region=us-east-1#/apis/kyaxdkd196/resources/jrl5wy
+
+
+aws apigateway put-method \
+--rest-api-id sd1tngka25 \
+--resource-id hvq1uv7qx0 \
+--http-method POST \
+--authorization-type NONE
+
+{
+    "apiKeyRequired": false, 
+    "httpMethod": "POST", 
+    "authorizationType": "NONE"
+}
+
+
+
+$ aws apigateway put-integration \
+--rest-api-id sd1tngka25 \
+--resource-id hvq1uv7qx0 \
+--http-method POST \
+--type AWS \
+--integration-http-method POST \
+--uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:588509383150:function:LambdaFunctionOverHttps/invocations
+
+{
+    "passthroughBehavior": "WHEN_NO_MATCH", 
+    "timeoutInMillis": 29000, 
+    "uri": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:588509383150:function:LambdaFunctionOverHttps/invocations", 
+    "httpMethod": "POST", 
+    "cacheNamespace": "hvq1uv7qx0", 
+    "type": "AWS", 
+    "cacheKeyParameters": []
+}
+
+
+aws apigateway put-method-response \
+--rest-api-id sd1tngka25 \
+--resource-id hvq1uv7qx0 \
+--http-method POST \
+--status-code 200 \
+--response-models "{\"application/json\": \"Empty\"}"
+
+{
+    "responseModels": {
+        "application/json": "Empty"
+    }, 
+    "statusCode": "200"
+}
+
+
+aws apigateway put-integration-response \
+--rest-api-id sd1tngka25 \
+--resource-id hvq1uv7qx0 \
+--http-method POST \
+--status-code 200 \
+--response-templates "{\"application/json\": \"\"}"
+
+{
+    "statusCode": "200", 
+    "responseTemplates": {
+        "application/json": null
+    }
+}
+
+
+aws apigateway create-deployment \
+--rest-api-id sd1tngka25 \
+--stage-name prod
+
+{
+    "id": "7q4o09", 
+    "createdDate": 1516563068
+}
+
+
+aws lambda add-permission \
+--function-name LambdaFunctionOverHttps \
+--statement-id apigateway-test-3 \
+--action lambda:InvokeFunction \
+--principal apigateway.amazonaws.com \
+--source-arn "arn:aws:execute-api:us-east-1:588509383150:sd1tngka25/*/POST/DynamoDBManager"
+
+{
+    "Statement": "{\"Sid\":\"apigateway-test-2\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"apigateway.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-1:588509383150:function:LambdaFunctionOverHttps\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:execute-api:us-east-1:588509383150:sd1tngka25/*/POST/DynamoDBManager\"}}}"
+}
+
+
+
+
+// testing
+
+
+aws apigateway get-rest-apis
+{
+    "items": [
+        {
+            "apiKeySource": "HEADER", 
+            "description": "Created by AWS Lambda", 
+            "endpointConfiguration": {
+                "types": [
+                    "EDGE"
+                ]
+            }, 
+            "createdDate": 1480641488, 
+            "id": "ccezijckmi", 
+            "name": "LambdaMicroservice"
+        }, 
+        {
+            "apiKeySource": "HEADER", 
+            "description": "Test", 
+            "endpointConfiguration": {
+                "types": [
+                    "EDGE"
+                ]
+            }, 
+            "createdDate": 1516561279, 
+            "id": "kyaxdkd196", 
+            "name": "DynamoDBOperations"
+        }
+    ]
+}
+aws apigateway get-resources --rest-api-id kyaxdkd196
+{
+    "items": [
+        {
+            "path": "/", 
+            "id": "5jh06k8ep3"
+        }, 
+        {
+            "path": "/dynamodbmanager", 
+            "resourceMethods": {
+                "POST": {}
+            }, 
+            "id": "jrl5wy", 
+            "pathPart": "dynamodbmanager", 
+            "parentId": "5jh06k8ep3"
+        }
+    ]
+}
+
+aws apigateway test-invoke-method \
+--rest-api-id kyaxdkd196 \
+--resource-id jrl5wy \
+--http-method POST \
+--path-with-query-string "" \
+--body "{\"operation\":\"create\",\"tableName\":\"LambdaTable\",\"payload\":{\"Item\":{\"Id\":\"1\",\"name\":\"Bob\"}}}"
+
+{
+    "status": 200, 
+    "body": "{}", 
+    "log": "Execution log for request test-request\nSun Jan 21 20:01:22 UTC 2018 : Starting execution for request: test-invoke-request\nSun Jan 21 20:01:22 UTC 2018 : HTTP Method: POST, Resource Path: /dynamodbmanager\nSun Jan 21 20:01:22 UTC 2018 : Method request path: {}\nSun Jan 21 20:01:22 UTC 2018 : Method request query string: {}\nSun Jan 21 20:01:22 UTC 2018 : Method request headers: {}\nSun Jan 21 20:01:22 UTC 2018 : Method request body before transformations: {\"operation\":\"create\",\"tableName\":\"LambdaTable\",\"payload\":{\"Item\":{\"Id\":\"1\",\"name\":\"Bob\"}}}\nSun Jan 21 20:01:22 UTC 2018 : Endpoint request URI: https://lambda.us-east-1.amazonaws.com/2015-03-31/functions/arn:aws:lambda:us-east-1:588509383150:function:LambdaFunctionOverHttps/invocations\nSun Jan 21 20:01:22 UTC 2018 : Endpoint request headers: {x-amzn-lambda-integration-tag=test-request, Authorization=************************************************************************************************************************************************************************************************************************************************************************************************************************854b3b, X-Amz-Date=20180121T200122Z, x-amzn-apigateway-api-id=kyaxdkd196, X-Amz-Source-Arn=arn:aws:execute-api:us-east-1:588509383150:kyaxdkd196/null/POST/dynamodbmanager, Accept=application/json, User-Agent=AmazonAPIGateway_kyaxdkd196, X-Amz-Security-Token=FQoDYXdzEBwaDO0OUd4GhirpMbccaSK3A/R433nj28zml0OFHiZ+XxJoWqdhDrmvQeX8GT1+JV+e0iCPf+BldJT3DR8dhErqBYUJgFQ0lUmabg2EZ1TryX963VQsP68ljkVK1v7DPuT76bEPHGB/aX2c9OqrEHI6ZaV0xBDUPL24ji8631grxAMKQOQlZV5BeX5xE5wtKslblUtsWaYd650/eETj4zembUgUxOsfHVxXqETqGCVwKmiGPYMTvdUNPMkFclHAntK8IAod5cmxA4ngwa5WixH0Z2C6H2KoEnHKgKF0SIZZh8C9beflmzzhGq3AsyfcCeISHRbMtLKwx0faUsxlGGnWgkoGhQ4DDSQD/U6Np [TRUNCATED]\nSun Jan 21 20:01:22 UTC 2018 : Endpoint request body after transformations: {\"operation\":\"create\",\"tableName\":\"LambdaTable\",\"payload\":{\"Item\":{\"Id\":\"1\",\"name\":\"Bob\"}}}\nSun Jan 21 20:01:22 UTC 2018 : Sending request to https://lambda.us-east-1.amazonaws.com/2015-03-31/functions/arn:aws:lambda:us-east-1:588509383150:function:LambdaFunctionOverHttps/invocations\nSun Jan 21 20:01:23 UTC 2018 : Received response. Integration latency: 1110 ms\nSun Jan 21 20:01:23 UTC 2018 : Endpoint response body before transformations: {}\nSun Jan 21 20:01:23 UTC 2018 : Endpoint response headers: {X-Amz-Executed-Version=$LATEST, x-amzn-Remapped-Content-Length=0, Connection=keep-alive, x-amzn-RequestId=da4c041a-fee5-11e7-8d97-1fd59a8acfaf, Content-Length=2, Date=Sun, 21 Jan 2018 20:01:23 GMT, X-Amzn-Trace-Id=root=1-5a64f192-e529954faf43a1052358c437;sampled=0, Content-Type=application/json}\nSun Jan 21 20:01:23 UTC 2018 : Method response body after transformations: {}\nSun Jan 21 20:01:23 UTC 2018 : Method response headers: {X-Amzn-Trace-Id=sampled=0;root=1-5a64f192-e529954faf43a1052358c437, Content-Type=application/json}\nSun Jan 21 20:01:23 UTC 2018 : Successfully completed execution\nSun Jan 21 20:01:23 UTC 2018 : Method completed with status: 200\n", 
+    "latency": 1126, 
+    "headers": {
+        "X-Amzn-Trace-Id": "sampled=0;root=1-5a64f192-e529954faf43a1052358c437", 
+        "Content-Type": "application/json"
+    }
+}
+
+curl -X POST -d "{\"operation\":\"create\",\"tableName\":\"LambdaTable\",\"payload\":{\"Item\":{\"Id\":\"2\",\"name\":\"Carrol\"}}}" https://kyaxdkd196.execute-api.us-east-1.amazonaws.com/prod/DynamoDBManager
+
+
+
+--
+aws apigateway get-rest-apis
+{
+            "apiKeySource": "HEADER", 
+            "description": "Created by AWS Lambda", 
+            "endpointConfiguration": {
+                "types": [
+                    "EDGE"
+                ]
+            }, 
+            "createdDate": 1516566145, 
+            "id": "ed6kdc7vu2", 
+            "name": "myLambdaMicroservice"
+}
+aws apigateway get-resources --rest-api-id ed6kdc7vu2
+{
+    "items": [
+        {
+            "path": "/myLambdaService", 
+            "resourceMethods": {
+                "ANY": {}
+            }, 
+            "id": "e8h2v2", 
+            "pathPart": "myLambdaService", 
+            "parentId": "t1ymz7hlvj"
+        }, 
+        {
+            "path": "/", 
+            "id": "t1ymz7hlvj"
+        }
+    ]
+}
+
+aws apigateway test-invoke-method \
+--rest-api-id ed6kdc7vu2 \
+--resource-id t1ymz7hlvj \
+--http-method GET \
+--path-with-query-string "" \
+--body "{}"
+
+
+curl -X GET -d https://ed6kdc7vu2.execute-api.us-east-1.amazonaws.com/prod/myLambdaMicroservice

@@ -1,0 +1,173 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>Network | Basic usage</title>
+
+  <script type="text/javascript" src="./dist/vis.js"></script>
+  <link href="./dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+
+  <style type="text/css">
+    #mynetwork {
+      width: 80%;
+      height: 600px;
+      border: 1px solid lightgray;
+      
+    }
+  </style>
+  
+  <script src="./SaaSnodes.js">console.log('nodeDataArray',nodeDataArray)</script>
+  
+</head>
+<body>
+
+<p>
+  Entity to Entity Relationships
+</p>
+
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+  //
+  // create an array with nodes
+  //
+  var nodeDataSet = []
+  var crossRef = []
+  // console.log('nodeDataArray',nodeDataArray)
+  for (var i in nodeDataArray) {
+      // console.log('nodeDataArray[i]',nodeDataArray[i])
+      let _node = nodeDataArray[i]
+      let node = {}
+      node.id = i;
+      // node.label = _node.text.replace(/([\w\s]{6,}?)\s?\b/g, "$1\n");
+      node.label = _node.text.replace(/ /g, "\n");
+      node.title = _node.description || "";
+      if (_node.color) {
+        var c = {}
+        c.border = _node.color
+        c.background = _node.color
+        node.color = c
+      }
+      // console.log('i item:',i,item)
+      nodeDataSet[node.id] = node ;
+      crossRef[_node.key] = node.id ;
+      
+  }
+  console.log('nodeDataSet',nodeDataSet)
+  console.log('crossRef',crossRef)
+  
+  var nodes = new vis.DataSet(
+        nodeDataSet
+  )
+  // var nodes = new vis.DataSet([
+  //   {id: 1, label: 'Node 1'},
+  //   {id: 2, label: 'Node 2'},
+  //   {id: 3, label: 'Node 3'},
+  //   {id: 4, label: 'Node 4'},
+  //   {id: 5, label: 'Node 5'}
+  // ]);
+
+  //
+  // create an array with edges
+  //
+  var linkDataSet = []
+  
+  for (var k in linkDataArray) {
+      
+      let _link = linkDataArray[k]
+      let link = {}
+      // console.log('k link:',link)
+      link.id = k;
+      link.fromName = _link.from;
+      link.toName = _link.to;
+      
+      link.from = crossRef[link.fromName];
+      link.to = crossRef[link.toName];
+      
+      link.label = _link.text;
+      if (_link.description) link.title = _link.description ;
+      if (_link.thick) link.value = _link.thick ;
+      
+      link.font = {align: 'middle'} ;
+      
+      linkDataSet[link.id] = link ;
+  
+  }   
+  console.log('linkDataSet',linkDataSet)
+  
+  var edges = new vis.DataSet(
+        linkDataSet
+  )
+  // var edges = new vis.DataSet([
+  //   {from: 1, to: 3},
+  //   {from: 1, to: 2},
+  //   {from: 2, to: 4},
+  //   {from: 2, to: 5},
+  //   {from: 3, to: 3}
+  // ]);
+
+
+
+
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var physics = {
+        "enabled": false,
+        "repulsion": {
+          "centralGravity": 10,
+          "springLength": 150,
+          "springConstant": 0.155,
+          "nodeDistance": 380
+        },
+        "maxVelocity": 28,
+        "minVelocity": 0.75,
+        "solver": "repulsion"
+    }
+  
+  // var options = {};
+  var options = {
+    autoResize: true,
+    height: '100%',
+    width: '100%',
+    interaction:{hover:true},
+    nodes:{
+        // borderWidth: 1,
+        // shape: 'circle',
+        // scaling: {
+        //   min: 10,
+        //   max: 30
+        // },
+        // labelHighlightBold: true,
+        // shadow: true,
+        // chosen: true
+        shape: 'dot',
+            size: 30,
+            font: {
+                size: 20
+            },
+            borderWidth: 2,
+            shadow:true
+    },
+    edges: {
+        font: {
+            size: 16
+        },
+        width: 2,
+        shadow:true
+    },
+    physics: physics
+  
+  }
+  
+  var network = new vis.Network(container, data, options);
+  
+</script>
+
+
+</body>
+</html>

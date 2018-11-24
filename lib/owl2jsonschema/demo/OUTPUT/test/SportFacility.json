@@ -1,0 +1,52 @@
+{
+	"id": "SportFacility.json",
+	"title": "sport facility",
+	"translations": {
+		"title": {
+			"de": "Sportanlage",
+			"el": "αθλητικές εγκαταστάσεις",
+			"fr": "installation sportive",
+			"nl": "sportfaciliteit"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SportFacility",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SportFacility"}
+}

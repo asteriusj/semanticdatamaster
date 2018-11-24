@@ -1,0 +1,54 @@
+{
+	"id": "Depth.json",
+	"title": "depth",
+	"translations": {
+		"title": {
+			"de": "Tiefe",
+			"el": "βάθος",
+			"fr": "profondeur",
+			"da": "dybde",
+			"nl": "diepte",
+			"ja": "深度"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Depth",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Depth"}
+}

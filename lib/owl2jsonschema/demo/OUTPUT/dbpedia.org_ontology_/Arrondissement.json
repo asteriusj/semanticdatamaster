@@ -1,0 +1,60 @@
+{
+	"id": "Arrondissement.json",
+	"title": "arrondissement",
+	"description": "An administrative &amp;&#35;40;France&#41; or lawcourts (Netherlands) body governing a territorial unity on the intermediate level, between local and national level",
+	"translations": {
+		"title": {
+			"de": "arrondissement",
+			"fr": "arrondissement",
+			"nl": "arrondissement",
+			"ja": "フランスの群"
+		},
+		"description": {"de": "Das Wort Arrondissement dient zur Bezeichnung verschiedener Verwaltungsbezirke in Frankreich, Belgien, Kanada und anderen Ländern"}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Arrondissement",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Arrondissement"}
+}

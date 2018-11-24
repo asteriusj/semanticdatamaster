@@ -1,0 +1,55 @@
+{
+	"id": "Community.json",
+	"title": "Community",
+	"translations": {
+		"title": {
+			"de": "Gemeinde",
+			"el": "κοινότητα",
+			"fr": "communauté",
+			"ga": "pobal",
+			"ko": "공동체",
+			"nl": "gemeenschap &amp;&#35;40;community&#41;",
+			"ja": "コミュニティ"
+		},
+		"description": {"el": "Κοινότητα είναι μία ομάδα ζώντων οργανισμών, ανθρώπων, φυτών ή ζώων που ζουν σε ένα κοινό περιβάλλον."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Community",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Community"}
+}

@@ -1,0 +1,58 @@
+{
+	"id": "Game.json",
+	"title": "game",
+	"description": "a structured activity, usually undertaken for enjoyment and sometimes used as an educational tool",
+	"translations": {
+		"title": {
+			"de": "Spiel",
+			"el": "Πληροφορίες παιχνιδιού",
+			"fr": "jeu",
+			"es": "juego",
+			"ga": "cluiche",
+			"da": "spil",
+			"nl": "spel",
+			"pt": "jogo",
+			"ja": "ゲーム"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Activity.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Game",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Game"}
+}

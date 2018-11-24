@@ -1,0 +1,97 @@
+{
+	"id": "Architect.json",
+	"title": "architect",
+	"translations": {
+		"title": {
+			"de": "Architekt",
+			"el": "αρχιτέκτονας",
+			"fr": "architecte",
+			"it": "architetto",
+			"es": "arquitecto",
+			"ga": "uaslathaí",
+			"ko": "건축가",
+			"nl": "architect",
+			"ja": "建築士"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"architecturalMovement": {
+			"oneOf": [
+				{"$ref": "#/definitions/architecturalMovement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/architecturalMovement"}
+				}
+			]
+		},
+		"significantBuilding": {
+			"oneOf": [
+				{"$ref": "Building.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Building.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"significantDesign": {
+			"oneOf": [
+				{"$ref": "#/definitions/significantDesign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/significantDesign"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"architecturalMovement": {
+			"title": "architectural movement",
+			"description": "",
+			"type": "string"
+		},
+		"significantDesign": {
+			"title": "significant design",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Architect",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Architect"}
+}

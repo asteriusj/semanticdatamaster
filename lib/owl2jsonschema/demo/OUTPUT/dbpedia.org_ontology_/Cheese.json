@@ -1,0 +1,59 @@
+{
+	"id": "Cheese.json",
+	"title": "cheese",
+	"description": "A milk product prepared for human consumption",
+	"translations": {
+		"title": {
+			"de": "Käse",
+			"el": "τυρί",
+			"fr": "fromage",
+			"it": "formaggio",
+			"es": "queso",
+			"ga": "cáis",
+			"da": "ost",
+			"ko": "치즈",
+			"nl": "kaas",
+			"ja": "チーズ"
+		},
+		"description": {"es": "Producto lácteo preparado para el consumo humano"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Food.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Cheese",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Cheese"}
+}

@@ -1,0 +1,53 @@
+{
+	"id": "HistoricalCountry.json",
+	"title": "Historical country",
+	"description": "A place which used to be a country.",
+	"translations": {
+		"title": {
+			"de": "historischer Land",
+			"fr": "ancien pays",
+			"ga": "tír stairiúil",
+			"nl": "voormalig land"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Country.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricalCountry",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricalCountry"}
+}

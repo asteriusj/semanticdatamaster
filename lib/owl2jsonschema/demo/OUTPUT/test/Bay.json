@@ -1,0 +1,53 @@
+{
+	"id": "Bay.json",
+	"title": "bay",
+	"translations": {
+		"title": {
+			"de": "Bucht",
+			"fr": "baie",
+			"nl": "baai",
+			"pt": "baía",
+			"ja": "湾"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Bay",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Bay"}
+}

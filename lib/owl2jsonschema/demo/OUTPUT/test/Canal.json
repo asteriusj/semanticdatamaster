@@ -1,0 +1,289 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}, {"$ref": "Stream.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"dateAct": {
+			"title": "date act",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"dateClosed": {
+			"title": "date closed",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"dateCompleted": {
+			"title": "date completed",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"dateConstruction": {
+			"title": "date construction",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"dateExtended": {
+			"title": "date extended",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"dateUse": {
+			"title": "date use",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"maximumBoatBeam": {
+			"title": "maximum boat beam &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"maximumBoatLength": {
+			"title": "maximum boat length &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"originalMaximumBoatBeam": {
+			"title": "original maximum boat beam &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"originalMaximumBoatLength": {
+			"title": "original maximum boat length &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "a man-made channel for water",
+	"format": "http://dbpedia.org/ontology/Canal",
+	"id": "Canal.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Canal"},
+	"properties": {
+		"Canal/maximumBoatBeam": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Canal/maximumBoatLength": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Canal/originalMaximumBoatBeam": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Canal/originalMaximumBoatLength": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/metre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dateAct": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateAct"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateAct"}
+				}
+			]
+		},
+		"dateClosed": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateClosed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateClosed"}
+				}
+			]
+		},
+		"dateCompleted": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateCompleted"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateCompleted"}
+				}
+			]
+		},
+		"dateConstruction": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateConstruction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateConstruction"}
+				}
+			]
+		},
+		"dateExtended": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateExtended"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateExtended"}
+				}
+			]
+		},
+		"dateUse": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateUse"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateUse"}
+				}
+			]
+		},
+		"hasJunctionWith": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"maximumBoatBeam": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumBoatBeam"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumBoatBeam"}
+				}
+			]
+		},
+		"maximumBoatLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumBoatLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumBoatLength"}
+				}
+			]
+		},
+		"originalEndPoint": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"originalMaximumBoatBeam": {
+			"oneOf": [
+				{"$ref": "#/definitions/originalMaximumBoatBeam"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/originalMaximumBoatBeam"}
+				}
+			]
+		},
+		"originalMaximumBoatLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/originalMaximumBoatLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/originalMaximumBoatLength"}
+				}
+			]
+		},
+		"originalStartPoint": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"principalEngineer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "canal",
+	"translations": {
+		"title": {
+			"de": "Kanal",
+			"el": "κανάλι",
+			"fr": "canal",
+			"it": "canale",
+			"ga": "canáil",
+			"ko": "운하",
+			"nl": "kanaal",
+			"pt": "canal",
+			"ja": "運河"
+		},
+		"description": {"el": "ένα κανάλι για νερό φτιαγμένο από άνθρωπο"}
+	},
+	"type": "object"
+}

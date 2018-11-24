@@ -1,0 +1,52 @@
+{
+	"id": "CombinationDrug.json",
+	"title": "combination drug",
+	"description": "Medikamente die mehrere Wirkstoffe enthalten",
+	"translations": {
+		"title": {
+			"de": "Kombinationspräparat",
+			"nl": "combinatiepreparaat",
+			"fr": "préparation combinée"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "ChemicalSubstance.json"}, {"$ref": "Drug.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CombinationDrug",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CombinationDrug"}
+}

@@ -1,0 +1,81 @@
+{
+	"id": "SpaceStation.json",
+	"title": "space station",
+	"translations": {
+		"title": {
+			"de": "Raumstation",
+			"el": "διαστημικός σταθμός",
+			"fr": "station spatiale",
+			"es": "estación espacial",
+			"ga": "stáisiún spáis",
+			"ko": "우주 정거장",
+			"nl": "ruimtestation"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"nssdcId": {
+			"oneOf": [
+				{"$ref": "#/definitions/nssdcId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nssdcId"}
+				}
+			]
+		},
+		"SpaceStation/volume": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicMetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicMetre.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nssdcId": {
+			"title": "NSSDC ID",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SpaceStation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SpaceStation"}
+}

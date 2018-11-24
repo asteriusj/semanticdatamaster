@@ -1,0 +1,126 @@
+{
+	"id": "Animal.json",
+	"title": "animal",
+	"translations": {
+		"title": {
+			"da": "dyr",
+			"de": "Tier",
+			"el": "ζώο",
+			"es": "animal",
+			"fr": "animal",
+			"ga": "ainmhí",
+			"gl": "animal",
+			"it": "animale",
+			"ja": "動物",
+			"ko": "동물",
+			"nl": "dier",
+			"pt": "animal",
+			"sk": "zviera",
+			"sl": "žival"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"foalDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/foalDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/foalDate"}
+				}
+			]
+		},
+		"dam": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"damsire": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"grandsire": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"breeder": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sire": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"foalDate": {
+			"title": "foal date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Animal",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Animal"}
+}

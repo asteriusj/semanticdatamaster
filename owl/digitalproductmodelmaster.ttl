@@ -1,0 +1,797 @@
+# baseURI: http://example.org/dpmm
+# prefix: dpmm
+
+@prefix :           <https://github.com/asteriusj/digitalproductmodelmaster/> .
+@prefix ex:         <http://example.org/> .
+@prefix schema:     <http://schema.org/> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix con:        <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix org:        <http://www.w3.org/ns/org#> .
+@prefix vcard:      <http://www.w3.org/2006/vcard/ns#> .
+@prefix bibo:	    <http://purl.org/ontology/bibo/> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix obo:	    <http://purl.obolibrary.org/obo/> .
+@prefix pav:	    <http://purl.org/pav/> .
+@prefix prov:	    <http://www.w3.org/ns/prov#> .
+@prefix sf:         <https://github.com/vocol/salesforce/> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:         <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:         <http://www.w3.org/ns/shacl#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix sw:	        <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dbo:        <http://dbpedia.org/ontology/> .
+@prefix vs:         <http:/s/www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix vaem:       <http://www.linkedmodel.org/schema/vaem#> .
+@prefix vann:       <http://purl.org/vocab/vann/> .
+@prefix pdmm:       <https://github.com/asteriusj/digitalproductmodelmaster/> .
+
+
+pdmm:   
+        a                   owl:Ontology ;
+        rdfs:label          "Ontology for Digital Product Model Master"@en ;
+        rdfs:comment        "An experimental ontology for defining entity relationships and data property definitions and constraints in a formal semantic representation.\n" ;
+        dc:date             "$Date: 2018-03-09 12:23:00 $" ;
+        prov:generatedAtTime "$Date: 2018-03-09 12:23:006 $" ;
+        dcterms:created     "$Date: 2018-02-26 20:18:26 $" ;
+        dcterms:modified    "$Date: 2018-03-09 12:23:00 $" ;
+        dc:description      "\nThe Digital Product Model Master (DPMM) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.\n" ;
+        dc:title            "Digital Product Model Master (DPMM) Ontology"@en ;
+        dc:creator          <http://github.com/asteriusj>;
+        schema:contributor  <http://LinkedIn.com/jeffreyastewart/> , <http://github.com/asteriusj> ;
+        dc:publisher        <http://github.com/asteriusj>;
+        dcterms:license     "http://creativecommons.org/licenses/by/2.0/" ;
+        vann:preferredNamespacePrefix
+              "dpmm" ;
+        vann:preferredNamespaceUri
+              "https://github.com/asteriusj/digitalproductmodelmaster#" ;
+        dcterms:abstract    "An experimental ontology for defining entity relationships and data property definitions and constraints in a formal semantic representation.\n" ;
+        owl:versionIRI      "https://github.com/asteriusj/digitalproductmodelmaster/Draft"@en ;
+        owl:versionInfo     "Draft"@en ;
+        bibo:status         "Draft"@en .
+
+owl:Thing a owl:class ; .
+
+skos:Concept  a           owl:Class ;
+        rdfs:isDefinedBy  <http://www.w3.org/2004/02/skos/core> ;
+        rdfs:label        "Concept"@en ;
+        skos:definition   "An idea or notion; a unit of thought."@en .
+
+schema:Event  
+        a                   owl:Class ;
+        rdfs:comment        "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the 'offers' property. Repeated events may be structured as separate Event objects." ;
+        rdfs:label          "Event"^^xsd:string ;
+        rdfs:subClassOf     owl:Thing ;
+        owl:equivalentClass <http://purl.org/dc/dcmitype/Event> .
+
+foaf:Person  a            owl:Class ;
+        rdfs:comment      "A person." ;
+        rdfs:isDefinedBy  foaf: ;
+        rdfs:label        "Person" ;
+        rdfs:subClassOf   <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent ;
+        owl:disjointWith  foaf:Project , foaf:Document , foaf:Organization ;
+        vs:term_status    "stable" .
+        
+org:Organization a owl:Class, rdfs:Class;
+    rdfs:subClassOf  foaf:Agent;
+    rdfs:label "Organization"@en;
+    owl:equivalentClass foaf:Organization ;
+    owl:hasKey (org:identifier) ;
+    rdfs:comment """Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.  It is recommended that SKOS lexical labels should be used to label the Organization. In particular `skos:prefLabel` for the primary (possibly legally recognized name), `skos:altLabel` for alternative names (trading names, colloquial names) and `skos:notation` to denote a code from a code list. Alternative names: _Collective_ _Body_ _Org_ _Group_"""@en;
+    rdfs:isDefinedBy <http://www.w3.org/ns/org> ;
+    .
+
+schema:Place
+      a                     owl:Class ;
+      rdfs:isDefinedBy <http://schema.org/> .
+
+foaf:Agent  a             owl:Class ;
+        rdfs:comment      "\nAn agent (eg. person, group, software or physical artifact).\n" ;
+        rdfs:label        "Agent" ;
+        vs:term_status    "stable" .
+
+foaf:Document  a          owl:Class ;
+        rdfs:comment      "A document." ;
+        rdfs:isDefinedBy  foaf: ;
+        rdfs:label        "Document" ;
+        owl:disjointWith  foaf:Person , foaf:Organization , foaf:Project ;
+        vs:term_status    "testing" .
+
+
+
+#
+# Top level entities
+#
+
+:Thing 
+        a                   rdfs:Class ;
+        rdfs:label          "Thing" ;
+        rdfs:comment        "The most generic type of item." ;
+        owl:equivalentClass schema:Thing , owl:Thing  .
+
+:Concept 
+        a                   owl:Class ;
+        rdfs:label          "Concept"@en ;
+        rdfs:comment        "an abstract idea; a general notion. Non physical entirty"@en ;
+        rdfs:subClassOf     :Thing ;
+        owl:equivalentClass skos:Concept ;
+        .
+       
+:Event 
+        a                   owl:Class ;
+        rdfs:label          "Event"@en ;
+        rdfs:comment        "An event happening at a certain time and location"@en ;
+        rdfs:subClassOf     :Thing ;
+        owl:equivalentClass schema:Event ;
+        .
+        
+:Person  
+        a                   owl:Class ;
+        rdfs:label          "Person" ;
+        rdfs:comment        "A person. A person (alive, dead, undead, or fictional)." ;
+        sh:property [
+            sh:path foaf:lastName ;
+            sh:name "last name" ;
+            sh:description "A Person's last name (aka family name)." ;
+            sh:datatype xsd:string ;
+            sh:minLength 1;
+            sh:maxLength 30;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+        ] ;
+        rdfs:subClassOf     :Thing , :Agent ;
+        owl:equivalentClass schema:Person , foaf:Person , sf:Person .
+    
+:Organization 
+        a                   owl:Class ;
+        rdfs:label          "Organization"@en ;
+        rdfs:comment        "a collection of people organized together into a community or other social, commercial or political structure."@en ;
+        rdfs:subClassOf     :Thing , :Agent ;
+        owl:equivalentClass org:Organization ;
+        .
+    
+:Place 
+        a                   owl:Class ;
+        rdfs:label          "Place"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:subClassOf     :Thing ;
+        owl:equivalentClass org:schema ;
+        .
+
+:Artifact 
+        a                   owl:Class ;
+        rdfs:label          "Artifact"@en ;
+        rdfs:comment        "A software, document or data artifact"@en ;
+        rdfs:subClassOf     :Agent ;
+        owl:equivalentClass foaf:Document ;
+        .
+     
+       
+#
+# Activity: Tools Teams Flows
+#
+
+:Activty 
+        a                   owl:Class ;
+        rdfs:label          "Activity"@en ;
+        rdfs:comment        "Activities are a conceptual model of the interactions of basic business entities of Tools, Flows and Teams. "@en ;
+        rdfs:subClassOf     :Concept ;
+        .
+
+:Flows 
+        a                   owl:Class ;
+        rdfs:label          "Flows"@en ;
+        rdfs:comment        "A pattern of business activity and actions, data exchange and workflows"@en ;
+        rdfs:subClassOf     :Activty ;
+        .
+        
+:Tools 
+        a                   owl:Class ;
+        rdfs:label          "Tools"@en ;
+        rdfs:comment        "A physical item or technology that is be to achieve a goal or complete an action "@en ;
+        rdfs:subClassOf     :Activty ;
+        .
+
+:Teams 
+        a                   owl:Class ;
+        rdfs:label          "Teams"@en ;
+        rdfs:comment        "A group of people with complementary skills required to complete a task, job, or project"@en ;
+        rdfs:subClassOf     :Activty ;
+        .
+
+:dataGen 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "dataGen"@en ;
+        rdfs:comment        "To"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Flows ;
+        rdfs:range          :Tools ;
+        rdfs:inverseOf      :genData ;
+        .
+
+:genData 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "genData"@en ;
+        rdfs:comment        "To"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Tools ;
+        rdfs:range          :Flows ;
+        rdfs:inverseOf      :dataGen ;
+        .      
+
+:actorIn 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "actor in"@en ;
+        rdfs:comment        "To"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Teams ;
+        rdfs:range          :Flows ;
+        rdfs:inverseOf      :hasActor ;
+        .
+
+:hasActor 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "has actor"@en ;
+        rdfs:comment        "To"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Flows ;
+        rdfs:range          :Teams ;
+        rdfs:inverseOf      :actorIn ;
+        .  
+        
+:usedBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "used by"@en ;
+        rdfs:comment        "To"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Tools ;
+        rdfs:range          :Teams ;
+        rdfs:inverseOf      :uses ;
+        .
+
+:uses 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "uses"@en ;
+        rdfs:comment        "To"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Teams ;
+        rdfs:range          :Tools ;
+        rdfs:inverseOf      :usedBy ;
+        .  
+
+#
+# Capability: People Process Technology
+#
+
+:Capability 
+        a                   owl:Class ;
+        rdfs:label          "Capability"@en ;
+        rdfs:comment        "Capabilities describe organizations ability to achieve a specific outcome enabled by organizational level skills embedded in people, process, and/or technology."@en ;
+        rdfs:subClassOf     :Concept ;
+        .
+
+:People 
+        a                   owl:Class ;
+        rdfs:label          "People"@en ;
+        rdfs:comment        "Individuals or members of a team responsibility for enabling a business capability "@en ;
+        rdfs:subClassOf     :Concept , :Person ;
+        .
+
+:Process 
+        a                   owl:Class ;
+        rdfs:label          "Process"@en ;
+        rdfs:comment        "Set of actions and steps defined to enable a business capability "@en ;
+        rdfs:subClassOf     :Concept ;
+        .
+
+:Technology 
+        a                   owl:Class ;
+        rdfs:label          "Technology"@en ;
+        rdfs:comment        "Tools and machines used to solve real-world problems in support of a business capability "@en ;
+        rdfs:subClassOf     :Concept ;
+        .
+
+:partOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is part of"@en ;
+        rdfs:comment        "To be assocoiated with or ane element in "@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :People , :Process , :Technology ;
+        rdfs:range          :Capability ;
+        rdfs:inverseOf      :hasPart ;
+        .
+
+:hasPart 
+
+        a                   owl:ObjectProperty ;
+        rdfs:label          "has part"@en ;
+        rdfs:comment        "To have an element that is associated "@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Capability ;
+        rdfs:range          :People , :Process , :Technology ;
+        rdfs:inverseOf      :partOf ;
+        .      
+
+
+#
+#// People model   
+#
+
+:artifactSkillBehaviorMatrix 
+        a                   owl:Class ;
+        rdfs:label          "Skill behavior matrix"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactSkillBehaviorMatrix  ;
+        rdfs:range          :People ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :People  ;
+        rdfs:range          :artifactSkillBehaviorMatrix ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+      
+:artifactPositionRoleResponsibility 
+        a                   owl:Class ;
+        rdfs:label          "Position role responsibility"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactPositionRoleResponsibility  ;
+        rdfs:range          :People ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :People  ;
+        rdfs:range          :artifactPositionRoleResponsibility ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+:artifactCareerPathLattice 
+        a                   owl:Class ;
+        rdfs:label          "Career path lattice"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactCareerPathLattice  ;
+        rdfs:range          :People ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :People  ;
+        rdfs:range          :artifactCareerPathLattice ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+
+
+
+# // Process Model    
+
+:artifactProcessWorkflowMap 
+        a                   owl:Class ;
+        rdfs:label          "Process workflow map"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactProcessWorkflowMap  ;
+        rdfs:range          :Process ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Process  ;
+        rdfs:range          :artifactProcessWorkflowMap ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+
+:artifactLogicModelIndicators 
+        a                   owl:Class ;
+        rdfs:label          "Logic model indicators"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactLogicModelIndicators  ;
+        rdfs:range          :Process ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Process  ;
+        rdfs:range          :artifactLogicModelIndicators ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+:artifactActionPlanChecklist 
+        a                   owl:Class ;
+        rdfs:label          "Action plan checklist"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactActionPlanChecklist  ;
+        rdfs:range          :Process ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Process  ;
+        rdfs:range          :artifactActionPlanChecklist ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+
+#// Technology Model    
+
+:artifactTechnologyComponents 
+        a                   owl:Class ;
+        rdfs:label          "Technology components"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactTechnologyComponents  ;
+        rdfs:range          :Technology ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Technology  ;
+        rdfs:range          :artifactTechnologyComponents ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+
+:artifactInformationSystemServices 
+        a                   owl:Class ;
+        rdfs:label          "Information system services"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactInformationSystemServices  ;
+        rdfs:range          :Technology ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Technology  ;
+        rdfs:range          :artifactInformationSystemServices ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+:artifactActivityEnablingFeatures 
+        a                   owl:Class ;
+        rdfs:label          "Activity enabling features"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :Artifact ;
+        .
+
+:componentOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "is a component of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactActivityEnablingFeatures  ;
+        rdfs:range          :Technology ;
+        rdfs:inverseOf      :hasComponent ;
+        .
+
+:hasComponent 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "hasComponent"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Technology  ;
+        rdfs:range          :artifactActivityEnablingFeatures ;
+        rdfs:inverseOf      :componentOf ;
+        .
+
+
+# // instance of people    
+
+:Position 
+        a                   owl:Class ;
+        rdfs:label          "Position"@en ;
+        rdfs:comment        "A "@en ;
+        rdfs:subClassOf     :People ;
+        .
+
+:instanceOf 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "an instance of"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :Position  ;
+        rdfs:range          :People ;
+        rdfs:inverseOf      :hasInstacne ;
+        .
+
+:hasInstacne 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "has instacne"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :People  ;
+        rdfs:range          :Position ;
+        rdfs:inverseOf      :hasInstacne ;
+        .
+
+
+# // artifact interactions
+
+:defines 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "defines"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactProcessWorkflowMap  ;
+        rdfs:range          :artifactPositionRoleResponsibility ;
+        rdfs:inverseOf      :definedBy ;
+        .
+
+:definedBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "definedBy"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactPositionRoleResponsibility  ;
+        rdfs:range          :artifactProcessWorkflowMap ;
+        rdfs:inverseOf      :defines ;
+        .
+
+
+:monitors 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "monitors"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactLogicModelIndicators  ;
+        rdfs:range          :artifactCareerPathLattice ;
+        rdfs:inverseOf      :monitoredBy ;
+        .
+
+:monitoredBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "definedBy"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactCareerPathLattice  ;
+        rdfs:range          :artifactLogicModelIndicators ;
+        rdfs:inverseOf      :monitors ;
+        .
+
+:requires 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "requires"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactActionPlanChecklist  ;
+        rdfs:range          :artifactSkillBehaviorMatrix ;
+        rdfs:inverseOf      :requiredBy ;
+        .
+
+:requiredBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "requiredBy"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactSkillBehaviorMatrix  ;
+        rdfs:range          :artifactActionPlanChecklist ;
+        rdfs:inverseOf      :requires ;
+        .
+
+
+:executes 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "executes"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactActivityEnablingFeatures  ;
+        rdfs:range          :artifactActionPlanChecklist ;
+        rdfs:inverseOf      :requiredBy ;
+        .
+
+:executedWith 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "executedWith"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactActionPlanChecklist  ;
+        rdfs:range          :artifactActivityEnablingFeatures ;
+        rdfs:inverseOf      :executedWith ;
+        .
+
+
+:enables 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "executes"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactTechnologyComponents  ;
+        rdfs:range          :artifactProcessWorkflowMap ;
+        rdfs:inverseOf      :enabledBy ;
+        .
+
+:enabledBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "executedWith"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactProcessWorkflowMap  ;
+        rdfs:range          :artifactTechnologyComponents ;
+        rdfs:inverseOf      :enables ;
+        .
+
+
+:dataFor 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "provides data for"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactInformationSystemServices  ;
+        rdfs:range          :artifactLogicModelIndicators ;
+        rdfs:inverseOf      :enabledBy ;
+        .
+
+:dataFrom 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "retrieves data from"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactLogicModelIndicators  ;
+        rdfs:range          :artifactInformationSystemServices ;
+        rdfs:inverseOf      :dataFor ;
+        .
+
+
+:assists 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "assists"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactActivityEnablingFeatures  ;
+        rdfs:range          :artifactPositionRoleResponsibility ;
+        rdfs:inverseOf      :assistedBy ;
+        .
+
+:assistedBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "assistedBy"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactPositionRoleResponsibility  ;
+        rdfs:range          :artifactActivityEnablingFeatures ;
+        rdfs:inverseOf      :assists ;
+        .
+
+
+:enables 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "enables"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactTechnologyComponents  ;
+        rdfs:range          :artifactCareerPathLattice ;
+        rdfs:inverseOf      :assistedBy ;
+        .
+
+:enabledBy 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "enabledBy"@en ;
+        rdfs:comment        ""@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactCareerPathLattice  ;
+        rdfs:range          :artifactTechnologyComponents ;
+        rdfs:inverseOf      :enables ;
+        .
+
+:dataProvided 
+        a                   owl:ObjectProperty ;
+        rdfs:label          "provides data for"@en ;
+        rdfs:comment        "Info services provide data required by individual skills for role"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactInformationSystemServices  ;
+        rdfs:range          :artifactSkillBehaviorMatrix ;
+        rdfs:inverseOf      :dataRequired ;
+        .
+
+:dataRequired
+        a                   owl:ObjectProperty ;
+        rdfs:label          "requires data from"@en ;
+        rdfs:comment        "Individual skills needed for role requires data from info system"@en ;
+        rdfs:isDefinedBy    pdmm: ;
+        rdfs:domain         :artifactSkillBehaviorMatrix  ;
+        rdfs:range          :artifactInformationSystemServices ;
+        rdfs:inverseOf      :dataProvided ;
+        .
+
+

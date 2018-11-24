@@ -1,0 +1,52 @@
+{
+	"id": "TheologicalConcept.json",
+	"title": "Theological concept",
+	"description": "Theological concepts, e.g. The apocalypse, Trinty, Stoicism",
+	"translations": {
+		"title": {
+			"de": "Theologisch Konzept",
+			"fr": "concept théologique",
+			"nl": "theologisch concept"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TheologicalConcept",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TheologicalConcept"}
+}

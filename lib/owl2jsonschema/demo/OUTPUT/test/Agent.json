@@ -1,0 +1,259 @@
+{
+	"allOf": [{"$ref": "Thing.json"}],
+	"definitions": {
+		"age": {
+			"title": "age",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"championships": {
+			"title": "championships",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"denomination": {
+			"title": "denomination",
+			"description": "Religious denomination of a church, religious school, etc. Examples: Haredi_Judaism, Sunni_Islam, Seventh-day_Adventist_Church, Non-Denominational, Multi-denominational, Non-denominational_Christianity",
+			"anyOf": []
+		},
+		"discipline": {
+			"title": "discipline",
+			"description": "",
+			"anyOf": []
+		},
+		"juniorSeason": {
+			"title": "junior season",
+			"description": "",
+			"anyOf": []
+		},
+		"managerSeason": {
+			"title": "manager season",
+			"description": "",
+			"anyOf": []
+		},
+		"nationalSelection": {
+			"title": "national selection",
+			"description": "",
+			"anyOf": []
+		},
+		"playerSeason": {
+			"title": "player season",
+			"description": "",
+			"anyOf": []
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"season": {
+			"title": "season",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"description": "Analogous to a foaf:Agent, an agent is an entity that acts. This is intended to be the super class of Person and Organisation.",
+	"format": "http://dbpedia.org/ontology/Agent",
+	"id": "Agent.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Agent"},
+	"properties": {
+		"age": {
+			"oneOf": [
+				{"$ref": "#/definitions/age"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/age"}
+				}
+			]
+		},
+		"artPatron": {
+			"oneOf": [
+				{"$ref": "Artist.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Artist.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"championships": {
+			"oneOf": [
+				{"$ref": "#/definitions/championships"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/championships"}
+				}
+			]
+		},
+		"denomination": {
+			"oneOf": [
+				{"$ref": "#/definitions/denomination"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/denomination"}
+				}
+			]
+		},
+		"discipline": {
+			"oneOf": [
+				{"$ref": "#/definitions/discipline"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/discipline"}
+				}
+			]
+		},
+		"generalCouncil": {
+			"oneOf": [
+				{"$ref": "TermOfOffice.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "TermOfOffice.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"hometown": {
+			"oneOf": [
+				{"$ref": "Settlement.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Settlement.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ideology": {
+			"oneOf": [
+				{"$ref": "Ideology.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Ideology.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"juniorSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/juniorSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/juniorSeason"}
+				}
+			]
+		},
+		"managerSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/managerSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/managerSeason"}
+				}
+			]
+		},
+		"nationalSelection": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalSelection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalSelection"}
+				}
+			]
+		},
+		"owns": {
+			"oneOf": [
+				{"$ref": "Thing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Thing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"playerSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/playerSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/playerSeason"}
+				}
+			]
+		},
+		"regionalCouncil": {
+			"oneOf": [
+				{"$ref": "TermOfOffice.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "TermOfOffice.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"roleInEvent": {
+			"oneOf": [
+				{"$ref": "Event.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Event.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"season": {
+			"oneOf": [
+				{"$ref": "#/definitions/season"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/season"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "agent",
+	"translations": {
+		"title": {
+			"da": "agent",
+			"de": "Agent",
+			"el": "πράκτορας",
+			"es": "agente",
+			"fr": "agent",
+			"ga": "gníomhaire",
+			"gl": "axente",
+			"it": "agente",
+			"ja": "エージェント",
+			"ko": "에이전트",
+			"nl": "agent"
+		},
+		"description": {
+			"el": "Ανάλογα με την κλάση foaf:Agent, ένας πράκτορας είναι μια οντότητα που ενεργεί. Αυτό προορίζεται να είναι μια υπερκλάση της κλάσης Άτόμο και Οργανισμός.",
+			"gl": "Análogo a foaf:Agent, un axente é unha entidade que actúa. Destínase a ser a super clase de Persoa e Organización."
+		}
+	},
+	"type": "object"
+}

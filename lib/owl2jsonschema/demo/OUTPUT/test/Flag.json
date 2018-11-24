@@ -1,0 +1,89 @@
+{
+	"id": "Flag.json",
+	"title": "flag",
+	"translations": {
+		"title": {
+			"de": "Flagge",
+			"el": "σημαία",
+			"fr": "drapeau",
+			"ga": "bratach",
+			"da": "flag",
+			"ko": "국기",
+			"nl": "vlag",
+			"tr": "bayrak",
+			"ja": "旗"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"flagSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/flagSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/flagSize"}
+				}
+			]
+		},
+		"flagCaption": {
+			"oneOf": [
+				{"$ref": "#/definitions/flagCaption"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/flagCaption"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"flagSize": {
+			"title": "flagSize",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"flagCaption": {
+			"title": "flag caption",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Flag",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Flag"}
+}

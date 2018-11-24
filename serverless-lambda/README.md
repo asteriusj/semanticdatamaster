@@ -34,6 +34,14 @@ Read OWL JSON-LD content, validate  and transform into JSON Schema
 Read JSON Schema content, validate  and transform into OWL JSON-LD
 
 
+### formfield2jsonschema
+Read form field definitions JSON and convert to JSON Schema
+
+
+### jsonschema2formfield
+Read JSON Schema file and and convert to form field definitions
+
+
 ### jsonschema2jsonform
 
 
@@ -48,13 +56,6 @@ Read CSV2JSON resulting as JSON of form field definitions and convert to Content
 
 ### contenttree2formfield
 
-
-### formfield2jsonschema
-Read form field definitions JSON and convert to JSON Schema
-
-
-### jsonschema2formfield
-Read JSON Schema file and and convert to form field definitions
 
 
 ### formfield2csv
@@ -90,4 +91,13 @@ Read JSONLD file from things/jsonld and translate into other RDF formats includi
 
 ### rdfxml2ttl
 
+
+## Enhance services
+Read JSONLD file from things/jsonld and append enhanced information in the form of metadata, semantic linked open data, and congnative computing services. 
+
+### jsonmetadata
+Enhance JSON structure with metadata for _id, _etag, _guid, _kind _datepublished
+
+### dbpedialookup
+Retrieve semantic linked open data properties from matching DBPedia entry 
 

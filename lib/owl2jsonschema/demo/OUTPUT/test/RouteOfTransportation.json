@@ -1,0 +1,367 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"lengthReference": {
+			"title": "length reference",
+			"description": "",
+			"type": "string"
+		},
+		"lineLength": {
+			"title": "line length &amp;&#35;40;μ&#41;",
+			"description": "Length of the line. Wikipedians usually do not differentiate between track length and line lenght.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"numberOfLanes": {
+			"title": "number of lanes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfStations": {
+			"title": "number of stations",
+			"description": "Number of stations or stops.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"railGauge": {
+			"title": "rail gauge &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"railwayRollingStock": {
+			"title": "railway rolling stock",
+			"description": "",
+			"anyOf": []
+		},
+		"routeDirection": {
+			"title": "route direction",
+			"description": "The general direction of the route &amp;&#35;40;eg. North-South&#41;.",
+			"type": "string"
+		},
+		"routeEndDirection": {
+			"title": "road end direction",
+			"description": "End of the route. The opposite of OntologyProperty:routeStartDirection.",
+			"type": "string"
+		},
+		"routeNumber": {
+			"title": "route number",
+			"description": "The number of the route.",
+			"type": "string"
+		},
+		"routeStartDirection": {
+			"title": "road start direction",
+			"description": "End of the route. For U.S. roads, this should be either&quot;South&quot;or&quot;West&quot;per the standards set by the U.S. Roads project.",
+			"type": "string"
+		},
+		"routeTypeAbbreviation": {
+			"title": "route type abbreviation",
+			"description": "The route type abbreviation &amp;&#35;40;eg.: I for Interstate, M for Motorway or NJ for New Jersey Route&#41;.",
+			"type": "string"
+		},
+		"speedLimit": {
+			"title": "speed limit &amp;&#35;40;kmh&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"toll": {
+			"title": "toll &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"trackLength": {
+			"title": "track length &amp;&#35;40;μ&#41;",
+			"description": "Length of the track. Wikipedians usually do not differentiate between track length and line lenght.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"trackWidth": {
+			"title": "track width &amp;&#35;40;μ&#41;",
+			"description": "Width of the track, e.g., the track width differing in Russia from &amp;&#35;40;Western and Middle&#41; European track width",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"typeOfElectrification": {
+			"title": "type of electrification",
+			"description": "Electrification system &amp;&#35;40;e.g. Third rail, Overhead catenary&#41;.",
+			"anyOf": []
+		},
+		"vehiclesPerDay": {
+			"title": "vehicles per day",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"voltageOfElectrification": {
+			"title": "voltage of electrification &amp;&#35;40;V&#41;",
+			"description": "Voltage of the electrification system.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"description": "A route of transportation &amp;&#35;40;thoroughfare&#41; may refer to a public road, highway, path or trail or a route on water from one place to another for use by a variety of general traffic (http://en.wikipedia.org/wiki/Thoroughfare).",
+	"format": "http://dbpedia.org/ontology/RouteOfTransportation",
+	"id": "RouteOfTransportation.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RouteOfTransportation"},
+	"properties": {
+		"lengthReference": {
+			"oneOf": [
+				{"$ref": "#/definitions/lengthReference"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lengthReference"}
+				}
+			]
+		},
+		"lineLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/lineLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lineLength"}
+				}
+			]
+		},
+		"numberOfLanes": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLanes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLanes"}
+				}
+			]
+		},
+		"numberOfStations": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStations"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStations"}
+				}
+			]
+		},
+		"railGauge": {
+			"oneOf": [
+				{"$ref": "#/definitions/railGauge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/railGauge"}
+				}
+			]
+		},
+		"railwayRollingStock": {
+			"oneOf": [
+				{"$ref": "#/definitions/railwayRollingStock"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/railwayRollingStock"}
+				}
+			]
+		},
+		"routeDirection": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeDirection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeDirection"}
+				}
+			]
+		},
+		"routeEnd": {
+			"oneOf": [
+				{"$ref": "Station.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Station.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeEndDirection": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeEndDirection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeEndDirection"}
+				}
+			]
+		},
+		"routeEndLocation": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeJunction": {
+			"oneOf": [
+				{"$ref": "Station.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Station.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeNumber"}
+				}
+			]
+		},
+		"routeStart": {
+			"oneOf": [
+				{"$ref": "Station.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Station.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeStartDirection": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeStartDirection"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeStartDirection"}
+				}
+			]
+		},
+		"routeStartLocation": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeTypeAbbreviation": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeTypeAbbreviation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeTypeAbbreviation"}
+				}
+			]
+		},
+		"speedLimit": {
+			"oneOf": [
+				{"$ref": "#/definitions/speedLimit"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/speedLimit"}
+				}
+			]
+		},
+		"toll": {
+			"oneOf": [
+				{"$ref": "#/definitions/toll"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/toll"}
+				}
+			]
+		},
+		"trackLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/trackLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/trackLength"}
+				}
+			]
+		},
+		"trackWidth": {
+			"oneOf": [
+				{"$ref": "#/definitions/trackWidth"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/trackWidth"}
+				}
+			]
+		},
+		"typeOfElectrification": {
+			"oneOf": [
+				{"$ref": "#/definitions/typeOfElectrification"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/typeOfElectrification"}
+				}
+			]
+		},
+		"vehiclesPerDay": {
+			"oneOf": [
+				{"$ref": "#/definitions/vehiclesPerDay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/vehiclesPerDay"}
+				}
+			]
+		},
+		"voltageOfElectrification": {
+			"oneOf": [
+				{"$ref": "#/definitions/voltageOfElectrification"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/voltageOfElectrification"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "route of transportation",
+	"translations": {
+		"title": {
+			"de": "Transportweg",
+			"es": "Vía de transporte"
+		},
+		"description": {"de": "Unter Transportwegen &amp;&#35;40;Verkehrswegen&#41; versteht man Verkehrswege, auf denen Güter oder Personen transportiert werden. Dabei unterscheidet man zwischen Transportwegen zu Luft, zu Wasser und zu Lande, die dann für die unterschiedliche Verkehrsarten genutzt werden (http://de.wikipedia.org/wiki/Transportweg)."}
+	},
+	"type": "object"
+}

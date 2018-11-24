@@ -1,0 +1,54 @@
+{
+	"id": "Satellite.json",
+	"title": "Satellite",
+	"description": "An astronomic object orbiting around a planet or star. Definition partly derived from http://www.ontotext.com/proton/protonext&amp;#35; &#40;and thus WordNet 1.7&#41;.",
+	"translations": {
+		"title": {
+			"de": "Satellite",
+			"el": "δορυφόρος",
+			"fr": "satellite",
+			"ga": "satailít",
+			"nl": "satelliet"
+		},
+		"description": {"el": "Ένα αστρονομικό αντικείμενο που βρίσκεται σε τροχιά γύρω από έναν πλανήτη ή αστέρι."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Satellite",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Satellite"}
+}

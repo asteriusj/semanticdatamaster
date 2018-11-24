@@ -1,0 +1,77 @@
+{
+	"id": "Gene.json",
+	"title": "gene",
+	"translations": {
+		"title": {
+			"de": "Gen",
+			"el": "γονίδιο",
+			"fr": "gène",
+			"ga": "géin",
+			"da": "gen",
+			"nl": "gen",
+			"pt": "gene",
+			"ja": "遺伝子"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Biomolecule.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"orthologousGene": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"geneLocation": {
+			"oneOf": [
+				{"$ref": "GeneLocation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "GeneLocation.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Gene",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Gene"}
+}

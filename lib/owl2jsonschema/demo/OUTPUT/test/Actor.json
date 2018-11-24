@@ -1,0 +1,152 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "An actor or actress is a person who acts in a dramatic production and who works in film, television, theatre, or radio in that capacity.",
+	"format": "http://dbpedia.org/ontology/Actor",
+	"id": "Actor.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Actor"},
+	"properties": {
+		"geminiAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"laurenceOlivierAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"goldenRaspberryAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"iftaAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nationalFilmAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"naacpImageAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"screenActorsGuildAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"arielAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"goldenCalfAward": {
+			"oneOf": [
+				{"$ref": "Award.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Award.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "actor",
+	"translations": {
+		"title": {
+			"da": "skuespiller",
+			"de": "Schauspieler",
+			"el": "ηθοποιός",
+			"es": "actor",
+			"eu": "aktore",
+			"fr": "acteur",
+			"ga": "aisteoir",
+			"gl": "actor",
+			"it": "attore",
+			"ja": "俳優",
+			"ko": "영화인",
+			"nl": "acteur",
+			"pl": "aktor",
+			"pt": "ator",
+			"zh": "演員"
+		},
+		"description": {
+			"el": "Μια ηθοποιός ή ένας ηθοποιός είναι ένα άτομο που παίζει σε μια δραματική παραγωγή και που εργάζεται στο χώρο του κινηματογράφου, της τηλεόρασης, του θεάτρου, ή το ραδιόφωνο.",
+			"gl": "Un actor, se é home, ou unha actriz, se é muller, é unha persoa que representa un papel nunha obra teatral, cinematográfica, radiofónica ou televisiva.",
+			"it": "Un attore o un attrice è una persona che recita in una produzione teatrale, televisiva, cinematografica o radiofonica."
+		}
+	},
+	"type": "object"
+}

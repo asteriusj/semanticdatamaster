@@ -1,0 +1,500 @@
+{
+	"id": "School.json",
+	"title": "school",
+	"translations": {
+		"title": {
+			"da": "skole",
+			"de": "Schule",
+			"el": "σχολείο",
+			"es": "escuela",
+			"fr": "école",
+			"ga": "scoil",
+			"it": "scuola",
+			"ja": "学校",
+			"ko": "학교",
+			"nl": "school",
+			"pl": "szkoła",
+			"pt": "escola"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "EducationalInstitution.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"School/campusSize": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"actScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/actScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/actScore"}
+				}
+			]
+		},
+		"averageClassSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/averageClassSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/averageClassSize"}
+				}
+			]
+		},
+		"barPassRate": {
+			"oneOf": [
+				{"$ref": "#/definitions/barPassRate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/barPassRate"}
+				}
+			]
+		},
+		"campusSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/campusSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/campusSize"}
+				}
+			]
+		},
+		"ceeb": {
+			"oneOf": [
+				{"$ref": "#/definitions/ceeb"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ceeb"}
+				}
+			]
+		},
+		"classes": {
+			"oneOf": [
+				{"$ref": "#/definitions/classes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/classes"}
+				}
+			]
+		},
+		"dfE": {
+			"oneOf": [
+				{"$ref": "#/definitions/dfE"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dfE"}
+				}
+			]
+		},
+		"executiveHeadteacher": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fees": {
+			"oneOf": [
+				{"$ref": "#/definitions/fees"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fees"}
+				}
+			]
+		},
+		"grades": {
+			"oneOf": [
+				{"$ref": "#/definitions/grades"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grades"}
+				}
+			]
+		},
+		"headLabel": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"headteacher": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lowerAge": {
+			"oneOf": [
+				{"$ref": "#/definitions/lowerAge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lowerAge"}
+				}
+			]
+		},
+		"nobelLaureates": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfClassrooms": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfClassrooms"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfClassrooms"}
+				}
+			]
+		},
+		"oversight": {
+			"oneOf": [
+				{"$ref": "#/definitions/oversight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/oversight"}
+				}
+			]
+		},
+		"religiousHeadLabel": {
+			"oneOf": [
+				{"$ref": "#/definitions/religiousHeadLabel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/religiousHeadLabel"}
+				}
+			]
+		},
+		"rivalSchool": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"satScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/satScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/satScore"}
+				}
+			]
+		},
+		"schoolBoard": {
+			"oneOf": [
+				{"$ref": "#/definitions/schoolBoard"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/schoolBoard"}
+				}
+			]
+		},
+		"schoolCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/schoolCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/schoolCode"}
+				}
+			]
+		},
+		"schoolNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/schoolNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/schoolNumber"}
+				}
+			]
+		},
+		"schoolPatron": {
+			"oneOf": [
+				{"$ref": "#/definitions/schoolPatron"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/schoolPatron"}
+				}
+			]
+		},
+		"sixthFormStudents": {
+			"oneOf": [
+				{"$ref": "#/definitions/sixthFormStudents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sixthFormStudents"}
+				}
+			]
+		},
+		"teachingStaff": {
+			"oneOf": [
+				{"$ref": "#/definitions/teachingStaff"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/teachingStaff"}
+				}
+			]
+		},
+		"teamName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"testaverage": {
+			"oneOf": [
+				{"$ref": "#/definitions/testaverage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/testaverage"}
+				}
+			]
+		},
+		"tuition": {
+			"oneOf": [
+				{"$ref": "#/definitions/tuition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tuition"}
+				}
+			]
+		},
+		"uRN": {
+			"oneOf": [
+				{"$ref": "#/definitions/uRN"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/uRN"}
+				}
+			]
+		},
+		"upperAge": {
+			"oneOf": [
+				{"$ref": "#/definitions/upperAge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/upperAge"}
+				}
+			]
+		},
+		"vicePrincipal": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"vicePrincipalLabel": {
+			"oneOf": [
+				{"$ref": "#/definitions/vicePrincipalLabel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/vicePrincipalLabel"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"actScore": {
+			"title": "ACT score",
+			"description": "most recent average ACT scores",
+			"anyOf": []
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"averageClassSize": {
+			"title": "average class size",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"barPassRate": {
+			"title": "bar pass rate",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"campusSize": {
+			"title": "campus size &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"ceeb": {
+			"title": "ceeb",
+			"description": "",
+			"type": "string"
+		},
+		"classes": {
+			"title": "classes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"dfE": {
+			"title": "DfE",
+			"description": "Department for Education &amp;&#35;40;UK&#41; number of a school in England or Wales",
+			"anyOf": []
+		},
+		"fees": {
+			"title": "fees &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"grades": {
+			"title": "grades",
+			"description": "",
+			"anyOf": []
+		},
+		"lowerAge": {
+			"title": "lower age",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfClassrooms": {
+			"title": "number of classrooms",
+			"description": "",
+			"anyOf": []
+		},
+		"oversight": {
+			"title": "oversight",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"religiousHeadLabel": {
+			"title": "religious head label",
+			"description": "",
+			"anyOf": []
+		},
+		"satScore": {
+			"title": "SAT score",
+			"description": "most recent average SAT scores",
+			"anyOf": []
+		},
+		"schoolBoard": {
+			"title": "school board",
+			"description": "",
+			"anyOf": []
+		},
+		"schoolCode": {
+			"title": "school code",
+			"description": "",
+			"type": "string"
+		},
+		"schoolNumber": {
+			"title": "school number",
+			"description": "",
+			"type": "string"
+		},
+		"schoolPatron": {
+			"title": "school patron",
+			"description": "",
+			"anyOf": []
+		},
+		"sixthFormStudents": {
+			"title": "sixth form students",
+			"description": "",
+			"type": "string"
+		},
+		"teachingStaff": {
+			"title": "teaching staff",
+			"description": "",
+			"anyOf": []
+		},
+		"testaverage": {
+			"title": "testaverage",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"tuition": {
+			"title": "tuition &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"uRN": {
+			"title": "unique reference number &amp;&#35;40;URN&#41;",
+			"description": "DfE unique reference number of a school in England or Wales",
+			"anyOf": []
+		},
+		"upperAge": {
+			"title": "upper age",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"vicePrincipalLabel": {
+			"title": "vice principal label",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/School",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/School"}
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Field Schema Edit - OWL JSON Schema Form Field Translators Editors</title>
+		
+		<!-- Minified version of `es6-promise-auto` below. -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>  
+
+
+    <script type="text/javascript" src="../deps/jquery.min.js"></script>
+    <script type="text/javascript" src="../deps/underscore.js"></script>
+    <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="../lib/jsonform.js"></script>
+    
+    <script type="text/javascript" src="../js/common.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles()">
+   
+    <script>
+        //
+        //
+        //
+        function doFieldEditData(_data) {
+            console.log('doFieldEditData',_data)
+            
+            // setFieldEditSchema(_data).then(function(response) {
+            //     console.log("setFieldEditSchema Success!", response);
+   
+            // }).catch(function(e) {
+            //     console.log("doFieldEditData Fail!", e);
+            // }).then(function() {
+
+            // })
+        }
+        
+        //
+        //
+        //
+        function doJSONSchemaData(_data) {
+            console.log('doJSONSchemaData',_data)
+            
+            setJSONFormSchema(_data).then(function(_schema) {
+                console.log("setJSONFormSchema Success! _schema", _schema);
+                return _schema;
+                
+            }).then(function(_schema) {
+                    console.log("doJSONSchemaData then _schema", _schema);
+                    
+                    doFieldSelect(_schema).then(function(_list) {
+                        console.log("doFieldSelect Success! _list", _list);
+                        return _list;
+                        
+                    }).catch(function(e) {
+                        console.error('setFieldSelectList Fail! e',e)
+                        
+                    });
+                
+            }).catch(function(err) {
+                console.error("doJSONSchemaData Fail!", err);
+              
+            });
+        }
+    </script> 
+
+
+
+    <div class="myheader">
+      <h2>Field Schema Edit</h2>
+      <div id="selectFieldList">Select Field: </div>
+    </div>
+    <!--// see common.js selectFieldList functions-->
+    
+    
+    
+    <div class="myJSONSchema">
+      <div id="editJSONSchema"><textarea id="myTextarea"></textarea></div>
+    </div>
+    <!--// see common.js editJSONSchema functions-->
+    
+    
+    
+    
+</body>
+</html>

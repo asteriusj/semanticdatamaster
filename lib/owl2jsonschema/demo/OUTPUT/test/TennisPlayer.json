@@ -1,0 +1,545 @@
+{
+	"id": "TennisPlayer.json",
+	"title": "tennis player",
+	"translations": {
+		"title": {
+			"de": "Tennisspieler",
+			"el": "παίχτης τένις",
+			"fr": "joueur de tennis",
+			"es": "tenista",
+			"ga": "imreoir leadóige",
+			"nl": "tennisser",
+			"pt": "jogador de tennis",
+			"ja": "テニス選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"australiaOpenDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/australiaOpenDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/australiaOpenDouble"}
+				}
+			]
+		},
+		"australiaOpenMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/australiaOpenMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/australiaOpenMixed"}
+				}
+			]
+		},
+		"australiaOpenSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/australiaOpenSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/australiaOpenSingle"}
+				}
+			]
+		},
+		"bestRankDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/bestRankDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bestRankDouble"}
+				}
+			]
+		},
+		"bestRankSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/bestRankSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bestRankSingle"}
+				}
+			]
+		},
+		"bronzeMedalDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/bronzeMedalDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bronzeMedalDouble"}
+				}
+			]
+		},
+		"bronzeMedalMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/bronzeMedalMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bronzeMedalMixed"}
+				}
+			]
+		},
+		"bronzeMedalSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/bronzeMedalSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bronzeMedalSingle"}
+				}
+			]
+		},
+		"careerPrizeMoney": {
+			"oneOf": [
+				{"$ref": "#/definitions/careerPrizeMoney"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/careerPrizeMoney"}
+				}
+			]
+		},
+		"davisCup": {
+			"oneOf": [
+				{"$ref": "#/definitions/davisCup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/davisCup"}
+				}
+			]
+		},
+		"finalLost": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalLost"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalLost"}
+				}
+			]
+		},
+		"finalLostDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalLostDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalLostDouble"}
+				}
+			]
+		},
+		"finalLostSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalLostSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalLostSingle"}
+				}
+			]
+		},
+		"goldMedalDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/goldMedalDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/goldMedalDouble"}
+				}
+			]
+		},
+		"goldMedalMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/goldMedalMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/goldMedalMixed"}
+				}
+			]
+		},
+		"goldMedalSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/goldMedalSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/goldMedalSingle"}
+				}
+			]
+		},
+		"plays": {
+			"oneOf": [
+				{"$ref": "#/definitions/plays"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/plays"}
+				}
+			]
+		},
+		"racketCatching": {
+			"oneOf": [
+				{"$ref": "#/definitions/racketCatching"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/racketCatching"}
+				}
+			]
+		},
+		"rankingsDoubles": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankingsDoubles"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankingsDoubles"}
+				}
+			]
+		},
+		"rankingsSingles": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankingsSingles"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankingsSingles"}
+				}
+			]
+		},
+		"rolandGarrosDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/rolandGarrosDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rolandGarrosDouble"}
+				}
+			]
+		},
+		"rolandGarrosMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/rolandGarrosMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rolandGarrosMixed"}
+				}
+			]
+		},
+		"rolandGarrosSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/rolandGarrosSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rolandGarrosSingle"}
+				}
+			]
+		},
+		"silverMedalDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/silverMedalDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/silverMedalDouble"}
+				}
+			]
+		},
+		"silverMedalMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/silverMedalMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/silverMedalMixed"}
+				}
+			]
+		},
+		"silverMedalSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/silverMedalSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/silverMedalSingle"}
+				}
+			]
+		},
+		"titleDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/titleDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/titleDouble"}
+				}
+			]
+		},
+		"titleSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/titleSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/titleSingle"}
+				}
+			]
+		},
+		"usOpenDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/usOpenDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/usOpenDouble"}
+				}
+			]
+		},
+		"usOpenMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/usOpenMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/usOpenMixed"}
+				}
+			]
+		},
+		"usOpenSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/usOpenSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/usOpenSingle"}
+				}
+			]
+		},
+		"wimbledonDouble": {
+			"oneOf": [
+				{"$ref": "#/definitions/wimbledonDouble"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wimbledonDouble"}
+				}
+			]
+		},
+		"wimbledonMixed": {
+			"oneOf": [
+				{"$ref": "#/definitions/wimbledonMixed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wimbledonMixed"}
+				}
+			]
+		},
+		"wimbledonSingle": {
+			"oneOf": [
+				{"$ref": "#/definitions/wimbledonSingle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wimbledonSingle"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"australiaOpenDouble": {
+			"title": "australia open double",
+			"description": "",
+			"type": "string"
+		},
+		"australiaOpenMixed": {
+			"title": "australia open mixed",
+			"description": "",
+			"type": "string"
+		},
+		"australiaOpenSingle": {
+			"title": "australia open single",
+			"description": "",
+			"type": "string"
+		},
+		"bestRankDouble": {
+			"title": "best rank double",
+			"description": "",
+			"type": "string"
+		},
+		"bestRankSingle": {
+			"title": "best rank single",
+			"description": "",
+			"type": "string"
+		},
+		"bronzeMedalDouble": {
+			"title": "bronze medal double",
+			"description": "",
+			"type": "string"
+		},
+		"bronzeMedalMixed": {
+			"title": "bronze medal mixed",
+			"description": "",
+			"type": "string"
+		},
+		"bronzeMedalSingle": {
+			"title": "bronze medal single",
+			"description": "",
+			"type": "string"
+		},
+		"careerPrizeMoney": {
+			"title": "career prize money &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"davisCup": {
+			"title": "davis cup",
+			"description": "",
+			"type": "string"
+		},
+		"finalLost": {
+			"title": "final lost",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"finalLostDouble": {
+			"title": "final lost double",
+			"description": "",
+			"type": "string"
+		},
+		"finalLostSingle": {
+			"title": "final lost single",
+			"description": "",
+			"type": "string"
+		},
+		"goldMedalDouble": {
+			"title": "gold medal double",
+			"description": "",
+			"type": "string"
+		},
+		"goldMedalMixed": {
+			"title": "gold medal mixed",
+			"description": "",
+			"type": "string"
+		},
+		"goldMedalSingle": {
+			"title": "gold medal single",
+			"description": "",
+			"type": "string"
+		},
+		"plays": {
+			"title": "plays",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"racketCatching": {
+			"title": "racket catching",
+			"description": "",
+			"type": "string"
+		},
+		"rankingsDoubles": {
+			"title": "doubles rankings",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"rankingsSingles": {
+			"title": "single rankings",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"rolandGarrosDouble": {
+			"title": "roland garros double",
+			"description": "",
+			"type": "string"
+		},
+		"rolandGarrosMixed": {
+			"title": "roland garros mixed",
+			"description": "",
+			"type": "string"
+		},
+		"rolandGarrosSingle": {
+			"title": "roland garros single",
+			"description": "",
+			"type": "string"
+		},
+		"silverMedalDouble": {
+			"title": "silver medal double",
+			"description": "",
+			"type": "string"
+		},
+		"silverMedalMixed": {
+			"title": "silver medal mixed",
+			"description": "",
+			"type": "string"
+		},
+		"silverMedalSingle": {
+			"title": "silver medal single",
+			"description": "",
+			"type": "string"
+		},
+		"titleDouble": {
+			"title": "title double",
+			"description": "",
+			"type": "string"
+		},
+		"titleSingle": {
+			"title": "title single",
+			"description": "",
+			"type": "string"
+		},
+		"usOpenDouble": {
+			"title": "us open double",
+			"description": "",
+			"type": "string"
+		},
+		"usOpenMixed": {
+			"title": "us open mixed",
+			"description": "",
+			"type": "string"
+		},
+		"usOpenSingle": {
+			"title": "us open single",
+			"description": "",
+			"type": "string"
+		},
+		"wimbledonDouble": {
+			"title": "wimbledon double",
+			"description": "",
+			"type": "string"
+		},
+		"wimbledonMixed": {
+			"title": "wimbledon mixed",
+			"description": "",
+			"type": "string"
+		},
+		"wimbledonSingle": {
+			"title": "wimbledon single",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TennisPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TennisPlayer"}
+}

@@ -1,0 +1,293 @@
+{
+  "schema": {
+    "definitions": {
+      "com": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          }
+        }
+      },
+      "common": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "placeholder": {
+            "type": "string",
+            "title": "Placeholder text"
+          },
+          "readonly": {
+            "type": "boolean",
+            "title": "Read Only"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required"
+          },
+          "disabled": {
+            "type": "boolean",
+            "title": "Disabled"
+          },
+          "value": {
+            "type": "string",
+            "title": "Default Value"
+          }
+        }
+      }
+    },
+    "properties": {
+      "hiya": {
+        "$ref": "#/definitions/common"
+      },
+      "string": {
+        "type": "string",
+        "title": "string",
+        "properties": {
+          "$ref": "#/definitions/common"
+        }
+      },
+      "number": {
+        "type": "string",
+        "title": "Input Type Number",
+        "description": "Defines a numeric input field. You can also set restrictions on what numbers are accepted.",
+        "properties": {
+          
+        }
+      },
+      "boolean": {
+        "type": "string",
+        "title": "boolean",
+        "enum": [
+          "Positive",
+          "Negative",
+          "n/a"
+        ]
+      },
+      "text": {
+        "type": "string",
+        "title": "text",
+        "description": "",
+        "properties": {
+          
+        }
+      },
+      "textarea": {
+        "type": "string",
+        "title": "textarea"
+      },
+      "checkbox": {
+        "type": "string",
+        "title": "checkbox"
+      },
+      "radio": {
+        "type": "string",
+        "title": "radio"
+      },
+      "select": {
+        "type": "string",
+        "title": "select"
+      },
+      "file": {
+        "type": "string",
+        "title": "file"
+      },
+      "date": {
+        "type": "object",
+        "title": "Input Type Date",
+        "description": "Is used for input fields that should contain a date.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "Help Text": {
+            "type": "string",
+            "title": "Help Text"
+          },
+          "placeholder": {
+            "type": "string",
+            "title": "Placeholder text"
+          },
+          "Class": {
+            "type": "string",
+            "title": "Class"
+          },
+          "readonly": {
+            "type": "boolean",
+            "title": "Read Only"
+          },
+          "required": {
+            "type": "boolean",
+            "title": "Required"
+          },
+          "disabled": {
+            "type": "boolean",
+            "title": "disabled"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value"
+          },
+          "autocomplete": {
+            "type": "string",
+            "title": "autocomplete",
+            "enum": [
+              "off",
+              "on"
+            ]
+          },
+          "autofocus": {
+            "type": "boolean",
+            "title": "autofocus"
+          },
+          "min:": {
+            "type": "date",
+            "title": "min"
+          },
+          "max:": {
+            "type": "date",
+            "title": "max"
+          }
+        }
+      },
+      "color": {
+        "type": "string",
+        "title": "color"
+      },
+      "array": {
+        "type": "string",
+        "title": "array",
+        "properties": {
+          "$ref": "#/definitions/com"
+        }
+      },
+      "object": {
+        "type": "string",
+        "title": "object",
+        "properties": {
+          "animal": {
+            "$ref": "#/definitions/common"
+          }
+        }
+      },
+      "code": {
+        "type": "color",
+        "title": "code"
+      },
+      "fieldtypes": {
+        "type": "string",
+        "title": "fieldtypes",
+        "description": "",
+        "enum": [
+          "string",
+          "number",
+          "boolean",
+          "text",
+          "textarea",
+          "checkbox",
+          "radio",
+          "select",
+          "file",
+          "date",
+          "color",
+          "array",
+          "object",
+          "code"
+        ],
+        "default": "date"
+      }
+    }
+  },
+  "form": [
+    {
+      "type": "selectfieldset",
+      "title": "Select a field type",
+      "items": [
+        {
+          "key": "string",
+          "legend": "string field"
+        },
+        {
+          "key": "number",
+          "legend": "number field"
+        },
+        {
+          "key": "boolean",
+          "legend": "boolean field"
+        },
+        {
+          "key": "text",
+          "legend": "text field"
+        },
+        {
+          "key": "textarea",
+          "legend": "textarea field"
+        },
+        {
+          "key": "checkbox",
+          "legend": "checkbox field"
+        },
+        {
+          "key": "radio",
+          "legend": "radio field"
+        },
+        {
+          "key": "select",
+          "legend": "select field"
+        },
+        {
+          "key": "file",
+          "legend": "file field"
+        },
+        {
+          "key": "date",
+          "legend": "date field"
+        },
+        {
+          "key": "color",
+          "legend": "color field",
+          "type": "color"
+        },
+        {
+          "key": "array",
+          "legend": "array field",
+          "items": [
+            
+          ]
+        },
+        {
+          "key": "object",
+          "legend": "object field"
+        },
+        {
+          "key": "code",
+          "legend": "code field",
+          "type": "ace",
+          "aceMode": "json",
+          "aceTheme": "twilight",
+          "width": "100%",
+          "height": "200px"
+        }
+      ]
+    }
+  ],
+  "value": {
+    
+  }
+}

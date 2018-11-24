@@ -1,0 +1,82 @@
+{
+	"id": "Grape.json",
+	"title": "grape",
+	"translations": {
+		"title": {
+			"de": "Weintraube",
+			"el": "σταφύλι",
+			"fr": "raisin",
+			"it": "uva",
+			"es": "uva",
+			"ga": "fíonchaor",
+			"nl": "druif",
+			"ja": "ブドウ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Plant.json"}, {"$ref": "FloweringPlant.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"wineRegion": {
+			"oneOf": [
+				{"$ref": "WineRegion.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "WineRegion.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"notableWine": {
+			"oneOf": [
+				{"$ref": "#/definitions/notableWine"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/notableWine"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"notableWine": {
+			"title": "notable wine",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Grape",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Grape"}
+}

@@ -1,0 +1,151 @@
+{
+	"id": "WineRegion.json",
+	"title": "wine region",
+	"translations": {
+		"title": {
+			"de": "Weinregion",
+			"fr": "région viticole",
+			"nl": "wijnstreek",
+			"ja": "ワイン産地"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfVineyards": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfVineyards"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfVineyards"}
+				}
+			]
+		},
+		"wineYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/wineYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wineYear"}
+				}
+			]
+		},
+		"numberOfWineries": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfWineries"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfWineries"}
+				}
+			]
+		},
+		"varietals": {
+			"oneOf": [
+				{"$ref": "#/definitions/varietals"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/varietals"}
+				}
+			]
+		},
+		"wineProduced": {
+			"oneOf": [
+				{"$ref": "#/definitions/wineProduced"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/wineProduced"}
+				}
+			]
+		},
+		"growingGrape": {
+			"oneOf": [
+				{"$ref": "Grape.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Grape.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"isPartOfWineRegion": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfVineyards": {
+			"title": "number of vineyards",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"wineYear": {
+			"title": "wine year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"numberOfWineries": {
+			"title": "number of wineries",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"varietals": {
+			"title": "varietals",
+			"description": "",
+			"anyOf": []
+		},
+		"wineProduced": {
+			"title": "wine produced",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/WineRegion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WineRegion"}
+}

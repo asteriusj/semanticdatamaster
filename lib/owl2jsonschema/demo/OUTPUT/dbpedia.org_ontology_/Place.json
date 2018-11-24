@@ -1,0 +1,2487 @@
+{
+	"allOf": [{"$ref": "Thing.json"}],
+	"definitions": {
+		"annualTemperature": {
+			"title": "annual temperature &amp;&#35;40;K&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"areaCode": {
+			"title": "area code",
+			"description": "Area code for telephone numbers. Use this not phonePrefix",
+			"type": "string"
+		},
+		"areaDate": {
+			"title": "area date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"areaLand": {
+			"title": "area land &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"areaOfCatchmentQuote": {
+			"title": "area of catchment quote",
+			"description": "",
+			"type": "string"
+		},
+		"areaQuote": {
+			"title": "area quote",
+			"description": "",
+			"type": "string"
+		},
+		"areaRank": {
+			"title": "area rank",
+			"description": "",
+			"type": "string"
+		},
+		"areaTotal": {
+			"title": "area total &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"areaWater": {
+			"title": "area water &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"artificialSnowArea": {
+			"title": "artificial snow area",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"authorityMandate": {
+			"title": "authority mandate",
+			"description": "",
+			"type": "string"
+		},
+		"averageDepth": {
+			"title": "average depth &amp;&#35;40;μ&#41;",
+			"description": "Source of the value can be declare by .",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"averageDepthQuote": {
+			"title": "average depth quote",
+			"description": "Source of the  value.",
+			"type": "string"
+		},
+		"avifaunaPopulation": {
+			"title": "avifauna population",
+			"description": "",
+			"type": "string"
+		},
+		"bioclimate": {
+			"title": "bioclimate",
+			"description": "",
+			"type": "string"
+		},
+		"blackLongDistancePisteNumber": {
+			"title": "long distance piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"blackSkiPisteNumber": {
+			"title": "black ski piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"blueLongDistancePisteNumber": {
+			"title": "blue long distance piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"blueSkiPisteNumber": {
+			"title": "blue ski piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"budgetYear": {
+			"title": "budget year",
+			"description": "",
+			"type": "string"
+		},
+		"cableCar": {
+			"title": "cable car",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"cannonNumber": {
+			"title": "cannon number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"capitalCoordinates": {
+			"title": "capital coordinates",
+			"description": "",
+			"type": "string"
+		},
+		"cityLink": {
+			"title": "city link",
+			"description": "",
+			"type": "string"
+		},
+		"climate": {
+			"title": "climate",
+			"description": "",
+			"anyOf": []
+		},
+		"climbUpNumber": {
+			"title": "clip up number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"coastLength": {
+			"title": "length of a coast",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"codeMunicipalMonument": {
+			"title": "monument code &amp;&#35;40;municipal&#41;",
+			"description": "Code assigned to &amp;&#35;40;Dutch&#41; monuments at the municipal level, deemed to be of local value",
+			"type": "string"
+		},
+		"codeNationalMonument": {
+			"title": "monument code &amp;&#35;40;national&#41;",
+			"description": "Code assigned to &amp;&#35;40;Dutch&#41; monuments at the national level, deemed to be of national value",
+			"type": "string"
+		},
+		"codeProvincialMonument": {
+			"title": "monument code &amp;&#35;40;provinciall&#41;",
+			"description": "Code assigned to &amp;&#35;40;Dutch&#41; monuments at the provincial level, mostly for monuments in the countryside, or for waterworks",
+			"type": "string"
+		},
+		"countryCode": {
+			"title": "country code",
+			"description": "Country code for telephone numbers.",
+			"type": "string"
+		},
+		"currencyCode": {
+			"title": "currency code",
+			"description": "ISO 4217 currency designators.",
+			"type": "string"
+		},
+		"dateAgreement": {
+			"title": "date of an agreement",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"daylightSavingTimeZone": {
+			"title": "daylight saving time zone",
+			"description": "",
+			"anyOf": []
+		},
+		"depth": {
+			"title": "depth &amp;&#35;40;μ&#41;",
+			"description": "Is a measure of the distance between a reference height and a point underneath. The exact meaning for a place is unclear. If possible, use  or  to be unambiguous.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"depthQuote": {
+			"title": "depth quote",
+			"description": "",
+			"type": "string"
+		},
+		"different": {
+			"title": "different",
+			"description": "",
+			"type": "string"
+		},
+		"elevation": {
+			"title": "elevation &amp;&#35;40;μ&#41;",
+			"description": "average elevation above the sea level",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"elevationQuote": {
+			"title": "elevation quote",
+			"description": "",
+			"type": "string"
+		},
+		"endangeredSince": {
+			"title": "endangered since",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"eventDate": {
+			"title": "event date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"fauna": {
+			"title": "fauna",
+			"description": "",
+			"type": "string"
+		},
+		"flora": {
+			"title": "flora",
+			"description": "",
+			"type": "string"
+		},
+		"foresterDistrict": {
+			"title": "foresterDistrict",
+			"description": "",
+			"anyOf": []
+		},
+		"frontierLength": {
+			"title": "length of a frontier",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"geolocDual": {
+			"title": "geolocdual",
+			"description": "",
+			"type": "string"
+		},
+		"geologicPeriod": {
+			"title": "geologic period",
+			"description": "",
+			"type": "string"
+		},
+		"greenLongDistancePisteNumber": {
+			"title": "green long distance piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"greenSkiPisteNumber": {
+			"title": "green ski piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"gridReference": {
+			"title": "grid reference",
+			"description": "",
+			"type": "string"
+		},
+		"grossDomesticProductPerPeople": {
+			"title": "gross domestic product per people",
+			"description": "",
+			"type": "string"
+		},
+		"grossDomesticProductRank": {
+			"title": "gross domestic product rank",
+			"description": "",
+			"type": "string"
+		},
+		"heritageRegister": {
+			"title": "heritage register",
+			"description": "registered in a heritage register : inventory of cultural properties, natural and man-made, tangible and intangible, movable and immovable, that are deemed to be of sufficient heritage value to be separately identified and recorded.",
+			"anyOf": []
+		},
+		"historicalMap": {
+			"title": "historical map",
+			"description": "",
+			"type": "string"
+		},
+		"humanDevelopmentIndexRank": {
+			"title": "human development index rank",
+			"description": "",
+			"type": "string"
+		},
+		"information": {
+			"title": "information",
+			"description": "",
+			"type": "string"
+		},
+		"informationName": {
+			"title": "information name",
+			"description": "",
+			"type": "string"
+		},
+		"iso31661Code": {
+			"title": "ISO 3166-1 code",
+			"description": "defines codes for the names of countries, dependent territories, and special areas of geographical interest",
+			"type": "string"
+		},
+		"isoCode": {
+			"title": "iso code of a place",
+			"description": "",
+			"type": "string"
+		},
+		"kindOfCoordinate": {
+			"title": "kind of coordinate",
+			"description": "",
+			"type": "string"
+		},
+		"kindOfRock": {
+			"title": "kind of rock",
+			"description": "",
+			"type": "string"
+		},
+		"landArea": {
+			"title": "area of a land &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"landPercentage": {
+			"title": "land percentage of a place",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"lawCountry": {
+			"title": "law country",
+			"description": "",
+			"type": "string"
+		},
+		"lengthQuote": {
+			"title": "length quote",
+			"description": "",
+			"type": "string"
+		},
+		"limit": {
+			"title": "limit",
+			"description": "",
+			"type": "string"
+		},
+		"linkedSpace": {
+			"title": "linked space",
+			"description": "",
+			"type": "string"
+		},
+		"longDistancePisteKilometre": {
+			"title": "long distance piste kilometre &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"longDistancePisteNumber": {
+			"title": "long distance piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"lowest": {
+			"title": "lowest",
+			"description": "",
+			"type": "string"
+		},
+		"map": {
+			"title": "map",
+			"description": "A map of the place.",
+			"anyOf": []
+		},
+		"mapCaption": {
+			"title": "map caption",
+			"description": "",
+			"type": "string"
+		},
+		"mapDescription": {
+			"title": "map description",
+			"description": "",
+			"type": "string"
+		},
+		"maximumArea": {
+			"title": "maximum area",
+			"description": "",
+			"type": "string"
+		},
+		"maximumAreaQuote": {
+			"title": "maximum area quote",
+			"description": "",
+			"type": "string"
+		},
+		"maximumDepth": {
+			"title": "maximum depth &amp;&#35;40;μ&#41;",
+			"description": "Source of the value can be declare by .",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"maximumDepthQuote": {
+			"title": "maximum depth quote",
+			"description": "Source of the  value.",
+			"type": "string"
+		},
+		"maximumElevation": {
+			"title": "maximum elevation &amp;&#35;40;μ&#41;",
+			"description": "maximum elevation above the sea level",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"mayorArticle": {
+			"title": "mayor article",
+			"description": "",
+			"type": "string"
+		},
+		"mergerDate": {
+			"title": "merger date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"minimumArea": {
+			"title": "minimum area",
+			"description": "",
+			"type": "string"
+		},
+		"minimumAreaQuote": {
+			"title": "minimum area quote",
+			"description": "",
+			"type": "string"
+		},
+		"minimumElevation": {
+			"title": "minimum elevation &amp;&#35;40;μ&#41;",
+			"description": "minimum elevation above the sea level",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"municipalityCode": {
+			"title": "municipality code",
+			"description": "",
+			"type": "string"
+		},
+		"nationalTopographicSystemMapNumber": {
+			"title": "National Topographic System map number",
+			"description": "",
+			"type": "string"
+		},
+		"neighbourRegion": {
+			"title": "neighbour region",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfIsland": {
+			"title": "number of islands",
+			"description": "",
+			"type": "string"
+		},
+		"nutsCode": {
+			"title": "NUTS code",
+			"description": "Nomenclature of Territorial Units for Statistics &amp;&#35;40;NUTS&#41; is a geocode  standard for referencing the subdivisions of countries  for statistical purposes. The standard is developed and regulated by the European Union, and thus only covers the member states of the EU in detail.",
+			"type": "string"
+		},
+		"output": {
+			"title": "output",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"parliamentType": {
+			"title": "parliament type",
+			"description": "",
+			"type": "string"
+		},
+		"perimeter": {
+			"title": "perimeter &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"pisciculturalPopulation": {
+			"title": "piscicultural population",
+			"description": "",
+			"type": "string"
+		},
+		"populationQuote": {
+			"title": "population quote",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"presidentGeneralCouncilMandate": {
+			"title": "mandate of the president of the general council",
+			"description": "",
+			"type": "string"
+		},
+		"presidentRegionalCouncilMandate": {
+			"title": "mandate of the president council of the regional council",
+			"description": "",
+			"type": "string"
+		},
+		"protectionStatus": {
+			"title": "monument protection status",
+			"description": "The sort of status that is granted to a protected Building or Monument. This is not about being protected or not, this is about the nature of the protection regime. E.g., in the Netherlands the protection status &apos;rijksmonument' points to more elaborate protection than other statuses.",
+			"type": "string"
+		},
+		"quote": {
+			"title": "quote",
+			"description": "",
+			"type": "string"
+		},
+		"rankAgreement": {
+			"title": "rank of an agreement",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"redLongDistancePisteNumber": {
+			"title": "red long distance piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"redSkiPisteNumber": {
+			"title": "red ski piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"refcul": {
+			"title": "reference for cultural data",
+			"description": "",
+			"type": "string"
+		},
+		"refgen": {
+			"title": "reference for general data",
+			"description": "",
+			"type": "string"
+		},
+		"refgeo": {
+			"title": "reference for geographic data",
+			"description": "",
+			"type": "string"
+		},
+		"refpol": {
+			"title": "reference for politic data",
+			"description": "",
+			"type": "string"
+		},
+		"regionLink": {
+			"title": "region link",
+			"description": "",
+			"type": "string"
+		},
+		"regionType": {
+			"title": "region type",
+			"description": "",
+			"type": "string"
+		},
+		"regionalPrefecture": {
+			"title": "regional prefecture",
+			"description": "",
+			"type": "string"
+		},
+		"relief": {
+			"title": "relief",
+			"description": "",
+			"type": "string"
+		},
+		"representative": {
+			"title": "number of representatives",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"retentionTime": {
+			"title": "relation time",
+			"description": "",
+			"type": "string"
+		},
+		"route": {
+			"title": "route",
+			"description": "",
+			"type": "string"
+		},
+		"scale": {
+			"title": "scale",
+			"description": "",
+			"type": "string"
+		},
+		"skiLift": {
+			"title": "ski lift",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"skiPisteKilometre": {
+			"title": "ski piste kilometre &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"skiPisteNumber": {
+			"title": "ski piste number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"skiTow": {
+			"title": "ski tow",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"snowParkNumber": {
+			"title": "snow park number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"statusYear": {
+			"title": "status year",
+			"description": "",
+			"type": "string"
+		},
+		"subPrefecture": {
+			"title": "subprefecture",
+			"description": "",
+			"type": "string"
+		},
+		"subdivisionLink": {
+			"title": "subdivision link",
+			"description": "",
+			"type": "string"
+		},
+		"subsystem": {
+			"title": "subsystem",
+			"description": "",
+			"type": "string"
+		},
+		"subsystemLink": {
+			"title": "subsystem link",
+			"description": "",
+			"type": "string"
+		},
+		"timeZone": {
+			"title": "time zone",
+			"description": "",
+			"anyOf": []
+		},
+		"tu": {
+			"title": "tu",
+			"description": "",
+			"type": "string"
+		},
+		"typeCoordinate": {
+			"title": "type coordinate",
+			"description": "Scale parameters that can be understood by Geohack, eg&quot;type:&quot;,&quot;scale:&quot;,&quot;region:&quot;&quot;altitude:&quot;. Use&quot;_&quot;for several &amp;&#35;40;eg&quot;type:landmark_scale:50000&quot;&amp;&#35;41;. See https://fr.wikipedia.org/wiki/Modèle:Infobox_Subdivision_administrative for examples, and https://fr.wikipedia.org/wiki/Modèle:GeoTemplate/Utilisation#La_mention_Type:... for a complete list",
+			"type": "string"
+		},
+		"unloCode": {
+			"title": "UN/LOCODE",
+			"description": "UN/LOCODE, the United Nations Code for Trade and Transport Locations, is a geographic coding scheme developed and maintained by United Nations Economic Commission for Europe &amp;&#35;40;UNECE&#41;, a unit of the United Nations. UN/LOCODE assigns codes to locations used in trade and transport  with functions such as seaports, rail and road terminals, airports, post offices and border crossing points.",
+			"type": "string"
+		},
+		"utcOffset": {
+			"title": "UTC offset",
+			"description": "",
+			"type": "string"
+		},
+		"vehicleCode": {
+			"title": "vehicle code",
+			"description": "Region related vehicle code on the vehicle plates.",
+			"type": "string"
+		},
+		"volumeQuote": {
+			"title": "volume quote",
+			"description": "",
+			"type": "string"
+		},
+		"water": {
+			"title": "water",
+			"description": "",
+			"type": "string"
+		},
+		"waterArea": {
+			"title": "area of water &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"waterPercentage": {
+			"title": "water percentage of a place",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"widthQuote": {
+			"title": "width quote",
+			"description": "",
+			"type": "string"
+		},
+		"yearOfConstruction": {
+			"title": "year of construction",
+			"description": "The year in which construction of the Place was finished.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		}
+	},
+	"description": "Immobile things or locations.",
+	"format": "http://dbpedia.org/ontology/Place",
+	"id": "Place.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Place"},
+	"properties": {
+		"address": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"altitude": {
+			"oneOf": [
+				{"$ref": "Altitude.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Altitude.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"annualTemperature": {
+			"oneOf": [
+				{"$ref": "#/definitions/annualTemperature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/annualTemperature"}
+				}
+			]
+		},
+		"areaCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaCode"}
+				}
+			]
+		},
+		"areaDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaDate"}
+				}
+			]
+		},
+		"areaLand": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaLand"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaLand"}
+				}
+			]
+		},
+		"areaOfCatchmentQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaOfCatchmentQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaOfCatchmentQuote"}
+				}
+			]
+		},
+		"areaQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaQuote"}
+				}
+			]
+		},
+		"areaRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaRank"}
+				}
+			]
+		},
+		"areaTotal": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaTotal"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaTotal"}
+				}
+			]
+		},
+		"areaWater": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaWater"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaWater"}
+				}
+			]
+		},
+		"artificialSnowArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/artificialSnowArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/artificialSnowArea"}
+				}
+			]
+		},
+		"authorityMandate": {
+			"oneOf": [
+				{"$ref": "#/definitions/authorityMandate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/authorityMandate"}
+				}
+			]
+		},
+		"averageDepth": {
+			"oneOf": [
+				{"$ref": "#/definitions/averageDepth"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/averageDepth"}
+				}
+			]
+		},
+		"averageDepthQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/averageDepthQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/averageDepthQuote"}
+				}
+			]
+		},
+		"avifaunaPopulation": {
+			"oneOf": [
+				{"$ref": "#/definitions/avifaunaPopulation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/avifaunaPopulation"}
+				}
+			]
+		},
+		"biggestCity": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"bioclimate": {
+			"oneOf": [
+				{"$ref": "#/definitions/bioclimate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bioclimate"}
+				}
+			]
+		},
+		"bird": {
+			"oneOf": [
+				{"$ref": "Species.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Species.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"blackLongDistancePisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/blackLongDistancePisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/blackLongDistancePisteNumber"}
+				}
+			]
+		},
+		"blackSkiPisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/blackSkiPisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/blackSkiPisteNumber"}
+				}
+			]
+		},
+		"blueLongDistancePisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/blueLongDistancePisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/blueLongDistancePisteNumber"}
+				}
+			]
+		},
+		"blueSkiPisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/blueSkiPisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/blueSkiPisteNumber"}
+				}
+			]
+		},
+		"budgetYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/budgetYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/budgetYear"}
+				}
+			]
+		},
+		"cableCar": {
+			"oneOf": [
+				{"$ref": "#/definitions/cableCar"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cableCar"}
+				}
+			]
+		},
+		"cannonNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/cannonNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cannonNumber"}
+				}
+			]
+		},
+		"capitalCoordinates": {
+			"oneOf": [
+				{"$ref": "#/definitions/capitalCoordinates"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/capitalCoordinates"}
+				}
+			]
+		},
+		"cityLink": {
+			"oneOf": [
+				{"$ref": "#/definitions/cityLink"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cityLink"}
+				}
+			]
+		},
+		"climate": {
+			"oneOf": [
+				{"$ref": "#/definitions/climate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/climate"}
+				}
+			]
+		},
+		"climbUpNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/climbUpNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/climbUpNumber"}
+				}
+			]
+		},
+		"closeTo": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coastLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/coastLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coastLength"}
+				}
+			]
+		},
+		"codeMunicipalMonument": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeMunicipalMonument"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeMunicipalMonument"}
+				}
+			]
+		},
+		"codeNationalMonument": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeNationalMonument"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeNationalMonument"}
+				}
+			]
+		},
+		"codeProvincialMonument": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeProvincialMonument"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeProvincialMonument"}
+				}
+			]
+		},
+		"countryCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/countryCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/countryCode"}
+				}
+			]
+		},
+		"currencyCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/currencyCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/currencyCode"}
+				}
+			]
+		},
+		"dateAgreement": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateAgreement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateAgreement"}
+				}
+			]
+		},
+		"daylightSavingTimeZone": {
+			"oneOf": [
+				{"$ref": "#/definitions/daylightSavingTimeZone"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/daylightSavingTimeZone"}
+				}
+			]
+		},
+		"depth": {
+			"oneOf": [
+				{"$ref": "#/definitions/depth"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/depth"}
+				}
+			]
+		},
+		"depthQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/depthQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/depthQuote"}
+				}
+			]
+		},
+		"depths": {
+			"oneOf": [
+				{"$ref": "Depth.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Depth.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"different": {
+			"oneOf": [
+				{"$ref": "#/definitions/different"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/different"}
+				}
+			]
+		},
+		"district": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"eastPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"elevation": {
+			"oneOf": [
+				{"$ref": "#/definitions/elevation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elevation"}
+				}
+			]
+		},
+		"elevationQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/elevationQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elevationQuote"}
+				}
+			]
+		},
+		"endPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"endangeredSince": {
+			"oneOf": [
+				{"$ref": "#/definitions/endangeredSince"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/endangeredSince"}
+				}
+			]
+		},
+		"eventDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/eventDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eventDate"}
+				}
+			]
+		},
+		"fauna": {
+			"oneOf": [
+				{"$ref": "#/definitions/fauna"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fauna"}
+				}
+			]
+		},
+		"flora": {
+			"oneOf": [
+				{"$ref": "#/definitions/flora"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/flora"}
+				}
+			]
+		},
+		"flower": {
+			"oneOf": [
+				{"$ref": "Species.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Species.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"foresterDistrict": {
+			"oneOf": [
+				{"$ref": "#/definitions/foresterDistrict"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/foresterDistrict"}
+				}
+			]
+		},
+		"frontierLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/frontierLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/frontierLength"}
+				}
+			]
+		},
+		"geolocDual": {
+			"oneOf": [
+				{"$ref": "#/definitions/geolocDual"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/geolocDual"}
+				}
+			]
+		},
+		"geologicPeriod": {
+			"oneOf": [
+				{"$ref": "#/definitions/geologicPeriod"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/geologicPeriod"}
+				}
+			]
+		},
+		"governingBody": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"greenLongDistancePisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/greenLongDistancePisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/greenLongDistancePisteNumber"}
+				}
+			]
+		},
+		"greenSkiPisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/greenSkiPisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/greenSkiPisteNumber"}
+				}
+			]
+		},
+		"gridReference": {
+			"oneOf": [
+				{"$ref": "#/definitions/gridReference"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gridReference"}
+				}
+			]
+		},
+		"grossDomesticProductPerPeople": {
+			"oneOf": [
+				{"$ref": "#/definitions/grossDomesticProductPerPeople"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grossDomesticProductPerPeople"}
+				}
+			]
+		},
+		"grossDomesticProductRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/grossDomesticProductRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grossDomesticProductRank"}
+				}
+			]
+		},
+		"hasInsidePlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"hasOutsidePlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"heritageRegister": {
+			"oneOf": [
+				{"$ref": "#/definitions/heritageRegister"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/heritageRegister"}
+				}
+			]
+		},
+		"highestAltitude": {
+			"oneOf": [
+				{"$ref": "Altitude.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Altitude.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"historicalMap": {
+			"oneOf": [
+				{"$ref": "#/definitions/historicalMap"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/historicalMap"}
+				}
+			]
+		},
+		"historicalName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"humanDevelopmentIndexRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/humanDevelopmentIndexRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/humanDevelopmentIndexRank"}
+				}
+			]
+		},
+		"information": {
+			"oneOf": [
+				{"$ref": "#/definitions/information"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/information"}
+				}
+			]
+		},
+		"informationName": {
+			"oneOf": [
+				{"$ref": "#/definitions/informationName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/informationName"}
+				}
+			]
+		},
+		"isRouteStop": {
+			"oneOf": [
+				{"$ref": "RouteStop.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "RouteStop.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"iso31661Code": {
+			"oneOf": [
+				{"$ref": "#/definitions/iso31661Code"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iso31661Code"}
+				}
+			]
+		},
+		"isoCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/isoCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isoCode"}
+				}
+			]
+		},
+		"kindOfCoordinate": {
+			"oneOf": [
+				{"$ref": "#/definitions/kindOfCoordinate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/kindOfCoordinate"}
+				}
+			]
+		},
+		"kindOfRock": {
+			"oneOf": [
+				{"$ref": "#/definitions/kindOfRock"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/kindOfRock"}
+				}
+			]
+		},
+		"lake": {
+			"oneOf": [
+				{"$ref": "BodyOfWater.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "BodyOfWater.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"land": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"landArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/landArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landArea"}
+				}
+			]
+		},
+		"landPercentage": {
+			"oneOf": [
+				{"$ref": "#/definitions/landPercentage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landPercentage"}
+				}
+			]
+		},
+		"lawCountry": {
+			"oneOf": [
+				{"$ref": "#/definitions/lawCountry"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lawCountry"}
+				}
+			]
+		},
+		"lengthQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/lengthQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lengthQuote"}
+				}
+			]
+		},
+		"limit": {
+			"oneOf": [
+				{"$ref": "#/definitions/limit"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/limit"}
+				}
+			]
+		},
+		"linkedSpace": {
+			"oneOf": [
+				{"$ref": "#/definitions/linkedSpace"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/linkedSpace"}
+				}
+			]
+		},
+		"locatedInArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"longDistancePisteKilometre": {
+			"oneOf": [
+				{"$ref": "#/definitions/longDistancePisteKilometre"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/longDistancePisteKilometre"}
+				}
+			]
+		},
+		"longDistancePisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/longDistancePisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/longDistancePisteNumber"}
+				}
+			]
+		},
+		"lowest": {
+			"oneOf": [
+				{"$ref": "#/definitions/lowest"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lowest"}
+				}
+			]
+		},
+		"lowestAltitude": {
+			"oneOf": [
+				{"$ref": "Altitude.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Altitude.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lowestMountain": {
+			"oneOf": [
+				{"$ref": "Mountain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Mountain.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lowestPlace": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lowestPosition": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mainIsland": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"map": {
+			"oneOf": [
+				{"$ref": "#/definitions/map"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/map"}
+				}
+			]
+		},
+		"mapCaption": {
+			"oneOf": [
+				{"$ref": "#/definitions/mapCaption"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mapCaption"}
+				}
+			]
+		},
+		"mapDescription": {
+			"oneOf": [
+				{"$ref": "#/definitions/mapDescription"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mapDescription"}
+				}
+			]
+		},
+		"maximumArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumArea"}
+				}
+			]
+		},
+		"maximumAreaQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumAreaQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumAreaQuote"}
+				}
+			]
+		},
+		"maximumDepth": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumDepth"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumDepth"}
+				}
+			]
+		},
+		"maximumDepthQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumDepthQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumDepthQuote"}
+				}
+			]
+		},
+		"maximumElevation": {
+			"oneOf": [
+				{"$ref": "#/definitions/maximumElevation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maximumElevation"}
+				}
+			]
+		},
+		"mayorArticle": {
+			"oneOf": [
+				{"$ref": "#/definitions/mayorArticle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mayorArticle"}
+				}
+			]
+		},
+		"mergerDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/mergerDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mergerDate"}
+				}
+			]
+		},
+		"minimumArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/minimumArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/minimumArea"}
+				}
+			]
+		},
+		"minimumAreaQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/minimumAreaQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/minimumAreaQuote"}
+				}
+			]
+		},
+		"minimumElevation": {
+			"oneOf": [
+				{"$ref": "#/definitions/minimumElevation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/minimumElevation"}
+				}
+			]
+		},
+		"municipalityCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/municipalityCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/municipalityCode"}
+				}
+			]
+		},
+		"namedByLanguage": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nationalTopographicSystemMapNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalTopographicSystemMapNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalTopographicSystemMapNumber"}
+				}
+			]
+		},
+		"nearestCity": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"neighbourRegion": {
+			"oneOf": [
+				{"$ref": "#/definitions/neighbourRegion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/neighbourRegion"}
+				}
+			]
+		},
+		"nextEntity": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"northEastPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"northPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"northWestPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfIsland": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfIsland"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfIsland"}
+				}
+			]
+		},
+		"nutsCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/nutsCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nutsCode"}
+				}
+			]
+		},
+		"output": {
+			"oneOf": [
+				{"$ref": "#/definitions/output"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/output"}
+				}
+			]
+		},
+		"parliamentType": {
+			"oneOf": [
+				{"$ref": "#/definitions/parliamentType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/parliamentType"}
+				}
+			]
+		},
+		"perimeter": {
+			"oneOf": [
+				{"$ref": "#/definitions/perimeter"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/perimeter"}
+				}
+			]
+		},
+		"pisciculturalPopulation": {
+			"oneOf": [
+				{"$ref": "#/definitions/pisciculturalPopulation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/pisciculturalPopulation"}
+				}
+			]
+		},
+		"plant": {
+			"oneOf": [
+				{"$ref": "Plant.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Plant.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"politicalLeader": {
+			"oneOf": [
+				{"$ref": "PersonFunction.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PersonFunction.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"populationQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/populationQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/populationQuote"}
+				}
+			]
+		},
+		"presidentGeneralCouncilMandate": {
+			"oneOf": [
+				{"$ref": "#/definitions/presidentGeneralCouncilMandate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/presidentGeneralCouncilMandate"}
+				}
+			]
+		},
+		"presidentRegionalCouncilMandate": {
+			"oneOf": [
+				{"$ref": "#/definitions/presidentRegionalCouncilMandate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/presidentRegionalCouncilMandate"}
+				}
+			]
+		},
+		"previousEntity": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"protectionStatus": {
+			"oneOf": [
+				{"$ref": "#/definitions/protectionStatus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/protectionStatus"}
+				}
+			]
+		},
+		"province": {
+			"oneOf": [
+				{"$ref": "Province.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Province.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"provinceLink": {
+			"oneOf": [
+				{"$ref": "Province.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Province.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"quote": {
+			"oneOf": [
+				{"$ref": "#/definitions/quote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/quote"}
+				}
+			]
+		},
+		"rankAgreement": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankAgreement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankAgreement"}
+				}
+			]
+		},
+		"redLongDistancePisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/redLongDistancePisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/redLongDistancePisteNumber"}
+				}
+			]
+		},
+		"redSkiPisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/redSkiPisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/redSkiPisteNumber"}
+				}
+			]
+		},
+		"refcul": {
+			"oneOf": [
+				{"$ref": "#/definitions/refcul"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refcul"}
+				}
+			]
+		},
+		"refgen": {
+			"oneOf": [
+				{"$ref": "#/definitions/refgen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refgen"}
+				}
+			]
+		},
+		"refgeo": {
+			"oneOf": [
+				{"$ref": "#/definitions/refgeo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refgeo"}
+				}
+			]
+		},
+		"refpol": {
+			"oneOf": [
+				{"$ref": "#/definitions/refpol"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/refpol"}
+				}
+			]
+		},
+		"regency": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"regionLink": {
+			"oneOf": [
+				{"$ref": "#/definitions/regionLink"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/regionLink"}
+				}
+			]
+		},
+		"regionType": {
+			"oneOf": [
+				{"$ref": "#/definitions/regionType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/regionType"}
+				}
+			]
+		},
+		"regionalPrefecture": {
+			"oneOf": [
+				{"$ref": "#/definitions/regionalPrefecture"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/regionalPrefecture"}
+				}
+			]
+		},
+		"relatedPlaces": {
+			"oneOf": [
+				{"$ref": "List.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "List.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"relief": {
+			"oneOf": [
+				{"$ref": "#/definitions/relief"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/relief"}
+				}
+			]
+		},
+		"representative": {
+			"oneOf": [
+				{"$ref": "#/definitions/representative"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/representative"}
+				}
+			]
+		},
+		"retentionTime": {
+			"oneOf": [
+				{"$ref": "#/definitions/retentionTime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/retentionTime"}
+				}
+			]
+		},
+		"river": {
+			"oneOf": [
+				{"$ref": "River.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "River.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"route": {
+			"oneOf": [
+				{"$ref": "#/definitions/route"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/route"}
+				}
+			]
+		},
+		"scale": {
+			"oneOf": [
+				{"$ref": "#/definitions/scale"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/scale"}
+				}
+			]
+		},
+		"sea": {
+			"oneOf": [
+				{"$ref": "Sea.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Sea.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"settlement": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"skiLift": {
+			"oneOf": [
+				{"$ref": "#/definitions/skiLift"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/skiLift"}
+				}
+			]
+		},
+		"skiPisteKilometre": {
+			"oneOf": [
+				{"$ref": "#/definitions/skiPisteKilometre"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/skiPisteKilometre"}
+				}
+			]
+		},
+		"skiPisteNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/skiPisteNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/skiPisteNumber"}
+				}
+			]
+		},
+		"skiTow": {
+			"oneOf": [
+				{"$ref": "#/definitions/skiTow"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/skiTow"}
+				}
+			]
+		},
+		"snowParkNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/snowParkNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/snowParkNumber"}
+				}
+			]
+		},
+		"southEastPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"southPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"southWestPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sovereignCountry": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"startPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"statusYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/statusYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/statusYear"}
+				}
+			]
+		},
+		"subPrefecture": {
+			"oneOf": [
+				{"$ref": "#/definitions/subPrefecture"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subPrefecture"}
+				}
+			]
+		},
+		"subdivisionLink": {
+			"oneOf": [
+				{"$ref": "#/definitions/subdivisionLink"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subdivisionLink"}
+				}
+			]
+		},
+		"subregion": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subsystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/subsystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subsystem"}
+				}
+			]
+		},
+		"subsystemLink": {
+			"oneOf": [
+				{"$ref": "#/definitions/subsystemLink"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subsystemLink"}
+				}
+			]
+		},
+		"supply": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"timeZone": {
+			"oneOf": [
+				{"$ref": "#/definitions/timeZone"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/timeZone"}
+				}
+			]
+		},
+		"tree": {
+			"oneOf": [
+				{"$ref": "Species.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Species.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tu": {
+			"oneOf": [
+				{"$ref": "#/definitions/tu"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tu"}
+				}
+			]
+		},
+		"typeCoordinate": {
+			"oneOf": [
+				{"$ref": "#/definitions/typeCoordinate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/typeCoordinate"}
+				}
+			]
+		},
+		"unesco": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"unloCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/unloCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/unloCode"}
+				}
+			]
+		},
+		"utcOffset": {
+			"oneOf": [
+				{"$ref": "#/definitions/utcOffset"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/utcOffset"}
+				}
+			]
+		},
+		"vehicleCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/vehicleCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/vehicleCode"}
+				}
+			]
+		},
+		"volumeQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/volumeQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/volumeQuote"}
+				}
+			]
+		},
+		"water": {
+			"oneOf": [
+				{"$ref": "#/definitions/water"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/water"}
+				}
+			]
+		},
+		"waterArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/waterArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/waterArea"}
+				}
+			]
+		},
+		"waterPercentage": {
+			"oneOf": [
+				{"$ref": "#/definitions/waterPercentage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/waterPercentage"}
+				}
+			]
+		},
+		"westPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"wholeArea": {
+			"oneOf": [
+				{"$ref": "Area.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Area.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"widthQuote": {
+			"oneOf": [
+				{"$ref": "#/definitions/widthQuote"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/widthQuote"}
+				}
+			]
+		},
+		"yearOfConstruction": {
+			"oneOf": [
+				{"$ref": "#/definitions/yearOfConstruction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/yearOfConstruction"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "place",
+	"translations": {
+		"title": {
+			"ar": "مكان",
+			"ca": "lloc",
+			"da": "sted",
+			"de": "Ort",
+			"el": "περιοχή",
+			"es": "lugar",
+			"eu": "lekua",
+			"fr": "lieu",
+			"ga": "áit",
+			"ja": "立地",
+			"nl": "plaats",
+			"pl": "miejsce",
+			"pt": "lugar"
+		},
+		"description": {"pt": "uma localização"}
+	},
+	"type": "object"
+}

@@ -1,0 +1,55 @@
+{
+	"id": "ComicsCharacter.json",
+	"title": "comics character",
+	"translations": {
+		"title": {
+			"de": "Comic Charakter",
+			"el": "χαρακτήρας κινούμενων σχεδίων",
+			"fr": "personnage de bandes dessinées",
+			"ko": "만화애니 등장인물",
+			"nl": "stripfiguur &amp;&#35;40;Amerikaans&#41;",
+			"pt": "personagem de quadrinhos",
+			"ja": "コミックスのキャラクター"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "FictionalCharacter.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ComicsCharacter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ComicsCharacter"}
+}

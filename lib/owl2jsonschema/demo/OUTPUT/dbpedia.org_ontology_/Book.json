@@ -1,0 +1,61 @@
+{
+	"id": "Book.json",
+	"title": "book",
+	"translations": {
+		"title": {
+			"bn": "বই",
+			"ca": "llibre",
+			"da": "bog",
+			"de": "Buch",
+			"el": "βιβλίο",
+			"fr": "livre",
+			"ga": "leabhar",
+			"it": "libro",
+			"ja": "本",
+			"ko": "책",
+			"nl": "boek",
+			"pl": "książka",
+			"ru": "книга"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Book",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Book"}
+}

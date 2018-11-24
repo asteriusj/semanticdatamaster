@@ -1,0 +1,55 @@
+{
+	"id": "Marriage.json",
+	"title": "marriage",
+	"description": "someone&apos;s marriage as a type of personal event",
+	"translations": {
+		"title": {
+			"de": "Heirat",
+			"el": "γάμος",
+			"fr": "mariage",
+			"ga": "pósadh",
+			"nl": "huwelijk",
+			"ja": "結婚"
+		},
+		"description": {"el": "O γάμος είναι μια κοινωνική, θρησκευτική και νομική σύζευξη ή ένωση δύο ατόμων, διαφορετικού ή σε ορισμένες χώρες κατά τα τελευταία χρόνια και ίδιου φύλου."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "LifeCycleEvent.json"}, {"$ref": "PersonalEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Marriage",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Marriage"}
+}

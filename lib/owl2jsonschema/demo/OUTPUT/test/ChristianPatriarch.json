@@ -1,0 +1,55 @@
+{
+	"id": "ChristianPatriarch.json",
+	"title": "Christian Patriarch",
+	"translations": {
+		"title": {
+			"pl": "patriarcha chrześcijański",
+			"de": "christlicher Patriarch",
+			"el": "χριστιανός πατριάρχης",
+			"fr": "patriarche chrétien",
+			"it": "patriarca cristiano",
+			"ko": "기독교 총대주교",
+			"nl": "christelijk patriarch"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Cleric.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChristianPatriarch",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChristianPatriarch"}
+}

@@ -1,0 +1,100 @@
+{
+  "id": "Person.json",
+  "title": "Person",
+  "format": "http://schema.org/Person",
+  "comment": "A person (alive, dead, undead, or fictional).",
+  "media": {
+    "type": "application/json;profile=http://schema.org/Person"
+  },
+  "allOf": [
+    {
+      "$ref": "Thing.json"
+    }
+  ],
+  "type": "object",
+  "properties": {
+    "additionalName": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/additionalName"
+      }
+    },
+    "birthDate": {
+      "title": "Birth Date",
+      "description": "Date of birth.",
+      "type": "string",
+      "format": "date",
+      "pattern": ""
+    },
+    "familyName": {
+      "id": "txtlastname",
+      "title": "Family Name",
+      "description": "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the Name property.",
+      "type": "string",
+      "maxLength": 16,
+      "size": 13,
+      "required": true,
+      "placeholder": ""
+    },
+    "givenName": {
+      "control": "input",
+      "type": "string",
+      "format": "text",
+      "id": "txtGivenName",
+      "name": "givenName",
+      "title": "First or given name  ",
+      "placeholder": "Fisrst Name goes here  ",
+      "value": "Michael",
+      "x_semantic": "foaf:givenName",
+      "x_contentmap": "employee.person.givenname",
+      "maxLength": 16,
+      "size": 12,
+      "autocomplete": "FALSE",
+      "required": true,
+      "helpMessage": "First name to be used ",
+      "default": "Michael"
+    },
+    "_:b86": {
+      "type": "string",
+      "maxCount": 1,
+      "minCount": 1,
+      "name": "zip code",
+      "x_semantic": "schema:postalCode",
+      "pattern": "^\\d{5}(?:[-\\s]\\d{4})?$"
+    }
+  },
+  "definitions": {
+    "additionalName": {
+      "title": "Additional Name",
+      "description": "An additional name for a Person, can be used for a middle name.",
+      "type": "string"
+    },
+    "array": {
+      "type": "array",
+      "items": {
+        "$ref": "#"
+      }
+    },
+    "birthDate": {
+      "title": "Birth Date",
+      "description": "Date of birth.",
+      "type": "string",
+      "format": "date"
+    },
+    "familyName": {
+      "title": "Family Name",
+      "description": "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the Name property.",
+      "type": "string"
+    },
+    "gender": {
+      "title": "Gender",
+      "description": "Gender of the person.",
+      "type": "string"
+    },
+    "givenName": {
+      "title": "Given Name",
+      "description": "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the Name property.",
+      "type": "string"
+    }
+  }
+}

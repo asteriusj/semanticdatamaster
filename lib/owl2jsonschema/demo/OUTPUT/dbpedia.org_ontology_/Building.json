@@ -1,0 +1,246 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"buildingType": {
+			"title": "buildingType",
+			"description": "Type is too general. We should be able to distinguish types of music from types of architecture",
+			"anyOf": []
+		},
+		"elevatorCount": {
+			"title": "elevator count",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"floorArea": {
+			"title": "floor area &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"floorCount": {
+			"title": "floor count",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"numberOfRooms": {
+			"title": "number of rooms",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"seatingCapacity": {
+			"title": "seating capacity",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"security": {
+			"title": "security",
+			"description": "Safety precautions that are used in the building.",
+			"type": "string"
+		},
+		"space": {
+			"title": "space",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"structuralSystem": {
+			"title": "structural system",
+			"description": "",
+			"anyOf": []
+		},
+		"towerHeight": {
+			"title": "tower height",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"workArea": {
+			"title": "work area &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"description": "Building is defined as a Civil Engineering structure such as a house, worship center, factory etc. that has a foundation, wall, roof etc. that protect human being and their properties from direct harsh effect of weather like rain, wind, sun etc. &amp;&#35;40;http://en.wikipedia.org/wiki/Building&#41;.",
+	"format": "http://dbpedia.org/ontology/Building",
+	"id": "Building.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Building"},
+	"properties": {
+		"Building/floorArea": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareMetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareMetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"buildingType": {
+			"oneOf": [
+				{"$ref": "#/definitions/buildingType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/buildingType"}
+				}
+			]
+		},
+		"elevatorCount": {
+			"oneOf": [
+				{"$ref": "#/definitions/elevatorCount"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elevatorCount"}
+				}
+			]
+		},
+		"floorArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/floorArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/floorArea"}
+				}
+			]
+		},
+		"floorCount": {
+			"oneOf": [
+				{"$ref": "#/definitions/floorCount"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/floorCount"}
+				}
+			]
+		},
+		"numberOfRooms": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfRooms"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfRooms"}
+				}
+			]
+		},
+		"seatingCapacity": {
+			"oneOf": [
+				{"$ref": "#/definitions/seatingCapacity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/seatingCapacity"}
+				}
+			]
+		},
+		"security": {
+			"oneOf": [
+				{"$ref": "#/definitions/security"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/security"}
+				}
+			]
+		},
+		"space": {
+			"oneOf": [
+				{"$ref": "#/definitions/space"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/space"}
+				}
+			]
+		},
+		"structuralSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/structuralSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/structuralSystem"}
+				}
+			]
+		},
+		"towerHeight": {
+			"oneOf": [
+				{"$ref": "#/definitions/towerHeight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/towerHeight"}
+				}
+			]
+		},
+		"workArea": {
+			"oneOf": [
+				{"$ref": "#/definitions/workArea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/workArea"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "building",
+	"translations": {
+		"title": {
+			"da": "bygning",
+			"de": "Gebäude",
+			"el": "κτίριο",
+			"es": "edificio",
+			"fr": "bâtiment",
+			"ga": "foirgneamh",
+			"it": "edificio",
+			"ja": "建築物",
+			"ko": "건축물",
+			"nl": "gebouw",
+			"sl": "stavba"
+		},
+		"description": {"de": "Ein Gebäude, umgangssprachlich auch oft als Haus bezeichnet, ist ein Bauwerk, das Räume umschließt, betreten werden kann und zum Schutz von Menschen, Tieren oder Sachen dient &amp;&#35;40;http://de.wikipedia.org/wiki/Geb%C3%A4ude&#41;."}
+	},
+	"type": "object"
+}

@@ -1,0 +1,58 @@
+{
+	"id": "Chancellor.json",
+	"title": "chancellor",
+	"translations": {
+		"title": {
+			"de": "Kanzler",
+			"el": "καγκελάριος",
+			"fr": "chancelier",
+			"it": "cancelliere",
+			"es": "canciller",
+			"ga": "seansailéir",
+			"ko": "재상",
+			"nl": "kanselier",
+			"pt": "chanceler",
+			"ja": "宰相"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Chancellor",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Chancellor"}
+}

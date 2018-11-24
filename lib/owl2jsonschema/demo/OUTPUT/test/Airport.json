@@ -1,0 +1,180 @@
+{
+	"id": "Airport.json",
+	"title": "airport",
+	"translations": {
+		"title": {
+			"da": "lufthavn",
+			"de": "Flughafen",
+			"el": "αεροδρόμιο",
+			"es": "aeropuerto",
+			"fr": "aéroport",
+			"ga": "aerfort",
+			"gl": "aeroporto",
+			"it": "aeroporto",
+			"ja": "空港",
+			"ko": "공항",
+			"nl": "luchthaven",
+			"pl": "lotnisko",
+			"pt": "aeroporto",
+			"ru": "аэропорт",
+			"zh": "機場"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"faaLocationIdentifier": {
+			"oneOf": [
+				{"$ref": "#/definitions/faaLocationIdentifier"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/faaLocationIdentifier"}
+				}
+			]
+		},
+		"airportUsing": {
+			"oneOf": [
+				{"$ref": "#/definitions/airportUsing"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/airportUsing"}
+				}
+			]
+		},
+		"icaoLocationIdentifier": {
+			"oneOf": [
+				{"$ref": "#/definitions/icaoLocationIdentifier"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/icaoLocationIdentifier"}
+				}
+			]
+		},
+		"runwayDesignation": {
+			"oneOf": [
+				{"$ref": "#/definitions/runwayDesignation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/runwayDesignation"}
+				}
+			]
+		},
+		"runwaySurface": {
+			"oneOf": [
+				{"$ref": "#/definitions/runwaySurface"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/runwaySurface"}
+				}
+			]
+		},
+		"locationIdentifier": {
+			"oneOf": [
+				{"$ref": "#/definitions/locationIdentifier"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/locationIdentifier"}
+				}
+			]
+		},
+		"runwayWidth": {
+			"oneOf": [
+				{"$ref": "#/definitions/runwayWidth"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/runwayWidth"}
+				}
+			]
+		},
+		"runwayLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/runwayLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/runwayLength"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"airportUsing": {
+			"title": "Different usage of an airport",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"faaLocationIdentifier": {
+			"title": "FAA Location Identifier",
+			"description": "",
+			"type": "string"
+		},
+		"icaoLocationIdentifier": {
+			"title": "ICAO Location Identifier",
+			"description": "",
+			"type": "string"
+		},
+		"locationIdentifier": {
+			"title": "Location Identifier",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"runwayDesignation": {
+			"title": "designation of runway",
+			"description": "",
+			"type": "string"
+		},
+		"runwayLength": {
+			"title": "length of runway &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"runwaySurface": {
+			"title": "surface of runway",
+			"description": "",
+			"type": "string"
+		},
+		"runwayWidth": {
+			"title": "width of runway &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Airport",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Airport"}
+}

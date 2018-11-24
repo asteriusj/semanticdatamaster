@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>3D Pyramid Animation with Virtual Trackball Transform</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  	<p>
+		<input id="show-geometry" type="checkbox" onchange="showGeometry(this);">
+		<label for="show-geometry">Show geometry</label>
+	</p>
+	<p>
+		<input id="expand-sides" type="checkbox" onchange="expandSides(this);">
+		<label for="expand-sides">Expand sides</label>
+	</p>
+	<p>
+		<input id="unpack" type="checkbox" onchange="unpack(this);">
+		<label for="unpack">Unpack</label>
+	</p>
+	<p>
+		<input id="reset-position" type="checkbox" onchange="resetPosition(this);">
+		<label for="reset-position">Reset Position</label>
+	</p>
+	<p>
+		<button id="toggle-animation" onclick="toggleAnimation()">Pause Animation</button>
+	</p>
+	<p>
+		<button onclick="showImageInfo()">Show Image Info</button>
+	</p>
+  
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

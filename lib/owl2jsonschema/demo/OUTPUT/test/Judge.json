@@ -1,0 +1,56 @@
+{
+	"id": "Judge.json",
+	"title": "judge",
+	"translations": {
+		"title": {
+			"de": "richter",
+			"el": "δικαστής",
+			"fr": "juge",
+			"it": "giudice",
+			"es": "juez",
+			"ga": "breitheamh",
+			"nl": "rechter",
+			"ja": "裁判官"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Judge",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Judge"}
+}

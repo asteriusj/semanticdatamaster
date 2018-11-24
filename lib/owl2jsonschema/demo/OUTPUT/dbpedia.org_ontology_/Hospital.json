@@ -1,0 +1,77 @@
+{
+	"id": "Hospital.json",
+	"title": "hospital",
+	"translations": {
+		"title": {
+			"de": "Krankenhaus",
+			"el": "νοσοκομείο",
+			"fr": "hôpital",
+			"ga": "ospidéal",
+			"da": "hospital",
+			"ko": "병원",
+			"nl": "ziekenhuis",
+			"pt": "hospital",
+			"ja": "病院"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"bedCount": {
+			"oneOf": [
+				{"$ref": "#/definitions/bedCount"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bedCount"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"bedCount": {
+			"title": "bed count",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Hospital",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Hospital"}
+}

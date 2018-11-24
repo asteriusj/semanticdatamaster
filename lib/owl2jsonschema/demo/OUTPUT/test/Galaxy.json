@@ -1,0 +1,234 @@
+{
+	"id": "Galaxy.json",
+	"title": "galaxy",
+	"translations": {
+		"title": {
+			"de": "Galaxie",
+			"el": "γαλαξίας",
+			"fr": "galaxie",
+			"ga": "réaltra",
+			"da": "galakse",
+			"ko": "은하",
+			"nl": "melkwegstelsel",
+			"pt": "galáxia",
+			"tr": "galaksi",
+			"ja": "銀河"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"Galaxy/apoapsis": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/averageSpeed": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometrePerSecond.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometrePerSecond.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/density": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogramPerCubicMetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogramPerCubicMetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/mass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/maximumTemperature": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/meanRadius": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/meanTemperature": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/minimumTemperature": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/orbitalPeriod": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/day.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/day.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/periapsis": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/surfaceArea": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/temperature": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Galaxy/volume": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"cluster": {
+			"oneOf": [
+				{"$ref": "#/definitions/cluster"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cluster"}
+				}
+			]
+		},
+		"definition": {
+			"oneOf": [
+				{"$ref": "#/definitions/definition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/definition"}
+				}
+			]
+		},
+		"explorer": {
+			"oneOf": [
+				{"$ref": "#/definitions/explorer"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/explorer"}
+				}
+			]
+		},
+		"notableFeatures": {
+			"oneOf": [
+				{"$ref": "#/definitions/notableFeatures"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/notableFeatures"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"notableFeatures": {
+			"title": "notable features",
+			"description": "",
+			"type": "string"
+		},
+		"definition": {
+			"title": "definition",
+			"description": "",
+			"type": "string"
+		},
+		"explorer": {
+			"title": "explorer",
+			"description": "",
+			"anyOf": []
+		},
+		"cluster": {
+			"title": "cluster",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Galaxy",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Galaxy"}
+}

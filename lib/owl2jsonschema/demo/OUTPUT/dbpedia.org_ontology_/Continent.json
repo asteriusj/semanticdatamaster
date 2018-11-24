@@ -1,0 +1,97 @@
+{
+	"id": "Continent.json",
+	"title": "continent",
+	"translations": {
+		"title": {
+			"de": "Kontinent",
+			"el": "ήπειρος",
+			"fr": "continent",
+			"it": "continente",
+			"es": "continente",
+			"ga": "ilchríoch",
+			"ko": "대륙",
+			"nl": "continent",
+			"ja": "大陸"
+		},
+		"description": {
+			"it": "Un continente è una grande area di terra emersa della crosta terrestre, è anzi la più vasta delle ripartizioni con le quali si suddividono le terre emerse.",
+			"es": "Un continente es una gran área de tierra emergida de la costra terrestre."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfCity": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCity"}
+				}
+			]
+		},
+		"numberOfDependency": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfDependency"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfDependency"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfCity": {
+			"title": "number of contries inside en continent",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfDependency": {
+			"title": "number of dependency",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Continent",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Continent"}
+}

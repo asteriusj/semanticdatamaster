@@ -1,0 +1,58 @@
+{
+	"id": "BroadcastNetwork.json",
+	"title": "broadcast network",
+	"description": "A broadcast network is an organization, such as a corporation or other association, that provides live or recorded content, such as movies, newscasts, sports, and public affairs programs for broadcast over a group of radio or television stations. &amp;&#35;40;http://en.wikipedia.org/wiki/Broadcast_network - 28/03/2011&#41;",
+	"translations": {
+		"title": {
+			"pl": "sieć emisyjna",
+			"de": "Sendergruppe",
+			"el": "δίκτυο ραδιοφωνικής μετάδοσης",
+			"fr": "chaîne de télévision généraliste",
+			"it": "emittente",
+			"ga": "líonra craolacháin",
+			"ko": "브로드캐스트 네트워크",
+			"nl": "omroeporganisatie",
+			"ja": "ネットワーク_&amp;&#35;40;放送&#41;"
+		},
+		"description": {"el": "Ένα δίκτυο μετάδοσης είναι μια οργάνωση, όπως μια εταιρεία ή άλλη ένωση, που παρέχει ζωντανό ή μαγνητοσκοπημένο περιεχόμενο, όπως ταινίες, δελτία ειδήσεων, αθλητικά, και τα προγράμματα δημοσίων υποθέσεων για την εκπομπή πάνω από μια ομάδα ραδιοφωνικών ή τηλεοπτικών σταθμών"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Broadcaster.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BroadcastNetwork",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BroadcastNetwork"}
+}

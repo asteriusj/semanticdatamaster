@@ -1,0 +1,57 @@
+{
+	"id": "Arena.json",
+	"title": "arena",
+	"description": "An arena is an enclosed area, often circular or oval-shaped, designed to showcase theater, musical performances, or sporting events. &amp;&#35;40;http://en.wikipedia.org/wiki/Arena&#41;",
+	"translations": {
+		"title": {
+			"de": "stadion",
+			"el": "παλαίστρα",
+			"fr": "aréna",
+			"it": "stadio",
+			"ko": "아레나",
+			"nl": "stadion",
+			"pt": "arena",
+			"ja": "アリーナ"
+		},
+		"description": {"fr": "Une aréna désigne une enceinte pouvant accueillir des spectacles, des concerts ou des événements sportifs.&amp;&#35;40;https://fr.wikipedia.org/wiki/Arena&#41;"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Arena",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Arena"}
+}

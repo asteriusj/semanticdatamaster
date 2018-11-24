@@ -1,0 +1,55 @@
+{
+	"id": "Insect.json",
+	"title": "insect",
+	"translations": {
+		"title": {
+			"de": "Insekt",
+			"el": "έντομο",
+			"fr": "insecte",
+			"es": "insecto",
+			"ga": "feithid",
+			"nl": "insect",
+			"ja": "昆虫"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Animal.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Insect",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Insect"}
+}

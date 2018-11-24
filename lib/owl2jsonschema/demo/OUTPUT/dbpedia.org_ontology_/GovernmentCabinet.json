@@ -1,0 +1,48 @@
+{
+	"id": "GovernmentCabinet.json",
+	"title": "cabinet of ministers",
+	"description": "A cabinet is a body of high-ranking state officials, typically consisting of the top leaders of the executive branch.",
+	"translations": {
+		"title": {"nl": "kabinet &amp;&#35;40;regeringsploeg&#41;"},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "GovernmentAgency.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GovernmentCabinet",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GovernmentCabinet"}
+}

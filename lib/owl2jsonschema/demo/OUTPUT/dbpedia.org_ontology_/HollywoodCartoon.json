@@ -1,0 +1,51 @@
+{
+	"id": "HollywoodCartoon.json",
+	"title": "hollywood cartoon",
+	"translations": {
+		"title": {
+			"nl": "Hollywood cartoon",
+			"el": "κινούμενα σχέδια του Hollywood",
+			"de": "Hollywood Cartoon"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Cartoon.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HollywoodCartoon",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HollywoodCartoon"}
+}

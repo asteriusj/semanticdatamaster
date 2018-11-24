@@ -1,0 +1,56 @@
+{
+	"id": "Ideology.json",
+	"title": "ideology",
+	"description": "for example: Progressivism_in_the_United_States, Classical_liberalism",
+	"translations": {
+		"title": {
+			"de": "Ideologie",
+			"el": "ιδεολογία",
+			"fr": "idéologie",
+			"ga": "idé-eolaíocht",
+			"nl": "ideologie",
+			"pt": "ideologia",
+			"ja": "イデオロギー"
+		},
+		"description": {"el": "για παραδειγμα: Προοδευτισμός στις ΗΠΑ, κλασικός φιλελευθερισμός"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Ideology",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Ideology"}
+}

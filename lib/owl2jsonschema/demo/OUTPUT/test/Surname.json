@@ -1,0 +1,56 @@
+{
+	"id": "Surname.json",
+	"title": "surname",
+	"translations": {
+		"title": {
+			"pl": "nazwisko",
+			"de": "Nachname",
+			"el": "επώνυμο",
+			"fr": "nom de famille",
+			"ga": "sloinne",
+			"ko": "성씨",
+			"nl": "achternaam",
+			"ja": "家"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Name.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Surname",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Surname"}
+}

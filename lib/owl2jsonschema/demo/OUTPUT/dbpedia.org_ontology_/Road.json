@@ -1,0 +1,130 @@
+{
+	"id": "Road.json",
+	"title": "road",
+	"translations": {
+		"title": {
+			"pl": "droga",
+			"de": "Straße",
+			"el": "δρόμος",
+			"fr": "route",
+			"es": "carretera",
+			"ga": "bóthar",
+			"ca": "carretera",
+			"ko": "도로",
+			"nl": "weg",
+			"ja": "道路"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "RouteOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"spurOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ruralMunicipality": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"beltwayCity": {
+			"oneOf": [
+				{"$ref": "City.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "City.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"addressInRoad": {
+			"oneOf": [
+				{"$ref": "#/definitions/addressInRoad"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/addressInRoad"}
+				}
+			]
+		},
+		"highwaySystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/highwaySystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/highwaySystem"}
+				}
+			]
+		},
+		"spurType": {
+			"oneOf": [
+				{"$ref": "#/definitions/spurType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/spurType"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"addressInRoad": {
+			"title": "address in road",
+			"description": "A building, organisation or other thing that is located in the road.",
+			"anyOf": []
+		},
+		"highwaySystem": {
+			"title": "highway system",
+			"description": "the highway system that a route is part of",
+			"anyOf": []
+		},
+		"spurType": {
+			"title": "spur type",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Road",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Road"}
+}

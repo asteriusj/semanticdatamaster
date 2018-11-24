@@ -1,35 +1,1116 @@
 {
   "body": {
-    "@graph": [
-      {
-        "@id": "https://github.com/asteriusj/semanticdatamaster/",
-        "@type": "owl:Ontology",
-        "date": "$Date: 2017-10-07 23:18:26 $",
-        "description": "TEST TEST TEST",
-        "title": "TEST Semantic Data Master (SDM) Ontology",
-        "comment": "\n\n",
-        "label": {
-          "@language": "en",
-          "@value": "TEST Ontology for Semantic Data Model"
-        }
-      },
-      {
-        "key": "Thing",
-        "@id": "sdm:Person",
-        "@type": "owl:Class",
-        "label": "DefaultJSONSchema",
-        "comment": "Base Class for default JSON Schema",
-        "subClassOf": "owl:Thing"
-      },
-      {
-        "key": "txtAddress",
-        "@id": "sdm:txtAddress",
-        "@type": "owl:DatatypeProperty",
-        "rdfs:label": "address",
-        "rdfs:comment": "place.address",
-        "rdfs:doman": "sdm:Person",
-        "rdfs:range": "xsd:string"
-      }
-    ]
+
+
+  "@graph": [
+    {
+      "@id": "schema:Patient",
+      "subClassOf": "schema:Person"
+    },
+    {
+      "@id": "schema:Person",
+      "@type": "rdfs:Class",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews",
+      "comment": "A person (alive, dead, undead, or fictional).",
+      "label": "Person",
+      "subClassOf": "schema:Thing",
+      "equivalentClass": "http://xmlns.com/foaf/0.1/Person"
+    },
+    {
+      "@id": "schema:Thing",
+      "@type": "rdfs:Class",
+      "comment": "The most generic type of item.",
+      "label": "Thing"
+    },
+    {
+      "@id": "schema:accountablePerson",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:acquiredFrom",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:actor",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:actors",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:additionalName",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Text",
+      "comment": "An additional name for a Person, can be used for a middle name.",
+      "label": "additionalName"
+    },
+    {
+      "@id": "schema:additionalType",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:URL",
+      "comment": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+      "label": "additionalType",
+      "subPropertyOf": "rdf:type"
+    },
+    {
+      "@id": "schema:address",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Place",
+        "schema:Person",
+        "schema:GeoCoordinates",
+        "schema:Organization",
+        "schema:GeoShape"
+      ],
+      "rangeIncludes": [
+        "schema:PostalAddress",
+        "schema:Text"
+      ],
+      "comment": "Physical address of the item.",
+      "label": "address"
+    },
+    {
+      "@id": "schema:affiliation",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Organization",
+      "comment": "An organization that this person is affiliated with. For example, a school/university, a club, or a team.",
+      "label": "affiliation",
+      "subPropertyOf": "schema:memberOf"
+    },
+    {
+      "@id": "schema:agent",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:alternateName",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:Text",
+      "comment": "An alias for the item.",
+      "label": "alternateName"
+    },
+    {
+      "@id": "schema:alumni",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:alumniOf",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "inverseOf": "schema:alumni",
+      "rangeIncludes": [
+        "schema:Organization",
+        "schema:EducationalOrganization"
+      ],
+      "comment": "An organization that the person is an alumni of.",
+      "label": "alumniOf"
+    },
+    {
+      "@id": "schema:artist",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:athlete",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:attendee",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:attendees",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:author",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:award",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Service",
+        "schema:Product",
+        "schema:Person",
+        "schema:Organization",
+        "schema:CreativeWork"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "An award won by or for this item.",
+      "label": "award"
+    },
+    {
+      "@id": "schema:awards",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Product",
+        "schema:Person",
+        "schema:Organization",
+        "schema:CreativeWork"
+      ],
+      "rangeIncludes": "schema:Text",
+      "supersededBy": "schema:award",
+      "comment": "Awards won by or for this item.",
+      "label": "awards"
+    },
+    {
+      "@id": "schema:awayTeam",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:bccRecipient",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:birthDate",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Date",
+      "comment": "Date of birth.",
+      "label": "birthDate"
+    },
+    {
+      "@id": "schema:birthPlace",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Place",
+      "comment": "The place where the person was born.",
+      "label": "birthPlace"
+    },
+    {
+      "@id": "schema:bookingAgent",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:borrower",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:brand",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Service",
+        "schema:Product",
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": [
+        "schema:Organization",
+        "schema:Brand"
+      ],
+      "comment": "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.",
+      "label": "brand"
+    },
+    {
+      "@id": "schema:broker",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:buyer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:candidate",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:ccRecipient",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:character",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:children",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "A child of the person.",
+      "label": "children"
+    },
+    {
+      "@id": "schema:coach",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:colleague",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": [
+        "schema:URL",
+        "schema:Person"
+      ],
+      "comment": "A colleague of the person.",
+      "label": "colleague"
+    },
+    {
+      "@id": "schema:colleagues",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "supersededBy": "schema:colleague",
+      "comment": "A colleague of the person.",
+      "label": "colleagues"
+    },
+    {
+      "@id": "schema:colorist",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:competitor",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:composer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:contactPoint",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization",
+        "schema:HealthInsurancePlan"
+      ],
+      "rangeIncludes": "schema:ContactPoint",
+      "comment": "A contact point for a person or organization.",
+      "label": "contactPoint"
+    },
+    {
+      "@id": "schema:contactPoints",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:ContactPoint",
+      "supersededBy": "schema:contactPoint",
+      "comment": "A contact point for a person or organization.",
+      "label": "contactPoints"
+    },
+    {
+      "@id": "schema:contributor",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:copyrightHolder",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:creator",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:creditedTo",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:customer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:deathDate",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Date",
+      "comment": "Date of death.",
+      "label": "deathDate"
+    },
+    {
+      "@id": "schema:deathPlace",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Place",
+      "comment": "The place where the person died.",
+      "label": "deathPlace"
+    },
+    {
+      "@id": "schema:description",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:Text",
+      "comment": "A description of the item.",
+      "label": "description",
+      "equivalentProperty": "dct:description"
+    },
+    {
+      "@id": "schema:director",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:directors",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:disambiguatingDescription",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:Text",
+      "comment": "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.",
+      "label": "disambiguatingDescription",
+      "subPropertyOf": "schema:description"
+    },
+    {
+      "@id": "schema:duns",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person.",
+      "label": "duns",
+      "subPropertyOf": "schema:identifier"
+    },
+    {
+      "@id": "schema:editor",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:email",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization",
+        "schema:ContactPoint"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "Email address.",
+      "label": "email"
+    },
+    {
+      "@id": "schema:employee",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:employees",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:endorsee",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:endorsers",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:familyName",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Text",
+      "comment": "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property.",
+      "label": "familyName"
+    },
+    {
+      "@id": "schema:faxNumber",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Place",
+        "schema:Person",
+        "schema:Organization",
+        "schema:ContactPoint"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The fax number.",
+      "label": "faxNumber"
+    },
+    {
+      "@id": "schema:followee",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:follows",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "The most generic uni-directional social relation.",
+      "label": "follows"
+    },
+    {
+      "@id": "schema:founder",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:founders",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:funder",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:CreativeWork",
+        "schema:Event",
+        "schema:Organization",
+        "schema:Person"
+      ],
+      "rangeIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "comment": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
+      "label": "funder",
+      "subPropertyOf": "schema:sponsor"
+    },
+    {
+      "@id": "schema:gender",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": [
+        "schema:Text",
+        "schema:GenderType"
+      ],
+      "comment": "Gender of the person. While http://schema.org/Male and http://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender.",
+      "label": "gender"
+    },
+    {
+      "@id": "schema:givenName",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Text",
+      "comment": "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property.",
+      "label": "givenName"
+    },
+    {
+      "@id": "schema:globalLocationNumber",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Place",
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.",
+      "label": "globalLocationNumber",
+      "subPropertyOf": "schema:identifier"
+    },
+    {
+      "@id": "schema:grantee",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:hasOfferCatalog",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Service",
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:OfferCatalog",
+      "comment": "Indicates an OfferCatalog listing for this Organization, Person, or Service.",
+      "label": "hasOfferCatalog"
+    },
+    {
+      "@id": "schema:hasPOS",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Place",
+      "comment": "Points-of-Sales operated by the organization or person.",
+      "label": "hasPOS"
+    },
+    {
+      "@id": "schema:height",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:VisualArtwork",
+        "schema:Product",
+        "schema:Person",
+        "schema:MediaObject"
+      ],
+      "rangeIncludes": [
+        "schema:QuantitativeValue",
+        "schema:Distance"
+      ],
+      "comment": "The height of the item.",
+      "label": "height"
+    },
+    {
+      "@id": "schema:homeLocation",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": [
+        "schema:Place",
+        "schema:ContactPoint"
+      ],
+      "comment": "A contact location for a person's residence.",
+      "label": "homeLocation",
+      "subPropertyOf": "schema:location"
+    },
+    {
+      "@id": "schema:homeTeam",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:honorificPrefix",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Text",
+      "comment": "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.",
+      "label": "honorificPrefix"
+    },
+    {
+      "@id": "schema:honorificSuffix",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Text",
+      "comment": "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW.",
+      "label": "honorificSuffix"
+    },
+    {
+      "@id": "schema:identifier",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": [
+        "schema:URL",
+        "schema:Text",
+        "schema:PropertyValue"
+      ],
+      "comment": "The identifier property represents any kind of identifier for any kind of <a class=\"localLink\" href=\"http://schema.org/Thing\">Thing</a>, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href=\"/docs/datamodel.html#identifierBg\">background notes</a> for more details.",
+      "label": "identifier",
+      "equivalentProperty": "dct:identifier"
+    },
+    {
+      "@id": "schema:illustrator",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:image",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": [
+        "schema:URL",
+        "schema:ImageObject"
+      ],
+      "comment": "An image of the item. This can be a <a class=\"localLink\" href=\"http://schema.org/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"http://schema.org/ImageObject\">ImageObject</a>.",
+      "label": "image"
+    },
+    {
+      "@id": "schema:inker",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:instructor",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:isicV4",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Place",
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.",
+      "label": "isicV4"
+    },
+    {
+      "@id": "schema:jobTitle",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Text",
+      "comment": "The job title of the person (for example, Financial Manager).",
+      "label": "jobTitle"
+    },
+    {
+      "@id": "schema:knows",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "The most generic bi-directional social/work relation.",
+      "label": "knows"
+    },
+    {
+      "@id": "schema:landlord",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:legislationPassedBy",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:legislationResponsible",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:lender",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:letterer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:loser",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:lyricist",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:mainEntityOfPage",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "inverseOf": "schema:mainEntity",
+      "rangeIncludes": [
+        "schema:URL",
+        "schema:CreativeWork"
+      ],
+      "comment": "Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href=\"/docs/datamodel.html#mainEntityBackground\">background notes</a> for details.",
+      "label": "mainEntityOfPage"
+    },
+    {
+      "@id": "schema:makesOffer",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "inverseOf": "schema:offeredBy",
+      "rangeIncludes": "schema:Offer",
+      "comment": "A pointer to products or services offered by the organization or person.",
+      "label": "makesOffer"
+    },
+    {
+      "@id": "schema:member",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:memberOf",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "inverseOf": "schema:member",
+      "rangeIncludes": [
+        "schema:ProgramMembership",
+        "schema:Organization"
+      ],
+      "comment": "An Organization (or ProgramMembership) to which this Person or Organization belongs.",
+      "label": "memberOf"
+    },
+    {
+      "@id": "schema:members",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:merchant",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:musicBy",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:musicGroupMember",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:naics",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The North American Industry Classification System (NAICS) code for a particular organization or business person.",
+      "label": "naics"
+    },
+    {
+      "@id": "schema:name",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:Text",
+      "comment": "The name of the item.",
+      "label": "name"
+    },
+    {
+      "@id": "schema:nationality",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Country",
+      "comment": "Nationality of the person.",
+      "label": "nationality"
+    },
+    {
+      "@id": "schema:netWorth",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": [
+        "schema:PriceSpecification",
+        "schema:MonetaryAmount"
+      ],
+      "comment": "The total financial value of the person as calculated by subtracting assets from liabilities.",
+      "label": "netWorth"
+    },
+    {
+      "@id": "schema:offeredBy",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:opponent",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:organizer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:owns",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": [
+        "schema:Product",
+        "schema:OwnershipInfo"
+      ],
+      "comment": "Products owned by the organization or person.",
+      "label": "owns"
+    },
+    {
+      "@id": "schema:parent",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "A parent of this person.",
+      "label": "parent"
+    },
+    {
+      "@id": "schema:parents",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "supersededBy": "schema:parent",
+      "comment": "A parents of the person.",
+      "label": "parents"
+    },
+    {
+      "@id": "schema:participant",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:penciler",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:performer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:performerIn",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Event",
+      "comment": "Event that this person is a performer or participant in.",
+      "label": "performerIn"
+    },
+    {
+      "@id": "schema:performers",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:potentialAction",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:Action",
+      "comment": "Indicates a potential Action, which describes an idealized action in which this thing would play an 'object' role.",
+      "label": "potentialAction"
+    },
+    {
+      "@id": "schema:producer",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:provider",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:publishedBy",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:publisher",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:publishingPrinciples",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization",
+        "schema:CreativeWork"
+      ],
+      "rangeIncludes": [
+        "schema:URL",
+        "schema:CreativeWork"
+      ],
+      "comment": "The publishingPrinciples property indicates (typically via <a class=\"localLink\" href=\"http://schema.org/URL\">URL</a>) a document describing the editorial principles of an <a class=\"localLink\" href=\"http://schema.org/Organization\">Organization</a> (or individual e.g. a <a class=\"localLink\" href=\"http://schema.org/Person\">Person</a> writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a <a class=\"localLink\" href=\"http://schema.org/CreativeWork\">CreativeWork</a> (e.g. <a class=\"localLink\" href=\"http://schema.org/NewsArticle\">NewsArticle</a>) the principles are those of the party primarily responsible for the creation of the <a class=\"localLink\" href=\"http://schema.org/CreativeWork\">CreativeWork</a>.</p>\r\n\r\n<p>While such policies are most typically expressed in natural language, sometimes related information (e.g. indicating a <a class=\"localLink\" href=\"http://schema.org/funder\">funder</a>) can be expressed using schema.org terminology.",
+      "label": "publishingPrinciples"
+    },
+    {
+      "@id": "schema:readBy",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:recipient",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:relatedTo",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "The most generic familial relation.",
+      "label": "relatedTo"
+    },
+    {
+      "@id": "schema:reviewedBy",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:sameAs",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:URL",
+      "comment": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+      "label": "sameAs"
+    },
+    {
+      "@id": "schema:seeks",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Demand",
+      "comment": "A pointer to products or services sought by the organization or person (demand).",
+      "label": "seeks"
+    },
+    {
+      "@id": "schema:seller",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:sender",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:sibling",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "A sibling of the person.",
+      "label": "sibling"
+    },
+    {
+      "@id": "schema:siblings",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "supersededBy": "schema:sibling",
+      "comment": "A sibling of the person.",
+      "label": "siblings"
+    },
+    {
+      "@id": "schema:spokenByCharacter",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:sponsor",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Event",
+        "schema:MedicalStudy",
+        "schema:CreativeWork",
+        "schema:Organization"
+      ],
+      "rangeIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "comment": "A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.",
+      "label": "sponsor"
+    },
+    {
+      "@id": "schema:spouse",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Person",
+      "comment": "The person's spouse.",
+      "label": "spouse"
+    },
+    {
+      "@id": "schema:taxID",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.",
+      "label": "taxID",
+      "subPropertyOf": "schema:identifier"
+    },
+    {
+      "@id": "schema:telephone",
+      "@type": "rdf:Property",
+      "domainIncludes": [
+        "schema:Place",
+        "schema:Person",
+        "schema:Organization",
+        "schema:ContactPoint"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The telephone number.",
+      "label": "telephone"
+    },
+    {
+      "@id": "schema:toRecipient",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:translator",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:underName",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:url",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Thing",
+      "rangeIncludes": "schema:URL",
+      "comment": "URL of the item.",
+      "label": "url"
+    },
+    {
+      "@id": "schema:vatID",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Person",
+        "schema:Organization"
+      ],
+      "rangeIncludes": "schema:Text",
+      "comment": "The Value-added Tax ID of the organization or person.",
+      "label": "vatID"
+    },
+    {
+      "@id": "schema:vendor",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:weight",
+      "@type": "rdf:Property",
+      "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms",
+      "domainIncludes": [
+        "schema:Product",
+        "schema:Person"
+      ],
+      "rangeIncludes": "schema:QuantitativeValue",
+      "comment": "The weight of the product or person.",
+      "label": "weight"
+    },
+    {
+      "@id": "schema:winner",
+      "rangeIncludes": "schema:Person"
+    },
+    {
+      "@id": "schema:workLocation",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": [
+        "schema:Place",
+        "schema:ContactPoint"
+      ],
+      "comment": "A contact location for a person's place of work.",
+      "label": "workLocation",
+      "subPropertyOf": "schema:location"
+    },
+    {
+      "@id": "schema:worksFor",
+      "@type": "rdf:Property",
+      "domainIncludes": "schema:Person",
+      "rangeIncludes": "schema:Organization",
+      "comment": "Organizations that the person works for.",
+      "label": "worksFor"
+    }
+  ],
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@context": {
+    "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+    "rangeIncludes": {
+      "@id": "http://schema.org/rangeIncludes",
+      "@type": "@id"
+    },
+    "domainIncludes": {
+      "@id": "http://schema.org/domainIncludes",
+      "@type": "@id"
+    },
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "source": {
+      "@id": "http://purl.org/dc/terms/source",
+      "@type": "@id"
+    },
+    "supersededBy": {
+      "@id": "http://schema.org/supersededBy",
+      "@type": "@id"
+    },
+    "inverseOf": {
+      "@id": "http://schema.org/inverseOf",
+      "@type": "@id"
+    },
+    "subPropertyOf": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "@type": "@id"
+    },
+    "equivalentProperty": {
+      "@id": "http://www.w3.org/2002/07/owl#equivalentProperty",
+      "@type": "@id"
+    },
+    "subClassOf": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type": "@id"
+    },
+    "equivalentClass": {
+      "@id": "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xml": "http://www.w3.org/XML/1998/namespace",
+    "rdfa": "http://www.w3.org/ns/rdfa#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  }
+
+
+
+
   }
 }

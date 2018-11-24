@@ -1,0 +1,53 @@
+{
+	"id": "Humorist.json",
+	"title": "humorist",
+	"translations": {
+		"title": {
+			"de": "Humorist",
+			"el": "χιουμορίστας",
+			"fr": "humoriste",
+			"nl": "komiek",
+			"ja": "喜劇作家または喜劇俳優"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Humorist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Humorist"}
+}

@@ -1,0 +1,57 @@
+{
+	"id": "DigitalCamera.json",
+	"title": "digital camera",
+	"translations": {
+		"title": {
+			"de": "Digitalkamera",
+			"el": "ψηφιακή φωτογραφική μηχανή",
+			"fr": "appareil photo numérique",
+			"ga": "ceamara digiteach",
+			"ko": "디지털 카메라",
+			"nl": "digitale camera"
+		},
+		"description": {
+			"el": "Η ψηφιακή φωτογραφική μηχανή είναι συσκευή η οποία καταγράφει εικόνες με ηλεκτρονικό τρόπο, σε αντίθεση με την συμβατική φωτογραφική μηχανή, η οποία καταγράφει εικόνες με χημικές και μηχανικές διαδικασίες.",
+			"fr": "Un appareil photographique numérique &amp;&#35;40;ou APN&#41; est un appareil photographique qui recueille la lumière sur un capteur photographique électronique, plutôt que sur une pellicule photographique, et qui convertit l&apos;information reçue par ce support pour la coder numériquement."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}, {"$ref": "Camera.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/DigitalCamera",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/DigitalCamera"}
+}

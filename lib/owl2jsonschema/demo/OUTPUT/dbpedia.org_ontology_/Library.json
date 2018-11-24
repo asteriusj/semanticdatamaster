@@ -1,0 +1,98 @@
+{
+	"id": "Library.json",
+	"title": "library",
+	"translations": {
+		"title": {
+			"pl": "biblioteka",
+			"de": "Bibliothek",
+			"el": "βιβλιοθήκη",
+			"fr": "bibliothèque",
+			"es": "Biblioteca",
+			"ga": "leabharlann",
+			"da": "bibliotek",
+			"ko": "도서관",
+			"nl": "bibliotheek",
+			"ja": "図書館"
+		},
+		"description": {}
+	},
+	"allOf": [
+		{"$ref": "Place.json"},
+		{"$ref": "ArchitecturalStructure.json"},
+		{"$ref": "Building.json"},
+		{"$ref": "Thing.json"},
+		{"$ref": "Agent.json"},
+		{"$ref": "Organisation.json"},
+		{"$ref": "EducationalInstitution.json"}
+	],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfCollectionItems": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCollectionItems"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCollectionItems"}
+				}
+			]
+		},
+		"isil": {
+			"oneOf": [
+				{"$ref": "#/definitions/isil"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isil"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfCollectionItems": {
+			"title": "number of items in collection",
+			"description": "Indication as to the size of the collection of this library",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"isil": {
+			"title": "International Standard Identifier for Libraries and Related Organizations &amp;&#35;40;ISIL&#41;",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Library",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Library"}
+}

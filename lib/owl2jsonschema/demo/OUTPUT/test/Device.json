@@ -1,0 +1,56 @@
+{
+	"id": "Device.json",
+	"title": "device",
+	"translations": {
+		"title": {
+			"de": "Gerät",
+			"el": "συσκευη",
+			"fr": "appareil",
+			"ga": "gléas",
+			"ko": "장치",
+			"nl": "apparaat",
+			"pt": "dispositivo",
+			"ja": "デバイス"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Device",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Device"}
+}

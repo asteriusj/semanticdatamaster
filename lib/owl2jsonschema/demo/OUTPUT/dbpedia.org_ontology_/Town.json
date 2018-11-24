@@ -1,0 +1,57 @@
+{
+	"id": "Town.json",
+	"title": "town",
+	"description": "a settlement ranging from a few hundred to several thousand &amp;&#35;40;occasionally hundreds of thousands&#41;. The precise meaning varies between countries and is not always a matter of legal definition. Usually, a town is thought of as larger than a village but smaller than a city, though there are exceptions to this rule.",
+	"translations": {
+		"title": {
+			"pl": "miasteczko",
+			"de": "Stadt",
+			"el": "πόλη",
+			"hi": "नगर",
+			"fr": "ville",
+			"ga": "baile",
+			"nl": "stad",
+			"ja": "町"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Settlement.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Town",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Town"}
+}

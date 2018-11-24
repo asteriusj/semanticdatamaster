@@ -1,0 +1,69 @@
+{
+	"id": "WaterwayTunnel.json",
+	"title": "waterway tunnel",
+	"translations": {
+		"title": {
+			"de": "Kanaltunnel",
+			"fr": "tunnel de voie navigable",
+			"ga": "tollán uiscebhealaigh",
+			"nl": "kanaaltunnel"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "RouteOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"waterwayThroughTunnel": {
+			"oneOf": [
+				{"$ref": "#/definitions/waterwayThroughTunnel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/waterwayThroughTunnel"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"waterwayThroughTunnel": {
+			"title": "waterway through tunnel",
+			"description": "Waterway that goes through the tunnel.",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/WaterwayTunnel",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WaterwayTunnel"}
+}

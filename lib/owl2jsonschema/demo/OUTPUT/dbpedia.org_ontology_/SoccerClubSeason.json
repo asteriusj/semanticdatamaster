@@ -1,0 +1,50 @@
+{
+	"id": "SoccerClubSeason.json",
+	"title": "soccer club season",
+	"translations": {
+		"title": {
+			"de": "Fußballverein Saison",
+			"nl": "voetbalseizoen"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "SportsSeason.json"}, {"$ref": "SportsTeamSeason.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SoccerClubSeason",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SoccerClubSeason"}
+}

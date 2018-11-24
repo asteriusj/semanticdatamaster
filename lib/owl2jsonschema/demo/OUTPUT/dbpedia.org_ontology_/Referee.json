@@ -1,0 +1,57 @@
+{
+	"id": "Referee.json",
+	"title": "referee",
+	"description": "An official who watches a game or match closely to ensure that the rules are adhered to.",
+	"translations": {
+		"title": {
+			"de": "schiedsrichter",
+			"el": "διαιτητής",
+			"fr": "arbitre",
+			"it": "arbitro",
+			"es": "árbitro",
+			"ga": "réiteoir",
+			"nl": "scheidsrechter",
+			"ja": "審判員"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Referee",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Referee"}
+}

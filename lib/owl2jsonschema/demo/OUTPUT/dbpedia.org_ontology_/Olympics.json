@@ -1,0 +1,189 @@
+{
+	"id": "Olympics.json",
+	"title": "olympics",
+	"translations": {
+		"title": {
+			"de": "Olympiade",
+			"el": "ολυμπιακοί αγώνες",
+			"fr": "Jeux Olympiques",
+			"es": "Juegos Olímpicos",
+			"ga": "Na Cluichí Oilimpeacha",
+			"ko": "올림픽",
+			"nl": "Olympische Spelen",
+			"ja": "近代オリンピック"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfParticipatingNations": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfParticipatingNations"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfParticipatingNations"}
+				}
+			]
+		},
+		"numberOfParticipatingMaleAthletes": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfParticipatingMaleAthletes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfParticipatingMaleAthletes"}
+				}
+			]
+		},
+		"numberOfNewlyIntroducedSports": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfNewlyIntroducedSports"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfNewlyIntroducedSports"}
+				}
+			]
+		},
+		"numberOfParticipatingAthletes": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfParticipatingAthletes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfParticipatingAthletes"}
+				}
+			]
+		},
+		"numberOfParticipatingFemaleAthletes": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfParticipatingFemaleAthletes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfParticipatingFemaleAthletes"}
+				}
+			]
+		},
+		"torchBearer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"olympicOathSwornByAthlete": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"officialOpenedBy": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"olympicOathSwornBy": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"olympicOathSwornByJudge": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfParticipatingNations": {
+			"title": "number of participating nations",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfParticipatingMaleAthletes": {
+			"title": "number of participating male athletes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfNewlyIntroducedSports": {
+			"title": "number of newly introduced sports",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfParticipatingAthletes": {
+			"title": "number of participating athletes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfParticipatingFemaleAthletes": {
+			"title": "number of participating female athletes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Olympics",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Olympics"}
+}

@@ -1,30 +1,58 @@
-@prefix schema: <http://schema.org/> .
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix owl:    <http://www.w3.org/2002/07/owl#> .
-@prefix con:    <http://www.w3.org/2000/10/swap/pim/contact#> .
-@prefix org:    <http://www.w3.org/ns/org#> .
-@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
-@prefix prov:   <http://www.w3.org/ns/prov#> .
-@prefix sf:     <https://github.com/vocol/salesforce/> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xs:     <http://www.w3.org/2001/XMLSchema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-@prefix dct:    <http://purl.org/dc/terms/> .
-@prefix dc:     <http://purl.org/dc/elements/1.1/> .
-@prefix dbo:    <http://dbpedia.org/ontology/> .
-@prefix vs:     <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
-@prefix sdm:    <https://github.com/asteriusj/semanticdatamaster/> .
+# baseURI: http://example.org/sdm
+# prefix: sdm
+
+@prefix :           <https://github.com/asteriusj/semanticdatamaster/> .
+@prefix ex:         <http://example.org/> .
+@prefix schema:     <http://schema.org/> .
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix con:        <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix org:        <http://www.w3.org/ns/org#> .
+@prefix vcard:      <http://www.w3.org/2006/vcard/ns#> .
+@prefix bibo:	    <http://purl.org/ontology/bibo/> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix obo:	    <http://purl.obolibrary.org/obo/> .
+@prefix pav:	    <http://purl.org/pav/> .
+@prefix prov:	    <http://www.w3.org/ns/prov#> .
+@prefix sf:         <https://github.com/vocol/salesforce/> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:         <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh:         <http://www.w3.org/ns/shacl#> .
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix sw:	        <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dbo:        <http://dbpedia.org/ontology/> .
+@prefix vs:         <http:/s/www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix vaem:       <http://www.linkedmodel.org/schema/vaem#> .
+@prefix vann:       <http://purl.org/vocab/vann/> .
+@prefix sdm:           <https://github.com/asteriusj/semanticdatamaster/> .
 
 
 sdm:   
         a                   owl:Ontology ;
         rdfs:label          "Ontology for Semantic Data Model"@en ;
-        rdfs:comment        "\n\n" ;
-        dc:date             "$Date: 2017-10-07 23:18:26 $" ;
-        dc:description      "\nThe \n" ;
-        dc:title            "Semantic Data Master (SDM) Ontology" ;
-        owl:versionInfo     "Draft"@en .
+        rdfs:comment        "An experimental ontology for defining entity relationships and data property definitions and constraints\n" ;
+        dc:date             "$Date: 2018-02-04 20:18:26 $" ;
+        prov:generatedAtTime "$Date: 2018-02-04 20:18:26 $" ;
+        dcterms:created     "$Date: 2018-02-04 20:18:26 $" ;
+        dcterms:modified    "$Date: 2018-02-04 20:18:26 $" ;
+        dcterms:issued      "$Date: 2018-02-04 20:18:26 $" ;
+        dc:description      "The proof of concept aims to provide semantic data model conceptual information for selected objects and properties.\n" ;
+        dc:title            "Semantic Data Master (SDM) Ontology"@en ;
+        dc:creator          <http://github.com/asteriusj>;
+        schema:contributor  <http://LinkedIn.com/jeffreyastewart/> , <http://github.com/asteriusj> ;
+        dc:publisher        <http://github.com/asteriusj>;
+        dcterms:license     "http://creativecommons.org/licenses/by/2.0/" ;
+        vann:preferredNamespacePrefix
+              "sdm" ;
+        vann:preferredNamespaceUri
+              "https://github.com/asteriusj/semanticdatamaster#" ;
+        dcterms:abstract    "An experimental ontology for defining entity relationships and data property definitions and constraints\n"@en ;
+        owl:versionIRI      "https://github.com/asteriusj/semanticdatamaster/Draft"@en ;
+        owl:versionInfo     "Draft"@en ;
+        bibo:status         "Draft"@en .
 
 
 :Thing 
@@ -49,14 +77,36 @@ sdm:
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
     owl:equivalentClass :Kind .
 
-
+<http://schema.org/Person>
+      a       owl:Class ;
+      rdfs:isDefinedBy <http://schema.org/> .
+      
+<http://xmlns.com/foaf/0.1/Person>
+      a       owl:Class ;
+      rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> .
+      
 :Person  
         a                   owl:Class ;
         rdfs:label          "Person" ;
         rdfs:comment        "A person. A person (alive, dead, undead, or fictional)." ;
+        sh:property [
+            sh:path family:lastName ;
+            sh:name "last name" ;
+            sh:description "A Person's last name (aka family name)." ;
+            sh:datatype xsd:string ;
+            sh:minLength 1;
+            sh:maxLength 30;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+        ] ;
         rdfs:subClassOf     <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent ;
         owl:equivalentClass schema:Person , foaf:Person , sf:Person .
- 
+
+:Employee 
+        a                   owl:Class ;
+        rdfs:label          "Employee"@en ;
+        rdfs:subClassOf     :Person .
+    
 :Contact a owl:Class ;
     rdfs:label "Contact"@en ;
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
@@ -67,15 +117,15 @@ sdm:
         a                       owl:FunctionalProperty , owl:DatatypeProperty ;
         rdfs:label              "prefix" ;
         rdfs:comment            "\nSalutation or title as prefix to name.\n " ;
-        rdfs:domain             :Person ;
-        rdfs:range              xsd:date ;
+        rdfs:domain             :Person, :Employee ;
+        rdfs:range              xsd:string ;
         owl:equivalentProperty  schema:honorificPrefix , foaf:title , con:personalPrefix , vcard:honorific-prefix , sf:salutation .
 
 :firstName   
         a                       owl:FunctionalProperty , owl:DatatypeProperty ;
         rdfs:label              "First Name" ;
         rdfs:comment            "\nFirst or given name of contact person.\n " ;
-        rdfs:domain             :Person ;
+        rdfs:domain             :Person , :Employee ;
         rdfs:range              rdfs:Literal ;
         owl:equivalentProperty  :given-name , schema:givenName , foaf:givenName , con:firstName , vcard:given-name , sf:firstName .
 
@@ -88,13 +138,75 @@ sdm:
         a                       owl:DatatypeProperty ;
         rdfs:label              "Last Name" ;
         rdfs:comment            "Last or family name of contact person." ;
-        rdfs:domain             :Person ;
+        rdfs:domain             :Person , :Employee;
         rdfs:range              rdfs:Literal ;
+        sh:property [
+            sh:path :lastName ;
+            sh:name "last name" ;
+            sh:description "A Person's last name (aka family name)." ;
+            sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+        ] ;
         owl:equivalentProperty  :given-name , schema:familyName , foaf:familyName , con:lastName , dbo:FamilyName , vcard:family-name , sf:lastName .
         
 
+ex:InvoiceShape
+	a sh:NodeShape ;
+	sh:property [
+		sh:path ex:customer ;
+		sh:class ex:Customer ;
+		sh:class ex:Person ;
+	] .
+	
+ex:PersonFormShape
+	a sh:NodeShape ;
+	sh:property [
+		sh:path ex:firstName ;
+		sh:name "first name" ;
+		sh:description "The person's given name(s)" ;
+		sh:order 0 ;
+		sh:group ex:NameGroup ;
+	] ;
+	sh:property [
+		sh:path ex:lastName ;
+		sh:name "last name" ;
+		sh:description "The person's last name" ;
+		sh:order 1 ;
+		sh:group ex:NameGroup ;
+	] ;
+	sh:property [
+		sh:path ex:streetAddress ;
+		sh:name "street address" ;
+		sh:description "The street address including number" ;
+		sh:order 11 ;
+		sh:group ex:AddressGroup ;
+	] ;
+	sh:property [
+		sh:path ex:locality ;
+		sh:name "locality" ;
+		sh:description "The suburb, city or town of the address" ;
+		sh:order 12 ;
+		sh:group ex:AddressGroup ;
+	] ;
+	sh:property [
+		sh:path ex:postalCode ;
+		sh:name "postal code" ;
+		sh:name "zip code"@en-US ;
+		sh:description "The postal code of the locality" ;
+		sh:order 13 ;
+		sh:group ex:AddressGroup ;
+	] .
 
-		
+ex:NameGroup
+	a sh:PropertyGroup ;
+	sh:order 0 ;
+	rdfs:label "Name" .
+
+ex:AddressGroup
+	a sh:PropertyGroup ;
+	sh:order 1 ;
+	rdfs:label "Address" .	
 
 ##Suffix	Qualification or honorary suffix to name of contact person	schema:honorificSuffix			con:personalSuffix		vcard:honorific-suffix	sf:suffix
 
@@ -112,22 +224,46 @@ sdm:
         a                   owl:FunctionalProperty , owl:DatatypeProperty ;
         rdfs:label          "birthday" ;
         rdfs:comment        "\nThe birthday of this Agent, represented in mm-dd string form, eg. '12-31'.\n" ;
-        rdfs:domain         :Person ;
+        rdfs:domain         :Person , :Employee ;
         rdfs:range          xsd:date ;
         owl:equivalentProperty  foaf:birthday , sf:birthday .
 
+:age  
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:label          "age" ;
+        rdfs:domain         :Person , :Employee ;
+        rdfs:range          :IntegerValueObject .
+        
+
+:hasIntegerValue  a  owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :IntegerValueObject ;
+        rdfs:range   xsd:int .
+        
+:IntegerValueObject  a   owl:Class ;
+        rdfs:subClassOf  :Thing ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasIntegerValue
+                         ] .
 
 :Gender a owl:Class ;
     rdfs:label "Gender"@en ;
     rdfs:comment "Used for gender codes. The URI of the gender code must be used as the value for Gender."@en ;
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> .
 
-
+:FemaleShape
+    rdf:type sh:NodeShape ;
+    rdfs:label "Female shape" ;
+    sh:property [
+        sh:hasValue :female ;
+        sh:path :gender ;
+    ] ;
+.
 
 
 :nick  a                    owl:DatatypeProperty ;
         rdfs:comment        "\nA short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).\n" ;
-        rdfs:domain         :Person  ;
+        rdfs:domain         :Person , :Employee ;
         rdfs:label          "nickname" ;
         vs:term_status      "testing" .
   
@@ -136,19 +272,19 @@ sdm:
         a                   owl:DatatypeProperty ;
         rdfs:label          "additional name"@en ;
         rdfs:comment        "The additional name associated with the object"@en ;
-        rdfs:domain         :Person ;
+        rdfs:domain         :Person , :Employee;
         rdfs:range          xsd:string .
 
 :family-name a owl:DatatypeProperty ;
     rdfs:label "family name"@en ;
     rdfs:comment "The family name associated with the object"@en ;
-    rdfs:domain         :Person ;
+    rdfs:domain         :Person , :Employee;
     rdfs:range xsd:string .
 
 :given-name a owl:DatatypeProperty ;
     rdfs:label "given name"@en ;
     rdfs:comment "The given name associated with the object"@en ;
-    rdfs:domain         :Person ;
+    rdfs:domain         :Person , :Employee;
     rdfs:range xsd:string .
 
 :hasMember a owl:ObjectProperty ;
@@ -156,7 +292,7 @@ sdm:
     rdfs:comment "To include a member in the group this object represents. (This property can only be used by Group individuals)"@en ;
     rdfs:domain :Group ;
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
-    rdfs:range :Kind .
+    rdfs:range :Kind , :Person .
 
 :honorific-prefix a owl:DatatypeProperty ;
     rdfs:label "honorific prefix"@en ;
@@ -175,7 +311,7 @@ sdm:
         a                   owl:Class ;
         rdfs:label          "Name"@en ;
         rdfs:comment        "To specify the components of the name of the object"@en ;
-        rdfs:domain         :Person ;
+        rdfs:domain         :Person , :Employee ;
         owl:equivalentClass [ a owl:Class ;
             owl:unionOf ( [ a owl:Class ;
                         owl:intersectionOf ( [ a owl:Restriction ;
@@ -214,8 +350,16 @@ sdm:
 
 
 
+:org-name
+      a                     owl:DatatypeProperty , rdf:Property ;
+      rdfs:comment          "Answers the question: What is the name of the Organization?"@en ;
+      rdfs:domain           :Organization ;
+      rdfs:label            "organization name"@en ;
+      rdfs:range            xsd:string ;
+      rdfs:subPropertyOf    vcard:organization-name ;
+      vaem:rationale        "Part of the standard properties for a vcard org"@en .
 
-:organization-name a owl:DatatypeProperty ;
+vcard:organization-name a owl:DatatypeProperty ;
     rdfs:label "organization name"@en ;
     rdfs:comment "To specify the organizational name associated with the object"@en ;
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
@@ -226,10 +370,15 @@ sdm:
         a                       owl:ObjectProperty ;
         rdfs:label              "address"@en ;
         rdfs:comment            "This object property has been mapped"@en ;
-        rdfs:domain             :Person , :Organization ;
+        rdfs:domain             :Person  , :Organization ;
         rdfs:range              :Address ;
         owl:equivalentProperty  :hasAddress .
 
+:hasAddress 
+        a                       owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:label              "has address"@en ;
+        rdfs:domain             :Employee ;
+        rdfs:range              :Address .
 
 :country-name a owl:DatatypeProperty ;
     rdfs:label "country name"@en ;
@@ -265,7 +414,7 @@ sdm:
 :Address a owl:Class ;
     rdfs:label "Address"@en ;
     rdfs:comment "To specify the components of the delivery address for the  object"@en ;
-    rdfs:domain         :Person , :Organization;
+    rdfs:domain         :Person , :Employee , :Organization;
     owl:equivalentClass [ a owl:Class ;
             owl:unionOf ( [ a owl:Class ;
                         owl:intersectionOf ( [ a owl:Restriction ;
@@ -299,12 +448,42 @@ sdm:
 :Organization 
         a                   owl:Class ;
         rdfs:label          "Organization"@en ;
-        rdfs:comment        "An object representing an organization.  An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like.
-"@en ;
+     
         rdfs:isDefinedBy    <http://www.w3.org/2006/vcard/ns> ;
-        rdfs:subClassOf     :Kind , foaf:Agent .
+        rdfs:subClassOf     <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent .
 
 :Type a owl:Class ;
     rdfs:label "Type"@en ;
     rdfs:comment "Used for type codes. The URI of the type code must be used as the value for Type."@en ;
     rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> .
+    
+
+dcterms:title
+      a       owl:DatatypeProperty ;
+      rdfs:isDefinedBy dcterms: .
+      
+:title
+      a       owl:DatatypeProperty ;
+      rdfs:comment "Answers the question: What is the title of the... ?"@en ;
+      rdfs:domain :Person ;
+      rdfs:label "title"@en ;
+      rdfs:range xsd:string ;
+      rdfs:subPropertyOf dcterms:title ;
+      vaem:rationale "Part of standard metadata for Entities"@en .
+
+:hasTitle
+      a                 owl:DatatypeProperty ;
+      rdfs:comment      "Answers the question: What the  ?"@en ;
+      rdfs:domain       :Person ;
+      rdfs:label        "has title"@en ;
+      rdfs:range        xsd:string ;
+      vaem:rationale    "Allows to store typical contact info "@en .
+      
+vaem:rationale
+      a       owl:AnnotationProperty .
+      
+vann:example
+      a       owl:AnnotationProperty .
+      
+      
+      

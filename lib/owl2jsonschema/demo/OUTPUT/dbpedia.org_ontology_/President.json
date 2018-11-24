@@ -1,0 +1,56 @@
+{
+	"id": "President.json",
+	"title": "president",
+	"translations": {
+		"title": {
+			"pl": "prezydent",
+			"de": "Präsident",
+			"el": "πρόεδρος",
+			"fr": "président",
+			"ga": "uachtarán",
+			"ko": "국가원수",
+			"nl": "president",
+			"ja": "大統領"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/President",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/President"}
+}

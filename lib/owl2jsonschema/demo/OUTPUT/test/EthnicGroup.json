@@ -1,0 +1,84 @@
+{
+	"id": "EthnicGroup.json",
+	"title": "ethnic group",
+	"translations": {
+		"title": {
+			"de": "ethnie",
+			"el": "εθνική ομάδα",
+			"fr": "groupe ethnique",
+			"it": "etnia",
+			"ga": "grúpa eitneach",
+			"ko": "민족",
+			"nl": "etnische groep"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"totalPopulation": {
+			"oneOf": [
+				{"$ref": "#/definitions/totalPopulation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/totalPopulation"}
+				}
+			]
+		},
+		"populationPlace": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"totalPopulation": {
+			"title": "total population",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/EthnicGroup",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/EthnicGroup"}
+}

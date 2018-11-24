@@ -1,0 +1,128 @@
+{
+	"id": "Drug.json",
+	"title": "drug",
+	"translations": {
+		"title": {
+			"de": "Droge",
+			"el": "φάρμακο",
+			"fr": "médicament",
+			"ga": "druga",
+			"ko": "약",
+			"nl": "geneesmiddel",
+			"ja": "薬物"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "ChemicalSubstance.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"bioavailability": {
+			"oneOf": [
+				{"$ref": "#/definitions/bioavailability"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bioavailability"}
+				}
+			]
+		},
+		"iupacName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"chEBI": {
+			"oneOf": [
+				{"$ref": "#/definitions/chEBI"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/chEBI"}
+				}
+			]
+		},
+		"Drug/boilingPoint": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Drug/meltingPoint": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kelvin.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"drugs.com": {
+			"oneOf": [
+				{"$ref": "#/definitions/drugs.com"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/drugs.com"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"bioavailability": {
+			"title": "Bioavailability",
+			"description": "&quot;The rate and extent to which the active ingredient or active moiety is absorbed from a drug product and becomes available at the site of action. For drug products that are not intended to be absorbed into the bloodstream, bioavailability may be assessed by measurements intended to reflect the rate and extent to which the active ingredient or active moiety becomes available at the site of action &amp;&#35;40;21CFR320.1&#41;.&quot;",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"chEBI": {
+			"title": "ChEBI",
+			"description": "A unique identifier for the drug in the Chemical Entities of Biological Interest &amp;&#35;40;ChEBI&#41; ontology",
+			"type": "string"
+		},
+		"drugs.com": {
+			"title": "drugs.com",
+			"description": "external link to drug articles in the drugs.com website",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Drug",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Drug"}
+}

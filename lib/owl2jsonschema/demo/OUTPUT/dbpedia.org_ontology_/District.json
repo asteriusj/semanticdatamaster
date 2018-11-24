@@ -1,0 +1,83 @@
+{
+	"id": "District.json",
+	"title": "district",
+	"translations": {
+		"title": {
+			"de": "Bezirk",
+			"el": "περιοχή",
+			"fr": "arrondissement",
+			"ga": "ceantar",
+			"id": "kecamatan",
+			"ko": "구",
+			"nl": "district",
+			"ja": "地区"
+		},
+		"description": {"id": "bagian wilayah administratif dibawah kabupaten"}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfVillages": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfVillages"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfVillages"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfVillages": {
+			"title": "number of villages",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/District",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/District"}
+}

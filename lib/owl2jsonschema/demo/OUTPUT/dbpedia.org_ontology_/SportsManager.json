@@ -1,0 +1,53 @@
+{
+	"id": "SportsManager.json",
+	"title": "sports manager",
+	"description": "According to the french label sub Soccer, trainership could be meant. However, here a Sportsmanager is interpreted as a member of the board of a sporting club.",
+	"translations": {
+		"title": {
+			"de": "Sportmanager",
+			"el": "αθλητικός μάνατζερ",
+			"es": "director deportivo",
+			"nl": "sportbestuurder"
+		},
+		"description": {"el": "Σύμφωνα με τη γαλλική ετικέτα Soccer,μπορεί να εννοείται ο προπονητής.Παρ&apos;όλα αυτα,εδώ ένας αθλητικός μάνατζερ μεταφράζεται ως ένα μέλος συμβουλίου ενός αθλητικού κλαμπ."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SportsManager",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SportsManager"}
+}

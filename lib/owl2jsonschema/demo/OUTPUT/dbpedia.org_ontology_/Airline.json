@@ -1,0 +1,138 @@
+{
+	"id": "Airline.json",
+	"title": "airline",
+	"translations": {
+		"title": {
+			"da": "flyselskab",
+			"de": "Fluggesellschaft",
+			"el": "αεροπορική εταιρεία",
+			"es": "compañía aerea",
+			"fr": "compagnie aérienne",
+			"ga": "aerlíne",
+			"gl": "compañía aérea",
+			"it": "compagnia aerea",
+			"ja": "航空会社",
+			"ko": "항공사",
+			"nl": "luchtvaartmaatschappij",
+			"pl": "linia lotnicza",
+			"zh": "航空公司"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Company.json"}, {"$ref": "PublicTransitSystem.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"icaoAirlineCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/icaoAirlineCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/icaoAirlineCode"}
+				}
+			]
+		},
+		"iataAirlineCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/iataAirlineCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iataAirlineCode"}
+				}
+			]
+		},
+		"targetAirport": {
+			"oneOf": [
+				{"$ref": "Airport.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Airport.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lounge": {
+			"oneOf": [
+				{"$ref": "#/definitions/lounge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lounge"}
+				}
+			]
+		},
+		"alliance": {
+			"oneOf": [
+				{"$ref": "#/definitions/alliance"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/alliance"}
+				}
+			]
+		},
+		"hubAirport": {
+			"oneOf": [
+				{"$ref": "Airport.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Airport.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"icaoAirlineCode": {
+			"title": "ICAO code",
+			"description": "ICAO designation for airline companies",
+			"type": "string"
+		},
+		"iataAirlineCode": {
+			"title": "IATA code",
+			"description": "IATA designation for airline companies",
+			"type": "string"
+		},
+		"lounge": {
+			"title": "lounge",
+			"description": "",
+			"anyOf": []
+		},
+		"alliance": {
+			"title": "alliance",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Airline",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Airline"}
+}

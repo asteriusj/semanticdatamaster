@@ -1,0 +1,68 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Unknown.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"templateName": {
+			"title": "template name",
+			"description": "DO NOT USE THIS PROPERTY! For internal use only.",
+			"type": "string"
+		}
+	},
+	"description": "DO NOT USE THIS CLASS! This is for internal use only!",
+	"format": "http://dbpedia.org/ontology/WikimediaTemplate",
+	"id": "WikimediaTemplate.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WikimediaTemplate"},
+	"properties": {
+		"templateName": {
+			"oneOf": [
+				{"$ref": "#/definitions/templateName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/templateName"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Wikimedia template",
+	"translations": {
+		"title": {
+			"de": "Wikimedia-Vorlage",
+			"fr": "modèle de Wikimedia"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

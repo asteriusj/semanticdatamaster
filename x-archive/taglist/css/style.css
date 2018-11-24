@@ -1,0 +1,21 @@
+.app {
+  display:block;  
+}
+h3 {}
+kurt-tagger {
+  display:none;
+  width:420px;
+}
+kurt-defs {display:none;
+  width:420px;
+  display:none;
+}
+
+kurt-suggest {
+  display:none;
+  width:420px;
+}
+.app-container {
+  display:flex;
+  
+}

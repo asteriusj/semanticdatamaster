@@ -1,0 +1,60 @@
+{
+	"id": "Tunnel.json",
+	"title": "tunnel",
+	"description": "A tunnel may be for foot or vehicular road traffic, for rail traffic, or for a canal. Some tunnels are aqueducts to supply water for consumption or for hydroelectric stations or are sewers &amp;&#35;40;http://en.wikipedia.org/wiki/Tunnel&#41;.",
+	"translations": {
+		"title": {
+			"de": "Tunnel",
+			"el": "τούνελ",
+			"fr": "tunnel",
+			"ga": "tollán",
+			"ko": "터널",
+			"nl": "tunnel",
+			"ja": "トンネル"
+		},
+		"description": {
+			"fr": "Un tunnel est une galerie souterraine livrant passage à une voie de communication &amp;&#35;40;chemin de fer, canal, route, chemin piétonnier&#41;. Sont apparentés aux tunnels par leur mode de construction les grands ouvrages hydrauliques souterrains, tels que les aqueducs, collecteurs et émissaires destinés soit à l&apos;amenée, soit à l'évacuation des eaux des grands centres et certaines conduites établies en liaison avec les barrages et usines hydro-électriques.  (http://fr.wikipedia.org/wiki/Tunnel).",
+			"de": "Ein Tunnel &amp;&#35;40;auch Tunell&#41; ist eine künstliche Passage, die Berge, Gewässer oder andere Hindernisse (in der Regel als Verkehrsweg) unterquert (http://de.wikipedia.org/wiki/Tunnel).",
+			"el": "Ένα τούνελ μπορεί να είναι για πεζούς ή για αυτοκινητόδρομους,για σιδηρόδρομους,ή για κανάλια στο νερό.Μερικά τούνελ είναι υδραγωγεία για να παρέχουν νερό προς κατανάλωση ή για υδροηλεκτικούς σταθμούς ή είναι υπόνομοι."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Tunnel",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Tunnel"}
+}

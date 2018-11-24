@@ -1,0 +1,91 @@
+{
+	"id": "SoccerLeagueSeason.json",
+	"title": "soccer league season",
+	"translations": {
+		"title": {
+			"de": "Fußball-Liga Saison",
+			"el": "περίοδος κυπέλλου ποδοσφαίρου",
+			"nl": "voetbalseizoen",
+			"tr": "futbol ligi sezonu"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "SportsSeason.json"}, {"$ref": "SportsTeamSeason.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"soccerLeagueWinner": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"soccerLeaguePromoted": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"soccerLeagueRelegated": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"soccerLeagueSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SoccerLeagueSeason",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SoccerLeagueSeason"}
+}

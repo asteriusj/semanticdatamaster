@@ -1,0 +1,58 @@
+{
+	"id": "RallyDriver.json",
+	"title": "rally driver",
+	"translations": {
+		"title": {
+			"nl": "rallycoureur",
+			"el": "οδηγός ράλι",
+			"de": "Rallyefahrer"
+		},
+		"description": {"el": "Ο οδηγός ράλι χρησιμοποιείται για να περιγράψει άνδρα που  λαμβάνει μέρος σε αγώνες αυτοκινήτων ειδικής κατηγορίας"}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Agent.json"},
+		{"$ref": "Person.json"},
+		{"$ref": "Athlete.json"},
+		{"$ref": "MotorsportRacer.json"},
+		{"$ref": "RacingDriver.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/RallyDriver",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RallyDriver"}
+}

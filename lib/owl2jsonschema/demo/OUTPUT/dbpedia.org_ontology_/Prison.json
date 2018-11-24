@@ -1,0 +1,55 @@
+{
+	"id": "Prison.json",
+	"title": "prison",
+	"translations": {
+		"title": {
+			"de": "gefängnis",
+			"el": "φυλακή",
+			"fr": "prison",
+			"it": "prigione",
+			"ga": "príosún",
+			"nl": "gevangenis",
+			"ja": "刑務所"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Prison",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Prison"}
+}

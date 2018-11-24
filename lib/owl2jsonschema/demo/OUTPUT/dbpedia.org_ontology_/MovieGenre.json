@@ -1,0 +1,53 @@
+{
+	"id": "MovieGenre.json",
+	"title": "movie genre",
+	"translations": {
+		"title": {
+			"de": "Filmgenre",
+			"el": "είδος ταινίας",
+			"fr": "genre de film",
+			"ga": "seánra scannáin",
+			"nl": "filmgenre"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}, {"$ref": "Genre.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MovieGenre",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MovieGenre"}
+}

@@ -1,0 +1,75 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"unicode": {
+			"title": "unicode",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A letter from the alphabet.",
+	"format": "http://dbpedia.org/ontology/Letter",
+	"id": "Letter.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Letter"},
+	"properties": {
+		"unicode": {
+			"oneOf": [
+				{"$ref": "#/definitions/unicode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/unicode"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "letter",
+	"translations": {
+		"title": {
+			"de": "Buchstabe",
+			"el": "γράμμα",
+			"fr": "lettre",
+			"ga": "litir",
+			"nl": "letter",
+			"ja": "文字"
+		},
+		"description": {
+			"de": "Ein Buchstabe des Alphabets.",
+			"fr": "Ene lettre de l&apos;alphabet."
+		}
+	},
+	"type": "object"
+}

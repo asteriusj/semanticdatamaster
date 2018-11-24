@@ -1,0 +1,66 @@
+{
+	"id": "LunarCrater.json",
+	"title": "lunar crater",
+	"translations": {
+		"title": {
+			"de": "Mondkrater",
+			"el": "Σεληνιακός κρατήρας",
+			"fr": "cratère lunaire",
+			"ga": "cráitéar gealaí",
+			"nl": "maankrater",
+			"pt": "cratera lunar"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "Crater.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"LunarCrater/diameter": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/LunarCrater",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LunarCrater"}
+}

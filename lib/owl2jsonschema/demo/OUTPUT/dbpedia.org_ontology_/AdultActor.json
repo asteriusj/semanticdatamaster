@@ -1,0 +1,82 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}, {"$ref": "Actor.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfFilms": {
+			"title": "number of films",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A pornographic actor or actress or a porn star is a person who performs sex acts in film, normally characterised as a pornographic film.",
+	"format": "http://dbpedia.org/ontology/AdultActor",
+	"id": "AdultActor.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AdultActor"},
+	"properties": {
+		"numberOfFilms": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfFilms"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfFilms"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "adult &amp;&#35;40;pornographic&#41; actor",
+	"translations": {
+		"title": {
+			"de": "pornographischer Schauspieler",
+			"el": "ενήλικας &amp;&#35;40;πορνογραφικός&#41; ηθοποιός",
+			"es": "actor porno",
+			"fr": "acteur porno/acteur adulte",
+			"ga": "aisteoir pornagrafaíochta",
+			"gl": "actor porno",
+			"it": "attore porno",
+			"ja": "ポルノ女優",
+			"ko": "성인 배우",
+			"nl": "pornografisch acteur",
+			"pl": "aktor pornograficzny",
+			"pt": "ator adulto",
+			"zh": "色情演員"
+		},
+		"description": {"gl": "Un actor ou unha actriz porno ou pornográfico/a, é un actor ou actriz de cine porno que actúa en películas de temática pornográfica..&amp;lt;ref&amp;gt;https://gl.wikipedia.org/wiki/Actor_pornogr%C3%A1fico&amp;lt;/ref&amp;gt;"}
+	},
+	"type": "object"
+}

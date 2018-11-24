@@ -1,0 +1,54 @@
+{
+	"id": "Organ.json",
+	"title": "organ",
+	"description": "All types and sizes of organs",
+	"translations": {
+		"title": {
+			"de": "Orgel",
+			"el": "όργανο",
+			"fr": "Orgue",
+			"nl": "orgel",
+			"ja": "オルガン"
+		},
+		"description": {"el": "Όλα τα είδη και τα μεγέθη των οργάνων"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}, {"$ref": "Instrument.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Organ",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Organ"}
+}

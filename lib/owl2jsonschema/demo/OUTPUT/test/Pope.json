@@ -1,0 +1,56 @@
+{
+	"id": "Pope.json",
+	"title": "pope",
+	"translations": {
+		"title": {
+			"pl": "papież",
+			"de": "Papst",
+			"el": "πάπας",
+			"fr": "pape",
+			"ga": "pápa",
+			"ko": "교황",
+			"nl": "paus",
+			"ja": "教皇"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Cleric.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Pope",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Pope"}
+}

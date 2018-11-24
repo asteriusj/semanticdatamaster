@@ -1,0 +1,397 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"definitions": {
+		"analogChannel": {
+			"title": "analog channel",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"broadcastRepeater": {
+			"title": "broadcast repeater",
+			"description": "",
+			"type": "string"
+		},
+		"broadcastStationClass": {
+			"title": "broadcast station class",
+			"description": "",
+			"type": "string"
+		},
+		"broadcastTranslator": {
+			"title": "broadcast translator",
+			"description": "",
+			"type": "string"
+		},
+		"callsignMeaning": {
+			"title": "call sign meaning",
+			"description": "The out written call sign.",
+			"type": "string"
+		},
+		"digitalChannel": {
+			"title": "digital channel",
+			"description": "",
+			"type": "string"
+		},
+		"digitalSubChannel": {
+			"title": "digital sub channel",
+			"description": "",
+			"type": "string"
+		},
+		"effectiveRadiatedPower": {
+			"title": "effectiveRadiatedPower &amp;&#35;40;W&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"firstAirDate": {
+			"title": "first air date",
+			"description": "The date on which regular broadcasts began.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"formerCallsign": {
+			"title": "former call sign",
+			"description": "",
+			"type": "string"
+		},
+		"formerChannel": {
+			"title": "former channel",
+			"description": "",
+			"type": "string"
+		},
+		"heightAboveAverageTerrain": {
+			"title": "height above average terrain &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"lastAirDate": {
+			"title": "last air date",
+			"description": "The date on which the broadcaster made its last broadcast.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"otherChannel": {
+			"title": "other channel",
+			"description": "",
+			"type": "string"
+		},
+		"pictureFormat": {
+			"title": "picture format",
+			"description": "",
+			"anyOf": []
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"programmeFormat": {
+			"title": "programme format",
+			"description": "The programming format describes the overall content broadcast on a radio or television station.",
+			"anyOf": []
+		},
+		"shareDate": {
+			"title": "share date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYearMonth",
+			"pattern": "^(-?[0-9]+-[0-9][0-9])(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"shareOfAudience": {
+			"title": "share of audience",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"shareSource": {
+			"title": "share source",
+			"description": "",
+			"type": "string"
+		},
+		"virtualChannel": {
+			"title": "virtual channel",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A broadcaster is an organisation responsible for the production of radio or television programs and/or their transmission. &amp;&#35;40;http://en.wikipedia.org/wiki/Broadcaster - 28/03/2011&#41;",
+	"format": "http://dbpedia.org/ontology/Broadcaster",
+	"id": "Broadcaster.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Broadcaster"},
+	"properties": {
+		"analogChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/analogChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/analogChannel"}
+				}
+			]
+		},
+		"broadcastArea": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"broadcastNetwork": {
+			"oneOf": [
+				{"$ref": "BroadcastNetwork.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "BroadcastNetwork.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"broadcastRepeater": {
+			"oneOf": [
+				{"$ref": "#/definitions/broadcastRepeater"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/broadcastRepeater"}
+				}
+			]
+		},
+		"broadcastStationClass": {
+			"oneOf": [
+				{"$ref": "#/definitions/broadcastStationClass"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/broadcastStationClass"}
+				}
+			]
+		},
+		"broadcastTranslator": {
+			"oneOf": [
+				{"$ref": "#/definitions/broadcastTranslator"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/broadcastTranslator"}
+				}
+			]
+		},
+		"callsignMeaning": {
+			"oneOf": [
+				{"$ref": "#/definitions/callsignMeaning"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/callsignMeaning"}
+				}
+			]
+		},
+		"digitalChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/digitalChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/digitalChannel"}
+				}
+			]
+		},
+		"digitalSubChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/digitalSubChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/digitalSubChannel"}
+				}
+			]
+		},
+		"effectiveRadiatedPower": {
+			"oneOf": [
+				{"$ref": "#/definitions/effectiveRadiatedPower"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/effectiveRadiatedPower"}
+				}
+			]
+		},
+		"firstAirDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstAirDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstAirDate"}
+				}
+			]
+		},
+		"formerBroadcastNetwork": {
+			"oneOf": [
+				{"$ref": "BroadcastNetwork.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "BroadcastNetwork.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"formerCallsign": {
+			"oneOf": [
+				{"$ref": "#/definitions/formerCallsign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/formerCallsign"}
+				}
+			]
+		},
+		"formerChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/formerChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/formerChannel"}
+				}
+			]
+		},
+		"heightAboveAverageTerrain": {
+			"oneOf": [
+				{"$ref": "#/definitions/heightAboveAverageTerrain"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/heightAboveAverageTerrain"}
+				}
+			]
+		},
+		"lastAirDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastAirDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastAirDate"}
+				}
+			]
+		},
+		"network": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"otherChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherChannel"}
+				}
+			]
+		},
+		"pictureFormat": {
+			"oneOf": [
+				{"$ref": "#/definitions/pictureFormat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/pictureFormat"}
+				}
+			]
+		},
+		"programmeFormat": {
+			"oneOf": [
+				{"$ref": "#/definitions/programmeFormat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/programmeFormat"}
+				}
+			]
+		},
+		"shareDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/shareDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shareDate"}
+				}
+			]
+		},
+		"shareOfAudience": {
+			"oneOf": [
+				{"$ref": "#/definitions/shareOfAudience"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shareOfAudience"}
+				}
+			]
+		},
+		"shareSource": {
+			"oneOf": [
+				{"$ref": "#/definitions/shareSource"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shareSource"}
+				}
+			]
+		},
+		"sisterStation": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"virtualChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/virtualChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/virtualChannel"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "broadcaster",
+	"translations": {
+		"title": {
+			"de": "Rundfunkveranstalter",
+			"el": "εκφωνητής",
+			"fr": "diffuseur",
+			"it": "emittente",
+			"ga": "craoltóir",
+			"ko": "방송",
+			"nl": "omroep",
+			"ja": "放送事業者"
+		},
+		"description": {
+			"el": "Ο ραδιοτηλεοπτικός φορέας  είναι ένας οργανισμός που είναι υπεύθυνος για την παραγωγή ραδιοφωνικών ή τηλεοπτικών προγραμμάτων και / ή τη διαβίβασή τους",
+			"de": "Ein Rundfunkveranstalter &amp;&#35;40;oder auch Sendeunternehmen&#41; betreibt Hörfunk- oder Fernsehprogramme. (http://de.wikipedia.org/wiki/Rundfunkveranstalter - 28/03/2011)"
+		}
+	},
+	"type": "object"
+}

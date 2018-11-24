@@ -1,0 +1,60 @@
+{
+	"id": "Factory.json",
+	"title": "factory",
+	"description": "A factory &amp;&#35;40;previously manufactory&#41; or manufacturing plant is an industrial site, usually consisting of buildings and machinery, or more commonly a complex having several buildings, where workers manufacture goods or operate machines processing one product into another.",
+	"translations": {
+		"title": {
+			"de": "Fabrik",
+			"el": "εργοστάσιο",
+			"fr": "usine",
+			"it": "fabbrica",
+			"ga": "monarcha",
+			"ko": "공장",
+			"nl": "fabriek",
+			"ja": "工場"
+		},
+		"description": {
+			"el": "Το εργοστάσιο είναι ένα κτίριο μέσα στο οποίο, με τη βοήθεια των μηχανημάτων και τη σημαντικότατη συνεισφορά εργασίας από τους εργάτες, παράγονται σήμερα όλα σχεδόν τα βιομηχανικά είδη, είτε αυτά χρειάζονται πάλι για την παραγωγή &amp;&#35;40;όπως μηχανές κλπ.&#41; είτε είναι καταναλωτικά αγαθά.",
+			"fr": "Une usine est un bâtiment ou un ensemble de bâtiments destinés à la production industrielle."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Factory",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Factory"}
+}

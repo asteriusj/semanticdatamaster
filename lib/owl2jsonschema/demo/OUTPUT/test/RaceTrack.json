@@ -1,0 +1,74 @@
+{
+	"id": "RaceTrack.json",
+	"title": "race track",
+	"translations": {
+		"title": {
+			"de": "Rennstrecke",
+			"el": "πίστα αγώνων",
+			"fr": "circuit de course",
+			"ga": "rásraon",
+			"nl": "racecircuit",
+			"ja": "サーキットのコース"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "SportFacility.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfTurns": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfTurns"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfTurns"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfTurns": {
+			"title": "number of turns",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/RaceTrack",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RaceTrack"}
+}

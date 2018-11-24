@@ -1,0 +1,57 @@
+{
+	"id": "NaturalPlace.json",
+	"title": "natural place",
+	"description": "The natural place encompasses all places occurring naturally in universe.",
+	"translations": {
+		"title": {
+			"de": "natürlicher Ort",
+			"el": "φυσική θέση",
+			"fr": "lieu naturel",
+			"nl": "natuurgebied",
+			"pt": "lugar natural"
+		},
+		"description": {
+			"el": "Η φυσική θέση ερμηνεύει όλα τα σημεία που απαντώνται φυσικά στο σύμπαν",
+			"de": "Der natürlicher Ort beinhaltet alle Orte die natürlicherweise im Universum existieren."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/NaturalPlace",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/NaturalPlace"}
+}

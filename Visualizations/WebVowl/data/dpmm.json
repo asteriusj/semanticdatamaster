@@ -1,0 +1,3213 @@
+{
+  "_comment": "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org [Additional Information added by WebVOWL Exporter Version: 1.0.6]",
+  "header": {
+    "languages": [
+      "en",
+      "undefined"
+    ],
+    "baseIris": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns",
+      "http://schema.org",
+      "https://github.com/asteriusj/digitalproductmodelmaster",
+      "http://www.w3.org/2002/07/owl",
+      "http://www.w3.org/ns/org",
+      "http://www.w3.org/2000/01/rdf-schema",
+      "http://www.w3.org/2003/01/geo/wgs84_pos",
+      "http://www.w3.org/2001/XMLSchema",
+      "http://xmlns.com/foaf/0.1",
+      "http://purl.org/dc/dcmitype",
+      "https://github.com/vocol/salesforce",
+      "http://www.w3.org/2004/02/skos/core"
+    ],
+    "title": {
+      "en": "Digital Product Model Master (DPM) Ontology"
+    },
+    "iri": "https://github.com/asteriusj/productdatamodelmaster/",
+    "version": "Draft",
+    "author": [
+      "http://github.com/asteriusj"
+    ],
+    "description": {
+      "undefined" : "The Digital Product Model Master (DPMM) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language."
+    },
+    "labels": {
+      "en": "Ontology for Digital Product Model Master"
+    },
+    "comments": {
+      "undefined": "An experimental ontology for defining entity relationships and data property definitions and constraints\n"
+    },
+    "other": {
+      "versionIRI": [
+        {
+          "identifier": "versionIRI",
+          "language": "en",
+          "value": "https://github.com/asteriusj/semanticdatamaster/Draft",
+          "type": "label"
+        }
+      ],
+      "date": [
+        {
+          "identifier": "date",
+          "language": "undefined",
+          "value": "$Date: 2018-02-26 20:18:26 $",
+          "type": "label"
+        }
+      ],
+      "creator": [
+        {
+          "identifier": "creator",
+          "language": "undefined",
+          "value": "http://github.com/asteriusj",
+          "type": "iri"
+        }
+      ],
+      "created": [
+        {
+          "identifier": "created",
+          "language": "undefined",
+          "value": "$Date: 2018-02-26 20:18:26 $",
+          "type": "label"
+        }
+      ],
+      "abstract": [
+        {
+          "identifier": "abstract",
+          "language": "en",
+          "value": "An experimental ontology for defining entity relationships and data property definitions and constraints\n",
+          "type": "label"
+        }
+      ],
+      "versionInfo": [
+        {
+          "identifier": "versionInfo",
+          "language": "en",
+          "value": "Draft",
+          "type": "label"
+        }
+      ],
+      "title": [
+        {
+          "identifier": "title",
+          "language": "en",
+          "value": "Digital Product Model Master (DPM) Ontology",
+          "type": "label"
+        }
+      ],
+      "license": [
+        {
+          "identifier": "license",
+          "language": "undefined",
+          "value": "http://creativecommons.org/licenses/by/2.0/",
+          "type": "label"
+        }
+      ],
+      "contributor": [
+        {
+          "identifier": "contributor",
+          "language": "undefined",
+          "value": "http://LinkedIn.com/jeffreyastewart/",
+          "type": "iri"
+        },
+        {
+          "identifier": "contributor",
+          "language": "undefined",
+          "value": "http://github.com/asteriusj",
+          "type": "iri"
+        }
+      ],
+      "preferredNamespacePrefix": [
+        {
+          "identifier": "preferredNamespacePrefix",
+          "language": "undefined",
+          "value": "dpmm",
+          "type": "label"
+        }
+      ],
+      "modified": [
+        {
+          "identifier": "modified",
+          "language": "undefined",
+          "value": "$Date: 2018-02-26 20:18:26 $",
+          "type": "label"
+        }
+      ],
+      "publisher": [
+        {
+          "identifier": "publisher",
+          "language": "undefined",
+          "value": "http://github.com/asteriusj",
+          "type": "iri"
+        }
+      ],
+      "preferredNamespaceUri": [
+        {
+          "identifier": "preferredNamespaceUri",
+          "language": "undefined",
+          "value": "https://github.com/asteriusj/semanticdatamaster#",
+          "type": "label"
+        }
+      ],
+      "generatedAtTime": [
+        {
+          "identifier": "generatedAtTime",
+          "language": "undefined",
+          "value": "$Date: 2018-02-26 20:18:26 $",
+          "type": "label"
+        }
+      ],
+      "issued": [
+        {
+          "identifier": "issued",
+          "language": "undefined",
+          "value": "$Date: 2018-02-26 20:18:26 $",
+          "type": "label"
+        }
+      ],
+      "status": [
+        {
+          "identifier": "status",
+          "language": "en",
+          "value": "Draft",
+          "type": "label"
+        }
+      ]
+    }
+  },
+  "namespace": [],
+  "metrics": {
+    "classCount": 43,
+    "objectPropertyCount": 28,
+    "datatypePropertyCount": 1,
+    "individualCount": 1
+  },
+  "settings": {
+    "global": {
+      "zoom": 0.736,
+      "translation": [
+        101.72448000000003,
+        97.15199999999999
+      ],
+      "paused": false
+    },
+    "gravity": {
+      "classDistance": 200,
+      "datatypeDistance": 120
+    },
+    "filter": {
+      "checkBox": [
+        {
+          "id": "datatypeFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "objectPropertyFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "subclassFilterCheckbox",
+          "checked": false
+        },
+        {
+          "id": "disjointFilterCheckbox",
+          "checked": true
+        },
+        {
+          "id": "setoperatorFilterCheckbox",
+          "checked": false
+        }
+      ],
+      "degreeSliderValue": "0"
+    },
+    "modes": {
+      "checkBox": [
+        {
+          "id": "pickandpinModuleCheckbox",
+          "checked": false
+        },
+        {
+          "id": "nodescalingModuleCheckbox",
+          "checked": true
+        },
+        {
+          "id": "compactnotationModuleCheckbox",
+          "checked": false
+        },
+        {
+          "id": "colorexternalsModuleCheckbox",
+          "checked": true
+        }
+      ],
+      "colorSwitchState": false
+    }
+  },
+  "class": [
+    {
+      "id": "3",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "5",
+      "type": "owl:Class"
+    },
+    {
+      "id": "11",
+      "type": "owl:Class"
+    },
+    {
+      "id": "23",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "26",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "37",
+      "type": "owl:Class"
+    },
+    {
+      "id": "38",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "34",
+      "type": "owl:Class"
+    },
+    {
+      "id": "24",
+      "type": "owl:Class"
+    },
+    {
+      "id": "4",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "49",
+      "type": "owl:Class"
+    },
+    {
+      "id": "47",
+      "type": "owl:Class"
+    },
+    {
+      "id": "45",
+      "type": "owl:Class"
+    },
+    {
+      "id": "56",
+      "type": "owl:Class"
+    },
+    {
+      "id": "59",
+      "type": "owl:Class"
+    },
+    {
+      "id": "7",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "32",
+      "type": "owl:Class"
+    },
+    {
+      "id": "16",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "64",
+      "type": "owl:Class"
+    },
+    {
+      "id": "17",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "66",
+      "type": "owl:Class"
+    },
+    {
+      "id": "61",
+      "type": "owl:Class"
+    },
+    {
+      "id": "72",
+      "type": "owl:Class"
+    },
+    {
+      "id": "74",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "65",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "10",
+      "type": "owl:Class"
+    },
+    {
+      "id": "12",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "21",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "14",
+      "type": "owl:Class"
+    },
+    {
+      "id": "76",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "19",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "63",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "55",
+      "type": "owl:Class"
+    },
+    {
+      "id": "1",
+      "type": "owl:Class"
+    },
+    {
+      "id": "68",
+      "type": "owl:Class"
+    },
+    {
+      "id": "62",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "6",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "42",
+      "type": "owl:Class"
+    },
+    {
+      "id": "99",
+      "type": "owl:Thing"
+    },
+    {
+      "id": "101",
+      "type": "rdfs:Literal"
+    },
+    {
+      "id": "95",
+      "type": "owl:Class"
+    },
+    {
+      "id": "106",
+      "type": "owl:Class"
+    },
+    {
+      "id": "105",
+      "type": "owl:Class"
+    },
+    {
+      "id": "29",
+      "type": "owl:Class"
+    },
+    {
+      "id": "43",
+      "type": "owl:Class"
+    },
+    {
+      "id": "40",
+      "type": "owl:Class"
+    },
+    {
+      "id": "31",
+      "type": "owl:Class"
+    },
+    {
+      "id": "2",
+      "type": "owl:Class"
+    },
+    {
+      "id": "75",
+      "type": "owl:equivalentClass"
+    },
+    {
+      "id": "9",
+      "type": "owl:Class"
+    },
+    {
+      "id": "36",
+      "type": "owl:Class"
+    },
+    {
+      "id": "54",
+      "type": "owl:Class"
+    }
+  ],
+  "classAttribute": [
+    {
+      "iri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "equivalent": [
+        "4"
+      ],
+      "baseIri": "http://www.w3.org/2004/02/skos/core",
+      "instances": 0,
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "http://www.w3.org/2004/02/skos/core",
+            "type": "iri"
+          }
+        ],
+        "definition": [
+          {
+            "identifier": "definition",
+            "language": "en",
+            "value": "An idea or notion; a unit of thought.",
+            "type": "label"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Concept",
+        "en": "Concept"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "3",
+      "pos": [
+        631.4325777602274,
+        -374.84218044076295
+      ]
+    },
+    {
+      "iri": "http://xmlns.com/foaf/0.1/Agent",
+      "baseIri": "http://xmlns.com/foaf/0.1",
+      "instances": 0,
+      "annotations": {
+        "term_status": [
+          {
+            "identifier": "term_status",
+            "language": "undefined",
+            "value": "stable",
+            "type": "label"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Agent",
+        "undefined": "Agent"
+      },
+      "subClasses": [
+        "6",
+        "7"
+      ],
+      "comment": {
+        "undefined": "\nAn agent (eg. person, group, software or physical artifact).\n"
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "5",
+      "pos": [
+        -708.6380297142355,
+        43.272597709410164
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactActivityEnablingFeatures",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactActivityEnablingFeatures",
+        "en": "Activity enabling features"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "11",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        971.9080731222772,
+        1235.2943076898223
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Organization",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Organization",
+        "en": "Organization"
+      },
+      "comment": {
+        "en": "a collection of people organized together into a community or other social, commercial or political structure."
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "23",
+      "superClasses": [
+        "17",
+        "24"
+      ]
+    },
+    {
+      "iri": "http://xmlns.com/foaf/0.1/Organization",
+      "baseIri": "http://xmlns.com/foaf/0.1",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Organization"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "26"
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactLogicModelIndicators",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactLogicModelIndicators",
+        "en": "Logic model indicators"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "37",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        32.00185940129261,
+        1364.6859894415807
+      ]
+    },
+    {
+      "iri": "http://www.w3.org/ns/org#schema",
+      "equivalent": [
+        "21"
+      ],
+      "baseIri": "http://www.w3.org/ns/org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "schema"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "38",
+      "pos": [
+        -209.37428655333923,
+        -628.8794158362186
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Capability",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Capability",
+        "en": "Capability"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "34",
+      "superClasses": [
+        "4"
+      ],
+      "pos": [
+        947.8308709303619,
+        -666.2919446397228
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Agent",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Agent"
+      },
+      "subClasses": [
+        "23",
+        "12",
+        "16"
+      ],
+      "attributes": [
+        "external"
+      ],
+      "id": "24",
+      "pos": [
+        -78.74221372860492,
+        470.75394894259694
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Concept",
+      "equivalent": [
+        "3"
+      ],
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Concept",
+        "en": "Concept"
+      },
+      "subClasses": [
+        "34",
+        "29",
+        "40",
+        "36",
+        "2"
+      ],
+      "comment": {
+        "en": "An idea or"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "4",
+      "superClasses": [
+        "17"
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactInformationSystemServices",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactInformationSystemServices",
+        "en": "Information system services"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "49",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        233.94118339865497,
+        1558.8068445007702
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "29",
+        "40",
+        "36"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "47",
+      "pos": [
+        1090.9462658041973,
+        -354.10499250622314
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "54",
+        "55"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "45",
+      "pos": [
+        69.33655270088794,
+        646.7237595345898
+      ]
+    },
+    {
+      "iri": "http://xmlns.com/foaf/0.1/Project",
+      "baseIri": "http://xmlns.com/foaf/0.1",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Project"
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "56",
+      "pos": [
+        1993.1213955077799,
+        1168.355056074953
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "14",
+        "11",
+        "42",
+        "43",
+        "31",
+        "54",
+        "55",
+        "37",
+        "49"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "59",
+      "pos": [
+        512.9496869070839,
+        1150.2706064648903
+      ]
+    },
+    {
+      "iri": "http://xmlns.com/foaf/0.1/Person",
+      "baseIri": "http://xmlns.com/foaf/0.1",
+      "instances": 0,
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "http://xmlns.com/foaf/0.1/",
+            "type": "iri"
+          }
+        ],
+        "term_status": [
+          {
+            "identifier": "term_status",
+            "language": "undefined",
+            "value": "stable",
+            "type": "label"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Person",
+        "undefined": "Person"
+      },
+      "comment": {
+        "undefined": "A person."
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "7",
+      "superClasses": [
+        "5",
+        "61"
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "54",
+        "55"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "32",
+      "pos": [
+        -17.940907119634456,
+        670.6689699614799
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Person",
+      "equivalent": [
+        "62",
+        "63",
+        "7"
+      ],
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "annotations": {
+        "property": [
+          {
+            "identifier": "property",
+            "language": "undefined",
+            "value": "_:genid4550307",
+            "type": "label"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Person",
+        "undefined": "Person"
+      },
+      "comment": {
+        "undefined": "A person. A person (alive, dead, undead, or fictional)."
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "16",
+      "superClasses": [
+        "17",
+        "24"
+      ],
+      "pos": [
+        -352.6148808630234,
+        -1.525126703898238
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "29",
+        "40",
+        "36"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "64",
+      "pos": [
+        819.1337814516774,
+        423.2478840126467
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Thing",
+      "equivalent": [
+        "65"
+      ],
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Thing",
+        "undefined": "Thing"
+      },
+      "subClasses": [
+        "21",
+        "23",
+        "4",
+        "19",
+        "16"
+      ],
+      "comment": {
+        "undefined": "The most generic type of item."
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "17",
+      "pos": [
+        1.2527795695726809,
+        -297.0800694987604
+      ]
+    },
+    {
+      "iri": "http://www.w3.org/2002/07/owl#class",
+      "baseIri": "http://www.w3.org/2002/07/owl",
+      "instances": 0,
+      "label": {
+        "IRI-based": "class"
+      },
+      "individuals": [
+        {
+          "iri": "http://www.w3.org/2002/07/owl#Thing",
+          "baseIri": "http://www.w3.org/2002/07/owl",
+          "labels": {
+            "IRI-based": "Thing"
+          }
+        }
+      ],
+      "attributes": [
+        "external"
+      ],
+      "id": "66",
+      "pos": [
+        1132.4966433860106,
+        2183.1491449837044
+      ]
+    },
+    {
+      "iri": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",
+      "baseIri": "http://www.w3.org/2003/01/geo/wgs84_pos",
+      "instances": 0,
+      "label": {
+        "IRI-based": "SpatialThing"
+      },
+      "subClasses": [
+        "7"
+      ],
+      "attributes": [
+        "external"
+      ],
+      "id": "61",
+      "pos": [
+        -705.6661493193224,
+        -198.45582043064496
+      ]
+    },
+    {
+      "iri": "http://schema.org/Place",
+      "baseIri": "http://schema.org",
+      "instances": 0,
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "http://schema.org/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Place"
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "72",
+      "pos": [
+        -419.5959198113566,
+        -1336.874696731789
+      ]
+    },
+    {
+      "iri": "http://purl.org/dc/dcmitype/Event",
+      "baseIri": "http://purl.org/dc/dcmitype",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Event"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "74"
+    },
+    {
+      "iri": "http://schema.org/Thing",
+      "equivalent": [
+        "17"
+      ],
+      "baseIri": "http://schema.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Thing"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "65"
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Tools",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Tools",
+        "en": "Tools"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "10",
+      "superClasses": [
+        "2"
+      ],
+      "pos": [
+        167.2116143322259,
+        -1154.123701213898
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Artifact",
+      "equivalent": [
+        "75"
+      ],
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Artifact",
+        "en": "Artifact"
+      },
+      "subClasses": [
+        "11",
+        "14",
+        "42",
+        "43",
+        "31",
+        "54",
+        "55",
+        "49",
+        "37"
+      ],
+      "comment": {
+        "en": "A software, document or data artifact"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "12",
+      "superClasses": [
+        "24"
+      ],
+      "pos": [
+        418.5923548748507,
+        1119.1412712560277
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Place",
+      "equivalent": [
+        "38"
+      ],
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Place",
+        "en": "Place"
+      },
+      "comment": {},
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "21",
+      "superClasses": [
+        "17"
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactPositionRoleResponsibility",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactPositionRoleResponsibility",
+        "en": "Position role responsibility"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "14",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        913.432165674212,
+        937.3905235839529
+      ]
+    },
+    {
+      "iri": "http://schema.org/Event",
+      "equivalent": [
+        "74",
+        "19"
+      ],
+      "baseIri": "http://schema.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Event",
+        "undefined": "Event"
+      },
+      "comment": {
+        "undefined": "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the 'offers' property. Repeated events may be structured as separate Event objects."
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "76",
+      "pos": [
+        -347.1043592656933,
+        -505.56482301508436
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Event",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Event",
+        "en": "Event"
+      },
+      "comment": {
+        "en": "An event happening at a certain time and location"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "19",
+      "superClasses": [
+        "17"
+      ]
+    },
+    {
+      "iri": "http://schema.org/Person",
+      "baseIri": "http://schema.org",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Person"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "63"
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactProcessWorkflowMap",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactProcessWorkflowMap",
+        "en": "Process workflow map"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "55",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        517.1809811370767,
+        709.4572144533654
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Teams",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Teams",
+        "en": "Teams"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "1",
+      "superClasses": [
+        "2"
+      ],
+      "pos": [
+        510.2977219646652,
+        -1290.2169574977395
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Position",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Position",
+        "en": "Position"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "68",
+      "superClasses": [
+        "36"
+      ],
+      "pos": [
+        1597.2053321938981,
+        5.081103071028245
+      ]
+    },
+    {
+      "iri": "https://github.com/vocol/salesforce/Person",
+      "baseIri": "https://github.com/vocol/salesforce",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Person"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "62"
+    },
+    {
+      "iri": "http://www.w3.org/ns/org#Organization",
+      "equivalent": [
+        "23",
+        "26"
+      ],
+      "baseIri": "http://www.w3.org/ns/org",
+      "instances": 0,
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "http://www.w3.org/ns/org",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Organization",
+        "en": "Organization"
+      },
+      "comment": {
+        "en": "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures.  It is recommended that SKOS lexical labels should be used to label the Organization. In particular `skos:prefLabel` for the primary (possibly legally recognized name), `skos:altLabel` for alternative names (trading names, colloquial names) and `skos:notation` to denote a code from a code list. Alternative names: _Collective_ _Body_ _Org_ _Group_"
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "6",
+      "superClasses": [
+        "5"
+      ],
+      "pos": [
+        -293.40428099208344,
+        67.03792843497932
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactActionPlanChecklist",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactActionPlanChecklist",
+        "en": "Action plan checklist"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "42",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        826.7616100899793,
+        1485.7409305712615
+      ]
+    },
+    {
+      "iri": "http://www.w3.org/2002/07/owl#Thing",
+      "baseIri": "http://owl2vowl.de",
+      "id": "99",
+      "label": {
+        "undefined": "Thing"
+      },
+      "pos": [
+        -1085.947457717907,
+        1282.605707998321
+      ]
+    },
+    {
+      "iri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "id": "101",
+      "label": {
+        "IRI-based": "Literal",
+        "undefined": "Literal"
+      },
+      "pos": [
+        -1162.5605771369167,
+        1083.2446290594985
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "29",
+        "40",
+        "36"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "95",
+      "pos": [
+        1178.7238611717373,
+        -342.84754332622225
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "29",
+        "40",
+        "36"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "106",
+      "pos": [
+        910.5160371983377,
+        432.8240003649141
+      ]
+    },
+    {
+      "instances": 0,
+      "union": [
+        "11",
+        "14",
+        "43",
+        "42",
+        "31",
+        "54",
+        "55",
+        "49",
+        "37"
+      ],
+      "attributes": [
+        "union",
+        "anonymous"
+      ],
+      "id": "105",
+      "pos": [
+        531.3580964418568,
+        1096.173713920329
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Process",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Process",
+        "en": "Process"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "29",
+      "superClasses": [
+        "4"
+      ],
+      "pos": [
+        923.5748419579363,
+        -10.43699631652444
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactSkillMaturityModel",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactSkillMaturityModel",
+        "en": "Skill maturity model"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "43",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        533.9245479003114,
+        1616.2105967139564
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Technology",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Technology",
+        "en": "Technology"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "40",
+      "superClasses": [
+        "4"
+      ],
+      "pos": [
+        835.1938013439346,
+        -28.690292846366773
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactTechnologyComponents",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactTechnologyComponents",
+        "en": "Technology components"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "31",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        74.34747264623746,
+        1004.7684159850432
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Activty",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Activty",
+        "en": "Concept"
+      },
+      "subClasses": [
+        "1",
+        "9",
+        "10"
+      ],
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "2",
+      "superClasses": [
+        "4"
+      ],
+      "pos": [
+        441.5749974659792,
+        -895.3386111648276
+      ]
+    },
+    {
+      "iri": "http://xmlns.com/foaf/0.1/Document",
+      "equivalent": [
+        "12"
+      ],
+      "baseIri": "http://xmlns.com/foaf/0.1",
+      "instances": 0,
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "http://xmlns.com/foaf/0.1/",
+            "type": "iri"
+          }
+        ],
+        "term_status": [
+          {
+            "identifier": "term_status",
+            "language": "undefined",
+            "value": "testing",
+            "type": "label"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "Document",
+        "undefined": "Document"
+      },
+      "comment": {
+        "undefined": "A document."
+      },
+      "attributes": [
+        "external",
+        "equivalent"
+      ],
+      "id": "75"
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/Flows",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "Flows",
+        "en": "Flows"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "9",
+      "superClasses": [
+        "2"
+      ],
+      "pos": [
+        199.58470805072224,
+        -1287.3920131186298
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/People",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "People",
+        "en": "People"
+      },
+      "subClasses": [
+        "68"
+      ],
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "36",
+      "superClasses": [
+        "4"
+      ],
+      "pos": [
+        1201.140216011942,
+        26.798542392530067
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/artifactCompetencyBehaviorMatrix",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "instances": 0,
+      "label": {
+        "IRI-based": "artifactCompetencyBehaviorMatrix",
+        "en": "Competency behavior matrix"
+      },
+      "comment": {
+        "en": "A "
+      },
+      "attributes": [
+        "external"
+      ],
+      "id": "54",
+      "superClasses": [
+        "12"
+      ],
+      "pos": [
+        -22.51553752152092,
+        1091.7182222091908
+      ]
+    }
+  ],
+  "property": [
+    {
+      "id": "0",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "8",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "13",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "15",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "18",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "20",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "22",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "25",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "27",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "28",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "30",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "33",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "35",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "39",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "41",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "44",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "46",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "48",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "50",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "51",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "52",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "53",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "57",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "58",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "60",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "67",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "69",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "70",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "71",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "73",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "77",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "78",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "79",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "80",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "81",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "82",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "83",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "84",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "85",
+      "type": "rdfs:SubClassOf"
+    },
+    {
+      "id": "86",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "87",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "88",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "89",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "90",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "91",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "92",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "93",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "94",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "96",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "97",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "98",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "100",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "102",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "103",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "104",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "107",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "108",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "109",
+      "type": "owl:disjointWith"
+    },
+    {
+      "id": "110",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "111",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "112",
+      "type": "owl:datatypeProperty"
+    },
+    {
+      "id": "113",
+      "type": "owl:objectProperty"
+    },
+    {
+      "id": "114",
+      "type": "owl:objectProperty"
+    }
+  ],
+  "propertyAttribute": [
+    {
+      "range": "2",
+      "domain": "1",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "0",
+      "pos": [
+        475.93635971532217,
+        -1092.7777843312836
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/dataGen",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "10",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "dataGen",
+        "en": "dataGen"
+      },
+      "domain": "9",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "8",
+      "pos": [
+        30.10941152620365,
+        -1282.5751453987298
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/assists",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "14",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "assists",
+        "en": "assists"
+      },
+      "domain": "11",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "13",
+      "pos": [
+        1071.7190018549306,
+        1051.6888092771082
+      ]
+    },
+    {
+      "range": "17",
+      "domain": "16",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "15",
+      "pos": [
+        -175.68105064672537,
+        -149.30259810132932
+      ]
+    },
+    {
+      "range": "17",
+      "domain": "19",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "18",
+      "pos": [
+        -172.9257898480603,
+        -401.3224462569224
+      ]
+    },
+    {
+      "range": "17",
+      "domain": "21",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "20",
+      "pos": [
+        -104.06075349188328,
+        -462.9797426674895
+      ]
+    },
+    {
+      "range": "4",
+      "domain": "2",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "22",
+      "pos": [
+        535.8184330298228,
+        -636.9693021589442
+      ]
+    },
+    {
+      "range": "17",
+      "domain": "4",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "25",
+      "pos": [
+        316.34267866490006,
+        -335.96112496976167
+      ]
+    },
+    {
+      "range": "17",
+      "domain": "23",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "27",
+      "pos": [
+        -146.07575071125538,
+        -115.02107053189053
+      ]
+    },
+    {
+      "range": "4",
+      "domain": "29",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "28",
+      "pos": [
+        778.754713239942,
+        -191.07914275604847
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/enables",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "32",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "enables",
+        "en": "enables"
+      },
+      "domain": "31",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "30",
+      "pos": [
+        28.2032827633015,
+        837.7186929732616
+      ]
+    },
+    {
+      "range": "4",
+      "domain": "34",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "33",
+      "pos": [
+        791.1027443926505,
+        -521.9220902227192
+      ]
+    },
+    {
+      "range": "4",
+      "domain": "36",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "35",
+      "pos": [
+        917.9210161183623,
+        -172.86942153823415
+      ]
+    },
+    {
+      "range": "4",
+      "domain": "40",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "39",
+      "pos": [
+        734.3277567683497,
+        -200.0426782999997
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/requires",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "43",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "requires",
+        "en": "requires"
+      },
+      "domain": "42",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "41",
+      "pos": [
+        743.2526959139624,
+        1683.2879909661228
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/enabledBy",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "31",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "enabledBy",
+        "en": "executedWith"
+      },
+      "domain": "45",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "44",
+      "pos": [
+        71.84201267356269,
+        825.7460877598165
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/hasPart",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "47",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "hasPart",
+        "en": "has part"
+      },
+      "domain": "34",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "46",
+      "pos": [
+        1019.3885683672796,
+        -510.19846857297296
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/requiredBy",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "42",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "requiredBy",
+        "en": "requiredBy"
+      },
+      "domain": "43",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "48",
+      "pos": [
+        723.2542428962181,
+        1651.2636459489586
+      ]
+    },
+    {
+      "range": "24",
+      "domain": "12",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "50",
+      "pos": [
+        168.70784123267282,
+        793.3606782379056
+      ]
+    },
+    {
+      "range": "24",
+      "domain": "23",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "51",
+      "pos": [
+        -185.13429587528563,
+        270.66182942966265
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/assistedBy",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "11",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "assistedBy",
+        "en": "assistedBy"
+      },
+      "domain": "14",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "52",
+      "pos": [
+        1090.8740972226674,
+        1081.625579319583
+      ]
+    },
+    {
+      "range": "24",
+      "domain": "16",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "53",
+      "pos": [
+        -214.6752459791324,
+        236.3445517113085
+      ]
+    },
+    {
+      "range": "5",
+      "domain": "7",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "57",
+      "pos": [
+        -532.6108081317221,
+        21.123422895529348
+      ]
+    },
+    {
+      "range": "5",
+      "domain": "6",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "58",
+      "pos": [
+        -503.0178876915529,
+        55.04098285162406
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/actorIn",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "9",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "actorIn",
+        "en": "actor in"
+      },
+      "domain": "1",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "60",
+      "pos": [
+        357.5059787655131,
+        -1410.237241136635
+      ]
+    },
+    {
+      "range": "36",
+      "domain": "68",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "67",
+      "pos": [
+        1411.6039969800045,
+        -43.15905118576382
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "37",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "69",
+      "pos": [
+        223.60886023999026,
+        1242.9859280738406
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "49",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "70",
+      "pos": [
+        325.49233400591686,
+        1340.8180346212368
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "55",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "71",
+      "pos": [
+        468.35460063883613,
+        912.3547534484273
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/executes",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "42",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "executes",
+        "en": "executes"
+      },
+      "domain": "11",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "73",
+      "pos": [
+        1035.5773766174782,
+        1417.2231988904327
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "54",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "77",
+      "pos": [
+        196.04226244105863,
+        1105.3056491658522
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "42",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "78",
+      "pos": [
+        624.1649343254552,
+        1303.7775137663189
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "14",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "79",
+      "pos": [
+        667.8896331209626,
+        1027.5763532259875
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "31",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "80",
+      "pos": [
+        244.571927086941,
+        1061.324251369691
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "43",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "81",
+      "pos": [
+        476.71049174603286,
+        1369.6241792247733
+      ]
+    },
+    {
+      "range": "2",
+      "domain": "10",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "82",
+      "pos": [
+        304.39330589910253,
+        -1024.7311561893628
+      ]
+    },
+    {
+      "range": "2",
+      "domain": "9",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "83",
+      "pos": [
+        320.57985275835074,
+        -1091.3653121417287
+      ]
+    },
+    {
+      "range": "12",
+      "domain": "11",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "84",
+      "pos": [
+        697.2075517685486,
+        1177.62867735811
+      ]
+    },
+    {
+      "range": "61",
+      "domain": "7",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "85",
+      "pos": [
+        -530.88716556244,
+        -100.96474874976498
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/dataFor",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "37",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "dataFor",
+        "en": "provides data for"
+      },
+      "domain": "49",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "86",
+      "pos": [
+        11.074369494659852,
+        1564.2977162564682
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/dataRequired",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "49",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "dataRequired",
+        "en": "requires data from"
+      },
+      "domain": "43",
+      "comment": {
+        "en": "Individual skills needed for role requires data from info system"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "87",
+      "pos": [
+        351.4626086167235,
+        1736.2857237680162
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/hasActor",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "1",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "hasActor",
+        "en": "has actor"
+      },
+      "domain": "9",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "88",
+      "pos": [
+        359.7656593397773,
+        -1365.5636943574445
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/hasComponent",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "59",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "hasComponent",
+        "en": "hasComponent"
+      },
+      "domain": "64",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "89",
+      "pos": [
+        666.0417341793807,
+        786.7592452387685
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/usedBy",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "1",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "usedBy",
+        "en": "used by"
+      },
+      "domain": "10",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "90",
+      "pos": [
+        324.75531424854944,
+        -1265.4335558496243
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/hasInstacne",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "68",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "hasInstacne",
+        "en": "has instacne"
+      },
+      "domain": "36",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "91",
+      "pos": [
+        1413.8701481989028,
+        16.839579008690357
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/genData",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "9",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "genData",
+        "en": "genData"
+      },
+      "domain": "10",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "92",
+      "pos": [
+        16.51860590200597,
+        -1218.1623506948881
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/monitors",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "54",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "monitors",
+        "en": "monitors"
+      },
+      "domain": "37",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "93",
+      "pos": [
+        -139.71490998086685,
+        1277.6178116782046
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/partOf",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "34",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "partOf",
+        "en": "is part of"
+      },
+      "domain": "95",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "94",
+      "pos": [
+        1063.2773660510497,
+        -504.56974398297257
+      ]
+    },
+    {
+      "range": "56",
+      "domain": "75",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "96"
+    },
+    {
+      "range": "7",
+      "domain": "26",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "97"
+    },
+    {
+      "range": "7",
+      "domain": "56",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "98"
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/defines",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "14",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "defines",
+        "en": "defines"
+      },
+      "domain": "55",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "100",
+      "pos": [
+        756.4316873775356,
+        792.9596453368152
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/executedWith",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "11",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "executedWith",
+        "en": "executedWith"
+      },
+      "domain": "42",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "102",
+      "pos": [
+        1011.959153881623,
+        1445.3880594748962
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/instanceOf",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "36",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "instanceOf",
+        "en": "an instance of"
+      },
+      "domain": "68",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "103",
+      "pos": [
+        1416.6141021644476,
+        76.01230695482376
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/componentOf",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "106",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "componentOf",
+        "en": "is a component of"
+      },
+      "domain": "105",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "104",
+      "pos": [
+        720.9370668200972,
+        764.4988571426215
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/dataProvided",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "43",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "dataProvided",
+        "en": "provides data for"
+      },
+      "domain": "49",
+      "comment": {
+        "en": "Info services provide data required by individual skills for role"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "107",
+      "pos": [
+        360.37769028183027,
+        1700.911593142584
+      ]
+    },
+    {
+      "range": "7",
+      "domain": "75",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "108"
+    },
+    {
+      "range": "75",
+      "domain": "26",
+      "attributes": [
+        "anonymous",
+        "object"
+      ],
+      "id": "109"
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/monitoredBy",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "37",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "monitoredBy",
+        "en": "definedBy"
+      },
+      "domain": "54",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "110",
+      "pos": [
+        -149.74854054009364,
+        1241.3346461271292
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/dataFrom",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "49",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "dataFrom",
+        "en": "retrieves data from"
+      },
+      "domain": "37",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "111",
+      "pos": [
+        46.887957882340714,
+        1563.0520488318707
+      ]
+    },
+    {
+      "iri": "http://www.w3.org/ns/org#identifier",
+      "baseIri": "http://www.w3.org/ns/org",
+      "range": "101",
+      "label": {
+        "IRI-based": "identifier"
+      },
+      "domain": "99",
+      "attributes": [
+        "external",
+        "datatype",
+        "key"
+      ],
+      "id": "112",
+      "pos": [
+        -1127.713308054681,
+        1173.9234738185883
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/definedBy",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "55",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "definedBy",
+        "en": "definedBy"
+      },
+      "domain": "14",
+      "comment": {},
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "113",
+      "pos": [
+        776.5116778987365,
+        746.5079573665166
+      ]
+    },
+    {
+      "iri": "https://github.com/asteriusj/digitalproductmodelmaster/uses",
+      "baseIri": "https://github.com/asteriusj/digitalproductmodelmaster",
+      "range": "10",
+      "annotations": {
+        "isDefinedBy": [
+          {
+            "identifier": "isDefinedBy",
+            "language": "undefined",
+            "value": "https://github.com/asteriusj/productdatamodelmaster/",
+            "type": "iri"
+          }
+        ]
+      },
+      "label": {
+        "IRI-based": "uses",
+        "en": "uses"
+      },
+      "domain": "1",
+      "comment": {
+        "en": "To"
+      },
+      "attributes": [
+        "external",
+        "object"
+      ],
+      "id": "114",
+      "pos": [
+        353.5280508858241,
+        -1199.445304077891
+      ]
+    }
+  ]
+}

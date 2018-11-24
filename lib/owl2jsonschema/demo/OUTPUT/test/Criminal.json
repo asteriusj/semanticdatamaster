@@ -1,0 +1,147 @@
+{
+	"id": "Criminal.json",
+	"title": "criminal",
+	"translations": {
+		"title": {
+			"de": "Verbrecher",
+			"el": "εγκληματίας",
+			"fr": "criminel",
+			"it": "delinquente",
+			"es": "criminal",
+			"ga": "coirpeach",
+			"ko": "범죄인",
+			"nl": "crimineel",
+			"pt": "criminoso",
+			"ja": "犯罪"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"apprehended": {
+			"oneOf": [
+				{"$ref": "#/definitions/apprehended"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/apprehended"}
+				}
+			]
+		},
+		"motive": {
+			"oneOf": [
+				{"$ref": "#/definitions/motive"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/motive"}
+				}
+			]
+		},
+		"kindOfCriminal": {
+			"oneOf": [
+				{"$ref": "#/definitions/kindOfCriminal"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/kindOfCriminal"}
+				}
+			]
+		},
+		"criminalCharge": {
+			"oneOf": [
+				{"$ref": "#/definitions/criminalCharge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/criminalCharge"}
+				}
+			]
+		},
+		"kindOfCriminalAction": {
+			"oneOf": [
+				{"$ref": "#/definitions/kindOfCriminalAction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/kindOfCriminalAction"}
+				}
+			]
+		},
+		"convictionPenalty": {
+			"oneOf": [
+				{"$ref": "#/definitions/convictionPenalty"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/convictionPenalty"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"apprehended": {
+			"title": "apprehended",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"motive": {
+			"title": "motive",
+			"description": "",
+			"type": "string"
+		},
+		"kindOfCriminal": {
+			"title": "kind of criminal",
+			"description": "",
+			"type": "string"
+		},
+		"criminalCharge": {
+			"title": "criminal charge",
+			"description": "",
+			"type": "string"
+		},
+		"kindOfCriminalAction": {
+			"title": "kind of criminal action",
+			"description": "",
+			"type": "string"
+		},
+		"convictionPenalty": {
+			"title": "conviction penalty",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Criminal",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Criminal"}
+}

@@ -1,0 +1,126 @@
+{
+	"id": "Hotel.json",
+	"title": "hotel",
+	"translations": {
+		"title": {
+			"de": "Hotel",
+			"el": "ξενοδοχείο",
+			"fr": "hôtel",
+			"it": "albergo",
+			"ga": "óstán",
+			"da": "hotel",
+			"ko": "호텔",
+			"nl": "hotel",
+			"ja": "ホテル"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfRestaurants": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfRestaurants"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfRestaurants"}
+				}
+			]
+		},
+		"numberOfSuites": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSuites"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSuites"}
+				}
+			]
+		},
+		"starRating": {
+			"oneOf": [
+				{"$ref": "#/definitions/starRating"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/starRating"}
+				}
+			]
+		},
+		"numberOfParkingSpaces": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfParkingSpaces"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfParkingSpaces"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfRestaurants": {
+			"title": "number of restaurants",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfSuites": {
+			"title": "number of suites",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"starRating": {
+			"title": "star rating",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"numberOfParkingSpaces": {
+			"title": "number of parking spaces",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Hotel",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Hotel"}
+}

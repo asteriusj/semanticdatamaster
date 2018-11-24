@@ -1,0 +1,60 @@
+{
+	"id": "Archive.json",
+	"title": "Archive",
+	"description": "Collection of documents pertaining to a person or organisation.",
+	"translations": {
+		"title": {
+			"pl": "archiwum",
+			"de": "Archiv",
+			"el": "αρχείο",
+			"fr": "archive",
+			"es": "archivo",
+			"nl": "Archief",
+			"ja": "アーカイブ"
+		},
+		"description": {
+			"fr": "Collection de documents appartenant à une personne ou une organisation.",
+			"el": "Η συλλογή των εγγράφων που σχετίζονται με ένα πρόσωπο ή οργανισμό.",
+			"nl": "Verzameling van documenten rondom een persoon of organisatie."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "CollectionOfValuables.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Archive",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Archive"}
+}

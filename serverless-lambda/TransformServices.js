@@ -5,15 +5,51 @@
 // *
 
 // const fetch = require('node-fetch');
+
 const JSONSchema2SHACL = require('./JSONSchema2SHACL')
+const SHACL2JSONSchema = require('./SHACL2JSONSchema')
 const JSONSchema2OWLJSONLD = require('./JSONSchema2OWLJSONLD')
 const OWLJSONLD2JSONSchema = require('./OWLJSONLD2JSONSchema')
+const JSONSchema2FormField = require('./JSONSchema2FormField')
+const FormField2JSONSchema = require('./FormField2JSONSchema')
+
 
 class TransformServices {
 
     constructor() {
 
     }
+
+    // **
+    // 
+    // **
+    SHACL2JSONSchema(event) {
+        return new Promise((resolve, reject) => {
+            const shacl2jsonschema = new SHACL2JSONSchema()
+            let _shacl = {}
+            if (event.pathParameters) {
+                if (event.pathParameters.string) {
+                    let _shacl = event.pathParameters.string
+                }
+            }
+            // let _jsonschema = event.body
+            // _jsonschema = { "id": "Person.json", "title": "Person", "format": "http://schema.org/Person", "comment": "A person (alive, dead, undead, or fictional).", "media": { "type": "application/json;profile=http://schema.org/Person" }, "allOf": [{ "$ref": "Thing.json" }], "type": "object" }
+
+            console.log('_shacl', _shacl)
+
+            shacl2jsonschema.transform(_shacl)
+                .then(jsonschema => {
+                    console.log('jsonschema', jsonschema)
+                    resolve(jsonschema)
+                })
+                .catch(error => {
+                    // reject(error)
+                    resolve(error)
+                });
+
+        }) // end return
+
+    }; // end SHACL2JSONSchema
 
     // **
     // 
@@ -97,6 +133,67 @@ class TransformServices {
 
     }; // end JSONSchema2OWLJSONLD
 
+    // **
+    // 
+    // **
+    JSONSchema2FormField(event) {
+        return new Promise((resolve, reject) => {
+            const jsonschema2formfield = new JSONSchema2FormField()
+            let _jsonschema = {}
+            if (event.pathParameters) {
+                if (event.pathParameters.string) {
+                    let _jsonschema = event.pathParameters.string
+                }
+            }
+            // let _jsonschema = event.body
+            // _jsonschema = { "id": "Person.json", "title": "Person", "format": "http://schema.org/Person", "comment": "A person (alive, dead, undead, or fictional).", "media": { "type": "application/json;profile=http://schema.org/Person" }, "allOf": [{ "$ref": "Thing.json" }], "type": "object" }
+
+            console.log('_jsonschema', _jsonschema)
+
+            jsonschema2formfield.transform(_jsonschema)
+                .then(formfield => {
+                    console.log('formfield', formfield)
+                    resolve(formfield)
+                })
+                .catch(error => {
+                    // reject(error)
+                    resolve(error)
+                });
+
+        }) // end return
+
+    }; // end JSONSchema2FormField
+
+    // **
+    // 
+    // **
+    FormField2JSONSchema(event) {
+        return new Promise((resolve, reject) => {
+            const jsonschema2formfield = new JSONSchema2FormField()
+            let _jsonschema = {}
+            if (event.pathParameters) {
+                if (event.pathParameters.string) {
+                    let _jsonschema = event.pathParameters.string
+                }
+            }
+            // let _jsonschema = event.body
+            // _jsonschema = { "id": "Person.json", "title": "Person", "format": "http://schema.org/Person", "comment": "A person (alive, dead, undead, or fictional).", "media": { "type": "application/json;profile=http://schema.org/Person" }, "allOf": [{ "$ref": "Thing.json" }], "type": "object" }
+
+            console.log('_jsonschema', _jsonschema)
+
+            formfield2jsonschema.transform(_jsonschema)
+                .then(formfield => {
+                    console.log('formfield', formfield)
+                    resolve(formfield)
+                })
+                .catch(error => {
+                    // reject(error)
+                    resolve(error)
+                });
+
+        }) // end return
+
+    }; // end FormField2JSONSchema
 
 }; // end TransformServices
 

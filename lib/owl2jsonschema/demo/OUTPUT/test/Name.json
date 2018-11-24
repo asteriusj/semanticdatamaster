@@ -1,0 +1,56 @@
+{
+	"id": "Name.json",
+	"title": "name",
+	"translations": {
+		"title": {
+			"pl": "nazwa",
+			"de": "Name",
+			"el": "όνομα",
+			"fr": "nom",
+			"ga": "ainm",
+			"nl": "naam",
+			"pt": "nome",
+			"ja": "名前"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Name",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Name"}
+}

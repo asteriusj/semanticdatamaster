@@ -1,0 +1,55 @@
+{
+	"id": "TelevisionHost.json",
+	"title": "television host",
+	"translations": {
+		"title": {
+			"de": "Fernsehmoderator",
+			"el": "παρουσιαστής τηλεοπτικής εκπομπής",
+			"fr": "animateur de télévision",
+			"it": "presentatore televisivo",
+			"ga": "láithreoir teilifíse",
+			"nl": "televisie presentator",
+			"ja": "テレビ番組司会者"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Presenter.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TelevisionHost",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TelevisionHost"}
+}

@@ -1,0 +1,55 @@
+{
+	"id": "Athletics.json",
+	"title": "athletics",
+	"translations": {
+		"title": {
+			"de": "Leichtathletik",
+			"el": "αθλητικά",
+			"fr": "athlétisme",
+			"es": "atletismo",
+			"ga": "lúthchleasaíocht",
+			"nl": "atletiek",
+			"ja": "陸上競技"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Activity.json"}, {"$ref": "Sport.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Athletics",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Athletics"}
+}

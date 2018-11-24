@@ -1,0 +1,48 @@
+{
+	"id": "HistoricalAreaOfAuthority.json",
+	"title": "ancient area of jurisdiction of a person &amp;&#35;40;feudal&#41; or of a governmental body",
+	"description": "Mostly for feudal forms of authority, but can also serve for historical forms of centralised authority",
+	"translations": {
+		"title": {"nl": "gebied dat vroeger onder het gezag viel van een heer of vrouwe of een instelling van kerk of staat"},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Region.json"}, {"$ref": "AdministrativeRegion.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricalAreaOfAuthority",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricalAreaOfAuthority"}
+}

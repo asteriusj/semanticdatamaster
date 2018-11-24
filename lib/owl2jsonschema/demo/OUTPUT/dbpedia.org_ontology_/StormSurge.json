@@ -1,0 +1,50 @@
+{
+	"id": "StormSurge.json",
+	"title": "storm surge",
+	"translations": {
+		"title": {
+			"de": "Sturmflut",
+			"nl": "stormvloed"
+		},
+		"description": {"nl": "Een stormvloed is de grootschalige overstroming van een kustgebied onder invloed van de op elkaar inwerkende krachten van wind, getij en water"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "NaturalEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/StormSurge",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/StormSurge"}
+}

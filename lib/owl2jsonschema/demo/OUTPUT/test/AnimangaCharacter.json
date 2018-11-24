@@ -1,0 +1,58 @@
+{
+	"id": "AnimangaCharacter.json",
+	"title": "animanga character",
+	"description": "Anime/Manga character",
+	"translations": {
+		"title": {
+			"de": "Manga-Charakter",
+			"el": "χαρακτήρας ανιμάνγκα",
+			"fr": "personnage d&apos;animanga",
+			"it": "personaggio animanga",
+			"ga": "carachtar animanga",
+			"gl": "personaxe de animanga",
+			"ko": "만화애니 등장인물",
+			"nl": "ani-manga figuur",
+			"ja": "キャラクター"
+		},
+		"description": {"el": "Χαρακτήρας από Άνιμε/Μάνγκα"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "FictionalCharacter.json"}, {"$ref": "ComicsCharacter.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AnimangaCharacter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AnimangaCharacter"}
+}

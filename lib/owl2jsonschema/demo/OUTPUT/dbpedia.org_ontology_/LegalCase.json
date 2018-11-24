@@ -1,0 +1,134 @@
+{
+	"id": "LegalCase.json",
+	"title": "Legal Case",
+	"translations": {
+		"title": {
+			"de": "Rechtsfall",
+			"el": "νομική υπόθεση",
+			"fr": "cas juridique",
+			"nl": "rechtzaak",
+			"pt": "caso jurídico"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "UnitOfWork.json"}, {"$ref": "Case.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"codeBook": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeBook"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeBook"}
+				}
+			]
+		},
+		"ruling": {
+			"oneOf": [
+				{"$ref": "#/definitions/ruling"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ruling"}
+				}
+			]
+		},
+		"legalArticle": {
+			"oneOf": [
+				{"$ref": "#/definitions/legalArticle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/legalArticle"}
+				}
+			]
+		},
+		"attorneyGeneral": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"judge": {
+			"oneOf": [
+				{"$ref": "Judge.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Judge.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"systemOfLaw": {
+			"oneOf": [
+				{"$ref": "SystemOfLaw.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SystemOfLaw.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"solicitorGeneral": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"codeBook": {
+			"title": "code book",
+			"description": "code book or statute book referred to in this legal case",
+			"type": "string"
+		},
+		"ruling": {
+			"title": "ruling",
+			"description": "Ruling referred to in this legal case",
+			"type": "string"
+		},
+		"legalArticle": {
+			"title": "legal article",
+			"description": "article in code book or statute book referred to in this legal case",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/LegalCase",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LegalCase"}
+}

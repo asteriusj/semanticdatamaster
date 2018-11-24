@@ -1,0 +1,270 @@
+{
+	"id": "Boxer.json",
+	"title": "boxer",
+	"translations": {
+		"title": {
+			"de": "Boxer",
+			"el": "πυγμάχος",
+			"fr": "boxeur",
+			"it": "pugile",
+			"ga": "dornálaí",
+			"ko": "권투 선수",
+			"nl": "bokser",
+			"pt": "boxeador",
+			"ja": "ボクサー"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"amateurDefeat": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurDefeat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurDefeat"}
+				}
+			]
+		},
+		"amateurFight": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurFight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurFight"}
+				}
+			]
+		},
+		"amateurKo": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurKo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurKo"}
+				}
+			]
+		},
+		"amateurNoContest": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurNoContest"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurNoContest"}
+				}
+			]
+		},
+		"amateurTie": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurTie"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurTie"}
+				}
+			]
+		},
+		"amateurTitle": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurTitle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurTitle"}
+				}
+			]
+		},
+		"amateurVictory": {
+			"oneOf": [
+				{"$ref": "#/definitions/amateurVictory"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/amateurVictory"}
+				}
+			]
+		},
+		"boxerStyle": {
+			"oneOf": [
+				{"$ref": "Sport.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Sport.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"defeat": {
+			"oneOf": [
+				{"$ref": "#/definitions/defeat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/defeat"}
+				}
+			]
+		},
+		"fight": {
+			"oneOf": [
+				{"$ref": "#/definitions/fight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fight"}
+				}
+			]
+		},
+		"ko": {
+			"oneOf": [
+				{"$ref": "#/definitions/ko"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ko"}
+				}
+			]
+		},
+		"noContest": {
+			"oneOf": [
+				{"$ref": "#/definitions/noContest"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/noContest"}
+				}
+			]
+		},
+		"tie": {
+			"oneOf": [
+				{"$ref": "#/definitions/tie"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tie"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"amateurDefeat": {
+			"title": "amateur defeat",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"amateurFight": {
+			"title": "amateur fight",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"amateurKo": {
+			"title": "amateur ko",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"amateurNoContest": {
+			"title": "amateur no contest",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"amateurTie": {
+			"title": "amateur tie",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"amateurTitle": {
+			"title": "amateur title",
+			"description": "",
+			"type": "string"
+		},
+		"amateurVictory": {
+			"title": "amateur victory",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"defeat": {
+			"title": "defeat",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"fight": {
+			"title": "fight",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"ko": {
+			"title": "ko",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"noContest": {
+			"title": "no contest",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tie": {
+			"title": "tie",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Boxer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Boxer"}
+}

@@ -1,0 +1,187 @@
+{
+  "schema": {
+    "formfields": {
+      "type": "object",
+      "title": "Form Fields",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "id"
+        },
+        "title": {
+          "type": "string",
+          "title": "form field definition properties"
+        },
+        "formelement": {
+          "type": "array",
+          "title": "Form Element",
+          "items": {
+            "type": "string",
+            "title": "HTML Form Elements",
+            "description": "https://www.w3schools.com/html/html_form_elements.asp",
+            "enum": [
+              "<form>",
+              "<input>",
+              "<textarea>",
+              "<label>",
+              "<fieldset>",
+              "<legend>",
+              "<select>",
+              "<optgroup>",
+              "<option>",
+              "<button>",
+              "<datalist>",
+              "<output>"
+            ],
+            "default": "input"
+          }
+        },
+        "fieldtype": {
+          "type": "array",
+          "title": "Field Type",
+          "items": {
+            "type": "object",
+            "title": "Types",
+            "properties": {
+              "types": {
+                "type": "string",
+                "title": "Types",
+                "description": "http://www.alpacajs.org/demos/form-builder/form-builder.html",
+                "enum": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "text",
+                  "textarea",
+                  "checkbox",
+                  "file",
+                  "radio",
+                  "select",
+                  "array",
+                  "object"
+                ],
+                "default": "text"
+              }
+            }
+          }
+        },
+        "inputtype": {
+          "type": "array",
+          "title": "Input Type",
+          "items": {
+            "type": "object",
+            "title": "Input Types",
+            "properties": {
+              "types": {
+                "type": "string",
+                "title": "HTML5 Input Types",
+                "description": "https://www.w3schools.com/html/html_form_input_types.asp",
+                "enum": [
+                  "text",
+                  "textarea",
+                  "password",
+                  "submit",
+                  "reset",
+                  "radio",
+                  "checkbox",
+                  "button",
+                  "color",
+                  "date",
+                  "datetime-local",
+                  "email",
+                  "month",
+                  "text",
+                  "number",
+                  "range",
+                  "search",
+                  "tel",
+                  "time",
+                  "url",
+                  "week"
+                ],
+                "default": "text"
+              }
+            }
+          }
+        },
+        "inputrestriction": {
+          "type": "array",
+          "title": "Input Restrictions",
+          "items": {
+            "type": "object",
+            "title": "Input Restrictions",
+            "properties": {
+              "types": {
+                "type": "string",
+                "title": "Input Restrictions",
+                "description": "https://www.w3schools.com/html/html_form_input_types.asp",
+                "enum": [
+"disabled	Specifies that an input field should be disabled",
+"max	Specifies the maximum value for an input field",
+"maxlength	Specifies the maximum number of character for an input field",
+"min	Specifies the minimum value for an input field",
+"pattern	Specifies a regular expression to check the input value against",
+"readonly	Specifies that an input field is read only (cannot be changed)",
+"required	Specifies that an input field is required (must be filled out)",
+"size	Specifies the width (in characters) of an input field",
+"step	Specifies the legal number intervals for an input field",
+"value	Specifies the default value for an input field    "            
+                ]
+              }
+            }
+          }
+        },
+        "inputattribute": {
+          "type": "array",
+          "title": "Input Attributes",
+          "items": {
+            "type": "object",
+            "title": "Input Attribute",
+            "properties": {
+              "types": {
+                "type": "string",
+                "title": "HTML Input Attributes",
+                "description": "https://www.w3schools.com/html/html_form_attributes.asp",
+                "enum": [
+                  "autocomplete",
+                  "autofocus",
+                  "form",
+                  "formaction",
+                  "formenctype",
+                  "formmethod",
+                  "formnovalidate",
+                  "formtarget",
+                  "height and width",
+                  "list",
+                  "min and max",
+                  "multiple",
+                  "pattern (regexp)",
+                  "placeholder",
+                  "required",
+                  "step"
+                ],
+                "default": ""
+              },
+              "name": {
+                "type": "string",
+                "title": "name"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "form": [
+    {
+      "key": "formfields",
+      "type": "fieldset",
+      "title": "General Settings",
+      "expandable": false,
+      "order": -100
+    }
+  ],
+  "value": {
+    
+  }
+}

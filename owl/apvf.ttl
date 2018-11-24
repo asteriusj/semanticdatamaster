@@ -1,0 +1,3419 @@
+@prefix :      <http://research.ge.com/Acuity/apvf.owl#> .
+@prefix apvfplus: <http://research.ge.com/Acuity/apvfplus.owl#> .
+@prefix tBox:  <http://research.ge.com/Acuity/Test/tBox.owl#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix mxmpPresentation: <http://research.ge.com/Acuity/mxmpPresentation.owl#> .
+@prefix aBox:  <http://research.ge.com/Acuity/Test/aBox.owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mxmpDefaults: <http://research.ge.com/Acuity/mxmpDefaults.owl#> .
+@prefix aePresentation: <http://research.ge.com/Acuity/aePresentation.owl#> .
+@prefix aerpWork: <http://research.ge.com/Acuity/aerpWork.owl#> .
+@prefix presentation: <http://research.ge.com/Acuity/Optics/presentation.owl#> .
+@prefix default: <http://research.ge.com/Acuity/ERP/aerpData_Defaults.owl#> .
+@prefix aerpData: <http://research.ge.com/Acuity/ERP/aerpData.owl#> .
+@prefix instData: <http://research.ge.com/Acuity/Optics/instData.owl#> .
+@prefix aulo:  <http://research.ge.com/Acuity/aulo.owl#> .
+@prefix connections: <http://research.ge.com/Acuity/Optics/connections.owl#> .
+@prefix aerpPresentation: <http://research.ge.com/Acuity/aerpPresentation.owl#> .
+@prefix mxmpWork: <http://research.ge.com/Acuity/mxmpWork.owl#> .
+@prefix swat:  <http://research.ge.com/swat/swat.owl#> .
+@prefix acuityeditor: <http://research.ge.com/Acuity/AcuityEditor.owl#> .
+@prefix aeConnections: <http://research.ge.com/Acuity/aeConnections.owl#> .
+@prefix a:     <http://research.ge.com/Acuity/Test/a.owl#> .
+@prefix b:     <http://research.ge.com/Acuity/Test/b.owl#> .
+@prefix process: <http://www.daml.org/services/owl-s/1.0/Process.owl#> .
+@prefix aerfConnections: <http://research.ge.com/Acuity/aerfConnections.owl#> .
+@prefix work:  <http://research.ge.com/Acuity/Optics/work.owl#> .
+@prefix profile: <http://www.daml.org/services/owl-s/1.0/Profile.owl#> .
+@prefix testing: <http://research.ge.com/Acuity/Testing/testing.owl#> .
+@prefix swrl:  <http://www.w3.org/2003/11/swrl#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix time-entry: <http://www.isi.edu/~pan/damltime/time-entry.owl#> .
+@prefix aeWork: <http://research.ge.com/Acuity/aeWork.owl#> .
+@prefix acuityeditorparts: <http://research.ge.com/Acuity/AcuityEditorParts.owl#> .
+@prefix showcaseData: <http://research.ge.com/Acuity/Showcase/showcase.owl#> .
+@prefix daml:  <http://www.daml.org/2001/03/daml+oil#> .
+@prefix tzont: <http://www.isi.edu/~pan/damltime/timezone-ont.owl#> .
+@prefix defaults: <http://research.ge.com/Acuity/Optics/instData_Defaults.owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix aerfPresentation: <http://research.ge.com/Acuity/aerfPresentation.owl#> .
+@prefix service: <http://www.daml.org/services/owl-s/1.0/Service.owl#> .
+@prefix showcase: <http://research.ge.com/Acuity/Showcase/showcase.owl.owl#> .
+@prefix aerpConnections: <http://research.ge.com/Acuity/aerpConnections.owl#> .
+@prefix aerpData_Defaults: <http://research.ge.com/Acuity/aerpData_Defaults.owl#> .
+@prefix grounding: <http://www.daml.org/services/owl-s/1.0/Grounding.owl#> .
+@prefix mxmpConnections: <http://research.ge.com/Acuity/mxmpConnections.owl#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix aerfWork: <http://research.ge.com/Acuity/aerfWork.owl#> .
+
+:Graph2D  a     :Graph .
+
+:DefaultColorBlue  a        :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Blue .
+
+:PresentationObjectDefaultPosition4
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition4 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:DefaultTabsListPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :TabsList ;
+        :minimumSampleSize  "1"^^xsd:int ;
+        :userPreference     true ;
+        :valueCalculatedBy  :AcuityMostFrequentDefault .
+
+:NoFontColor  a             :ObjectDefault ;
+        :appliesToProperty  :fontColor ;
+        :hasObjectDefault   :NoColor .
+
+:Region  a               owl:Class ;
+        rdfs:comment     "A Region encapsulates those aspects of HighlightRegions that can be shared, i.e., color and what to highlight (Slices or discrete values)."^^xsd:string ;
+        rdfs:seeAlso     :DefaultColorYellow ;
+        rdfs:subClassOf  :Parameter ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Slice ;
+                           owl:onProperty     :hasSlice
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Color ;
+                           owl:onProperty     :hasColor
+                         ] .
+
+:isRelevantTo  a       owl:ObjectProperty ;
+        rdfs:range     owl:Thing ;
+        owl:inverseOf  :hasRelevantInformation .
+
+:SortType  a             owl:Class ;
+        rdfs:subClassOf  :NonCompositeParameterObjectValues .
+
+:linkDisplayText  a         owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DocumentObject ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:descendingSort  a          owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "If true sort in descending order else sort in ascending order."^^xsd:string ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:fontBold  a                owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:DefaultDisplayedTextPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :DisplayedText .
+
+:SPARQLQueryAnalyzer  a            :ScriptProcessingAction ;
+        :hasImplementationClass    "SPARQLProcessor"^^xsd:string ;
+        :hasImplementationMethod   "analyze"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.scriptprocessing"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:Blue   a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "255"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:CompositeParameterDefault
+        a                owl:Class ;
+        rdfs:subClassOf  :DefaultValue .
+
+:DefaultPointAndAreaPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :pointAndArea .
+
+:isProblemOfSet  a          owl:ObjectProperty ;
+        rdfs:domain         :Problem ;
+        rdfs:range          :ProblemSet ;
+        rdfs:subPropertyOf  :isRelevantTo ;
+        owl:inverseOf       :hasProblem .
+
+:LearnedDefaultValue  a      owl:Class ;
+        rdfs:comment         "A default value which is calculated (learned) by some Script."^^xsd:string ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( _:b0 :DefaultValue )
+                             ] .
+
+:DefaultSubmitsOnChangeFalse
+        a                   :BooleanDefault ;
+        :appliesToProperty  :submitsOnChange ;
+        :hasBooleanDefault  false .
+
+:hasFocus  a                owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :PresentationObject ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:Olive  a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "128"^^xsd:int ;
+        :redVal    "128"^^xsd:int .
+
+:RemoteInstances  a          owl:Class ;
+        rdfs:comment         "An instance of this class represents a set of instances identified in an external relational database. DB connection and table/field info are in associated DBInstancesDescriptor."^^xsd:string ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( :WorkDomainInformationObject _:b1 )
+                             ] .
+
+:hasDateTimeValue  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :DateTimeValueObject ;
+        rdfs:range   xsd:dateTime .
+
+:pointAndArea  a  :Series .
+
+:isInstantiatedBy  a   owl:InverseFunctionalProperty , owl:ObjectProperty , owl:FunctionalProperty ;
+        owl:inverseOf  :instantiates .
+
+:DefaultValue  a         owl:Class ;
+        rdfs:comment     "An Individual of a sublass of this class will identify a default to be used for values of a Property. The default should be the object of an rdfs:seeAlso annotation of a Class and will cause instances of the class to have this default value for the Property. If valueCalculatedBy has a value (Script), the default value will be determined by the referenced Script. If the contextSubjectClass and contextPredicate are present, they further restrict application of the default to situations where the subject of the property to be defaulted has context relationship to an instance of the context class."^^xsd:string ;
+        rdfs:subClassOf  aulo:Refining ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :LearnedDefaultAction ;
+                           owl:onProperty     :valueCalculatedBy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :ServerSideScript ;
+                           owl:onProperty     :dataSetDefinedBy
+                         ] .
+
+:isEditable  a        owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment  "Set this property true if the subject Individual should be editable in the user interface."^^xsd:string ;
+        rdfs:domain   :DataTableColumnInfo ;
+        rdfs:range    xsd:boolean .
+
+:DataMap  a              owl:Class ;
+        rdfs:comment     "Identifies all the information necessary to map data from the source into the structure needed for use by the client."^^xsd:string ;
+        rdfs:subClassOf  :AcuityInformationObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :MappingAction ;
+                           owl:onProperty     :hasMappingFunction
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasMappingFunction
+                         ] .
+
+:verticalAlignment  a       owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          :TableCellVerticalAlignment ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:createIndividualOfRangeClass
+        a             :OnDemandAction ;
+        rdfs:comment  "This individual is a special instance and represents the action of creating a new Individual of the range Class with out invocation of a Java method."^^xsd:string ;
+        rdfs:label    "Create New Instance"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:greenVal  a                owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :Color ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:Communication  a        owl:Class ;
+        rdfs:subClassOf  aulo:Process .
+
+:DBConnection  a         owl:Class ;
+        rdfs:comment     "Describes a connection to a Relational Database persistent store."^^xsd:string ;
+        rdfs:subClassOf  :AcuityInformationObject .
+
+:prompt  a                  owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :InteractionObject ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:LSL    a             :Criterion ;
+        rdfs:comment  "lower spec limit"^^xsd:string .
+
+:PresentationObjectsForVantageSelector
+        a                owl:Class ;
+        rdfs:label       "Add POs to View"^^xsd:string ;
+        rdfs:seeAlso     :Default5Visible , :DefaultAllowsMultipleSelectionTrue , :DefaultIsDisplayedFalse ;
+        rdfs:subClassOf  :SelectionListPresentation ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :POsInVantageUpdate ;
+                           owl:onProperty  :hasEffect
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    true ;
+                           owl:onProperty  :validateContent
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :PossiblePOsToVantageGenerator ;
+                           owl:onProperty  :hasPossibleAnswerGenerator
+                         ] .
+
+:verticalBar  a  :Series .
+
+aulo:Script  a  owl:Class .
+
+:TextArea  a    :InteractiveText .
+
+:Hidden  a      :InteractiveText .
+
+:hasFirstStep  a            owl:ObjectProperty ;
+        rdfs:domain         :DiscreteProcess ;
+        rdfs:range          [ a            owl:Class ;
+                              owl:unionOf  ( aulo:Event :DiscreteProcess )
+                            ] ;
+        rdfs:subPropertyOf  :autoInstantiateProperties .
+
+:hasSolutionScript  a  owl:ObjectProperty .
+
+:ColumnOrderedMappingFunction
+        a                owl:Class ;
+        rdfs:comment     "Mapping functions for data with series found in data rows."^^xsd:string ;
+        rdfs:subClassOf  :GraphMappingAction .
+
+:topVisibleRow  a           owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The first row of the table visible--identifies scroll position."^^xsd:string ;
+        rdfs:domain         :DataTable ;
+        rdfs:range          xsd:positiveInteger ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:YCategoryAsLabel  a               :RowOrderedMappingFunction ;
+        :hasImplementationClass    "RowAsYMap"^^xsd:string ;
+        :hasImplementationMethod   "process"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions.mapping"^^xsd:string .
+
+:DisplayObject  a        owl:Class ;
+        rdfs:comment     "Those PresentationObjects which convey information from the system to the user and which can be contained by a Frame, Vantage, or other PresentationObject."^^xsd:string ;
+        rdfs:subClassOf  :PresentationObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :HighlightRegion ;
+                           owl:onProperty     :hasHighlightRegion
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :PresentationObjectRendererAction ;
+                           owl:onProperty     :hasRenderer
+                         ] .
+
+:PossiblePOsToVantageGenerator
+        a                   :XRDQLStatement ;
+        :hasXRDQLStatement  "SELECT ?p WHERE (${currentFrame}, <apvf:hasVantage>, ?v)(?v, <apvf:containsPresentationObject>, ?p) PLUS SELECT ?p WHERE (${currentFrame}, <apvf:hasOrphan>, ?p) MINUS SELECT ?p WHERE (${focusVantage}, <apvf:containsPresentationObject>, ?p)"^^xsd:string .
+
+:SimpleDataTable  a      owl:Class ;
+        rdfs:comment     "This SimpleDataTable encodes an associated SQLStatement or StoredProcedure. It has associated DataTableColumnInfo composite parameters with information about each table column."^^xsd:string ;
+        rdfs:seeAlso     :RowsetMaxRowsDefault ;
+        rdfs:subClassOf  :DataTable ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :SimpleTableRendererAction ;
+                           owl:onProperty  :hasRenderer
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :encodes ;
+                           owl:someValuesFrom  :ServerSideScript
+                         ] .
+
+:hasProblem  a              owl:ObjectProperty ;
+        rdfs:domain         :ProblemSet ;
+        rdfs:range          :Problem ;
+        rdfs:subPropertyOf  :hasRelevantInformation ;
+        owl:inverseOf       :isProblemOfSet .
+
+:hasRegion  a               owl:ObjectProperty ;
+        rdfs:comment        "The Region defines the extent (hasSlice or hasDiscreteValue) and color (hasColor) of a HighlightRegion."^^xsd:string ;
+        rdfs:domain         :HighlightRegion ;
+        rdfs:range          :Region ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasSharedParameter  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain  :SharedCompositeParameterSet ;
+        rdfs:range   :Parameter .
+
+:SPARQLProcessor  a                :ScriptProcessingAction ;
+        rdfs:comment               "The default SPARQL query processor"^^xsd:string ;
+        :hasImplementationClass    "SPARQLProcessor"^^xsd:string ;
+        :hasImplementationMethod   "process"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.scriptprocessing"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:hasXRDQLStatement  a  owl:DatatypeProperty ;
+        rdfs:domain  :XRDQLStatement ;
+        rdfs:range   xsd:string .
+
+:horizontalAlignment  a     owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          :TableCellHorizontalAlignment ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasRenderer  a      owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :DisplayObject ;
+        rdfs:range   :PresentationObjectRendererAction .
+
+:Series  a               owl:Class ;
+        rdfs:subClassOf  :DisplayType .
+
+:DefaultPresentationObjectPosition9
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "700"^^xsd:int ;
+        :yPos    "800"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:DefaultGraphSeriesColors
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :valueCalculatedBy  :AcuityMostFrequentSeriesColorRegistrar .
+
+:missingPropertyProcessingStringDatatypePropertiesOfClass
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Abstract DatatypeProperty class to associate missing properties which have String ranges."^^xsd:string ;
+        rdfs:range    xsd:string .
+
+:scriptURI  a         owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment  "The absolute URI (beginning with \"http://\") or relative URI identifying the location from which the client may load the script code."^^xsd:string ;
+        rdfs:domain   :JavaScript ;
+        rdfs:range    xsd:string .
+
+:displayBanner  a           owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :PresentationObject ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:askUserBoolean  a    owl:DatatypeProperty ;
+        rdfs:comment  "Sub-Properties are askable of the user and should have an rdfs:isDefinedBy association to an InteractionObject class."^^xsd:string ;
+        rdfs:range    xsd:boolean .
+
+:SortDescendingOnLabel
+        a       :SortType .
+
+:hasIntegerValue  a  owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :IntegerValueObject ;
+        rdfs:range   xsd:int .
+
+:DefaultColorPurple  a      :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Purple .
+
+:TableCellVerticalAlignment
+        a                owl:Class ;
+        rdfs:subClassOf  :TableCellAlignment .
+
+:hasStatement  a      owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment  "The value of this property will be the sequence of instructions in the language of the script class."^^xsd:string ;
+        rdfs:domain   :SPARQLStatement ;
+        rdfs:range    xsd:string .
+
+:currentFrame  a      :BuiltInAnchor ;
+        rdfs:comment  "The URI of the Individual of type APVF Frame (or one of its subclasses) associated with the current AcuityController by the hasFrame property."^^xsd:string .
+
+:hasOntQueryAnalyzer  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "The object of this property is a Java method that takes an instance of AcuityController, the Individual (ServerSideScript) which is the subject, and an instance of InteractionContent containing the interaction information. It returns the possibly modified InteractionContent."^^xsd:string ;
+        rdfs:domain   [ a            owl:Class ;
+                        owl:unionOf  ( :SPARQLStatement :XRDQLStatement )
+                      ] ;
+        rdfs:range    :ScriptProcessingAction .
+
+:hasRelevancyValue  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:range  xsd:int .
+
+:rowSpanGroupingRowsetColumn
+        a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "Provide this property to cause a table column to span rows when they contain duplicate values. For an independent spanning group, this should be the rowset column of the subject DataTableColumnInfo instance. For a dependent grouping, it is the rowset column on which grouping is dependent, meaning only span rows if they are spanned in that column."^^xsd:string ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:alpha  a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :Color ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:ClientSideScript  a     owl:Class ;
+        rdfs:comment     "A Script to be processed by the client."^^xsd:string ;
+        rdfs:subClassOf  aulo:Script .
+
+:height  a                  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "Size along y-axis"^^xsd:string ;
+        rdfs:domain         :Position ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:missingPropertyProcessingBooleanDatatypePropertiesOfClass
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Abstract DatatypeProperty class to associate missing properties which have boolean ranges."^^xsd:string ;
+        rdfs:range    xsd:boolean .
+
+:Fleet  a                owl:Class ;
+        rdfs:comment     "A fleet is a collection of identities of MaintainableArtifacts such as Engines"^^xsd:string ;
+        rdfs:subClassOf  :WorkDomainInformationObject .
+
+:DefaultColorFuschia  a     :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Fuschia .
+
+:XCategoryAsLabel  a               :RowOrderedMappingFunction ;
+        :hasImplementationClass    "RowAsXMap"^^xsd:string ;
+        :hasImplementationMethod   "process"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions.mapping"^^xsd:string .
+
+:NonCompositeParameterObjectValues
+        a                owl:Class ;
+        rdfs:comment     "Individuals of this class are used as non-composite Parameter values, like Literals."^^xsd:string ;
+        rdfs:subClassOf  aulo:Refining .
+
+:DefaultAreaPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :area .
+
+_:b1    a                   owl:Restriction ;
+        owl:onProperty      :hasDBInstancesDescriptor ;
+        owl:someValuesFrom  :DBInstancesDescriptor .
+
+:fontItalic  a              owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:isEnabled  a        owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :InteractionObject ;
+        rdfs:range   xsd:string .
+
+:VantageSelectionObject
+        a                owl:Class ;
+        rdfs:label       "Switch View"^^xsd:string ;
+        rdfs:seeAlso     :DefaultVantageSelectorPresentationNature , :DefaultSubmitButtonFalse , :DefaultVantageSelectorOrientation , :DefaultSubmitsOnChangeTrue , :PresentationObjectDefaultPosition1 ;
+        rdfs:subClassOf  :SelectionListPresentation ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :PossibleVantagesGenerator ;
+                           owl:onProperty  :hasPossibleAnswerGenerator
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    true ;
+                           owl:onProperty  :validateContent
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :VantageSelectionUpdate ;
+                           owl:onProperty  :hasEffect
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    false ;
+                           owl:onProperty  :allowsMultipleSelection
+                         ] .
+
+:hasSign  a          owl:ObjectProperty ;
+        rdfs:domain  :Communication ;
+        rdfs:range   :PresentationObject .
+
+:SortDescendingOnValue
+        a       :SortType .
+
+:MissingObjectPropertyAction
+        a                owl:Class ;
+        rdfs:comment     "This action is the range of the hasMissingObjectPropertyAction ObjectProperty. By default the implementation method must have four arguments of type AcuityController, IndividualImpl, ObjectPropertyImpl, and OntClassImpl, which will be this instance of the AcuityController followed by the subject, the predicate, and the range of the missing ObjectProperty. The method should return a List containing the URIs of the Individuals which can be the object of a new ObjectProperty and/or the OnDemandActions which can be taken."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction .
+
+:DefaultPresentationObjectPosition4
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "20"^^xsd:int ;
+        :yPos    "450"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:Maroon  a         :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "128"^^xsd:int .
+
+:DefaultPresentationObjectRendererAction
+        a                          :PresentationObjectRendererAction ;
+        :hasImplementationClass    "DocumentRenderer"^^xsd:string ;
+        :hasImplementationMethod   "getDocumentPresentationObject"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:fontEmphasis  a            owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:hasInstanceCreationAction
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "This Property associates an instance of an InstanceCreationAction with an owl:Class. The behavior identified by the InstanceCreationAction instance will be invoked when an Individual belonging to the associated owl:Class is created by the AcuityController."^^xsd:string ;
+        rdfs:subPropertyOf  :hasAction .
+
+:TabsList  a    :InteractiveTabularSign .
+
+:dbPredURI  a               owl:DatatypeProperty ;
+        rdfs:comment        "Optional."^^xsd:string ;
+        rdfs:domain         :DBStatementsDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+aulo:Event  a            owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( aulo:Event :DiscreteProcess )
+                                              ] ;
+                           owl:onProperty     :hasNextStep
+                         ] .
+
+:ScrollingTable  a  :NonInteractiveTabularSign .
+
+:hiThreshold  a             owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "The upper threshold for a HighlightRegion Slice."^^xsd:string ;
+        rdfs:domain         :Slice ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :hasPresentationParameterFloat .
+
+:FrameSelectionUpdate
+        a                   :XRDQLStatement ;
+        :hasXRDQLStatement  "UPDATE (${currentAC}, <apvf:hasFrame>, ${useAnswer})"^^xsd:string .
+
+:DocumentObject  a       owl:Class ;
+        rdfs:seeAlso     :DefaultResourceContentPresentationNature ;
+        rdfs:subClassOf  :DisplayObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :NonInteractiveText ;
+                           owl:onProperty     :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasHighlightRegion
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :encodes ;
+                           owl:someValuesFrom  :URL
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :DocumentRendererAction ;
+                           owl:onProperty  :hasRenderer
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] .
+
+:PresentationObjectDefaultPosition
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:NonInteractiveTabularSign
+        a                owl:Class ;
+        rdfs:subClassOf  :Table .
+
+:hasClientSideEffect  a  owl:ObjectProperty ;
+        rdfs:comment  "This property identifies an instance of a client-side script which should be available to provide interaction effects at the client."^^xsd:string ;
+        rdfs:domain   :InteractionObject ;
+        rdfs:range    :ClientSideScript .
+
+:hasPresentationNature
+        a                   owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain         :PresentationObject ;
+        rdfs:range          :DisplayType ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+_:b0    a                   owl:Restriction ;
+        owl:onProperty      :valueCalculatedBy ;
+        owl:someValuesFrom  :LearnedDefaultAction .
+
+:DefaultResourceContentPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :ExternalResource .
+
+:ExternalResource  a  :DisplayType .
+
+:Position  a             owl:Class ;
+        rdfs:comment     "Position on the screen"^^xsd:string ;
+        rdfs:subClassOf  :Parameter .
+
+:SimpleTableRendererAction
+        a                          :PresentationObjectRendererAction ;
+        rdfs:comment               "Renderer of SimpleDataTable POs."^^xsd:string ;
+        :hasImplementationClass    "DataTableRenderer"^^xsd:string ;
+        :hasImplementationMethod   "getSimpleDataTablePresentationObject"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:Plan   a                owl:Class ;
+        rdfs:comment     "A future (proposed) history of actions which affect input parameters to a forecast, i.e., actions of agents which influence participants in the forecast."^^xsd:string ;
+        rdfs:subClassOf  aulo:History .
+
+:PresentationObjectDefaultPosition6
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition6 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:StringValueObject  a    owl:Class ;
+        rdfs:subClassOf  :SimpleValueObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasStringValue
+                         ] .
+
+:hasRelevantInformation
+        a              owl:ObjectProperty ;
+        owl:inverseOf  :isRelevantTo .
+
+:AcuityMostFrequentSeriesColorRegistrar
+        a                          :AcuityMostFrequentSeriesColorClass ;
+        rdfs:comment               "This script is used to learn the color of graph series, including derived series. Series are registered during the course of graph construction, then a call from the controller method mapGraphColors makes the color assignments."^^xsd:string ;
+        :hasImplementationMethod   "registerGraphSeries"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true ;
+        :usesPersistentJavaObject  :GraphSeriesColorMapper .
+
+:OnClickEvent  a  :TriggerEvent .
+
+:StateMismatchProblem
+        a                owl:Class ;
+        rdfs:comment     "A pair of states, actual and desired, which are not the same."^^xsd:string ;
+        rdfs:subClassOf  :Problem ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasDesiredState ;
+                           owl:someValuesFrom  aulo:State
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasPerceivedState ;
+                           owl:someValuesFrom  aulo:State
+                         ] .
+
+:Navy   a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "128"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:hasPossibleAnswerGenerator
+        a             owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:comment  "Generates the set of possible answers"^^xsd:string ;
+        rdfs:domain   :SelectionListPresentation ;
+        rdfs:range    [ a            owl:Class ;
+                        owl:unionOf  ( :ServerSideScript :RefinedWDIO )
+                      ] .
+
+:HighlightRegion  a      owl:Class ;
+        rdfs:comment     "A HighlightRegion is a slice of a graph or table that is colored so as to demand attention. When part of a SharedCompositeParameterSet, multiple HighlightRegions with shared Slices accomplish data brushing."^^xsd:string ;
+        rdfs:seeAlso     :DefaultIsDisplayedTrue ;
+        rdfs:subClassOf  :Parameter ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Region ;
+                           owl:onProperty     :hasRegion
+                         ] .
+
+:MappingAction  a        owl:Class ;
+        rdfs:comment     "AcuityControllerActions used to map data from one structure to another in preparation for presentation in a particular type of PresentationObject."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction .
+
+:DataSeriesMap  a        owl:Class ;
+        rdfs:comment     "A map for a graph data series."^^xsd:string ;
+        rdfs:subClassOf  :DataMap ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasMappingFunction ;
+                           owl:someValuesFrom  :GraphMappingAction
+                         ] .
+
+:RefinedWDIO  a          owl:Class ;
+        rdfs:comment     "This WorkDomainInformationObject acts as a logical \"view\" of work domain data. It encodes, after refining by use of a Filter or chain of Filters, raw data from a Script."^^xsd:string ;
+        rdfs:subClassOf  :WorkDomainInformationObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Filter ;
+                           owl:onProperty     :isRefinedBy
+                         ] .
+
+:hasFloatValue  a    owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :FloatValueObject ;
+        rdfs:range   xsd:float .
+
+:fontBlink  a               owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:hasFrame  a                owl:ObjectProperty , owl:InverseFunctionalProperty , owl:FunctionalProperty ;
+        rdfs:domain         :AcuityController ;
+        rdfs:isDefinedBy    :FrameSelectionObject ;
+        rdfs:label          "Please select an existing Frame or create a new one"^^xsd:string ;
+        rdfs:range          :Frame ;
+        rdfs:subPropertyOf  :askUserPropertiesIncludeCreateNew .
+
+:testDefaultOverride  a     :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :ListBox .
+
+:ListBox  a     :InteractiveTabularSign .
+
+:hasPresentationParameterFloat
+        a           owl:DatatypeProperty ;
+        rdfs:range  xsd:float .
+
+:DefaultVerticalBarPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :verticalBar .
+
+:includeAcuityControllerAsArgument
+        a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "If true, the AcuityController instance will be passed as an argument (the first) to the method."^^xsd:string ;
+        rdfs:domain   :AcuityControllerAction ;
+        rdfs:range    xsd:boolean .
+
+:dbLoginString  a           owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DBConnection ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:DefaultTextboxPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :TextBox .
+
+:instantiates  a       owl:FunctionalProperty , owl:ObjectProperty , owl:InverseFunctionalProperty ;
+        owl:inverseOf  :isInstantiatedBy .
+
+:hasCreationMessage  a  owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "Message to be sent to user when an instance of this class is created."^^xsd:string ;
+        rdfs:domain   :AcuityController ;
+        rdfs:range    xsd:string .
+
+:AfterChangeEvent  a  :TriggerEvent .
+
+:hasInteractionObject
+        a                   owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          :InteractionObject ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasColumn  a               owl:ObjectProperty ;
+        rdfs:domain         :DataTable ;
+        rdfs:range          :DataTableColumnInfo ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasDiscreteValue  a        owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "This defines a discrete value-type extent of a HighlightRegion."^^xsd:string ;
+        rdfs:domain         :Region ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:hasForPurposeSolutionOfProblemSet
+        a       owl:ObjectProperty .
+
+:dbSQLString  a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :SQLStatement ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:hasProcessor  a      owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "The object of this property is the script to be used to process the specific script statement."^^xsd:string ;
+        rdfs:domain   [ a            owl:Class ;
+                        owl:unionOf  ( :SPARQLStatement :XRDQLStatement )
+                      ] ;
+        rdfs:range    :ScriptProcessingAction .
+
+:ActionButton  a         owl:Class ;
+        rdfs:subClassOf  :InteractionObject ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :Button ;
+                           owl:onProperty  :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasOwnSubmit
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :orientation
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :prompt
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] .
+
+:PresentationObjectDefaultPosition1
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition1 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:DoNotSort  a   :SortType .
+
+:focusVantage  a      :BuiltInAnchor ;
+        rdfs:comment  "The URI of the Individual of type Vantage which is the object of the focusVantage Property on the current Frame."^^xsd:string .
+
+:NonInteractiveText  a   owl:Class ;
+        rdfs:subClassOf  :Text .
+
+:hasPresentationParameterInteger
+        a           owl:DatatypeProperty ;
+        rdfs:range  xsd:int .
+
+:currentAC  a         :BuiltInAnchor ;
+        rdfs:comment  "This anchor will return the URI of the current instance of AcuityController, except when specified as an argument to an OnDemandAction in which case the actual Java instance will be passed to the OnDemandAction Java code."^^xsd:string .
+
+:DateTimeValueObject  a  owl:Class ;
+        rdfs:subClassOf  :SimpleValueObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasDateTimeValue
+                         ] .
+
+:xPos   a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :Position ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:AcuityController  a     owl:Class ;
+        rdfs:comment     "Acuity Controller Agent"^^xsd:string ;
+        rdfs:label       ""^^xsd:string ;
+        rdfs:subClassOf  aulo:ArtificialAgent ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasUser
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasFrame ;
+                           owl:someValuesFrom  :Frame
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasFrame
+                         ] .
+
+:currentUser  a       :BuiltInAnchor ;
+        rdfs:comment  "The Individual of type Person who was identified to this instance of the AcuityController via its constructor call."^^xsd:string .
+
+:DefaultAlignRight  a       :ObjectDefault ;
+        :appliesToProperty  :horizontalAlignment ;
+        :hasObjectDefault   :Right .
+
+:xMinColumn  a              owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DataSeriesMap ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:RemoteStatements  a         owl:Class ;
+        rdfs:comment         "An instance of this class represents a set of statements identified in an external relational database. DB connection and table/field info are in associated DBStatementsDescriptor."^^xsd:string ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( :WorkDomainInformationObject _:b2 )
+                             ] .
+
+:JavaScript  a           owl:Class ;
+        rdfs:comment     "A type of ClientSideScript used in Web Interfaces and expressed in the JavaScript language."^^xsd:string ;
+        rdfs:subClassOf  :ClientSideScript ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :TriggerEvent ;
+                           owl:onProperty     :triggerEvent
+                         ] .
+
+:hasMappingFunction  a  owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :DataMap ;
+        rdfs:range   :MappingAction .
+
+:White  a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "255"^^xsd:int ;
+        :greenVal  "255"^^xsd:int ;
+        :redVal    "255"^^xsd:int .
+
+:TableCellInteractionOptions
+        a                owl:Class ;
+        rdfs:comment     "This class should be subclassed with particular Interaction options defined by additional ObjectProperties with names matching what will be put into the data[1] element by the mapping function or data source for the table. The range of each of these properties will be InteractionObject. Each should be a subproperty of hasPresentationParameterObject."^^xsd:string ;
+        rdfs:subClassOf  :DomainSpecificIndirections .
+
+:OnDemandAction  a       owl:Class ;
+        rdfs:comment     "This action is the range of the hasOnDemandAction ObjectProperty. The properties includeAcuityControllerAsArgument (will be first argument if true) and hasArguments determine the arguments passed to the specified Java method."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction .
+
+:ProblemSolvingProcess
+        a                    owl:Class ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( _:b3 :Work )
+                             ] .
+
+:Graph3D  a     :Graph .
+
+:FrameSelectionObject
+        a                owl:Class ;
+        rdfs:comment     "Used to select a Frame for the hasFrame ObjectProperty."^^xsd:string ;
+        rdfs:label       "Frame Selector"^^xsd:string ;
+        rdfs:seeAlso     :LearnedFrameSelectionPresentationNature , :testDefaultOverride , :DefaultSubmitsOnChangeTrue , :DefaultSubmitButtonFalse ;
+        rdfs:subClassOf  :SelectionListPresentation ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :FrameSelectionUpdate ;
+                           owl:onProperty  :hasEffect
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    false ;
+                           owl:onProperty  :allowsMultipleSelection
+                         ] .
+
+:DefaultColorGreen  a       :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Green .
+
+:askUserString  a     owl:DatatypeProperty ;
+        rdfs:comment  "Sub-Properties are askable of the user and should have an rdfs:isDefinedBy association to an InteractionObject class."^^xsd:string ;
+        rdfs:range    xsd:string .
+
+:InstanceCreationAction
+        a                owl:Class ;
+        rdfs:comment     "This action is the range of the hasInstanceCreationAction ObjectProperty. The implementation method must have three arguments of type AcuityController, IndividualImpl, and OntClassImpl, which will be this instance of the AcuityController followed by the new Individual created and the OntClass triggering the action. The method has no return value (is of type void)."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction .
+
+:hasSlice  a                owl:ObjectProperty ;
+        rdfs:comment        "The Slice defines a range-type extent of a HighlightRegion."^^xsd:string ;
+        rdfs:domain         :Region ;
+        rdfs:range          :Slice ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:validateContent  a  owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :InteractionObject ;
+        rdfs:range   xsd:boolean .
+
+:alwaysRefreshContent
+        a            owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :InteractionObject ;
+        rdfs:range   xsd:boolean .
+
+:line   a       :Series .
+
+:StoredProcedureOutputSelector
+        a                owl:Class ;
+        rdfs:comment     "Identifies which outputs of a stored procedure should be encoded by RefinedWDIO."^^xsd:string ;
+        rdfs:subClassOf  :Filter .
+
+:hasSortType  a             owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :SelectionListPresentation ;
+        rdfs:range          :SortType ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasUser  a          owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :AcuityController ;
+        rdfs:range   aulo:Person .
+
+:DefaultPointAndLinePresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :pointAndLine .
+
+:currentProblemSet  a  owl:ObjectProperty , owl:FunctionalProperty , owl:InverseFunctionalProperty .
+
+:valueName  a        owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  [ a            owl:Class ;
+                       owl:unionOf  ( :SimpleValueObject :InteractionObject :DataTableColumnInfo )
+                     ] ;
+        rdfs:range   xsd:string .
+
+:TableCellDecoratorOptions
+        a                owl:Class ;
+        rdfs:comment     "Information that controls how a DataTable cell is to be displayed."^^xsd:string ;
+        rdfs:subClassOf  :DomainSpecificIndirections ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :TableCellDecorator ;
+                           owl:onProperty     :columnHeading
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :TableCellDecorator ;
+                           owl:onProperty     :default
+                         ] .
+
+[ a            owl:Class ;
+  owl:unionOf  ( :DataSeriesMap :SQLStatement :StoredProcedure )
+] .
+
+:SQLStatement  a         owl:Class ;
+        rdfs:comment     "An SQL statement to be executed against a Relational Database."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript .
+
+:FormInputObject  a      owl:Class ;
+        rdfs:subClassOf  :InteractionObject ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :InteractiveGroupDisplay ;
+                           owl:onProperty  :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :prompt
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :orientation
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] .
+
+:DropdownListBox  a  :InteractiveTabularSign .
+
+:IntegerDefault  a       owl:Class ;
+        rdfs:subClassOf  :DefaultValue .
+
+:returnOnFailure  a   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "A string value which is to be returned if script execution fails.  Otherwise failure cause an exception to be thrown."^^xsd:string ;
+        rdfs:domain   :ServerSideScript ;
+        rdfs:range    xsd:string .
+
+:ObjectOfClassDefault
+        a                owl:Class ;
+        rdfs:comment     "This type of default has a value which is a Class of which a new Individual is to be created"^^xsd:string ;
+        rdfs:subClassOf  :DefaultValue .
+
+:SortAscendingOnLabel
+        a       :SortType .
+
+:InsertRowAfterInTable
+        a                 :JavaScript ;
+        rdfs:comment      "This inserts a row in an HTML table after the current row."^^xsd:string ;
+        :eventExpression  "insertDuplicateRowAfter(this)"^^xsd:string ;
+        :scriptURI        "dynamicTable.js"^^xsd:string ;
+        :triggerEvent     :OnClickEvent .
+
+:MappedDataSeries  a     owl:Class ;
+        rdfs:subClassOf  :DataSeries ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :isTransformedBy ;
+                           owl:someValuesFrom  :DataSeriesMap
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] .
+
+:AcuityMostFrequentSeriesColorMapper
+        a                          :AcuityMostFrequentSeriesColorClass ;
+        :hasImplementationMethod   "mapGraphSeriesColors"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true ;
+        :returnOnFailure           "\"\""^^xsd:string ;
+        :usesPersistentJavaObject  :GraphSeriesColorMapper .
+
+:isCloneOf  a        owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain  :InformationObject ;
+        rdfs:range   :InformationObject .
+
+:Graph  a                owl:Class ;
+        rdfs:subClassOf  :DisplayType .
+
+:numVisible  a              owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "Number of items visible in SelectionListPresentation"^^xsd:string ;
+        rdfs:domain         :SelectionListPresentation ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:OnChangeEvent  a  :TriggerEvent .
+
+:yMinColumn  a              owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DataSeriesMap ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:Purple  a         :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "128"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "128"^^xsd:int .
+
+:PersistentJavaObject
+        a                owl:Class ;
+        rdfs:comment     "Members of this class represent an Instance of a Java Class which will be instantiated and then persisted throughout the AcuityController instance existence. An instance will be constructed (constructor called with specified arguments, if any) when the first action method using it is called and will be used for subsequent calls by any action method also using the same instance."^^xsd:string ;
+        rdfs:subClassOf  :WorkDomainInformationObject .
+
+:DefaultPresentationObjectPosition6
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "700"^^xsd:int ;
+        :yPos    "450"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:dbSubjFieldName  a         owl:DatatypeProperty ;
+        rdfs:comment        "The field in an external database which contains the subject instance."^^xsd:string ;
+        rdfs:domain         :DBStatementsDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:ActionOnPersistentObject
+        a                    owl:Class ;
+        rdfs:comment         "An OnDemandAction which executes a method on a PersistentJavaObject.  Must have an association to an instance of a PersistentJavaObject."^^xsd:string ;
+        rdfs:subClassOf      [ a                  owl:Restriction ;
+                               owl:allValuesFrom  :PersistentJavaObject ;
+                               owl:onProperty     :usesPersistentJavaObject
+                             ] ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( :OnDemandAction _:b4 )
+                             ] .
+
+:DefaultColorAqua  a        :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Aqua .
+
+:DefaultColorBlack  a       :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Black .
+
+:includeAsMissingPropertyOption
+        a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "If true this OnDemandAction should be included as an option when the the subject has a missing Property whose object is the class with which this action is associated. "^^xsd:string ;
+        rdfs:domain         :OnDemandAction ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :missingPropertyProcessingBooleanDatatypePropertiesOfClass .
+
+:dbDatatypeProperties
+        a           owl:DatatypeProperty ;
+        rdfs:range  xsd:string .
+
+:DefaultFreeFormInputPresentationNature
+        a                   :ObjectDefault ;
+        rdfs:comment        "A default value of TextBox for use with hasPresentationNature."^^xsd:string ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :TextBox .
+
+:Aqua   a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "255"^^xsd:int ;
+        :greenVal  "255"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:InteractiveText  a      owl:Class ;
+        rdfs:subClassOf  :Text .
+
+:DefaultColorMaroon  a      :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Maroon .
+
+:DefaultTableColumnSortPriority
+        a                   :IntegerDefault ;
+        :appliesToProperty  :sortPriority ;
+        :hasIntDefault      "-1"^^xsd:int .
+
+:horizonalBar  a  :Series .
+
+:SortAscendingOnValue
+        a       :SortType .
+
+:point  a       :Series .
+
+:formatPattern  a           owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "Specifies the column's data format in Java format syntax (see http://java.sun.com/j2se/1.4.2/docs/api/java/text/DecimalFormat.html for decimal numbers, http://java.sun.com/j2se/1.4.2/docs/api/java/text/DateFormat.html for dates."^^xsd:string ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:loThreshold  a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The lower threshold of a HighlightRegion Slice."^^xsd:string ;
+        rdfs:domain         :Slice ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :hasPresentationParameterFloat .
+
+:hasStringValue  a   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :StringValueObject ;
+        rdfs:range   xsd:string .
+
+:PresentationObjectDefaultPosition8
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition8 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:AveragedDefault  a      owl:Class ;
+        rdfs:comment     "A type of Script which calculates a numerical property value as an average of the values in the dataset."^^xsd:string ;
+        rdfs:subClassOf  :LearnedDefaultAction .
+
+:TestArgsToSystemOut  a            :OnDemandAction ;
+        :hasArguments              "${groupInputValues}"^^xsd:string ;
+        :hasImplementationClass    "SupportActions"^^xsd:string ;
+        :hasImplementationMethod   "argsToSystemOut"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                false .
+
+:DefaultSubmitButtonTrue
+        a                   :BooleanDefault ;
+        :appliesToProperty  :hasOwnSubmit ;
+        :hasBooleanDefault  true .
+
+:DefaultIsDisplayedFalse
+        a                   :BooleanDefault ;
+        :appliesToProperty  :isDisplayed ;
+        :hasBooleanDefault  false .
+
+:DefaultPresentationObjectPosition1
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "20"^^xsd:int ;
+        :yPos    "10"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:SPARQLStatement  a      owl:Class ;
+        rdfs:comment     "A SPARQL query."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :SPARQLProcessor ;
+                           owl:onProperty  :hasProcessor
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :SPARQLQueryAnalyzer ;
+                           owl:onProperty  :hasOntQueryAnalyzer
+                         ] .
+
+:Top    a       :TableCellVerticalAlignment .
+
+:Table  a                owl:Class ;
+        rdfs:comment     "A 2-D layout of information in rows and columns with a cell of information at each intersection."^^xsd:string ;
+        rdfs:subClassOf  :DisplayType .
+
+:dbClassField  a            owl:DatatypeProperty ;
+        rdfs:comment        "The field in an external database which contains the class name for the instances (if any; not required)."^^xsd:string ;
+        rdfs:domain         :DBInstancesDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:Color  a                owl:Class ;
+        rdfs:subClassOf  :Parameter .
+
+:hasInitiator  a     owl:ObjectProperty ;
+        rdfs:domain  :Communication .
+
+:hasNextStep  a             owl:ObjectProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DiscreteProcess aulo:Event )
+                            ] ;
+        rdfs:range          [ a            owl:Class ;
+                              owl:unionOf  ( aulo:Event :DiscreteProcess )
+                            ] ;
+        rdfs:subPropertyOf  :autoInstantiateProperties .
+
+:DefaultHistogramPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :histogram .
+
+:SingleValue  a          owl:Class ;
+        rdfs:comment     "A Script returning a single value (xsd:string)."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript .
+
+:sortPriority  a            owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The priority of this column in the overall sort."^^xsd:string ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:encodes  a           owl:ObjectProperty ;
+        rdfs:comment  "A semiotic sign encodes an abstract information object. In the context of modeling work, this is a WorkDomainInformationObject."^^xsd:string ;
+        rdfs:domain   :InformationObject ;
+        rdfs:range    [ a            owl:Class ;
+                        owl:unionOf  ( :WorkDomainInformationObject :ServerSideScript )
+                      ] .
+
+:hasStringDefault  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :StringDefault ;
+        rdfs:range   xsd:string .
+
+:StoredProcedure  a      owl:Class ;
+        rdfs:comment     "An stored procedure statement to be executed against a Relational Database."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript .
+
+:DefaultColorGray  a        :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Gray .
+
+:PresentationObjectDefaultPosition3
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition3 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:candleWidth  a             owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DataSeriesMap ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:hasDesiredState  a  owl:ObjectProperty ;
+        rdfs:range  aulo:State .
+
+:isMemberOfFleet  a    owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain    :MaintainableArtifact ;
+        rdfs:range     owl:Thing ;
+        owl:inverseOf  :hasFleetMember .
+
+:hostName  a          :BuiltInAnchor ;
+        rdfs:comment  "The canonical form of the name of the host machine upon which the AcuityController processes are running."^^xsd:string .
+
+:columnIdentifier  a  owl:DatatypeProperty ;
+        rdfs:comment  "Identifies a column in a rowset, either by name or position (number, 1 being the first column), to be retained in refined (filtered) information."^^xsd:string ;
+        rdfs:domain   :RowsetIndexedSelector ;
+        rdfs:range    xsd:string .
+
+:Center  a      :TableCellHorizontalAlignment .
+
+:blueVal  a                 owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :Color ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:displayOrder  a            owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "The position of this DataSeries among all DataSeries (1-based)."^^xsd:string ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DataSeries :DataTableColumnInfo )
+                            ] ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:Gray   a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "128"^^xsd:int ;
+        :greenVal  "128"^^xsd:int ;
+        :redVal    "128"^^xsd:int .
+
+:DisplayedLink  a  :NonInteractiveText .
+
+:DefaultVerticalOrientation
+        a                   :IntegerDefault ;
+        :appliesToProperty  :orientation ;
+        :hasIntDefault      "1"^^xsd:int .
+
+:hasFloatDefault  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :FloatDefault ;
+        rdfs:range   xsd:float .
+
+:hasPresentationParameterBoolean
+        a           owl:DatatypeProperty ;
+        rdfs:range  xsd:boolean .
+
+:newObjectClass  a    owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:comment  "The value of this Property is the Class of which a new Individual is to be created."^^xsd:string ;
+        rdfs:domain   :ObjectOfClassDefault ;
+        rdfs:range    owl:Class .
+
+:DefaultHorizontalBarPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :horizonalBar .
+
+:depth  a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "Size in along z-axis"^^xsd:string ;
+        rdfs:domain         :Position ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:PresentationObject  a   owl:Class ;
+        rdfs:comment     "The root class of all InformationObjects defined in the model and perceptible in the client user-interface."^^xsd:string ;
+        rdfs:seeAlso     :PresentationObjectDefaultPosition , :DefaultIsDisplayedTrue ;
+        rdfs:subClassOf  :InformationObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :PresentationObject ;
+                           owl:onProperty     :containsPresentationObject
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DisplayType ;
+                           owl:onProperty     :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DataMap ;
+                           owl:onProperty     :isTransformedBy
+                         ] .
+
+:addCurrentValueToList
+        a             owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment  "If true, the current value of the SelectionListPresentation will be added, if not already present, to the list of possible answers (the menu)."^^xsd:string ;
+        rdfs:domain   :SelectionListPresentation ;
+        rdfs:range    xsd:boolean .
+
+:DefaultDropDownListPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :DropdownListBox .
+
+:AcuityControllerAction
+        a                owl:Class ;
+        rdfs:comment     "A Script implemented in Java and which may be executed by the AcuityController."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript .
+
+:Lime   a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "255"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:pie    a       :Series .
+
+:width  a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "Size along x-axis."^^xsd:string ;
+        rdfs:domain         :Position ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:hasValue  a         owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :SingleValue ;
+        rdfs:range   xsd:string .
+
+:fontColor  a               owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          :Color ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:seriesNameColumn  a        owl:DatatypeProperty ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:hasPosition  a             owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :PresentationObject ;
+        rdfs:range          :Position ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:cellBackgroundColor  a     owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          :Color ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:default  a                 owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :TableCellDecoratorOptions ;
+        rdfs:range          :TableCellDecorator ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:TableCellHorizontalAlignment
+        a                owl:Class ;
+        rdfs:subClassOf  :TableCellAlignment .
+
+:CheckBox  a    :InteractiveTabularSign .
+
+:ProblemSet  a           owl:Class ;
+        rdfs:comment     "This is a collection of Problems."^^xsd:string ;
+        rdfs:subClassOf  :WorkDomainInformationObject ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "1"^^xsd:int ;
+                           owl:onProperty      :hasProblem
+                         ] .
+
+:hasDBInstancesDescriptor
+        a                   owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment        "Any WorkDomainInformationObject (WDIO) can have a DBInstancesDescriptor. Such an association makes the WorkDomainInformationObject Individual a pseudo-WDIO--the actual instance data will be in the data source identified by the DBInstancesDescriptor."^^xsd:string ;
+        rdfs:domain         :WorkDomainInformationObject ;
+        rdfs:range          :DBInstancesDescriptor ;
+        rdfs:subPropertyOf  :dbObjectProperties .
+
+:EditableDataTable  a        owl:Class ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( _:b5 :DataTable )
+                             ] .
+
+:DateInputObject  a      owl:Class ;
+        rdfs:subClassOf  :FreeFormInputObject ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :ShowCalendarOnClick ;
+                           owl:onProperty  :hasClientSideEffect
+                         ] .
+
+:fontStrikethrough  a       owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:Default5Visible  a         :IntegerDefault ;
+        :appliesToProperty  :numVisible ;
+        :hasIntDefault      "5"^^xsd:int ;
+        :minimumSampleSize  "1"^^xsd:int ;
+        :userPreference     true ;
+        :valueCalculatedBy  :AcuityMostFrequentDefault .
+
+:appliesToProperty  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "The value of this Property must match the Name of the Property to which the default value applies, but the value is not the Property itself (would be OWL Full). Therefore changes in Property name will not be automatically reflected in this value."^^xsd:string ;
+        rdfs:domain   :DefaultValue ;
+        rdfs:range    rdf:Property .
+
+:isTransformedBy  a   owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:comment  "The information encoded by a PresentationObject can be transformed by a DataMap. This ObjectProperty identifies the DataMap, if any, to be used."^^xsd:string ;
+        rdfs:domain   :PresentationObject ;
+        rdfs:range    :DataMap .
+
+:containingPO  a      :BuiltInAnchor ;
+        rdfs:comment  "Not yet implemented. This would be the PO containing the currentIaO?"^^xsd:string .
+
+:RowsetMaxRowsDefault
+        a                   :IntegerDefault ;
+        :appliesToProperty  :hasRowsetMaxRows ;
+        :hasIntDefault      "150"^^xsd:int .
+
+:contextPredicate  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "The predicate of the context restriction (if any). If present, this default only applies to individuals with the contextPredicate relation to instances of the contextSubjectClass."^^xsd:string ;
+        rdfs:domain   :DefaultValue ;
+        rdfs:range    rdf:Property .
+
+:askUserFloat  a      owl:DatatypeProperty ;
+        rdfs:comment  "Sub-Properties are askable of the user and should have an rdfs:isDefinedBy association to an InteractionObject class."^^xsd:string ;
+        rdfs:range    xsd:float .
+
+:RowOrderedMappingFunction
+        a                owl:Class ;
+        rdfs:comment     "Mapping functions for data with series found in data columns."^^xsd:string ;
+        rdfs:subClassOf  :GraphMappingAction .
+
+:DefaultDoNotSort  a        :ObjectDefault ;
+        :appliesToProperty  :hasSortType ;
+        :hasObjectDefault   :DoNotSort .
+
+:alternateRowShading  a     owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DataTable ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:MultiValuedObjectOfClassDefault
+        a                owl:Class ;
+        rdfs:subClassOf  :DefaultValue .
+
+:StringDefault  a        owl:Class ;
+        rdfs:subClassOf  :DefaultValue .
+
+:NoColor  a        :Color ;
+        :alpha     "0"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+_:b6    a                owl:Restriction ;
+        owl:cardinality  "1"^^xsd:int ;
+        owl:onProperty   :hasURL .
+
+:XRDQLStatement  a       owl:Class ;
+        rdfs:comment     "A Script of type eXtended RDQL."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :XRDQLProcessor ;
+                           owl:onProperty  :hasProcessor
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :XRDQLQueryAnalyzer ;
+                           owl:onProperty  :hasOntQueryAnalyzer
+                         ] .
+
+:DefaultPresentationObjectPosition8
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "350"^^xsd:int ;
+        :yPos    "800"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+<http://research.ge.com/Acuity/apvf.owl>
+        a            owl:Ontology ;
+        owl:imports  <http://research.ge.com/Acuity/aulo.owl> .
+
+:ThisAcuityController
+        a             :PersistentJavaObject ;
+        rdfs:comment  "This is a special instance which is the current instance of the Java class AcuityController--allows scripts to call the current controller."^^xsd:string .
+
+:xMaxColumn  a              owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DataSeriesMap ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:hasHighlightRegion  a      owl:ObjectProperty ;
+        rdfs:comment        "Association of a HighlightRegion with a Table or Graph."^^xsd:string ;
+        rdfs:domain         :DisplayObject ;
+        rdfs:range          :HighlightRegion ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:DefaultRadioPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :Radio .
+
+:usesPresentationObject
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "These PresentationObjects will only be part of a Vantage if the Event is \"active\" (active process, active step)."^^xsd:string ;
+        rdfs:domain         :AcuityInteractionEvent ;
+        rdfs:range          :PresentationObject ;
+        rdfs:subPropertyOf  :autoInstantiateProperties .
+
+:DefaultDataTableColumnsManager
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasColumnsManager ;
+        :hasObjectDefault   :DefaultDataTableColumnsManagerScript .
+
+:DefaultColorWhite  a       :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :White .
+
+:NonInteractiveGroupDisplay
+        a       :GroupDisplay .
+
+:DefaultDataTableColumnsManagerScript
+        a                          :OnDemandAction ;
+        rdfs:comment               "This is the default column info manager."^^xsd:string ;
+        :hasImplementationClass    "DefaultDataTableColumnsManager"^^xsd:string ;
+        :hasImplementationMethod   "process"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:hasColumnsManager  a  owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :DataTable ;
+        rdfs:range   :ServerSideScript .
+
+:seriesDelimiterColumn
+        a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DataSeriesMap ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:dbObjFieldName  a          owl:DatatypeProperty ;
+        rdfs:comment        "The field in an external database which contains the object instance; can have multiple per DBStatementsDescriptor(?)."^^xsd:string ;
+        rdfs:domain         :DBStatementsDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:Right  a       :TableCellHorizontalAlignment .
+
+:FloatDefault  a         owl:Class ;
+        rdfs:subClassOf  :DefaultValue .
+
+:DefaultCheckboxPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :CheckBox .
+
+:DataSeries  a           owl:Class ;
+        rdfs:seeAlso     :DefaultGraphSeriesColors ;
+        rdfs:subClassOf  :Components ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :displayOrder
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasColor ;
+                           owl:someValuesFrom  :Color
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasHighlightRegion
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasPresentationNature ;
+                           owl:someValuesFrom  :Series
+                         ] .
+
+:DefaultPiePresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :pie .
+
+:outputIdentifier  a  owl:DatatypeProperty ;
+        rdfs:comment  "Identifies, either by name or by position (number), a stored procedure output.  The return value of the stored procedure has positioned zero."^^xsd:string ;
+        rdfs:domain   :StoredProcedureOutputSelector ;
+        rdfs:range    xsd:string .
+
+:DefaultListBoxPresentationNature
+        a                   :ObjectDefault ;
+        rdfs:comment        "FrameSelectionObjects have the default presentation nature DropdownListBox."^^xsd:string ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :ListBox .
+
+:TestArgsToSystemOutReturningValue
+        a                          :OnDemandAction ;
+        :hasArguments              "${groupInputValues}"^^xsd:string ;
+        :hasImplementationClass    "SupportActions"^^xsd:string ;
+        :hasImplementationMethod   "argsToSystemOutReturningValue"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                false .
+
+:isInformationAbout  a  owl:ObjectProperty .
+
+:SimpleValueObject  a    owl:Class ;
+        rdfs:subClassOf  :DisplayObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :SimpleValueRendererAction ;
+                           owl:onProperty  :hasRenderer
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :DisplayedText ;
+                           owl:onProperty  :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasHighlightRegion
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :valueName
+                         ] .
+
+:AcuityAboveThresholdMultiValued
+        a                          :MostFrequentDefault ;
+        :hasImplementationClass    "CreateDefault"^^xsd:string ;
+        :hasImplementationMethod   "createMultiValuedThresholdDefaultValue"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions.learning"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:opacity  a                 owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :hasPresentationParameterFloat .
+
+:AcuityMostFrequentDefault
+        a                          :MostFrequentDefault ;
+        rdfs:comment               "This is the Acuity-provided default Script for most frequent value of a graph series color."^^xsd:string ;
+        :hasImplementationClass    "CreateDefault"^^xsd:string ;
+        :hasImplementationMethod   "createMostFrequentDefaultValue"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions.learning"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:PresentationObjectRendererAction
+        a                owl:Class ;
+        rdfs:comment     "Scripts of this type are called to Render a PresentationObject (PO). They take the instance of the AcuityController (Java object) and the Individual PO to be rendered as arguments and return an instance of the Java class PresentationObject."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    true ;
+                           owl:onProperty  :includeAcuityControllerAsArgument
+                         ] .
+
+:NoBackgroundColor  a       :ObjectDefault ;
+        :appliesToProperty  :cellBackgroundColor ;
+        :hasObjectDefault   :NoColor .
+
+:DefaultPresentationObjectPosition3
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "700"^^xsd:int ;
+        :yPos    "10"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:hasContentUpdater  a  owl:ObjectProperty ;
+        rdfs:comment  "Allows scripts to be associated with a Frame class and to be called by a client to update the frame content."^^xsd:string ;
+        rdfs:domain   :Frame ;
+        rdfs:range    :ServerSideScript .
+
+:DefaultAllowsMultipleSelectionFalse
+        a                   :BooleanDefault ;
+        :appliesToProperty  :allowsMultipleSelection ;
+        :hasBooleanDefault  false .
+
+:HiddenBooleanValueObject
+        a                owl:Class ;
+        rdfs:subClassOf  :BooleanValueObject ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    false ;
+                           owl:onProperty  :isDisplayed
+                         ] .
+
+:BeforeChangeEvent  a  :TriggerEvent .
+
+:SubmitInteractionValue
+        a                 :JavaScript ;
+        rdfs:comment      "This sets a hidden form element with the name the interaction object ID with the value ??"^^xsd:string ;
+        :eventExpression  "submitInteractionValue(this)"^^xsd:string ;
+        :scriptURI        "acuity.js"^^xsd:string ;
+        :triggerEvent     :OnClickEvent .
+
+:Bottom  a      :TableCellVerticalAlignment .
+
+:ServerSideScript  a     owl:Class ;
+        rdfs:comment     "A Script to be processed by the Server (normally the AcuityController)."^^xsd:string ;
+        rdfs:subClassOf  aulo:Script .
+
+:OnMouseOverEvent  a  :TriggerEvent .
+
+:yMaxColumn  a              owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:fontSize  a                owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:toolTip  a                 owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The optional text to be displayed to the user to assist in understanding the effect of interacting with the InteractionObject with which this JavaScript is associated."^^xsd:string ;
+        rdfs:domain         :PresentationObject ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:hasBooleanDefault  a  owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :BooleanDefault ;
+        rdfs:range   xsd:boolean .
+
+:TableMappingAction  a   owl:Class ;
+        rdfs:comment     "Takes data from a dataset and maps it to an array of values.\nDifferent mapping functions will take different input data structures and produce output structures understood by the client software.\n"^^xsd:string ;
+        rdfs:subClassOf  :MappingAction .
+
+:histogram  a   :Series .
+
+:OnDoubleClickEvent  a  :TriggerEvent .
+
+:DefaultColorNavy  a        :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Navy .
+
+:PresentationObjectDefaultPosition5
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition5 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:FormatFloat2DecimalPlaces
+        a                   :StringDefault ;
+        :appliesToProperty  :formatPattern ;
+        :hasStringDefault   "###,##0.00"^^xsd:string ;
+        :minimumSampleSize  "1"^^xsd:int ;
+        :userPreference     true .
+
+:SharedCompositeParameterSet
+        a                owl:Class ;
+        rdfs:subClassOf  aulo:Set .
+
+:submitOnClick  a    owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :ActionButton ;
+        rdfs:range   xsd:boolean .
+
+:FloatValueObject  a     owl:Class ;
+        rdfs:subClassOf  :SimpleValueObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasFloatValue
+                         ] .
+
+:VantageSelectionUpdate
+        a                   :XRDQLStatement ;
+        :hasXRDQLStatement  "UPDATE (${currentFrame}, <apvf:hasFocusVantage>, ${useAnswer})"^^xsd:string .
+
+_:b2    a                   owl:Restriction ;
+        owl:onProperty      :hasDBStatementsDescriptor ;
+        owl:someValuesFrom  :DBStatementsDescriptor .
+
+:displayZGridlines  a       owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:Green  a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "128"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:Radio  a       :InteractiveTabularSign .
+
+:columnHeading  a           owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :TableCellDecoratorOptions ;
+        rdfs:range          :TableCellDecorator ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:dbConnectionString  a      owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DBConnection ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:DefaultLinkPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :DisplayedLink .
+
+:DefaultIsDisplayedTrue
+        a                   :BooleanDefault ;
+        :appliesToProperty  :isDisplayed ;
+        :hasBooleanDefault  true .
+
+:hasPresentationParameterString
+        a           owl:DatatypeProperty ;
+        rdfs:range  xsd:string .
+
+:Fuschia  a        :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "255"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "255"^^xsd:int .
+
+:isDerivedFrom  a     owl:ObjectProperty ;
+        rdfs:comment  "Relates an instance of an InformationObject derived by the system, e.g., derivative series in a graph, to the instance from which it was derived."^^xsd:string ;
+        rdfs:domain   :InformationObject ;
+        rdfs:range    :InformationObject .
+
+:GroupDisplay  a         owl:Class ;
+        rdfs:comment     "A 2-D layout of information in rows and columns with a cell of information at each intersection."^^xsd:string ;
+        rdfs:subClassOf  :DisplayType .
+
+:dbInstanceField  a         owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "The field in external database table containing class instance data."^^xsd:string ;
+        rdfs:domain         :DBInstancesDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:XRDQLProcessor  a                 :ScriptProcessingAction ;
+        :hasImplementationClass    "XRDQLProcessor"^^xsd:string ;
+        :hasImplementationMethod   "process"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.scriptprocessing"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:Criterion  a            owl:Class ;
+        rdfs:subClassOf  aulo:Schema .
+
+:dbTable  a                 owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "The table in external database which contains instance data for class."^^xsd:string ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DBStatementsDescriptor :DBInstancesDescriptor )
+                            ] ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:DataTableColumnInfo  a  owl:Class ;
+        rdfs:comment     "This composite parameter contains information about each table column."^^xsd:string ;
+        rdfs:seeAlso     :DefaultTableColumnDescendingSortFalse , :DefaultTableColumnSortPriority , :DefaultIsDisplayedTrue ;
+        rdfs:subClassOf  :Parameter ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :InteractionObject ;
+                           owl:onProperty     :hasInteractionObject
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :TableCellHorizontalAlignment ;
+                           owl:onProperty     :horizontalAlignment
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DomainSpecificIndirections ;
+                           owl:onProperty     :hasOptions
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :TableCellVerticalAlignment ;
+                           owl:onProperty     :verticalAlignment
+                         ] .
+
+:hasCriterion  a    owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:range  :Criterion .
+
+:hasImplementationMethod
+        a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :AcuityControllerAction ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :explicitActionParameters .
+
+:htmlStyle  a               owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:SimulationEvent  a      owl:Class ;
+        rdfs:subClassOf  aulo:Event .
+
+:OnKeyPressEvent  a  :TriggerEvent .
+
+:MaintenanceEvent  a     owl:Class ;
+        rdfs:subClassOf  aulo:Event .
+
+:startValue  a              owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DataSeriesMap ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :dataSeriesMapColumnInfo .
+
+:hasMissingObjectPropertyAction
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "This Property associates an instance of an MissingObjectPropertyAction with an owl:Class. The behavior identified by the MissingObjectPropertyAction instance will be invoked when the associated owl:Class is the range of the missing Property."^^xsd:string ;
+        rdfs:subPropertyOf  :hasAction .
+
+:processWithOldValues
+        a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "Send the old name/value pairs for a row as well as the new name/value pairs for the row when submitting edit changes to the controller."^^xsd:string ;
+        rdfs:domain   :DataTable ;
+        rdfs:range    xsd:boolean .
+
+:Left   a       :TableCellHorizontalAlignment .
+
+:SimpleValueRendererAction
+        a                          :PresentationObjectRendererAction ;
+        :hasImplementationClass    "SimpleValueRenderer"^^xsd:string ;
+        :hasImplementationMethod   "getSimpleValuePresentationObject"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:DisplayedText  a  :NonInteractiveText .
+
+:DefaultPresentationObjectPosition
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "250"^^xsd:int ;
+        :width   "300"^^xsd:int ;
+        :xPos    "0"^^xsd:int ;
+        :yPos    "0"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+_:b3    a                   owl:Restriction ;
+        owl:onProperty      :hasForPurposeSolutionOfProblemSet ;
+        owl:someValuesFrom  [ a            owl:Class ;
+                              owl:unionOf  ( :ProblemSet :Problem )
+                            ] .
+
+:ValueList  a            owl:Class ;
+        rdfs:comment     "A Script returning a dataset constructed from comma-separated values. Curley brackets, e.g., {1,2,3}, are used to designate a List, square brackets, e.g., [4,5,6], are used to designate an array."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript .
+
+:hasValueList  a     owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :ValueList ;
+        rdfs:range   xsd:string .
+
+:redVal  a                  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :Color ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:RowOrderDataSeriesMap
+        a                owl:Class ;
+        rdfs:comment     "A data series is found in an individual column of the database table or view; the data points of the series are found in the different rows of the column."^^xsd:string ;
+        rdfs:subClassOf  :DataSeriesMap .
+
+:Silver  a         :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "192"^^xsd:int ;
+        :greenVal  "192"^^xsd:int ;
+        :redVal    "192"^^xsd:int .
+
+:DefaultColorRed  a         :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Red .
+
+:Black  a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:createdBy  a        owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :PresentationObject ;
+        rdfs:range   aulo:Person .
+
+:containsPresentationObject
+        a                   owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment        "Relates a presentation object to a presentation object which it contains."^^xsd:string ;
+        rdfs:domain         :PresentationObject ;
+        rdfs:label          "Add to vantage"^^xsd:string ;
+        rdfs:range          :PresentationObject ;
+        rdfs:subPropertyOf  :autoInstantiateProperties .
+
+:ScriptExecutionEvent
+        a                owl:Class ;
+        rdfs:subClassOf  aulo:Event ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasEffect ;
+                           owl:someValuesFrom  :ServerSideScript
+                         ] .
+
+:DisplayGroup  a         owl:Class ;
+        rdfs:subClassOf  :DisplayObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :containsPresentationObject ;
+                           owl:someValuesFrom  :DisplayObject
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :DefaultPresentationObjectRendererAction ;
+                           owl:onProperty  :hasRenderer
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasHighlightRegion
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :NonInteractiveGroupDisplay ;
+                           owl:onProperty  :hasPresentationNature
+                         ] .
+
+:Frame  a                owl:Class ;
+        rdfs:comment     "Properties of \"the session\" and one or more Vantages, each of which will have a ProblemSet and a set of relevant InformationObjects."^^xsd:string ;
+        rdfs:label       "Frame"^^xsd:string ;
+        rdfs:subClassOf  :PresentationObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasPosition
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Vantage ;
+                           owl:onProperty     :hasFocusVantage
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :containsPresentationObject ;
+                           owl:someValuesFrom  :VantageSelectionObject
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isDisplayed
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :ServerSideScript ;
+                           owl:onProperty     :hasContentUpdater
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Vantage ;
+                           owl:onProperty     :hasVantage
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :displayBanner
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasFocusVantage
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasFocus
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :PresentationObject ;
+                           owl:onProperty     :hasOrphan
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasHelpKeyword
+                         ] .
+
+:triggerEvent  a      owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "Identifies the type of event which will trigger the client-side affect."^^xsd:string ;
+        rdfs:domain   :JavaScript ;
+        rdfs:range    :TriggerEvent .
+
+:AcuityInteractionEvent
+        a                owl:Class ;
+        rdfs:subClassOf  aulo:Event ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( :ServerSideScript rdf:List )
+                                              ] ;
+                           owl:onProperty     :hasEffect
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :PresentationObject ;
+                           owl:onProperty     :usesPresentationObject
+                         ] .
+
+:rowsetColumn  a            owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DataSeries :DataTableColumnInfo )
+                            ] ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:askUserDateTime  a   owl:DatatypeProperty ;
+        rdfs:comment  "Sub-Properties are askable of the user and should have an rdfs:isDefinedBy association to an InteractionObject class."^^xsd:string ;
+        rdfs:range    xsd:dateTime .
+
+:hasHelpKeyword  a   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :PresentationObject ;
+        rdfs:range   xsd:string .
+
+:AcuityAverageDefault
+        a                          :AveragedDefault ;
+        rdfs:comment               "This is the Acuity-provided default Script for averaging numerical values. If it is applied to a boolean or string property, the most frequent value will be returned."^^xsd:string ;
+        :hasImplementationClass    "CreateDefault"^^xsd:string ;
+        :hasImplementationMethod   "createAverageDefaultValue"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions.learning"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:ScriptProcessingAction
+        a                owl:Class ;
+        rdfs:comment     "AcuityControllerAction Scripts of this type are used to process other types of Scripts, e.g., SPARQLStatements. Currently the AcuityController assumes the instructions are a Literal value associated with the Individual by a hasStatement property."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction .
+
+:AcuityMostFrequentSeriesColorClass
+        a                owl:Class ;
+        rdfs:comment     "A specialized script used to handle the Colors associated with series in a graph."^^xsd:string ;
+        rdfs:subClassOf  :MostFrequentDefault ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :PersistentJavaObject ;
+                           owl:onProperty     :usesPersistentJavaObject
+                         ] .
+
+:title  a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :GraphObject :DataSeries :DataTable :DataTableColumnInfo )
+                            ] ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:hasDBStatementsDescriptor
+        a                   owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain         :WorkDomainInformationObject ;
+        rdfs:range          :DBStatementsDescriptor ;
+        rdfs:subPropertyOf  :dbObjectProperties .
+
+:Middle  a      :TableCellVerticalAlignment .
+
+:TriggerEvent  a         owl:Class ;
+        rdfs:subClassOf  aulo:Refining .
+
+:submitsOnChange  a         owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "When true, the client should submit the value of an InteractionObject as soon as that value is changed."^^xsd:string ;
+        rdfs:domain         :InteractionObject ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:dbDriverString  a          owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :DBConnection ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:HiddenObject  a         owl:Class ;
+        rdfs:subClassOf  :InteractionObject ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    false ;
+                           owl:onProperty  :isDisplayed
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :orientation
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    false ;
+                           owl:onProperty  :hasOwnSubmit
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :prompt
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :Hidden ;
+                           owl:onProperty  :hasPresentationNature
+                         ] .
+
+:interactiveTextHeight
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The height, in characters, of a text area input interaction object."^^xsd:string ;
+        rdfs:domain         :FreeFormInputObject ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :hasPresentationParameterFloat .
+
+:xAxisTitle  a              owl:DatatypeProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:contextSubjectClass  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "The class of the context restriction (if any). If present, this default only applies to individuals with the contextPredicate relation to instances of the contextSubjectClass."^^xsd:string ;
+        rdfs:domain   :DefaultValue ;
+        rdfs:range    owl:Class .
+
+:hasRecipient  a     owl:ObjectProperty ;
+        rdfs:domain  :Communication .
+
+:eventExpression  a   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "The JavaScript expression which is to be executed on the occurrence of the trigger event."^^xsd:string ;
+        rdfs:domain   :JavaScript ;
+        rdfs:range    xsd:string .
+
+:DiscreteProcess  a      owl:Class ;
+        rdfs:comment     "A discrete process can be decomposed, via the link hasFirstStep, and may be part of a higher level process, via the link hasNextStep and/or via being the object of a hasNextStep association."^^xsd:string ;
+        rdfs:subClassOf  aulo:Process ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( aulo:Event :DiscreteProcess )
+                                              ] ;
+                           owl:onProperty     :hasNextStep
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  aulo:Event ;
+                           owl:onProperty     :hasActiveStep
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( aulo:Event :DiscreteProcess )
+                                              ] ;
+                           owl:onProperty     :hasFirstStep
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "1"^^xsd:int ;
+                           owl:onProperty      :hasFirstStep
+                         ] .
+
+:rowIdentifier  a     owl:DatatypeProperty ;
+        rdfs:comment  "Identifies a row in a rowset, by position (number, 1 being the first row), to be retained in refined (filtered) information."^^xsd:string ;
+        rdfs:domain   :RowsetIndexedSelector ;
+        rdfs:range    xsd:int .
+
+:RowsetIndexedSelector
+        a                owl:Class ;
+        rdfs:comment     "Identifies which columns of a rowset should be encoded by RefinedWDIO."^^xsd:string ;
+        rdfs:subClassOf  :Filter .
+
+:DefaultColorOlive  a       :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Olive .
+
+:hasImplementationClass
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :AcuityControllerAction :PersistentJavaObject )
+                            ] ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :explicitActionParameters .
+
+:ShowCalendarOnClick  a   :JavaScript ;
+        rdfs:comment      "This inserts a date on a text fields for a date."^^xsd:string ;
+        :eventExpression  "showCalendarOnClick(this)"^^xsd:string ;
+        :scriptURI        "calendar.js"^^xsd:string ;
+        :triggerEvent     :OnClickEvent .
+
+:LearnedFrameSelectionPresentationNature
+        a                    :ObjectDefault ;
+        :appliesToProperty   :hasPresentationNature ;
+        :hasObjectDefault    :ListBox ;
+        :minimumSampleSize   "2"^^xsd:int ;
+        :thresholdFrequency  "0.6"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityMostFrequentDefault .
+
+:URL    a                    owl:Class ;
+        owl:equivalentClass  [ a                   owl:Class ;
+                               owl:intersectionOf  ( :WorkDomainInformationObject _:b6 )
+                             ] .
+
+:usesPersistentJavaObject
+        a            owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain  [ a            owl:Class ;
+                       owl:unionOf  ( :ActionOnPersistentObject :AcuityMostFrequentSeriesColorClass )
+                     ] ;
+        rdfs:range   :PersistentJavaObject .
+
+:DefaultTableColumnDescendingSortTrue
+        a                   :BooleanDefault ;
+        :appliesToProperty  :descendingSort ;
+        :hasBooleanDefault  true .
+
+:useAnswer  a         :BuiltInAnchor ;
+        rdfs:comment  "The answer returned by a client representation of an InteractionObject (call to AcuityController method processInteractionAnswer)."^^xsd:string .
+
+:Red    a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "0"^^xsd:int ;
+        :redVal    "255"^^xsd:int .
+
+:DefaultGraph2dPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :Graph2D .
+
+:IaoPromptDefault  a        :StringDefault ;
+        :appliesToProperty  :prompt ;
+        :hasStringDefault   "null"^^xsd:string ;
+        :minimumSampleSize  "1"^^xsd:int ;
+        :userPreference     true ;
+        :valueCalculatedBy  :AcuityMostFrequentDefault .
+
+:hasPerceivedState  a  owl:FunctionalProperty , owl:ObjectProperty .
+
+:LearnedDefaultAction
+        a                owl:Class ;
+        rdfs:comment     "The class of AcuityControllerActions used to calculate a learned default value."^^xsd:string ;
+        rdfs:subClassOf  :AcuityControllerAction .
+
+:Slice  a                owl:Class ;
+        rdfs:comment     "A Slice defines the extent and color of a HighlightRegion."^^xsd:string ;
+        rdfs:subClassOf  :Parameter .
+
+:hasIntDefault  a    owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :IntegerDefault ;
+        rdfs:range   xsd:int .
+
+:DefaultPresentationObjectPosition5
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "350"^^xsd:int ;
+        :yPos    "450"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:dbClassID  a               owl:DatatypeProperty ;
+        rdfs:comment        "The name of this class as it is represented in an external database containing instance data (if any; not required)."^^xsd:string ;
+        rdfs:domain         :DBInstancesDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:yPos   a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :Position ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:processUnmodifiedData
+        a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "If true all data in will be processed, whether modified or not. If false, only modified data will be processed. Default is false."^^xsd:string ;
+        rdfs:domain   :DataTable ;
+        rdfs:range    xsd:boolean .
+
+:hasRowsetMaxRows  a        owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "An optional Parameter which defines the maximum number of rows that should be returned from an SQL query of a relational database."^^xsd:string ;
+        rdfs:domain         :SimpleDataTable ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:hasFocusVantage  a  owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :Frame ;
+        rdfs:label   "Please select the Vantage to receive the focus"^^xsd:string ;
+        rdfs:range   :Vantage .
+
+:TableCellAlignment  a   owl:Class ;
+        rdfs:subClassOf  :NonCompositeParameterObjectValues .
+
+:missingPropertyProcessingObjectPropertiesOfClass
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Subproperties of this Property provide information about a Class that controls what happens when the Class is in the range of a missing Property."^^xsd:string .
+
+:IntegerValueObject  a   owl:Class ;
+        rdfs:subClassOf  :SimpleValueObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasIntegerValue
+                         ] .
+
+:MostRecentDefault  a    owl:Class ;
+        rdfs:comment     "A type of Script which calculates a property value as the most recently used in the dataset."^^xsd:string ;
+        rdfs:subClassOf  :LearnedDefaultAction .
+
+:InteractionObject  a    owl:Class ;
+        rdfs:comment     "This subclass of PresentationObject provides a mechanism for user  input."^^xsd:string ;
+        rdfs:seeAlso     :DefaultVerticalOrientation , :DefaultSubmitButtonTrue , :IaoPromptDefault ;
+        rdfs:subClassOf  :PresentationObject .
+
+:Button  a      :DisplayType .
+
+:pointAndLine  a  :Series .
+
+:yAxisTitle  a              owl:DatatypeProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:POsInVantageUpdate  a      :XRDQLStatement ;
+        :hasXRDQLStatement  "INSERT (${focusVantage}, <apvf:containsPresentationObject>,${useAnswer})"^^xsd:string .
+
+:hasActiveStep  a    owl:ObjectProperty ;
+        rdfs:domain  :DiscreteProcess ;
+        rdfs:range   aulo:Event .
+
+:hasCurrentURL  a    owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :ExternalWebApplication ;
+        rdfs:range   xsd:string .
+
+:DoubleClickSubmit  a     :JavaScript ;
+        :eventExpression  "submitInteractionValue(this)"^^xsd:string ;
+        :scriptURI        "acuity.js"^^xsd:string ;
+        :triggerEvent     :OnDoubleClickEvent .
+
+:DefaultAllowsMultipleSelectionTrue
+        a                   :BooleanDefault ;
+        rdfs:comment        "Allow multiple PresentationObjects to be selected at a time."^^xsd:string ;
+        :appliesToProperty  :allowsMultipleSelection ;
+        :hasBooleanDefault  true .
+
+:hasURL  a           owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :URL ;
+        rdfs:range   xsd:string .
+
+:FreeFormInputObject  a  owl:Class ;
+        rdfs:seeAlso     :DefaultTextboxPresentationNature ;
+        rdfs:subClassOf  :InteractionObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :orientation
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] .
+
+:DBInstancesDescriptor
+        a                owl:Class ;
+        rdfs:comment     "Set of properties identifing the elements necessary to query the external db for instances of a class, i.e., \"select <dbInstanceField> from <dbTable> where <dbClassField> = '<classID>'\", the where clause being optional."^^xsd:string ;
+        rdfs:subClassOf  :AcuityInformationObject ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasDBConnection ;
+                           owl:someValuesFrom  :DBConnection
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DBConnection ;
+                           owl:onProperty     :hasDBConnection
+                         ] .
+
+:Vantage  a              owl:Class ;
+        rdfs:comment     "A PresentationObject container associated with a Frame which can have the focus (be visible) or can be available to receive the focus through some periphery mechanism."^^xsd:string ;
+        rdfs:subClassOf  :PresentationObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :displayBanner
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isDisplayed
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( aulo:Event :DiscreteProcess )
+                                              ] ;
+                           owl:onProperty     :hasActiveProcess
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :hasPosition
+                         ] .
+
+:hasImplementationPackage
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :AcuityControllerAction :PersistentJavaObject )
+                            ] ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :explicitActionParameters .
+
+:DataTableMap  a         owl:Class ;
+        rdfs:comment     "A map for a DataTable."^^xsd:string ;
+        rdfs:subClassOf  :DataMap ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasMappingFunction ;
+                           owl:someValuesFrom  :TableMappingAction
+                         ] .
+
+:PresentationObjectDefaultPosition7
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition7 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:DefaultColorYellow  a      :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Yellow .
+
+:autoInstantiateProperties
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "Properties in this class should be automatically created, along with an new object Individual, when missing as information."^^xsd:string ;
+        rdfs:subPropertyOf  :missingPropertyProcessingObjectPropertiesOfClass .
+
+:currentIaO  a        :BuiltInAnchor ;
+        rdfs:comment  "The URI of the Individual of type APVF InteractionObject (or one of its subclasses) with which the user interacted to cause the current processing to occur."^^xsd:string .
+
+:icon   a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:interactiveTextWidth
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The width, in characters (nominally), of a text area or text box interaction object."^^xsd:string ;
+        rdfs:domain         :FreeFormInputObject ;
+        rdfs:range          xsd:float ;
+        rdfs:subPropertyOf  :hasPresentationParameterFloat .
+
+:InteractiveTabularSign
+        a                owl:Class ;
+        rdfs:subClassOf  :Table .
+
+:hasBooleanValue  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :BooleanValueObject ;
+        rdfs:range   xsd:boolean .
+
+:Work   a                owl:Class ;
+        rdfs:subClassOf  :DiscreteProcess .
+
+:hasAskUserRDQLValueFilter
+        a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "This is an RDQL query string which is anchored to the current instance of this AcuityController (<${currentAC}>), the current User (<${currentUser}>, the current Frame (<${currentFrame}>), or the current focus Vantage (<${focusVantage}>). It is used to obtain the set of Individuals which are possible values for a missing Property when the missing Property is a subProperty of askUserProperties. The instance of this DataProperty has as subject the class which is the range of the missing Property. Note also that any fragment of the form <abcdef> will be processed to see if it needs a namespace prefix."^^xsd:string ;
+        rdfs:domain         :Frame ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :missingPropertyProcessingStringDatatypePropertiesOfClass .
+
+:groupInputValues  a  :BuiltInAnchor ;
+        rdfs:comment  "The HashMap of the value pairs submitted by a client form or editable table (call to method processGroupedInput)."^^xsd:string .
+
+:font   a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:hasObjectDefault  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:domain  [ a            owl:Class ;
+                       owl:unionOf  ( :ObjectDefault :CompositeParameterDefault )
+                     ] .
+
+:XRDQLQueryAnalyzer  a             :ScriptProcessingAction ;
+        :hasImplementationClass    "XRDQLProcessor"^^xsd:string ;
+        :hasImplementationMethod   "analyze"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.scriptprocessing"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:NoOpTerminalEvent  a  :AcuityInteractionEvent ;
+        rdfs:comment  "Use this event to end a Process chain of Events which should not loop. "^^xsd:string .
+
+:InteractiveGroupDisplay
+        a       :GroupDisplay .
+
+:orientation  a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :InteractionObject ;
+        rdfs:range          [ a          owl:DataRange ;
+                              owl:oneOf  ( "0"^^xsd:int "1"^^xsd:int )
+                            ] ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:WorkDomainInformationObject
+        a                owl:Class ;
+        rdfs:comment     "An InformationObject representing information about the work domain."^^xsd:string ;
+        rdfs:subClassOf  :InformationObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DBInstancesDescriptor ;
+                           owl:onProperty     :hasDBInstancesDescriptor
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DBStatementsDescriptor ;
+                           owl:onProperty     :hasDBStatementsDescriptor
+                         ] .
+
+:askUserProperties  a       owl:ObjectProperty ;
+        rdfs:comment        "Properties in this class should be presented as questions to the user when encountered as missing information."^^xsd:string ;
+        rdfs:subPropertyOf  :missingPropertyProcessingObjectPropertiesOfClass .
+
+:InformationObject  a    owl:Class ;
+        rdfs:comment     "An AbstractThing which is pure information, although an InformationObject will often be encoded in some PhysicalThing."^^xsd:string ;
+        rdfs:subClassOf  aulo:AbstractThing ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  [ a            owl:Class ;
+                                                owl:unionOf  ( :WorkDomainInformationObject :ServerSideScript )
+                                              ] ;
+                           owl:onProperty     :encodes
+                         ] .
+
+:DisplayType  a          owl:Class ;
+        rdfs:subClassOf  :NonCompositeParameterObjectValues .
+
+:DBStatementsDescriptor
+        a                owl:Class ;
+        rdfs:comment     "Set of properties identifing the elements necessary to query the external db for the properties of an instances, i.e., \"select <dbSFN>,<dbOFN1>,<dbOFN2>... from <dbTable> where <dbSFN> = '<SInstID>'\". The optional dbPredURI can be used to create Jena Statements; if not present one will be be created from the other properties of this instance."^^xsd:string ;
+        rdfs:subClassOf  :AcuityInformationObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DBConnection ;
+                           owl:onProperty     :hasDBConnection
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :hasDBConnection ;
+                           owl:someValuesFrom  :DBConnection
+                         ] .
+
+:FormatDateMdy  a           :StringDefault ;
+        :appliesToProperty  :formatPattern ;
+        :hasStringDefault   "%$tm %$te,%$tY"^^xsd:string .
+
+:PossibleVantagesGenerator
+        a                          :ActionOnPersistentObject ;
+        :hasArguments              "${currentFrame}"^^xsd:string ;
+        :hasImplementationMethod   "getVantagesOfFrame"^^xsd:string ;
+        :hasXRDQLStatement         "SELECT ?v WHERE (${currentFrame}, <apvf:hasVantage>, ?v)"^^xsd:string ;
+        :usesPersistentJavaObject  :ThisAcuityController .
+
+:hasAction  a               owl:ObjectProperty ;
+        rdfs:range          :ServerSideScript ;
+        rdfs:subPropertyOf  :missingPropertyProcessingObjectPropertiesOfClass .
+
+:hasEffect  a        owl:ObjectProperty ;
+        rdfs:domain  [ a            owl:Class ;
+                       owl:unionOf  ( :InteractionObject :AcuityInteractionEvent :ExternalWebApplication :ScriptExecutionEvent :DataTable )
+                     ] ;
+        rdfs:range   [ a            owl:Class ;
+                       owl:unionOf  ( :ServerSideScript rdf:List )
+                     ] .
+
+:DocumentRendererAction
+        a                          :PresentationObjectRendererAction ;
+        :hasImplementationClass    "DocumentRenderer"^^xsd:string ;
+        :hasImplementationMethod   "getDocumentPresentationObject"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:userPreference  a   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain  :DefaultValue ;
+        rdfs:range   xsd:boolean .
+
+:DefaultTableColumnDescendingSortFalse
+        a                   :BooleanDefault ;
+        :appliesToProperty  :descendingSort ;
+        :hasBooleanDefault  false .
+
+:tableCellFreeEntry  a      owl:ObjectProperty ;
+        rdfs:domain         :TableCellInteractionOptionsFreeList ;
+        rdfs:range          :FreeFormInputObject ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasObjectOfClassDefaults
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Note that this property may be multi-valued allowing it to be used for things like containsPresentationObject on a Vantage class."^^xsd:string ;
+        rdfs:domain   :MultiValuedObjectOfClassDefault ;
+        rdfs:range    owl:Class .
+
+:MappedDataTableRenderer
+        a                          :PresentationObjectRendererAction ;
+        rdfs:comment               "Renderer of MappedDataTable POs."^^xsd:string ;
+        :hasImplementationClass    "DataTableRenderer"^^xsd:string ;
+        :hasImplementationMethod   "getMappedDataTablePresentationObject"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:fontUnderline  a           owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:fontSuperscript  a         owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:DefaultLinePresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :line .
+
+:DefaultVantageSelectorPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :TabsList ;
+        :minimumSampleSize  "1"^^xsd:int ;
+        :userPreference     true ;
+        :valueCalculatedBy  :AcuityMostFrequentDefault .
+
+:createdToMeetRestriction
+        a             owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "Associates a Restriction (subclass of Jena OntClass), the object of a Statement, with the Individual created to meet the Restriction, the subject of a Statement. This is used to track the origin of Individuals created because of autoInstantiateProperties subproperties."^^xsd:string ;
+        rdfs:range    owl:Class .
+
+:now    a             :BuiltInAnchor ;
+        rdfs:comment  "A string representing the current system date and time. Optionally, the syntax can be now(format), e.g., now(MM/dd/yyyy)."^^xsd:string .
+
+:InitiallyEmptyLearnedVantageContent
+        a                    :MultiValuedObjectOfClassDefault ;
+        :appliesToProperty   :containsPresentationObject ;
+        :minimumSampleSize   "1"^^xsd:int ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAboveThresholdMultiValued .
+
+:zAxisTitle  a              owl:DatatypeProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:PresentationObjectDefaultPosition2
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition2 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:DefaultPointPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :point .
+
+:DomainSpecificIndirections
+        a                owl:Class ;
+        rdfs:comment     "Subclasses define options that are specific to the domain/business logic."^^xsd:string ;
+        rdfs:subClassOf  :Parameter .
+
+:Filter  a               owl:Class ;
+        rdfs:comment     "A Filter down selects the information encoded by a RefinedWDIO."^^xsd:string ;
+        rdfs:subClassOf  :AcuityInformationObject ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Filter ;
+                           owl:onProperty     :isRefinedBy
+                         ] .
+
+:askUserPropertiesIncludeCreateNew
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "Properties in this class will include the option to create a new Individual of the range class on the possible answers menu."^^xsd:string ;
+        rdfs:subPropertyOf  :askUserProperties .
+
+:storedProcedureSignature
+        a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "must be format \n[? =] call procedureName ( [ ${anchor} | constant | ?]* )"^^xsd:string ;
+        rdfs:domain   :StoredProcedure ;
+        rdfs:range    xsd:string .
+
+:dataSetDefinedBy  a  owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment  "Optional property who's value is an instance of a ServerSideScript to be executed to identify the data set used to learn the default value. In the local context of the Individual which is the value of this property, the anchors \"instance\", \"property\", \"contextSubject\", and \"contextPredicate\" are defined and may be used to help retrieve the relevant data."^^xsd:string ;
+        rdfs:domain   :DefaultValue ;
+        rdfs:range    :ServerSideScript .
+
+:DefaultSubmitButtonFalse
+        a                   :BooleanDefault ;
+        :appliesToProperty  :hasOwnSubmit ;
+        :hasBooleanDefault  false .
+
+_:b4    a                   owl:Restriction ;
+        owl:onProperty      :usesPersistentJavaObject ;
+        owl:someValuesFrom  :PersistentJavaObject .
+
+:TableCellDecorator  a   owl:Class ;
+        rdfs:comment     "Members of this class or a subclass are associated with a TableCellDecoratorOptions via user-defined properties whose names appear in the cell data structure to indicate the specific decorations of the cell. The user-defined properties must be a subproperty of the appropriate hasPresentationParameterXXX."^^xsd:string ;
+        rdfs:seeAlso     :NoFontColor , :NoBackgroundColor ;
+        rdfs:subClassOf  :Parameter ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :Color ;
+                           owl:onProperty     :cellBackgroundColor
+                         ] .
+
+:BooleanValueObject  a   owl:Class ;
+        rdfs:subClassOf  :SimpleValueObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :hasBooleanValue
+                         ] .
+
+:hasOnDemandAction  a       owl:ObjectProperty ;
+        rdfs:comment        "This Property associates an instance of an ServerSideScript with an owl:Class. The instance may be exposed in an application and the behavior identified by the ServerSideScript instance."^^xsd:string ;
+        rdfs:domain         :SelectionListPresentation ;
+        rdfs:subPropertyOf  :hasAction .
+
+:ColumnOrderDataSeriesMap
+        a                owl:Class ;
+        rdfs:comment     "A data series is found in an individual row of the data table or view; the data points of a series are in different columns of the row."^^xsd:string ;
+        rdfs:subClassOf  :DataSeriesMap .
+
+:hasActiveProcess  a        owl:ObjectProperty ;
+        rdfs:domain         :Vantage ;
+        rdfs:range          [ a            owl:Class ;
+                              owl:unionOf  ( aulo:Event :DiscreteProcess )
+                            ] ;
+        rdfs:subPropertyOf  :autoInstantiateProperties .
+
+:allowsMultipleSelection
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :SelectionListPresentation ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:DefaultVantageSelectorOrientation
+        a                   :IntegerDefault ;
+        :appliesToProperty  :orientation ;
+        :hasIntDefault      "0"^^xsd:int ;
+        :minimumSampleSize  "1"^^xsd:int ;
+        :userPreference     true ;
+        :valueCalculatedBy  :AcuityMostFrequentDefault .
+
+:DefaultColorLime  a        :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Lime .
+
+:dbPasswordString  a        owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :DBConnection ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:DefaultTextareaPresentationNature
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasPresentationNature ;
+        :hasObjectDefault   :TextArea .
+
+:processAsSingleEvent
+        a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "If true, the data from the table should be processed as a single event (as a List of Maps). If false, processing is row-by-row (one Map at a time). Default is false."^^xsd:string ;
+        rdfs:domain   :DataTable ;
+        rdfs:range    xsd:boolean .
+
+:isDisplayed  a             owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :PresentationObject :DataTableColumnInfo :HighlightRegion )
+                            ] ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:originalName  a      owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "The original name provided for an Individual but which was not legal so was encoded."^^xsd:string ;
+        rdfs:range    xsd:string .
+
+:DefaultColorSilver  a      :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Silver .
+
+:hasArguments  a      owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "This optional string specifies a set of comma-separated arguments to be passed to the OnDemandAction. Note that the arguments will be expanded."^^xsd:string ;
+        rdfs:domain   [ a            owl:Class ;
+                        owl:unionOf  ( :OnDemandAction :PersistentJavaObject )
+                      ] ;
+        rdfs:range    xsd:string .
+
+:dataSeriesMapColumnInfo
+        a            owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :DataSeriesMap ;
+        rdfs:range   xsd:int .
+
+:hasPresentationParameterObject
+        a             owl:ObjectProperty ;
+        rdfs:comment  "All Properties which are used by the client are subclassed under this abstract Property."^^xsd:string .
+
+:backgroundColor  a  owl:DatatypeProperty .
+
+:GraphMappingAction  a   owl:Class ;
+        rdfs:comment     "Takes data from a dataset and maps it to one or more data point Maps in the structures returned by the getGraphDataSeries method.\nDifferent mapping functions will take different input data structures and produce output structures understood by the client software.\n\n"^^xsd:string ;
+        rdfs:subClassOf  :MappingAction .
+
+:ObjectDefault  a        owl:Class ;
+        rdfs:comment     "This type of default has a value which is an Individual"^^xsd:string ;
+        rdfs:subClassOf  :DefaultValue .
+
+:displayXGridlines  a       owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:dbInstanceLabelField
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The field in external database table containing class instance label."^^xsd:string ;
+        rdfs:domain         :DBInstancesDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:AcuityInformationObject
+        a                owl:Class ;
+        rdfs:comment     "An InformationObject primarily associated with some function of the ACUITy system."^^xsd:string ;
+        rdfs:subClassOf  :InformationObject .
+
+:hasVantage  a              owl:ObjectProperty ;
+        rdfs:domain         :Frame ;
+        rdfs:range          :Vantage ;
+        rdfs:subPropertyOf  :autoInstantiateProperties .
+
+:GraphRendererAction  a            :PresentationObjectRendererAction ;
+        :hasImplementationClass    "GraphRenderer"^^xsd:string ;
+        :hasImplementationMethod   "getGraphPresentationObject"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions"^^xsd:string ;
+        :includeAcuityControllerAsArgument
+                true .
+
+:Text   a                owl:Class ;
+        rdfs:subClassOf  :DisplayType .
+
+:DefaultColorTeal  a        :ObjectDefault ;
+        :appliesToProperty  :hasColor ;
+        :hasObjectDefault   :Teal .
+
+[ a            owl:Class ;
+  owl:unionOf  ( :WorkDomainInformationObject aulo:Script )
+] .
+
+:hasOptions  a              owl:ObjectProperty ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          :DomainSpecificIndirections ;
+        rdfs:subPropertyOf  :autoInstantiateProperties , :hasPresentationParameterObject .
+
+:DefaultPresentationObjectPosition7
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "20"^^xsd:int ;
+        :yPos    "800"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:hasOwnSubmit  a            owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :InteractionObject ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:Teal   a          :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "128"^^xsd:int ;
+        :greenVal  "128"^^xsd:int ;
+        :redVal    "0"^^xsd:int .
+
+:copyValueOnRowDuplication
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "If a row in the table is duplicated, copy this column's value from the original row to the new row."^^xsd:string ;
+        rdfs:domain         :DataTableColumnInfo ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:hasColor  a                owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DataSeries :Region )
+                            ] ;
+        rdfs:range          :Color ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:MaintainableArtifact
+        a                owl:Class ;
+        rdfs:subClassOf  aulo:Artifact .
+
+:MappedDataTable  a      owl:Class ;
+        rdfs:subClassOf  :DataTable ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :MappedDataTableRenderer ;
+                           owl:onProperty  :hasRenderer
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :isTransformedBy ;
+                           owl:someValuesFrom  :DataTableMap
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] .
+
+:dbInstanceStoredProcOutputIndex
+        a                   owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment        "For a Stored Procedure, the index of the output to be used for the instances, 0 for the returned value, 1 for first argument output, 2 for second output, etc. (A xsd:string for now because all other dbDatatypeProperties are.)"^^xsd:string ;
+        rdfs:domain         :DBInstancesDescriptor ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :dbDatatypeProperties .
+
+:MostFrequentDefault  a  owl:Class ;
+        rdfs:comment     "A type of Script which calculates a property value as the most frequent value found in the dataset."^^xsd:string ;
+        rdfs:subClassOf  :LearnedDefaultAction .
+
+:thresholdFrequency  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment  "If present, this Property identifies a frequency above which the learned default will be used instead of the specified value."^^xsd:string ;
+        rdfs:domain   :DefaultValue ;
+        rdfs:range    xsd:float .
+
+:GraphObject  a          owl:Class ;
+        rdfs:subClassOf  :DisplayObject ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :Graph2D ;
+                           owl:onProperty  :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :GraphRendererAction ;
+                           owl:onProperty  :hasRenderer
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DataSeries ;
+                           owl:onProperty     :containsPresentationObject
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :containsPresentationObject ;
+                           owl:someValuesFrom  :DataSeries
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] .
+
+:TableCellInteractionOptionsFreeList
+        a                owl:Class ;
+        rdfs:subClassOf  :TableCellInteractionOptions ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :FreeFormInputObject ;
+                           owl:onProperty     :tableCellFreeEntry
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :SelectionListPresentation ;
+                           owl:onProperty     :tableCellOptionsList
+                         ] .
+
+:BuiltInAnchor  a        owl:Class ;
+        rdfs:comment     "Individuals of this Class permit identification of a subject or object at runtime which does not exist at design time. Non-built-in anchors must specify an rdqlQueryString DatatypeProperty."^^xsd:string ;
+        rdfs:subClassOf  :ServerSideScript .
+
+:fontSubscript  a           owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain         :TableCellDecorator ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:PresentationObjectDefaultPosition9
+        a                    :CompositeParameterDefault ;
+        :appliesToProperty   :hasPosition ;
+        :hasObjectDefault    :DefaultPresentationObjectPosition9 ;
+        :thresholdFrequency  "0.5"^^xsd:float ;
+        :userPreference      true ;
+        :valueCalculatedBy   :AcuityAverageDefault .
+
+:DefaultHorizontalOrientation
+        a                   :IntegerDefault ;
+        :appliesToProperty  :orientation ;
+        :hasIntDefault      "0"^^xsd:int .
+
+:GraphSeriesColorMapper
+        a                          :PersistentJavaObject ;
+        :hasImplementationClass    "GraphSeriesColorMapper"^^xsd:string ;
+        :hasImplementationPackage  "com.ge.grc.acuity.actions.learning"^^xsd:string .
+
+:SelectionListPresentation
+        a                owl:Class ;
+        rdfs:comment     "This UserInputObject subclass presents a list of options to the user for selection."^^xsd:string ;
+        rdfs:seeAlso     :DefaultSubmitsOnChangeFalse , :DefaultAllowsMultipleSelectionFalse , :DefaultListBoxPresentationNature , :DefaultSortAscending ;
+        rdfs:subClassOf  :InteractionObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :InteractiveTabularSign ;
+                           owl:onProperty     :hasPresentationNature
+                         ] .
+
+:Problem  a              owl:Class ;
+        rdfs:comment     "A Problem is something perceived to not be as desired."^^xsd:string ;
+        rdfs:subClassOf  :WorkDomainInformationObject .
+
+:displayYGridlines  a       owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :GraphObject ;
+        rdfs:range          xsd:boolean ;
+        rdfs:subPropertyOf  :hasPresentationParameterBoolean .
+
+:explicitActionParameters
+        a           owl:DatatypeProperty ;
+        rdfs:range  xsd:string .
+
+:hasSharedParameterName
+        a            owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:domain  :SharedCompositeParameterSet ;
+        rdfs:range   xsd:string .
+
+_:b5    a                   owl:Restriction ;
+        owl:onProperty      :hasEffect ;
+        owl:someValuesFrom  :ServerSideScript .
+
+:minimumSampleSize  a  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:comment  "If present, this Property specifies a minimum number of historical instances before a learned default will be used."^^xsd:string ;
+        rdfs:domain   :DefaultValue ;
+        rdfs:range    xsd:int .
+
+:DefaultPresentationObjectPosition2
+        a        :Position ;
+        :depth   "0"^^xsd:int ;
+        :height  "300"^^xsd:int ;
+        :width   "400"^^xsd:int ;
+        :xPos    "350"^^xsd:int ;
+        :yPos    "10"^^xsd:int ;
+        :zOrder  "0"^^xsd:int .
+
+:TextBox  a     :InteractiveText .
+
+:hasDBConnection  a         owl:FunctionalProperty , owl:ObjectProperty ;
+        rdfs:comment        "Any WorkDomainInformationObject can have a DBConnection"^^xsd:string ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( :DBStatementsDescriptor :DBInstancesDescriptor :SQLStatement :StoredProcedure )
+                            ] ;
+        rdfs:range          :DBConnection ;
+        rdfs:subPropertyOf  :dbObjectProperties .
+
+:Parameter  a            owl:Class ;
+        rdfs:comment     "The Class of all kinds of things which are used to characterize PresentationObjects such as Position, etc."^^xsd:string ;
+        rdfs:subClassOf  :InformationObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :encodes
+                         ] .
+
+:askUserInt  a        owl:DatatypeProperty ;
+        rdfs:comment  "Sub-Properties are askable of the user and should have an rdfs:isDefinedBy association to an InteractionObject class."^^xsd:string ;
+        rdfs:range    xsd:int .
+
+:USL    a             :Criterion ;
+        rdfs:comment  "upper spec limit"^^xsd:string .
+
+:valueCalculatedBy  a  owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:domain  :DefaultValue ;
+        rdfs:range   :LearnedDefaultAction .
+
+:dbObjectProperties  a  owl:ObjectProperty .
+
+:ExternalWebApplication
+        a                owl:Class ;
+        rdfs:subClassOf  :DocumentObject .
+
+:DataTable  a            owl:Class ;
+        rdfs:seeAlso     :DefaultDataTableColumnsManager ;
+        rdfs:subClassOf  :DisplayObject ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a               owl:Restriction ;
+                           owl:hasValue    :ScrollingTable ;
+                           owl:onProperty  :hasPresentationNature
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  :DataTableColumnInfo ;
+                           owl:onProperty     :hasColumn
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :containsPresentationObject
+                         ] .
+
+:Components  a           owl:Class ;
+        rdfs:comment     "A Component is contained by another PresentationObject, e.g., a DataSeries--a GraphObject contains a DataSeries."^^xsd:string ;
+        rdfs:subClassOf  :PresentationObject .
+
+:zOrder  a                  owl:DatatypeProperty , owl:FunctionalProperty ;
+        rdfs:domain         :Position ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  :hasPresentationParameterInteger .
+
+:isRefinedBy  a       owl:ObjectProperty , owl:FunctionalProperty ;
+        rdfs:comment  "Information is refined by a Filter, including information returned by previous Filter."^^xsd:string ;
+        rdfs:domain   [ a            owl:Class ;
+                        owl:unionOf  ( :RefinedWDIO :Filter )
+                      ] ;
+        rdfs:range    :Filter .
+
+:appliesTo  a               owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The axis identity (\"x\", \"y\", or \"z\") or the DataTableColumnInfo's RowsetColumn (as a string) to which the HighlightRegion is to be applied"^^xsd:string ;
+        rdfs:domain         :HighlightRegion ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  :hasPresentationParameterString .
+
+:DefaultSortAscending
+        a                   :ObjectDefault ;
+        :appliesToProperty  :hasSortType ;
+        :hasObjectDefault   :SortAscendingOnLabel .
+
+:DefaultSubmitsOnChangeTrue
+        a                   :BooleanDefault ;
+        :appliesToProperty  :submitsOnChange ;
+        :hasBooleanDefault  true .
+
+:SimpleDataSeries  a     owl:Class ;
+        rdfs:subClassOf  :DataSeries ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "0"^^xsd:int ;
+                           owl:onProperty   :isTransformedBy
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      :encodes ;
+                           owl:someValuesFrom  :ServerSideScript
+                         ] .
+
+:area   a       :Series .
+
+:Yellow  a         :Color ;
+        :alpha     "255"^^xsd:int ;
+        :blueVal   "0"^^xsd:int ;
+        :greenVal  "255"^^xsd:int ;
+        :redVal    "255"^^xsd:int .
+
+:hasOrphan  a        owl:ObjectProperty ;
+        rdfs:domain  :Frame ;
+        rdfs:range   :PresentationObject .
+
+:BooleanDefault  a       owl:Class ;
+        rdfs:subClassOf  :DefaultValue .
+
+:tableCellOptionsList
+        a                   owl:ObjectProperty ;
+        rdfs:domain         :TableCellInteractionOptionsFreeList ;
+        rdfs:range          :SelectionListPresentation ;
+        rdfs:subPropertyOf  :hasPresentationParameterObject .
+
+:hasFleetMember  a     owl:InverseFunctionalProperty , owl:ObjectProperty ;
+        rdfs:range     :MaintainableArtifact ;
+        owl:inverseOf  :isMemberOfFleet .

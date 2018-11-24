@@ -1,0 +1,85 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "PeriodicalLiterature.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "A newspaper is a regularly scheduled publication containing news of current events, informative articles, diverse features and advertising. It usually is printed on relatively inexpensive, low-grade paper such as newsprint.",
+	"format": "http://dbpedia.org/ontology/Newspaper",
+	"id": "Newspaper.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Newspaper"},
+	"properties": {
+		"associateEditor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"managingEditor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sisterNewspaper": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "newspaper",
+	"translations": {
+		"title": {
+			"de": "Zeitung",
+			"el": "εφημερίδα",
+			"fr": "journal",
+			"ko": "신문",
+			"nl": "krant",
+			"ja": "新聞"
+		},
+		"description": {"de": "Eine Zeitung ist ein Druckwerk von mäßigem Seitenumfang, das in kurzen periodischen Zeitspannen, mindestens einmal wöchentlich, öffentlich erscheint. Die Zeitung ist, anders als die Zeitschrift, ein der Aktualität verpflichtetes Presseorgan und gliedert sich meist in mehrere inhaltliche Rubriken wie Politik, Lokales, Wirtschaft, Sport, Feuilleton und Immobilien."}
+	},
+	"type": "object"
+}

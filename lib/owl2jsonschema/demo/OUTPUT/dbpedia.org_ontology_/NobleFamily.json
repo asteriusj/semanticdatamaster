@@ -1,0 +1,86 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Family.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"yearElevationIntoNobility": {
+			"title": "year of elevation into the nobility",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "Family deemed to be of noble descent",
+	"format": "http://dbpedia.org/ontology/NobleFamily",
+	"id": "NobleFamily.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/NobleFamily"},
+	"properties": {
+		"yearElevationIntoNobility": {
+			"oneOf": [
+				{"$ref": "#/definitions/yearElevationIntoNobility"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/yearElevationIntoNobility"}
+				}
+			]
+		},
+		"mainFamilyBranch": {
+			"oneOf": [
+				{"$ref": "Family.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Family.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"otherFamilyBranch": {
+			"oneOf": [
+				{"$ref": "Family.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Family.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Noble family",
+	"translations": {
+		"title": {
+			"de": "Adelsfamilie",
+			"nl": "adelijk geslacht"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

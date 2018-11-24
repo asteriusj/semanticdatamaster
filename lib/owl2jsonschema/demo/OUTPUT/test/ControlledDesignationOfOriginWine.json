@@ -1,0 +1,54 @@
+{
+	"id": "ControlledDesignationOfOriginWine.json",
+	"title": "Controlled designation of origin wine",
+	"description": "A quality assurance label for wines",
+	"translations": {
+		"title": {
+			"de": "kontrollierte Ursprungsbezeichnung für Qualitätsweine",
+			"el": "Ελεγμένη ονομασία προέλευσης κρασιού",
+			"fr": "vin A.O.C.",
+			"it": "vino D.O.C.",
+			"nl": "certificaat van herkomst voor kwaliteitswijnen"
+		},
+		"description": {"el": "Μια ετικέτα διασφάλισης της ποιότητας των οίνων"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Food.json"}, {"$ref": "Beverage.json"}, {"$ref": "Wine.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ControlledDesignationOfOriginWine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ControlledDesignationOfOriginWine"}
+}

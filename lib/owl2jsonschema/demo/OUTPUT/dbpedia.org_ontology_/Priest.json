@@ -1,0 +1,74 @@
+{
+	"id": "Priest.json",
+	"title": "priest",
+	"translations": {
+		"title": {
+			"de": "priester",
+			"el": "παπάς",
+			"fr": "prêtre",
+			"it": "prete",
+			"ga": "sagart",
+			"nl": "priester",
+			"ja": "司祭"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Cleric.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"ordination": {
+			"oneOf": [
+				{"$ref": "#/definitions/ordination"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ordination"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"ordination": {
+			"title": "Ordination",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Priest",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Priest"}
+}

@@ -1,0 +1,250 @@
+{
+	"id": "AnatomicalStructure.json",
+	"title": "anatomical structure",
+	"translations": {
+		"title": {
+			"de": "anatomischen Struktur",
+			"el": "ανατομική δομή",
+			"fr": "structure anatomique",
+			"it": "struttura anatomica",
+			"ga": "coirpeog",
+			"gl": "estrutura anatómica",
+			"sl": "anatomska struktura",
+			"ko": "해부학",
+			"nl": "anatomische structuur",
+			"ja": "解剖構造"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"artery": {
+			"oneOf": [
+				{"$ref": "Artery.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Artery.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"branchFrom": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"branchTo": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dorlandsId": {
+			"oneOf": [
+				{"$ref": "#/definitions/dorlandsId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dorlandsId"}
+				}
+			]
+		},
+		"dorlandsPrefix": {
+			"oneOf": [
+				{"$ref": "#/definitions/dorlandsPrefix"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dorlandsPrefix"}
+				}
+			]
+		},
+		"dorlandsSuffix": {
+			"oneOf": [
+				{"$ref": "#/definitions/dorlandsSuffix"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dorlandsSuffix"}
+				}
+			]
+		},
+		"drainsFrom": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"drainsTo": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"grayPage": {
+			"oneOf": [
+				{"$ref": "#/definitions/grayPage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grayPage"}
+				}
+			]
+		},
+		"graySubject": {
+			"oneOf": [
+				{"$ref": "#/definitions/graySubject"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/graySubject"}
+				}
+			]
+		},
+		"lymph": {
+			"oneOf": [
+				{"$ref": "Lymph.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Lymph.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"meshName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"meshNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/meshNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/meshNumber"}
+				}
+			]
+		},
+		"nerve": {
+			"oneOf": [
+				{"$ref": "Nerve.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Nerve.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"organSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"precursor": {
+			"oneOf": [
+				{"$ref": "Embryology.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Embryology.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"vein": {
+			"oneOf": [
+				{"$ref": "Vein.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Vein.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dorlandsSuffix": {
+			"title": "Dorlands suffix",
+			"description": "",
+			"type": "string"
+		},
+		"graySubject": {
+			"title": "Gray subject",
+			"description": "Refers to the famous 1918 edition of Gray&apos;s Anatomy.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"meshNumber": {
+			"title": "MeSH number",
+			"description": "",
+			"type": "string"
+		},
+		"dorlandsId": {
+			"title": "DorlandsID",
+			"description": "",
+			"type": "string"
+		},
+		"dorlandsPrefix": {
+			"title": "Dorlands prefix",
+			"description": "",
+			"type": "string"
+		},
+		"grayPage": {
+			"title": "Gray page",
+			"description": "Refers to the famous 1918 edition of Gray&apos;s Anatomy.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AnatomicalStructure",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AnatomicalStructure"}
+}

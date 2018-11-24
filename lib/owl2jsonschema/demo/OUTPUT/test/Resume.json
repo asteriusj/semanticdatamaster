@@ -1,0 +1,53 @@
+{
+	"id": "Resume.json",
+	"title": "Resume",
+	"description": "A Resume describes a persons work experience and skill set.",
+	"translations": {
+		"title": {
+			"de": "Lebenslauf",
+			"el": "Βιογραφικό σημείωμα",
+			"nl": "CV",
+			"ja": "職務経歴書"
+		},
+		"description": {"nl": "Een CV &amp;&#35;40;curriculum vitae&#41; beschrijft iemands werkervaring en vaardigheden."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Resume",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Resume"}
+}

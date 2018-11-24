@@ -1,0 +1,103 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "Station.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeLine": {
+			"title": "line",
+			"description": "line of a stop on a route.",
+			"anyOf": []
+		},
+		"routeActivity": {
+			"title": "route activity",
+			"description": "details of the activity for a road.",
+			"anyOf": []
+		}
+	},
+	"description": "designated place where vehicles stop for passengers to board or alight",
+	"format": "http://dbpedia.org/ontology/RouteStop",
+	"id": "RouteStop.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RouteStop"},
+	"properties": {
+		"routeLine": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeLine"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeLine"}
+				}
+			]
+		},
+		"routePrevious": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"routeActivity": {
+			"oneOf": [
+				{"$ref": "#/definitions/routeActivity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/routeActivity"}
+				}
+			]
+		},
+		"routeNext": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "route stop",
+	"translations": {
+		"title": {
+			"de": "Haltestelle",
+			"fr": "étape"
+		},
+		"description": {
+			"de": "Betriebsstelle im öffentlichen Verkehr, an denen Fahrgäste ein- und aussteigen",
+			"fr": "une étape ou un arrêt sur une route"
+		}
+	},
+	"type": "object"
+}

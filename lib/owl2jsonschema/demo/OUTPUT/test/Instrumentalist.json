@@ -1,0 +1,57 @@
+{
+	"id": "Instrumentalist.json",
+	"title": "instrumentalist",
+	"translations": {
+		"title": {
+			"de": "Musiker",
+			"el": "μουσικός",
+			"fr": "instrumentaliste",
+			"ga": "ionstraimí",
+			"nl": "instrumentalist",
+			"ja": "音楽家"
+		},
+		"description": {
+			"el": "Ο μουσικός είναι ένα άτομο το οποίο γράφει, ερμηνεύει, ή κάνει μουσική.",
+			"nl": "Een instrumentalist is een musicus die een muziekinstrument bespeelt. &amp;&#35;40;https://nl.wikipedia.org/wiki/Instrumentalist&#41;"
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}, {"$ref": "MusicalArtist.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Instrumentalist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Instrumentalist"}
+}

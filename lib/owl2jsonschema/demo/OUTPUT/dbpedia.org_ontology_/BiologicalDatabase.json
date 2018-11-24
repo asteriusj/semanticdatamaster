@@ -1,0 +1,56 @@
+{
+	"id": "BiologicalDatabase.json",
+	"title": "Biological database",
+	"translations": {
+		"title": {
+			"de": "Biologische Datenbank",
+			"el": "Βάση Δεδομένων Βιολογικών Χαρακτηριστικών",
+			"fr": "Base de données biologiques",
+			"it": "database biologico",
+			"ko": "생물학 데이터베이스",
+			"nl": "biologische databank",
+			"pt": "Banco de dados biológico",
+			"ja": "バイオデータベース"
+		},
+		"description": {"el": "Διάφορες βάσεις δεδομένων οι οποίες περιέχουν πληροφορίες που ταυτοποιούν τα βασικά βιολογικά χαρακτηριστικά των οργανισμών. Οι πληροφορίες αυτές συγκροτούνται σε σύνολα βιβλιοθηκών των βασικών δομών των κυττάρων των οργανισμών, όπως οι βιλβιοθήκες νουκλεϊνικών οξέων &amp;&#35;40;genomics&#41; και πρωτεϊνών (proteomics)."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Database.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BiologicalDatabase",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BiologicalDatabase"}
+}

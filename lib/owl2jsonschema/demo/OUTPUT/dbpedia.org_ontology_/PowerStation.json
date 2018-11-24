@@ -1,0 +1,149 @@
+{
+	"id": "PowerStation.json",
+	"title": "power station",
+	"translations": {
+		"title": {
+			"de": "Kraftwerk",
+			"el": "σταθμός παραγωγής ενέργειας",
+			"fr": "centrale électrique",
+			"es": "central eléctrica",
+			"ga": "stáisiún cumhachta",
+			"nl": "Elektriciteitscentrale",
+			"ja": "発電所"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"generationUnits": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capacityFactor": {
+			"oneOf": [
+				{"$ref": "#/definitions/capacityFactor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/capacityFactor"}
+				}
+			]
+		},
+		"averageAnnualGeneration": {
+			"oneOf": [
+				{"$ref": "#/definitions/averageAnnualGeneration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/averageAnnualGeneration"}
+				}
+			]
+		},
+		"fuelTypeName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"installedCapacity": {
+			"oneOf": [
+				{"$ref": "#/definitions/installedCapacity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/installedCapacity"}
+				}
+			]
+		},
+		"otherFuelType": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherFuelType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherFuelType"}
+				}
+			]
+		},
+		"primaryFuelType": {
+			"oneOf": [
+				{"$ref": "#/definitions/primaryFuelType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/primaryFuelType"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"capacityFactor": {
+			"title": "capacity factor",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"averageAnnualGeneration": {
+			"title": "average annual gross power generation &amp;&#35;40;J&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"installedCapacity": {
+			"title": "installed capacity &amp;&#35;40;W&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"otherFuelType": {
+			"title": "secondary/other fuel type",
+			"description": "",
+			"anyOf": []
+		},
+		"primaryFuelType": {
+			"title": "primary fuel type",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/PowerStation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PowerStation"}
+}

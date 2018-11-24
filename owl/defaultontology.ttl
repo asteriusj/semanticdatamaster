@@ -1,0 +1,131 @@
+@prefix :      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix :   <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix doc:   <http://www.w3.org/2000/10/swap/pim/doc#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+<>      dc:description         "\n To illustrate with examples the creation of a schema of RDF properties\n and classes, but using abstract things for people, rather than strings, etc.\n If you have an \"Assistant's phone number\", then really you have an assitant who has\n a phone number - and that is much more useful in general.\n For example, when data about you and your assietnt in merged,\n you will end up with an \"assistant's email\" and the like.\n" , "$Id: contact.rdf,v 1.18 2011/02/01 04:13:21 timbl Exp $" ;
+        dc:title               "Person: Utility concepts for everyday life" ;
+        doc:creator            <http://www.w3.org/People/Berners-Lee/card#i> ;
+        doc:persistencePolicy  [ a               :_SubjectToChange ;
+                                 dc:description  "If you change this, you have to tell the W3C SemWeb AD\n   folk, including Dan Connolly; so agreed 5 Jun 2001.\n   TimBl takes this as being met by a mail to sw-team."
+                               ] .
+
+:child  a    rdf:Property .
+
+:Home  a  rdf:Property ;
+        rdfs:domain  :Person ;
+        rdfs:label   "vacation" ;
+        rdfs:range   :Location .
+
+:fullName  a     rdf:Property ;
+        rdfs:label  "full name" .
+
+:street  rdfs:domain  :Address .
+
+:mailboxURI  a     owl:InverseFunctionalProperty ;
+        rdfs:comment  "mailboxURI is a string.  Use of this is discouraged. Use :mailbox instead " ;
+        rdfs:domain   :SocialEntity ;
+        rdfs:range    :_URI ;
+        :_example  "\n            <rdf:Description xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" rdf:about=\"http://www.w3.org/2000/10/swap/pim/contact#_Dan\">\n                <:mailboxURI xmlns:con=\"http://www.w3.org/2000/10/swap/pim/contact#\">mailto:connolly@w3.org</:mailboxURI>\n            </rdf:Description>\n        "^^rdf:XMLLiteral .
+
+:firstName  rdfs:domain  :Person .
+
+:middleName  rdfs:domain  :Person .
+
+:Fax  rdfs:label      "fax" ;
+        rdfs:subClassOf  :Phone .
+   
+
+:givenName  rdfs:domain  :Person .
+
+:title  rdfs:domain  :Person .
+
+:postalCode  rdfs:domain  :Address .
+
+
+:suffix  rdfs:domain  :Person .
+
+:sortName  a       rdf:Property ;
+        rdfs:comment  "re-arranged for lexicographic ordering; ala Doe, John" ;
+        rdfs:label    "sort name" .
+
+:familyName  rdfs:domain  :Person .
+
+:middleInitial  rdfs:domain  :Person .
+     
+
+:country  rdfs:domain  :Address .
+
+:street3  rdfs:domain  :Address .
+
+:description  a  rdf:Property .
+
+:personalTitle  rdfs:domain  :Person .
+
+<contact>  doc:rules  <contact-rules> .
+
+:mailbox  a                owl:InverseFunctionalProperty ;
+        rdfs:domain           :SocialEntity ;
+        rdfs:range            :Mailbox ;
+        :_addressProperty  :mailboxURI ;
+        :_example          "\n            <rdf:Description xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" rdf:about=\"http://www.w3.org/2000/10/swap/pim/contact#_Dan\">\n                <:mailbox xmlns:con=\"http://www.w3.org/2000/10/swap/pim/contact#\" rdf:resource=\"mailto:connolly@w3.org\"></:mailbox>\n            </rdf:Description>\n        "^^rdf:XMLLiteral .
+
+:emailAddress  a   owl:InverseFunctionalProperty ;
+        rdfs:comment  "emailAddress is a string.  Use of this is discouraged. Use :mailbox instead " ;
+        rdfs:domain   :SocialEntity ;
+        rdfs:label    "email" ;
+        rdfs:range    :_EmailAddress ;
+        :_example  "\n            <rdf:Description xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" rdf:about=\"http://www.w3.org/2000/10/swap/pim/contact#_Dan\">\n                <:emailAddress xmlns:con=\"http://www.w3.org/2000/10/swap/pim/contact#\">connolly@w3.org</:emailAddress>\n            </rdf:Description>\n        "^^rdf:XMLLiteral .
+
+:_addressProperty  a  rdf:Property .
+
+:birthday  a      rdf:Property ;
+        rdfs:domain  :SocialEntity ;
+        rdfs:range   :Date .
+
+:MobilePhone  rdfs:label  "mobile" ;
+        rdfs:subClassOf  :Phone .
+
+:Phone  a          rdfs:Class ;
+        rdfs:comment  "\n    An end-point in the public swiitched telephone system.\n    Anything identified by a URI with tel: scheme is in this class.\n    " ;
+        rdfs:label    "tel."@fr , "phone"@en .
+
+:stateOrProvince  rdfs:domain  :Address .
+
+:Person  rdfs:comment  "A person in the normal sense of the word." ;
+        rdfs:subClassOf  :SocialEntity .
+
+:phone  a         rdf:Property ;
+        rdfs:domain  :ContactLocation ;
+        rdfs:range   :Phone .
+
+:address  a       rdf:Property ;
+        rdfs:domain  :ContactLocation ;
+        rdfs:label   "address"@en ;
+        rdfs:range   :Address .
+
+:region  a         rdf:Property ;
+        rdfs:comment  "The sub-national unit such as state (us),\nprovince (ca), county (uk), département (fr), and so on" ;
+        rdfs:label    "region" .
+
+:mobile  a        rdf:Property ;
+        rdfs:domain  :Person ;
+        rdfs:label   "mobile" ;
+        rdfs:range   :ContactLocation .
+
+:street2  rdfs:domain  :Address .
+
+:home  a          rdf:Property ;
+        rdfs:domain  :Person ;
+        rdfs:label   "home" ;
+        rdfs:range   :ContactLocation .
+
+:lastName  rdfs:domain  :Person .
+
+:city  rdfs:domain  :Address .
+
+doc:persistencePolicy
+        rdfs:seeAlso  <http://www.w3.org/1999/10/nsuri> .

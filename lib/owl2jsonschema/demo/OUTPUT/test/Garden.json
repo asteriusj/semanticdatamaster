@@ -1,0 +1,57 @@
+{
+	"id": "Garden.json",
+	"title": "garden",
+	"description": "A garden is a planned space, usually outdoors, set aside for the display, cultivation, and enjoyment of plants and other forms of nature. &amp;&#35;40;http://en.wikipedia.org/wiki/Garden&#41;",
+	"translations": {
+		"title": {
+			"de": "Garten",
+			"el": "κήπος",
+			"fr": "jardin",
+			"it": "giardino",
+			"ga": "gáirdín",
+			"da": "have",
+			"nl": "tuin",
+			"ja": "庭園"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Garden",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Garden"}
+}

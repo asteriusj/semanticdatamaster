@@ -1,0 +1,56 @@
+{
+	"id": "BeautyQueen.json",
+	"title": "beauty queen",
+	"description": "A beauty pageant titleholder",
+	"translations": {
+		"title": {
+			"de": "Schönheitskönigin",
+			"el": "βασίλισσα ομορφιάς",
+			"it": "reginetta di bellezza",
+			"ga": "spéirbhean",
+			"ko": "뷰티퀸",
+			"nl": "schoonheidskoningin",
+			"ja": "ミス"
+		},
+		"description": {"el": "Τίτλος που αποδίδεται σε μία γυναίκα, τις περισσότερες φορές μετά από διαγωνισμό."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BeautyQueen",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BeautyQueen"}
+}

@@ -1,0 +1,349 @@
+{
+	"id": "MilitaryUnit.json",
+	"title": "military unit",
+	"translations": {
+		"title": {
+			"de": "Militäreinheit",
+			"el": "Στρατιωτική Μονάδα",
+			"fr": "unité militaire",
+			"es": "unidad militar",
+			"ko": "군대",
+			"nl": "militaire eenheid",
+			"pt": "unidade militar"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"aircraftAttack": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftBomber": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftElectronic": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftFighter": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopter": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopterAttack": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopterCargo": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopterMultirole": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopterObservation": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopterTransport": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftHelicopterUtility": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftInterceptor": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftPatrol": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftRecon": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftTrainer": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"aircraftTransport": {
+			"oneOf": [
+				{"$ref": "MeanOfTransportation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MeanOfTransportation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"anniversary": {
+			"oneOf": [
+				{"$ref": "#/definitions/anniversary"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/anniversary"}
+				}
+			]
+		},
+		"battleHonours": {
+			"oneOf": [
+				{"$ref": "#/definitions/battleHonours"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/battleHonours"}
+				}
+			]
+		},
+		"commandStructure": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"disbanded": {
+			"oneOf": [
+				{"$ref": "#/definitions/disbanded"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/disbanded"}
+				}
+			]
+		},
+		"flyingHours": {
+			"oneOf": [
+				{"$ref": "#/definitions/flyingHours"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/flyingHours"}
+				}
+			]
+		},
+		"fourthCommander": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"garrison": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"identificationSymbol": {
+			"oneOf": [
+				{"$ref": "#/definitions/identificationSymbol"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/identificationSymbol"}
+				}
+			]
+		},
+		"march": {
+			"oneOf": [
+				{"$ref": "MusicalWork.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MusicalWork.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"notableCommander": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"patron": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"secondCommander": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"thirdCommander": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"identificationSymbol": {
+			"title": "identification symbol",
+			"description": "",
+			"type": "string"
+		},
+		"disbanded": {
+			"title": "disbanded",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"flyingHours": {
+			"title": "flying hours &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"anniversary": {
+			"title": "anniversary",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"battleHonours": {
+			"title": "battle honours",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MilitaryUnit",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MilitaryUnit"}
+}

@@ -1,0 +1,85 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfHouses": {
+			"title": "number of houses present&amp;&#35;41;",
+			"description": "Count of the houses in the Protected Area",
+			"type": "string"
+		},
+		"iucnCategory": {
+			"title": "iucn category",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "This class should be used for protected nature. For enclosed neighbourhoods there is now class GatedCommunity",
+	"format": "http://dbpedia.org/ontology/ProtectedArea",
+	"id": "ProtectedArea.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ProtectedArea"},
+	"properties": {
+		"numberOfHouses": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfHouses"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfHouses"}
+				}
+			]
+		},
+		"iucnCategory": {
+			"oneOf": [
+				{"$ref": "#/definitions/iucnCategory"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iucnCategory"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "protected area",
+	"translations": {
+		"title": {
+			"de": "Schutzgebiet",
+			"el": "προστατευμένη περιοχή",
+			"fr": "aire protégée",
+			"nl": "beschermd gebied",
+			"ja": "保護地区"
+		},
+		"description": {"nl": "Deze klasse duidt gebieden aan met de status &apos;beschermd'. Is dus eigenlijk ook geen klasse, maar zou een attribuut moeten zijn"}
+	},
+	"type": "object"
+}

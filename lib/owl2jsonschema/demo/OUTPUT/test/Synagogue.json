@@ -1,0 +1,57 @@
+{
+	"id": "Synagogue.json",
+	"title": "synagogue",
+	"description": "A synagogue, sometimes spelt synagog, is a Jewish or Samaritan house of prayer.",
+	"translations": {
+		"title": {
+			"pl": "synagoga",
+			"de": "Synagoge",
+			"el": "συναγωγή",
+			"fr": "synagogue",
+			"es": "sinagoga",
+			"ga": "sionagóg",
+			"nl": "synagoge",
+			"ja": "シナゴーグ"
+		},
+		"description": {"fr": "Une synagogue est un lieu de culte juif."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}, {"$ref": "ReligiousBuilding.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Synagogue",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Synagogue"}
+}

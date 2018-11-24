@@ -1,0 +1,111 @@
+@prefix schema: <http://schema.org/> .
+@prefix :      <http://www.semanticalllc.com/person/> .
+@prefix address: <http://www.semanticalllc.com/address/> .
+@prefix woman: <http://www.semanticalllc.com/person/> .
+@prefix shape: <http://www.semanticalllc.com/person/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vocabulary: <http://www.semanticalllc.com/person/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix person: <http://www.semanticalllc.com/person/> .
+@prefix rdfa:  <http://www.w3.org/ns/rdfa#> .
+@prefix class: <http://www.semanticalllc.com/person/> .
+
+class:_JaneDoe  a         owl:Class ;
+        class:hasAddress  address:_Address1 .
+
+[ a               owl:Restriction ;
+  owl:hasValue    class:_Gender_Female ;
+  owl:onProperty  class:hasGender
+] .
+
+class:  a                 owl:Ontology ;
+        rdfs:label        "person micro-ontology"@en ;
+        class:subClassOf  class: .
+
+        
+class:DefinesWoman  
+    a      sh:NodeShape ;
+    sh:property     [ 
+            sh:path   class:hasGender ;
+            class:class  class:_Gender_Female ;
+          ] ;
+    sh:targetClass  class: 
+    .
+        
+class:FemalePerson
+  rdf:type sh:NodeShape ;
+  rdfs:label "Female person" ;
+  sh:property [
+      sh:path schema:gender ;
+      sh:hasValue "female" ;
+    ] ;
+.       
+schema:Person
+  rdf:type sh:NodeShape ;
+  sh:property [
+      sh:path schema:birthDate ;
+      rdfs:comment "Birth date must be before death date (in this example)" ;
+      sh:datatype xsd:date ;
+      sh:lessThan schema:deathDate ;
+      sh:maxCount 1 ;
+      sh:name "birth date" ;
+    ] ;
+  sh:property [
+      sh:path schema:deathDate ;
+      sh:datatype xsd:date ;
+      sh:maxCount 1 ;
+      sh:name "death date" ;
+    ] ;
+  sh:property [
+      sh:path schema:familyName ;
+      sh:datatype xsd:string ;
+      sh:name "family name" ;
+    ] ;
+  sh:property [
+      sh:path schema:gender ;
+      sh:datatype xsd:string ;
+      sh:in (
+          "female"
+          "male"
+        ) ;
+      sh:maxCount 1 ;
+      sh:name "gender" ;
+    ] ;
+  sh:property [
+      sh:path schema:givenName ;
+      sh:datatype xsd:string ;
+      sh:name "given name" ;
+    ] ;
+  sh:property [
+      sh:path schema:parent ;
+      sh:class schema:Person ;
+      sh:disjoint schema:sibling ;
+      sh:maxCount 2 ;
+      sh:name "parent" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      sh:path schema:parent ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape class:FemalePerson ;
+    ] ;
+  sh:property [
+      sh:path schema:parent ;
+      sh:qualifiedMaxCount 1 ;
+      sh:qualifiedValueShape class:MalePerson ;
+    ] ;
+  sh:property [
+      sh:path [
+          sh:inversePath schema:parent ;
+        ] ;
+      rdfs:comment "Children are represented by using the schema:parent relationship in the inverse direction." ;
+      sh:class schema:Person ;
+      sh:name "child" ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+.

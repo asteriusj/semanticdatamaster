@@ -1,0 +1,144 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"watershed": {
+			"title": "watershed &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"discharge": {
+			"title": "discharge &amp;&#35;40;m³/s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"description": "a flowing body of water with a current, confined within a bed and stream banks",
+	"format": "http://dbpedia.org/ontology/Stream",
+	"id": "Stream.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Stream"},
+	"properties": {
+		"watershed": {
+			"oneOf": [
+				{"$ref": "#/definitions/watershed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/watershed"}
+				}
+			]
+		},
+		"discharge": {
+			"oneOf": [
+				{"$ref": "#/definitions/discharge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/discharge"}
+				}
+			]
+		},
+		"Stream/minimumDischarge": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Stream/watershed": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Stream/dischargeAverage": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Stream/maximumDischarge": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Stream/discharge": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicMetrePerSecond.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sourceCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "stream",
+	"translations": {
+		"title": {
+			"de": "Bach",
+			"el": "ρέμα",
+			"fr": "ruisseau",
+			"it": "ruscello",
+			"ga": "sruthán",
+			"nl": "stroom",
+			"pt": "curso d’água",
+			"ja": "河川"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

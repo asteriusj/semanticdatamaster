@@ -1,0 +1,378 @@
+{
+	"id": "Work.json",
+	"title": "work",
+	"translations": {
+		"title": {
+			"de": "Werk",
+			"el": "δημιουργία",
+			"fr": "œuvre",
+			"ga": "obair",
+			"da": "arbejde",
+			"nl": "werk",
+			"pt": "obra",
+			"ja": "仕事"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"Work/runtime": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/minute.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/minute.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"alternativeTitle": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"author": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"basedOn": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"chiefEditor": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"cites": {
+			"oneOf": [
+				{"$ref": "#/definitions/cites"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cites"}
+				}
+			]
+		},
+		"commissioner": {
+			"oneOf": [
+				{"$ref": "#/definitions/commissioner"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/commissioner"}
+				}
+			]
+		},
+		"completionDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/completionDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/completionDate"}
+				}
+			]
+		},
+		"composer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coverArtist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dcc": {
+			"oneOf": [
+				{"$ref": "#/definitions/dcc"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dcc"}
+				}
+			]
+		},
+		"fileSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/fileSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fileSize"}
+				}
+			]
+		},
+		"filename": {
+			"oneOf": [
+				{"$ref": "#/definitions/filename"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/filename"}
+				}
+			]
+		},
+		"license": {
+			"oneOf": [
+				{"$ref": "#/definitions/license"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/license"}
+				}
+			]
+		},
+		"mainCharacter": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"musicComposer": {
+			"oneOf": [
+				{"$ref": "MusicalArtist.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MusicalArtist.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"narrator": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"originalLanguage": {
+			"oneOf": [
+				{"$ref": "Language.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Language.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"originalTitle": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"previousWork": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"producer": {
+			"oneOf": [
+				{"$ref": "Agent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Agent.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"productionCompany": {
+			"oneOf": [
+				{"$ref": "Company.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Company.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"publisher": {
+			"oneOf": [
+				{"$ref": "Agent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Agent.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"releaseLocation": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"runtime": {
+			"oneOf": [
+				{"$ref": "#/definitions/runtime"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/runtime"}
+				}
+			]
+		},
+		"starring": {
+			"oneOf": [
+				{"$ref": "Actor.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Actor.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subjectTerm": {
+			"oneOf": [
+				{"$ref": "#/definitions/subjectTerm"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subjectTerm"}
+				}
+			]
+		},
+		"subsequentWork": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"translator": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"writer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"cites": {
+			"title": "cites",
+			"description": "A document cited by this work. Like OntologyProperty:dct:references, but as a datatype property.",
+			"type": "string"
+		},
+		"commissioner": {
+			"title": "commissioner",
+			"description": "",
+			"type": "string"
+		},
+		"completionDate": {
+			"title": "completion date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"dcc": {
+			"title": "Dewey Decimal Classification",
+			"description": "The Dewey Decimal Classification is a proprietary system of library classification developed by Melvil Dewey in 1876.",
+			"type": "string"
+		},
+		"fileSize": {
+			"title": "size &amp;&#35;40;B&#41;",
+			"description": "size of a file or software",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"filename": {
+			"title": "filename",
+			"description": "",
+			"type": "string"
+		},
+		"license": {
+			"title": "license",
+			"description": "",
+			"anyOf": []
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"runtime": {
+			"title": "runtime &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"subjectTerm": {
+			"title": "subject term",
+			"description": "The subject as a term, possibly a term from a formal classification",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Work",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Work"}
+}

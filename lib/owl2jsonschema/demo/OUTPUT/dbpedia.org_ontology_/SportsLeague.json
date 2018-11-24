@@ -1,0 +1,90 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"currentSeason": {
+			"title": "current season",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfTeams": {
+			"title": "number of teams",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A group of sports teams or individual athletes that compete against each other in a specific sport.",
+	"format": "http://dbpedia.org/ontology/SportsLeague",
+	"id": "SportsLeague.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SportsLeague"},
+	"properties": {
+		"currentSeason": {
+			"oneOf": [
+				{"$ref": "#/definitions/currentSeason"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/currentSeason"}
+				}
+			]
+		},
+		"numberOfTeams": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfTeams"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfTeams"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "sports league",
+	"translations": {
+		"title": {
+			"de": "Sportliga",
+			"el": "Αθλητική Ομοσπονδία",
+			"fr": "ligue sportive",
+			"es": "liga deportiva",
+			"ko": "스포츠 리그",
+			"nl": "sport competitie",
+			"ja": "スポーツリーグ"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

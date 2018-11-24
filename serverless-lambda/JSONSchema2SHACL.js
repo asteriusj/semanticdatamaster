@@ -1,6 +1,6 @@
 //
-//  shared routine for transforming anOWL in JSON-LD of form field elements 
-//  into a JSON Schema 
+//  shared routine for transforming JSON SChema of form field elements 
+//  into a SHACL file 
 //
 class JSONSchema2SHACL {
 

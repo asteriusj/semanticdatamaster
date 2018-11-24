@@ -1,0 +1,55 @@
+{
+	"id": "Tower.json",
+	"title": "tower",
+	"description": "A Tower is a kind of structure &amp;&#35;40;not necessarily a building&#41; that is higher than the rest",
+	"translations": {
+		"title": {
+			"de": "Turm",
+			"el": "πύργος",
+			"fr": "tour",
+			"ga": "túr",
+			"nl": "toren",
+			"ja": "塔"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Tower",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Tower"}
+}

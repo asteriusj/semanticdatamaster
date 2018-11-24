@@ -1,0 +1,55 @@
+{
+	"id": "Fashion.json",
+	"title": "fashion",
+	"description": "type or code of dressing, according to the standards of the time or individual design.",
+	"translations": {
+		"title": {
+			"de": "Mode",
+			"el": "μόδα",
+			"fr": "mode",
+			"ga": "faisean",
+			"nl": "mode",
+			"ja": "ファッション"
+		},
+		"description": {"nl": "Een stijl of code voor kleding, bepaald door de voorkeursstijl van een tijdperk of door individuele ontwerpers."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Fashion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Fashion"}
+}

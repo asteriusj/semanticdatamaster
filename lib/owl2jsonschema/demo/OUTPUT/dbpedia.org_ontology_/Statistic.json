@@ -1,0 +1,70 @@
+{
+	"id": "Statistic.json",
+	"title": "statistic",
+	"translations": {
+		"title": {
+			"de": "statistisch",
+			"el": "στατιστική",
+			"fr": "statistique",
+			"ga": "staitistic",
+			"nl": "statistisch"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"statistic": {
+			"oneOf": [
+				{"$ref": "#/definitions/statistic"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/statistic"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"statistic": {
+			"title": "statistic",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Statistic",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Statistic"}
+}

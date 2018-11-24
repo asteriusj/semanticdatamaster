@@ -1,0 +1,59 @@
+{
+	"id": "Camera.json",
+	"title": "camera",
+	"translations": {
+		"title": {
+			"de": "Kamera",
+			"el": "φωτογραφική μηχανή",
+			"fr": "appareil photographique",
+			"it": "fotocamera",
+			"ga": "ceamara",
+			"ko": "카메라",
+			"nl": "camera",
+			"ja": "カメラ"
+		},
+		"description": {
+			"it": "Una fotocamera &amp;&#35;40;in lingua italiana nota tradizionalmente come macchina fotografica&#41; è uno strumento utilizzato per la ripresa fotografica e per ottenere immagini di oggetti reali stampabili su supporti materiali cartacei o archiviabili su supporti elettronici.",
+			"el": "Φωτογραφική μηχανή ονομάζεται η συσκευή που χρησιμοποιείται για τη λήψη φωτογραφιών.Οι ευρύτερα χρησιμοποιούμενες σήμερα φωτογραφικές μηχανές, ερασιτεχνικής ή επαγγελματικής χρήσης, διακρίνονται σε δύο βασικές κατηγορίες: τις συμπαγείς και στις μονοοπτικές ρεφλέξ. Διακρινόμενες, ανάλογα με την τεχνολογία τους,είναι οι κλασικές φωτογραφικές μηχανές με φιλμ και οι ψηφιακές φωτογραφικές μηχανές."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Camera",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Camera"}
+}

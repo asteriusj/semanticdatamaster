@@ -1,0 +1,55 @@
+{
+	"id": "ClericalOrder.json",
+	"title": "clerical order",
+	"translations": {
+		"title": {
+			"de": "klerikaler Orden",
+			"el": "κληρική τάξη",
+			"fr": "ordre religieux",
+			"it": "ordine clericale",
+			"es": "orden clerical",
+			"ga": "ord rialta",
+			"nl": "kloosterorde"
+		},
+		"description": {"nl": "Een kloosterorde is een orde van religieuzen, mannen of vrouwen, die zich verenigd hebben omtrent een gemeenschappelijke geloofsopvatting en kloosterregel waaraan zij gebonden zijn, en op een permanente wijze samenleven binnen één en dezelfde plaatselijke gemeenschap, een klooster of een tempel. Meerdere kloosters van gelijkgezinde religieuzen vormen samen een kloosterorde."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "ReligiousOrganisation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ClericalOrder",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ClericalOrder"}
+}

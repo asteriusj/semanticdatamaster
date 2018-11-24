@@ -1,0 +1,598 @@
+@prefix : <https://github.com/asteriusj/semanticdatamaster/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/asteriusj/semanticdatamaster/> .
+
+<https://github.com/asteriusj/semanticdatamaster/> rdf:type owl:Ontology ;
+                                                    <http://purl.org/dc/elements/1.1/creator> <http://github.com/asteriusj> ;
+                                                    <http://purl.org/dc/elements/1.1/date> "$Date: 2018-02-04 20:18:26 $"^^xsd:string ;
+                                                    <http://purl.org/dc/elements/1.1/description> """The proof of concept aims to provide semantic data model conceptual information for selected objects and properties.
+"""^^xsd:string ;
+                                                    <http://purl.org/dc/elements/1.1/publisher> <http://github.com/asteriusj> ;
+                                                    <http://purl.org/dc/elements/1.1/title> "Semantic Data Master (SDM) Ontology"^^xsd:string ;
+                                                    <http://purl.org/dc/terms/abstract> ""@en ;
+                                                    <http://purl.org/dc/terms/created> "$Date: 2018-02-04 20:18:26 $"^^xsd:string ;
+                                                    <http://purl.org/dc/terms/issued> "$Date: 2018-02-04 20:18:26 $"^^xsd:string ;
+                                                    <http://purl.org/dc/terms/license> "http://creativecommons.org/licenses/by/2.0/"^^xsd:string ;
+                                                    <http://purl.org/dc/terms/modified> "$Date: 2018-02-04 20:18:26 $"^^xsd:string ;
+                                                    <http://purl.org/ontology/bibo/status> "Draft"@en ;
+                                                    <http://purl.org/vocab/vann/preferredNamespacePrefix> "sdm"^^xsd:string ;
+                                                    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://github.com/asteriusj/semanticdatamaster#"^^xsd:string ;
+                                                    <http://schema.org/contributor> <http://LinkedIn.com/jeffreyastewart/> ,
+                                                                                    <http://github.com/asteriusj> ;
+                                                    rdfs:comment """An experimental ontology for defining entity relationships and data property definitions and constraints
+"""^^xsd:string ;
+                                                    rdfs:label "Ontology for Semantic Data Model"@en ;
+                                                    owl:versionIRI "https://github.com/asteriusj/semanticdatamaster/Draft"@en ;
+                                                    owl:versionInfo "Draft"@en ;
+                                                    <http://www.w3.org/ns/prov#generatedAtTime> "$Date: 2018-02-04 20:18:26 $"^^xsd:string .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/vocab/vann/example
+<http://purl.org/vocab/vann/example> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+<http://schema.org/rangeIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.linkedmodel.org/schema/vaem#rationale
+<http://www.linkedmodel.org/schema/vaem#rationale> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
+owl:minQualifiedCardinality rdf:type owl:AnnotationProperty .
+
+
+###  http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status
+<http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status> rdf:type owl:AnnotationProperty .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Address
+:Address rdf:type owl:AnnotationProperty ;
+         rdfs:domain :Employee ,
+                     :Organization ,
+                     :Person .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Name
+:Name rdf:type owl:AnnotationProperty ;
+      rdfs:domain :Employee ,
+                  :Person .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://github.com/asteriusj/semanticdatamaster/adr
+:adr rdf:type owl:ObjectProperty ;
+     owl:equivalentProperty :hasAddress ;
+     rdfs:domain :Organization ,
+                 :Person ;
+     rdfs:range :Address ;
+     rdfs:comment "This object property has been mapped"@en ;
+     rdfs:label "address"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/age
+:age rdf:type owl:ObjectProperty ,
+              owl:FunctionalProperty ;
+     rdfs:domain :Employee ,
+                 :Person ;
+     rdfs:range :IntegerValueObject .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/hasAddress
+:hasAddress rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Employee ;
+            rdfs:range :Address ;
+            rdfs:label "has address"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/hasMember
+:hasMember rdf:type owl:ObjectProperty ;
+           rdfs:domain :Group ;
+           rdfs:range :Kind ,
+                      :Person ;
+           rdfs:comment "To include a member in the group this object represents. (This property can only be used by Group individuals)"@en ;
+           rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+           rdfs:label "has member"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:DatatypeProperty ;
+                                 rdfs:isDefinedBy <http://purl.org/dc/terms/> .
+
+
+###  http://www.w3.org/2006/vcard/ns#organization-name
+<http://www.w3.org/2006/vcard/ns#organization-name> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:range xsd:string ;
+                                                    rdfs:comment "To specify the organizational name associated with the object"@en ;
+                                                    rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+                                                    rdfs:label "organization name"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/additional-name
+:additional-name rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Employee ,
+                             :Person ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The additional name associated with the object"@en ;
+                 rdfs:label "additional name"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/age
+:age rdf:type owl:DatatypeProperty ,
+              owl:FunctionalProperty .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/birthday
+:birthday rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Employee ,
+                      :Person ;
+          rdfs:range xsd:date ;
+          rdfs:comment """
+The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.
+"""^^xsd:string ;
+          rdfs:label "birthday"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/country-name
+:country-name rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Person ;
+              rdfs:range xsd:string ;
+              rdfs:comment "The country name associated with the address of the object"@en ;
+              rdfs:label "country name"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/family-name
+:family-name rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Employee ,
+                         :Person ;
+             rdfs:range xsd:string ;
+             rdfs:comment "The family name associated with the object"@en ;
+             rdfs:label "family name"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/firstName
+:firstName rdf:type owl:DatatypeProperty ;
+           owl:equivalentProperty :given-name ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Employee ,
+                       :Person ;
+           rdfs:range rdfs:Literal ;
+           rdfs:comment """
+First or given name of contact person.
+ """^^xsd:string ;
+           rdfs:label "First Name"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/given-name
+:given-name rdf:type owl:DatatypeProperty ;
+            owl:equivalentProperty :lastName ;
+            rdfs:domain :Employee ,
+                        :Person ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The given name associated with the object"@en ;
+            rdfs:label "given name"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/hasIntegerValue
+:hasIntegerValue rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain :IntegerValueObject ;
+                 rdfs:range xsd:int .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/hasTitle
+:hasTitle rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Person ;
+          rdfs:range xsd:string ;
+          <http://www.linkedmodel.org/schema/vaem#rationale> "Allows to store typical contact info "@en ;
+          rdfs:comment "Answers the question: What the  ?"@en ;
+          rdfs:label "has title"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/honorific-prefix
+:honorific-prefix rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Person ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The honorific prefix of the name associated with the object"@en ;
+                  rdfs:label "honorific prefix"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/honorific-suffix
+:honorific-suffix rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Person ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The honorific suffix of the name associated with the object"@en ;
+                  rdfs:label "honorific suffix"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/lastName
+:lastName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Employee ,
+                      :Person ;
+          rdfs:range rdfs:Literal ;
+          rdfs:comment "Last or family name of contact person."^^xsd:string ;
+          rdfs:label "Last Name"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/locality
+:locality rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Person ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The locality (e.g. city or town) associated with the address of the object"@en ;
+          rdfs:label "locality"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/nick
+:nick rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Employee ,
+                  :Person ;
+      rdfs:comment """
+A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).
+"""^^xsd:string ;
+      rdfs:label "nickname"^^xsd:string ;
+      <http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status> "testing"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/org-name
+:org-name rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf <http://www.w3.org/2006/vcard/ns#organization-name> ;
+          rdfs:domain :Organization ;
+          rdfs:range xsd:string ;
+          <http://www.linkedmodel.org/schema/vaem#rationale> "Part of the standard properties for a vcard org"@en ;
+          rdfs:comment "Answers the question: What is the name of the Organization?"@en ;
+          rdfs:label "organization name"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/postal-code
+:postal-code rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Person ;
+             rdfs:range xsd:string ;
+             rdfs:comment "The postal code associated with the address of the object"@en ;
+             rdfs:label "postal code"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/prefix
+:prefix rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :Employee ,
+                    :Person ;
+        rdfs:range xsd:string ;
+        rdfs:comment """
+Salutation or title as prefix to name.
+ """^^xsd:string ;
+        rdfs:label "prefix"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/region
+:region rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Person ;
+        rdfs:range xsd:string ;
+        rdfs:comment "The region (e.g. state or province) associated with the address of the object"@en ;
+        rdfs:label "region"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/street-address
+:street-address rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Person ;
+                rdfs:range xsd:string ;
+                rdfs:comment "The street address associated with the address of the object"@en ;
+                rdfs:label "street address"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/title
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf <http://purl.org/dc/terms/title> ;
+       rdfs:domain :Person ;
+       rdfs:range xsd:string ;
+       <http://www.linkedmodel.org/schema/vaem#rationale> "Part of standard metadata for Entities"@en ;
+       rdfs:comment "Answers the question: What is the title of the... ?"@en ;
+       rdfs:label "title"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://org.semanticweb.owlapi/error#Error1
+<http://org.semanticweb.owlapi/error#Error1> rdf:type owl:Class ;
+                                             owl:equivalentClass :Kind .
+
+
+###  http://schema.org/Person
+<http://schema.org/Person> rdf:type owl:Class ;
+                           owl:equivalentClass :Person ;
+                           rdfs:isDefinedBy <http://schema.org/> .
+
+
+###  http://schema.org/Thing
+<http://schema.org/Thing> rdf:type owl:Class ;
+                          owl:equivalentClass :Thing .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2006/vcard/ns#Contact
+<http://www.w3.org/2006/vcard/ns#Contact> rdf:type owl:Class ;
+                                          owl:equivalentClass :Contact .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   owl:equivalentClass :Person ;
+                                   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Address
+:Address rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :country-name ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :country-name ;
+                                                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ]
+                                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :locality ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :locality ;
+                                                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ]
+                                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :postal-code ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :postal-code ;
+                                                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ]
+                                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :region ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :region ;
+                                                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ]
+                                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :street-address ;
+                                                                      owl:someValuesFrom xsd:string
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :street-address ;
+                                                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ]
+                                           )
+                             ] .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Contact
+:Contact rdf:type owl:Class ;
+         owl:equivalentClass <https://github.com/vocol/salesforce/Contact> ;
+         rdfs:subClassOf :Person ;
+         rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+         rdfs:label "Contact"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Employee
+:Employee rdf:type owl:Class ;
+          rdfs:subClassOf :Person ;
+          rdfs:label "Employee"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Gender
+:Gender rdf:type owl:Class ;
+        rdfs:comment "Used for gender codes. The URI of the gender code must be used as the value for Gender."@en ;
+        rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+        rdfs:label "Gender"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Group
+:Group rdf:type owl:Class .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/IntegerValueObject
+:IntegerValueObject rdf:type owl:Class ;
+                    rdfs:subClassOf :Thing ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasIntegerValue ;
+                                      owl:cardinality "1"^^xsd:nonNegativeInteger
+                                    ] .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Kind
+:Kind rdf:type owl:Class ;
+      owl:equivalentClass :VCard ;
+      rdfs:comment "The parent class for all objects"@en ;
+      rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+      rdfs:label "Kind"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Name
+:Name rdf:type owl:Class ;
+      owl:equivalentClass [ rdf:type owl:Class ;
+                            owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :additional-name ;
+                                                                   owl:someValuesFrom xsd:string
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :additional-name ;
+                                                                   owl:minCardinality "0"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ]
+                                          [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :family-name ;
+                                                                   owl:someValuesFrom xsd:string
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :family-name ;
+                                                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ]
+                                          [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :given-name ;
+                                                                   owl:someValuesFrom xsd:string
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :given-name ;
+                                                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ]
+                                          [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :honorific-prefix ;
+                                                                   owl:someValuesFrom xsd:string
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :honorific-prefix ;
+                                                                   owl:minCardinality "0"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ]
+                                          [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :honorific-suffix ;
+                                                                   owl:someValuesFrom xsd:string
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :honorific-suffix ;
+                                                                   owl:minCardinality "0"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ]
+                                        )
+                          ] .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Organization
+:Organization rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ,
+                              <http://xmlns.com/foaf/0.1/Agent> ;
+              rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+              rdfs:label "Organization"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Person
+:Person rdf:type owl:Class ;
+        owl:equivalentClass <https://github.com/vocol/salesforce/Person> ;
+        rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ,
+                        <http://xmlns.com/foaf/0.1/Agent> ;
+        rdfs:comment "A person. A person (alive, dead, undead, or fictional)."^^xsd:string ;
+        rdfs:label "Person"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Thing
+:Thing rdf:type owl:Class ;
+       rdfs:comment "The most generic type of item."^^xsd:string ;
+       rdfs:label "Thing"^^xsd:string .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/Type
+:Type rdf:type owl:Class ;
+      rdfs:comment "Used for type codes. The URI of the type code must be used as the value for Type."@en ;
+      rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+      rdfs:label "Type"@en .
+
+
+###  https://github.com/asteriusj/semanticdatamaster/VCard
+:VCard rdf:type owl:Class ;
+       rdfs:comment "The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"@en ;
+       rdfs:isDefinedBy <http://www.w3.org/2006/vcard/ns> ;
+       rdfs:label "VCard"@en .
+
+
+###  https://github.com/vocol/salesforce/Contact
+<https://github.com/vocol/salesforce/Contact> rdf:type owl:Class .
+
+
+###  https://github.com/vocol/salesforce/Person
+<https://github.com/vocol/salesforce/Person> rdf:type owl:Class .
+
+
+[ owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+] .
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Address rdfs:comment "To specify the components of the delivery address for the  object"@en ;
+          rdfs:label "Address"@en .
+
+
+:Name rdfs:comment "To specify the components of the name of the object"@en ;
+      rdfs:label "Name"@en .
+
+
+:age rdfs:label "age"^^xsd:string .
+
+
+:name <http://schema.org/domainIncludes> :Contact ,
+                                         :Organization ,
+                                         :Person ,
+                                         :Thing ;
+      <http://schema.org/rangeIncludes> <http://schema.org/Text> ;
+      rdfs:comment "The name of the item."^^xsd:string ;
+      rdfs:label "name"^^xsd:string .
+
+
+###  Generated by the OWL API (version 5.1.0) https://github.com/owlcs/owlapi/

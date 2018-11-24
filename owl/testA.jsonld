@@ -1,0 +1,843 @@
+{
+  "@graph": [
+    {
+      "@id": "_:b0",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b6",
+          "_:b41"
+        ]
+      }
+    },
+    {
+      "@id": "_:b10",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b56",
+          "_:b42"
+        ]
+      }
+    },
+    {
+      "@id": "_:b12",
+      "@type": "rdfs:Datatype",
+      "onDatatype": "xs:integer",
+      "withRestrictions": {
+        "@list": [
+          "_:b2",
+          "_:b64"
+        ]
+      }
+    },
+    {
+      "@id": "_:b15",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:street-address"
+    },
+    {
+      "@id": "_:b16",
+      "@type": "owl:Restriction",
+      "maxQualifiedCardinality": "1",
+      "onDataRange": "xs:integer",
+      "onProperty": "sdm:hasIntegerValue"
+    },
+    {
+      "@id": "_:b17",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b32",
+          "_:b5"
+        ]
+      }
+    },
+    {
+      "@id": "_:b2",
+      "xs:minExclusive": 12
+    },
+    {
+      "@id": "_:b20",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:street-address",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b21",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b3",
+          "_:b48"
+        ]
+      }
+    },
+    {
+      "@id": "_:b26",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:family-name"
+    },
+    {
+      "@id": "_:b27",
+      "@type": "owl:Class",
+      "unionOf": {
+        "@list": [
+          "_:b21",
+          "_:b0",
+          "_:b40",
+          "_:b74",
+          "_:b39"
+        ]
+      }
+    },
+    {
+      "@id": "_:b3",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:country-name",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b30",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b47",
+          "_:b26"
+        ]
+      }
+    },
+    {
+      "@id": "_:b31",
+      "xs:minExclusive": 12
+    },
+    {
+      "@id": "_:b32",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:honorific-prefix",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b33",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b54",
+          "_:b69"
+        ]
+      }
+    },
+    {
+      "@id": "_:b37",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:postal-code"
+    },
+    {
+      "@id": "_:b39",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b20",
+          "_:b15"
+        ]
+      }
+    },
+    {
+      "@id": "_:b40",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b9",
+          "_:b37"
+        ]
+      }
+    },
+    {
+      "@id": "_:b41",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:locality"
+    },
+    {
+      "@id": "_:b42",
+      "@type": "owl:Restriction",
+      "minCardinality": "0",
+      "onProperty": "sdm:additional-name"
+    },
+    {
+      "@id": "_:b43",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:given-name"
+    },
+    {
+      "@id": "_:b45",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:given-name",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b47",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:family-name",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b48",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:country-name"
+    },
+    {
+      "@id": "_:b5",
+      "@type": "owl:Restriction",
+      "minCardinality": "0",
+      "onProperty": "sdm:honorific-prefix"
+    },
+    {
+      "@id": "_:b51",
+      "@type": "owl:Class",
+      "unionOf": {
+        "@list": [
+          "_:b10",
+          "_:b30",
+          "_:b67",
+          "_:b17",
+          "_:b33"
+        ]
+      }
+    },
+    {
+      "@id": "_:b54",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:honorific-suffix",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b56",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:additional-name",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b57",
+      "@type": "rdfs:Datatype",
+      "onDatatype": "xs:integer",
+      "withRestrictions": {
+        "@list": [
+          "_:b31",
+          "_:b76"
+        ]
+      }
+    },
+    {
+      "@id": "_:b6",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:locality",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b60",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:hasBirthDate",
+      "someValuesFrom": "_:b61"
+    },
+    {
+      "@id": "_:b61",
+      "@type": "rdfs:Datatype",
+      "onDatatype": "xs:dateTime",
+      "owl:withRestrictions": {
+        "@list": [
+          {
+            "@id": "xs:dateTime"
+          },
+          {
+            "@id": "xs:minInclusive"
+          },
+          {
+            "@type": "xs:dateTime",
+            "@value": "1971-01-01T04:00:00-05:00"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:b62",
+      "@type": "owl:Class",
+      "oneOf": {
+        "@list": [
+          "sdm:Male",
+          "sdm:Female",
+          "sdm:Alien"
+        ]
+      }
+    },
+    {
+      "@id": "_:b64",
+      "xs:maxInclusive": 19
+    },
+    {
+      "@id": "_:b67",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b45",
+          "_:b43"
+        ]
+      }
+    },
+    {
+      "@id": "_:b69",
+      "@type": "owl:Restriction",
+      "minCardinality": "0",
+      "onProperty": "sdm:honorific-suffix"
+    },
+    {
+      "@id": "_:b72",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:region",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "_:b74",
+      "@type": "owl:Class",
+      "intersectionOf": {
+        "@list": [
+          "_:b72",
+          "_:b78"
+        ]
+      }
+    },
+    {
+      "@id": "_:b76",
+      "xs:maxInclusive": 19
+    },
+    {
+      "@id": "_:b78",
+      "@type": "owl:Restriction",
+      "maxCardinality": "1",
+      "onProperty": "sdm:region"
+    },
+    {
+      "@id": "_:b79",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:hasAge",
+      "someValuesFrom": "_:b12"
+    },
+    {
+      "@id": "_:b9",
+      "@type": "owl:Restriction",
+      "onProperty": "sdm:postal-code",
+      "someValuesFrom": "xs:string"
+    },
+    {
+      "@id": "https://github.com/asteriusj/semanticdatamaster/",
+      "@type": "owl:Ontology",
+      "date": "$Date: 2017-10-07 23:18:26 $",
+      "description": "\nThe \n",
+      "title": "Semantic Data Master (SDM) Ontology",
+      "comment": "\n\n",
+      "label": {
+        "@language": "en",
+        "@value": "Ontology for Semantic Data Model"
+      },
+      "versionInfo": {
+        "@language": "en",
+        "@value": "Draft"
+      }
+    },
+    {
+      "@id": "sdm:Address",
+      "@type": "owl:Class",
+      "comment": {
+        "@language": "en",
+        "@value": "To specify the components of the delivery address for the  object"
+      },
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "Address"
+      },
+      "equivalentClass": "_:b27"
+    },
+    {
+      "@id": "sdm:Company",
+      "@type": "owl:Class",
+      "comment": "A company",
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": "Company",
+      "subClassOf": "sdm:Organization"
+    },
+    {
+      "@id": "sdm:Email",
+      "@type": "owl:Class",
+      "comment": {
+        "@language": "en",
+        "@value": "To specify the electronic mail address for communication with the object the vCard represents. Use the hasEmail object property."
+      },
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "Email"
+      },
+      "owl:deprecated": true
+    },
+    {
+      "@id": "sdm:Employee",
+      "@type": "owl:Class",
+      "comment": "An employee",
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": "Employee",
+      "subClassOf": "sdm:Person"
+    },
+    {
+      "@id": "sdm:Gender",
+      "@type": "owl:Class",
+      "comment": {
+        "@language": "en",
+        "@value": "Used for gender codes. The URI of the gender code must be used as the value for Gender."
+      },
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "Gender"
+      }
+    },
+    {
+      "@id": "sdm:IntegerValue",
+      "@type": "owl:Class",
+      "subClassOf": "_:b16"
+    },
+    {
+      "@id": "sdm:MyGenders",
+      "equivalentClass": "_:b62"
+    },
+    {
+      "@id": "sdm:Name",
+      "@type": "owl:Class",
+      "comment": {
+        "@language": "en",
+        "@value": "To specify the components of the name of the object"
+      },
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "Name"
+      },
+      "equivalentClass": "_:b51"
+    },
+    {
+      "@id": "sdm:Organization",
+      "@type": "owl:Class",
+      "comment": "An organization.",
+      "label": "Organization",
+      "subClassOf": "sdm:Thing",
+      "disjointWith": "sdm:Person",
+      "term_status": "stable"
+    },
+    {
+      "@id": "sdm:Person",
+      "@type": "owl:Class",
+      "comment": "A person. A person (alive, dead, undead, or fictional).",
+      "label": "Person",
+      "subClassOf": "sdm:Thing",
+      "equivalentClass": [
+        "sf:Person",
+        "foaf:Person",
+        "schema:Person"
+      ]
+    },
+    {
+      "@id": "sdm:Teenager",
+      "subClassOf": "_:b79"
+    },
+    {
+      "@id": "sdm:Thing",
+      "@type": "rdfs:Class",
+      "comment": "The most generic type of item.",
+      "label": "Thing",
+      "subClassOf": "owl:Thing",
+      "equivalentClass": "schema:Thing"
+    },
+    {
+      "@id": "sdm:additional-name",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "The additional name associated with the object"
+      },
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "additional name"
+      },
+      "range": "xs:string"
+    },
+    {
+      "@id": "sdm:age",
+      "@type": "owl:DatatypeProperty",
+      "comment": "\nAge in years.\n",
+      "domain": "sdm:Person",
+      "label": "age",
+      "range": "sdm:personAge",
+      "equivalentProperty": "foaf:age"
+    },
+    {
+      "@id": "sdm:bDate",
+      "subClassOf": "_:b60"
+    },
+    {
+      "@id": "sdm:birthday",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "comment": "\nThe birthday of this Agent, represented in mm-dd string form, eg. '12-31'.\n",
+      "domain": "sdm:Person",
+      "label": "birthday",
+      "range": "xs:dateTime",
+      "equivalentProperty": [
+        "sf:birthday",
+        "foaf:birthday"
+      ]
+    },
+    {
+      "@id": "sdm:company",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "Is part of Company"
+      },
+      "domain": "sdm:Person",
+      "label": {
+        "@language": "en",
+        "@value": "company"
+      },
+      "range": "sdm:Company"
+    },
+    {
+      "@id": "sdm:country-name",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "The country name associated with the address of the object"
+      },
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "country name"
+      },
+      "range": "xs:string"
+    },
+    {
+      "@id": "sdm:family-name",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "The family name associated with the object"
+      },
+      "domain": "sdm:Person",
+      "label": {
+        "@language": "en",
+        "@value": "family name"
+      },
+      "range": "xs:string"
+    },
+    {
+      "@id": "sdm:firstName",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "comment": "\nFirst or given name of contact person.\n ",
+      "domain": "sdm:Person",
+      "label": "First Name",
+      "range": "rdfs:Literal",
+      "equivalentProperty": [
+        "sf:firstName",
+        "vcard:given-name",
+        "con:firstName",
+        "sdm:given-name",
+        "foaf:givenName",
+        "schema:givenName"
+      ]
+    },
+    {
+      "@id": "sdm:gender",
+      "@type": "owl:DatatypeProperty",
+      "comment": "\nAge in years.\n",
+      "domain": "sdm:Person",
+      "label": "gender",
+      "range": "sdm:MyGenders"
+    },
+    {
+      "@id": "sdm:given-name",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "The given name associated with the object"
+      },
+      "domain": "sdm:Person",
+      "label": {
+        "@language": "en",
+        "@value": "given name"
+      },
+      "range": "xs:string"
+    },
+    {
+      "@id": "sdm:hasAddress",
+      "@type": "owl:ObjectProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "To specify the components of the delivery address for the object"
+      },
+      "domain": [
+        "sdm:Organization",
+        "sdm:Person"
+      ],
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "has address"
+      },
+      "range": "sdm:Address"
+    },
+    {
+      "@id": "sdm:hasBirthDate",
+      "@type": "owl:DatatypeProperty",
+      "domain": "sdm:Person",
+      "label": "Birthdate",
+      "range": "sdm:bDate"
+    },
+    {
+      "@id": "sdm:hasEmail",
+      "@type": "owl:ObjectProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "To specify the electronic mail address for communication with the object"
+      },
+      "domain": [
+        "sdm:Organization",
+        "sdm:Person"
+      ],
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "has email"
+      },
+      "range": "sdm:Email"
+    },
+    {
+      "@id": "sdm:hasIntegerValue",
+      "@type": "owl:DatatypeProperty",
+      "range": "xs:integer"
+    },
+    {
+      "@id": "sdm:hasTitle",
+      "@type": "owl:ObjectProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "Used to support property parameters for the title data property"
+      },
+      "inverseOf": "sdm:title",
+      "isDefinedBy": "https://github.com/asteriusj/semanticdatamaster/",
+      "label": {
+        "@language": "en",
+        "@value": "has title"
+      }
+    },
+    {
+      "@id": "sdm:home-address",
+      "@type": "owl:DatatypeProperty",
+      "comment": "",
+      "domain": "sdm:Person",
+      "label": "Home Address",
+      "range": "sdm:Address"
+    },
+    {
+      "@id": "sdm:lastName",
+      "@type": "owl:DatatypeProperty",
+      "comment": "Last or family name of contact person.",
+      "domain": "sdm:Person",
+      "label": "Last Name",
+      "range": "rdfs:Literal",
+      "equivalentProperty": [
+        "con:lastName",
+        "schema:familyName",
+        "sdm:given-name",
+        "foaf:familyName",
+        "sf:lastName",
+        "vcard:family-name",
+        "dbo:FamilyName"
+      ]
+    },
+    {
+      "@id": "sdm:name",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "The name associated with the object"
+      },
+      "label": {
+        "@language": "en",
+        "@value": "name"
+      },
+      "range": "sdm:Name"
+    },
+    {
+      "@id": "sdm:personAge",
+      "equivalentClass": "_:b57"
+    },
+    {
+      "@id": "sdm:title",
+      "@type": "owl:DatatypeProperty",
+      "comment": {
+        "@language": "en",
+        "@value": "To specify the position or job of the object"
+      },
+      "domain": "sdm:Person",
+      "label": {
+        "@language": "en",
+        "@value": "title"
+      },
+      "range": "xs:string"
+    },
+    {
+      "@id": "sdm:work-address",
+      "@type": [
+        "owl:DatatypeProperty",
+        "owl:FunctionalProperty"
+      ],
+      "comment": "",
+      "domain": "sdm:Person",
+      "label": "Work Address",
+      "range": "sdm:Address"
+    }
+  ],
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@context": {
+    "intersectionOf": {
+      "@id": "http://www.w3.org/2002/07/owl#intersectionOf",
+      "@type": "@id"
+    },
+    "range": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type": "@id"
+    },
+    "isDefinedBy": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+      "@type": "@id"
+    },
+    "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "equivalentProperty": {
+      "@id": "http://www.w3.org/2002/07/owl#equivalentProperty",
+      "@type": "@id"
+    },
+    "domain": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#domain",
+      "@type": "@id"
+    },
+    "minExclusive": {
+      "@id": "http://www.w3.org/2001/XMLSchema#minExclusive",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "someValuesFrom": {
+      "@id": "http://www.w3.org/2002/07/owl#someValuesFrom",
+      "@type": "@id"
+    },
+    "onProperty": {
+      "@id": "http://www.w3.org/2002/07/owl#onProperty",
+      "@type": "@id"
+    },
+    "rest": {
+      "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+      "@type": "@id"
+    },
+    "first": {
+      "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+      "@type": "@id"
+    },
+    "withRestrictions": {
+      "@id": "http://www.w3.org/2002/07/owl#withRestrictions",
+      "@type": "@id"
+    },
+    "onDatatype": {
+      "@id": "http://www.w3.org/2002/07/owl#onDatatype",
+      "@type": "@id"
+    },
+    "onDataRange": {
+      "@id": "http://www.w3.org/2002/07/owl#onDataRange",
+      "@type": "@id"
+    },
+    "maxQualifiedCardinality": {
+      "@id": "http://www.w3.org/2002/07/owl#maxQualifiedCardinality",
+      "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "subClassOf": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type": "@id"
+    },
+    "inverseOf": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#inverseOf",
+      "@type": "@id"
+    },
+    "maxCardinality": {
+      "@id": "http://www.w3.org/2002/07/owl#maxCardinality",
+      "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "equivalentClass": {
+      "@id": "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type": "@id"
+    },
+    "minCardinality": {
+      "@id": "http://www.w3.org/2002/07/owl#minCardinality",
+      "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "unionOf": {
+      "@id": "http://www.w3.org/2002/07/owl#unionOf",
+      "@type": "@id"
+    },
+    "oneOf": {
+      "@id": "http://www.w3.org/2002/07/owl#oneOf",
+      "@type": "@id"
+    },
+    "maxInclusive": {
+      "@id": "http://www.w3.org/2001/XMLSchema#maxInclusive",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "deprecated": {
+      "@id": "http://www.w3.org/2002/07/owl#deprecated",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "versionInfo": "http://www.w3.org/2002/07/owl#versionInfo",
+    "title": "http://purl.org/dc/elements/1.1/title",
+    "description": "http://purl.org/dc/elements/1.1/description",
+    "date": "http://purl.org/dc/elements/1.1/date",
+    "term_status": "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status",
+    "disjointWith": {
+      "@id": "http://www.w3.org/2002/07/owl#disjointWith",
+      "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "con": "http://www.w3.org/2000/10/swap/pim/contact#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "org": "http://www.w3.org/ns/org#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "dbo": "http://dbpedia.org/ontology/",
+    "sf": "https://github.com/vocol/salesforce/",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xs": "http://www.w3.org/2001/XMLSchema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "sdm": "https://github.com/asteriusj/semanticdatamaster/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "dc": "http://purl.org/dc/elements/1.1/"
+  }
+}

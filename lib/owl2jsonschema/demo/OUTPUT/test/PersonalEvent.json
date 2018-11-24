@@ -1,0 +1,53 @@
+{
+	"id": "PersonalEvent.json",
+	"title": "personal event",
+	"description": "an event that occurs in someone&apos;s personal life",
+	"translations": {
+		"title": {
+			"de": "Ereignis im persönlichen Leben",
+			"el": "προσωπικό συμβάν",
+			"fr": "évènement dans la vie privée",
+			"nl": "levensloopgebeurtenis"
+		},
+		"description": {"el": "ένα συμβάν που αφορά την προσωπική ζωή κάποιου"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "LifeCycleEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/PersonalEvent",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PersonalEvent"}
+}

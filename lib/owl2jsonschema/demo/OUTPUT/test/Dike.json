@@ -1,0 +1,53 @@
+{
+	"id": "Dike.json",
+	"title": "dike",
+	"description": "A dike is an elongated naturally occurring ridge or artificially constructed fill or wall, which regulates water levels",
+	"translations": {
+		"title": {
+			"fr": "levée",
+			"it": "diga",
+			"nl": "dijk",
+			"ja": "堤防"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Dike",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Dike"}
+}

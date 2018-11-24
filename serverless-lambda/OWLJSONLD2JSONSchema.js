@@ -91,9 +91,6 @@ class OWLJSONLD2JSONSchema {
 
 
 
-
-
-
                         if (!Array.isArray(_type)) _type = [_type]
 
                         if ((_type.includes("owl:Class")) || (_type.includes("rdfs:Class"))) {
@@ -122,6 +119,16 @@ class OWLJSONLD2JSONSchema {
                             processDataTypePropertyEl(_element)
 
                         }
+                        else if ((_type.includes("sh:NodeShape")) || (_type.includes(":NodeShape"))) {
+
+                            // process type NodeShape element
+                            processNodeShapeEl(_element)
+                                .then((data) => {})
+                                .catch((e) => { console.error(e) })
+
+
+                        }
+
                         else if (_type.includes('owl:Ontology')) {
                             // already processed
 
@@ -239,7 +246,7 @@ class OWLJSONLD2JSONSchema {
                     }; // end function processObjectPropertyEl
 
                     function processPropertyEl(_el) {
-                        // console.log('processPropertyEl')
+                        console.log('processPropertyEl _el:', _el)
                         return new Promise((resolve, reject) => {
                             try {
 
@@ -247,25 +254,65 @@ class OWLJSONLD2JSONSchema {
                                 let type = processSingleProp(_el["@type"]);
 
                                 let label = processSingleProp(_el["label"]);
+                                let name = processSingleProp(_el["name"]);
                                 let title = processSingleProp(_el["title"]);
                                 let description = processSingleProp(_el["description"]);
+
+                                let comment = processSingleProp(_el["comment"]);
+
+                                let datatype = processSingleProp(_el["datatype"]);
+                                let hasValue = processSingleProp(_el["hasValue"]);
+
+                                let path = processSingleProp(_el["path"]);
 
                                 let domain = processSingleProp(_el["domain"]);
                                 let range = processSingleProp(_el["range"]);
 
                                 let equivalentclass = processSingleProp(_el["equivalentClass"]);
 
+
                                 let property = {}
                                 if (id) property['id'] = id;
                                 if (type) property['type'] = range || "string";
                                 if (label) property['name'] = label;
+                                if (name) property['name'] = name;
                                 if (title) property['title'] = title;
-                                if (description) property['description'] = title;
+                                if (description) property['description'] = description;
+                                if (comment) property['comment'] = comment;
+
+
+                                if (datatype) {
+
+                                    if (datatype === "xsd:date") {
+
+                                        property['type'] = 'string';
+                                        property['format'] = 'date';
+
+                                    }
+                                    else if (datatype === "xsd:strings") {
+
+                                        property['type'] = 'string';
+
+                                    }
+                                    else {
+
+                                        property['type'] = datatype;
+
+                                    }
+
+                                }
+
+
+                                if (hasValue) property['default'] = hasValue;
+
                                 if (domain) property['parent'] = domain;
+                                if (path) property['parent'] = path;
                                 // if (range) property['range'] = range;
                                 if (equivalentclass) property['x_semantic'] = id;
 
+                                // console.log('processPropertyEl property:', property)
                                 _schema.properties[id] = property
+
 
                                 resolve(_schema)
 
@@ -324,6 +371,45 @@ class OWLJSONLD2JSONSchema {
 
                     }; // end function processDataTypePropertyEl
 
+
+                    function processNodeShapeEl(_el) {
+                        // console.log('processNodeShapeEl')
+                        return new Promise((resolve, reject) => {
+                            try {
+
+                                // console.log('processNodeShapeEl _el', _el)
+                                let id = processSingleProp(_el["@id"]);
+                                let type = 'object';
+                                let label = processSingleProp(_el["label"]);
+                                let title = processSingleProp(_el["title"]);
+                                let description = processSingleProp(_el["description"]);
+                                let subclassof = processSingleProp(_el["subClassOf"]);
+
+                                let _property = _el["property"];
+                                _schema.properties[id] = _property
+
+                                // let property = {}
+                                // if (id) property['id'] = id;
+                                // if (type) property['type'] = type;
+                                // if (label) property['name'] = label;
+                                // if (title) property['title'] = title;
+                                // if (description) property['description'] = title;
+
+                                // if (subclassof) property['parent'] = subclassof;
+
+                                // console.log('processNodeShapeEl property:', property)
+                                // _schema.properties[id] = property
+                                resolve(_schema)
+
+                            }
+                            catch (e) {
+                                console.error('function processNodeShapeEl e:', e)
+                                reject(e)
+                            }
+                            finally {}
+
+                        }) // end return
+                    }; // end function processNodeShapeEl
 
 
 

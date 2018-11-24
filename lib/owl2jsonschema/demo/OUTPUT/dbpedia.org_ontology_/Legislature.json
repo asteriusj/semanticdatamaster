@@ -1,0 +1,180 @@
+{
+	"id": "Legislature.json",
+	"title": "legislature",
+	"translations": {
+		"title": {
+			"de": "Legislative",
+			"el": "νομοθετικό σώμα",
+			"fr": "pouvoir législatif",
+			"es": "legislatura",
+			"ga": "reachtas",
+			"nl": "wetgevend orgaan",
+			"ja": "立法府"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"electionDateLeader": {
+			"oneOf": [
+				{"$ref": "#/definitions/electionDateLeader"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/electionDateLeader"}
+				}
+			]
+		},
+		"numberOfMembers": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfMembers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfMembers"}
+				}
+			]
+		},
+		"lastElectionDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastElectionDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastElectionDate"}
+				}
+			]
+		},
+		"legislativePeriodName": {
+			"oneOf": [
+				{"$ref": "#/definitions/legislativePeriodName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/legislativePeriodName"}
+				}
+			]
+		},
+		"politicalPartyOfLeader": {
+			"oneOf": [
+				{"$ref": "PoliticalParty.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PoliticalParty.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"meetingBuilding": {
+			"oneOf": [
+				{"$ref": "Building.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Building.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"meetingCity": {
+			"oneOf": [
+				{"$ref": "Settlement.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Settlement.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"house": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"committeeInLegislature": {
+			"oneOf": [
+				{"$ref": "#/definitions/committeeInLegislature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/committeeInLegislature"}
+				}
+			]
+		},
+		"politicalPartyInLegislature": {
+			"oneOf": [
+				{"$ref": "PoliticalParty.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PoliticalParty.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"electionDateLeader": {
+			"title": "election date leader",
+			"description": "The date that leader was elected.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"numberOfMembers": {
+			"title": "number of members",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"lastElectionDate": {
+			"title": "last election date",
+			"description": "The last election date for the house.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"legislativePeriodName": {
+			"title": "legislative period name",
+			"description": "The term of the on-going session &amp;&#35;40;e.g.:&quot;40th Canadian Parliament&quot;&amp;&#35;41;.",
+			"type": "string"
+		},
+		"committeeInLegislature": {
+			"title": "committee in legislature",
+			"description": "Committee in the legislature &amp;&#35;40;eg.: Committee on Economic and Monetary Affairs of the European Parliament&#41;.",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Legislature",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Legislature"}
+}

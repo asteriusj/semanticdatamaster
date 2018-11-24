@@ -1,0 +1,52 @@
+{
+	"id": "InformationAppliance.json",
+	"title": "information appliance",
+	"description": "An information device such as PDAs or Video game consoles, etc.",
+	"translations": {
+		"title": {
+			"de": "Datengerät",
+			"el": "συσκευή πληροφορικής",
+			"es": "dispositivo electrónico"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/InformationAppliance",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/InformationAppliance"}
+}

@@ -1,0 +1,98 @@
+{
+	"id": "Race.json",
+	"title": "race",
+	"translations": {
+		"title": {
+			"de": "Rennen",
+			"el": "αγώνας",
+			"fr": "course",
+			"ga": "rás",
+			"nl": "race",
+			"ja": "レース"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"mostWins": {
+			"oneOf": [
+				{"$ref": "#/definitions/mostWins"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mostWins"}
+				}
+			]
+		},
+		"raceResult": {
+			"oneOf": [
+				{"$ref": "SportCompetitionResult.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportCompetitionResult.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"recentWinner": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstWinner": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mostWins": {
+			"title": "most wins",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Race",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Race"}
+}

@@ -1,0 +1,84 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TimePeriod.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfMatches": {
+			"title": "number of matches or caps",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"numberOfGoals": {
+			"title": "number of goals scored",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		}
+	},
+	"description": "this class marks a career step in the life of a person, e.g. a soccer player, holding information on the time span, matches and goals he or she achieved at a certain club",
+	"format": "http://dbpedia.org/ontology/CareerStation",
+	"id": "CareerStation.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CareerStation"},
+	"properties": {
+		"numberOfMatches": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfMatches"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfMatches"}
+				}
+			]
+		},
+		"numberOfGoals": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfGoals"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfGoals"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "career station",
+	"translations": {
+		"title": {
+			"de": "Karrierestation",
+			"nl": "Carrierestap"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

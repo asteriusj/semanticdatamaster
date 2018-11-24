@@ -1,0 +1,55 @@
+{
+	"id": "SoccerManager.json",
+	"title": "soccer manager",
+	"translations": {
+		"title": {
+			"de": "Fußballmanager",
+			"el": "προπονητής ποδοσφαίρου",
+			"fr": "entraîneur de football",
+			"es": "gerente de fútbol",
+			"ga": "bainisteoir sacair",
+			"nl": "voetbalmanager",
+			"ja": "サッカーマネージャー"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "SportsManager.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SoccerManager",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SoccerManager"}
+}

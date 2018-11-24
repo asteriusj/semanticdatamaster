@@ -1,0 +1,149 @@
+{
+	"id": "Openswarm.json",
+	"title": "Open Swarm",
+	"translations": {
+		"title": {
+			"nl": "open zwerm &amp;&#35;40;cluster&#41;",
+			"de": "Open Swarm",
+			"el": "Ανοικτό σμήνος"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}, {"$ref": "Swarm.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"size_v": {
+			"oneOf": [
+				{"$ref": "#/definitions/size_v"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/size_v"}
+				}
+			]
+		},
+		"dist_ly": {
+			"oneOf": [
+				{"$ref": "#/definitions/dist_ly"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dist_ly"}
+				}
+			]
+		},
+		"names": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"credit": {
+			"oneOf": [
+				{"$ref": "#/definitions/credit"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/credit"}
+				}
+			]
+		},
+		"ra": {
+			"oneOf": [
+				{"$ref": "#/definitions/ra"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ra"}
+				}
+			]
+		},
+		"dist_pc": {
+			"oneOf": [
+				{"$ref": "#/definitions/dist_pc"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dist_pc"}
+				}
+			]
+		},
+		"dec": {
+			"oneOf": [
+				{"$ref": "#/definitions/dec"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dec"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"size_v": {
+			"title": "size_v",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"dist_ly": {
+			"title": "dist_ly",
+			"description": "",
+			"type": "string"
+		},
+		"credit": {
+			"title": "credit",
+			"description": "",
+			"type": "string"
+		},
+		"ra": {
+			"title": "ra",
+			"description": "",
+			"type": "string"
+		},
+		"dist_pc": {
+			"title": "dist_pc",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"dec": {
+			"title": "dec",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Openswarm",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Openswarm"}
+}

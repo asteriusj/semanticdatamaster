@@ -1,0 +1,127 @@
+{
+	"id": "MusicalWork.json",
+	"title": "musical work",
+	"translations": {
+		"title": {
+			"de": "musikalisches Werk",
+			"el": "μουσικό έργο",
+			"fr": "œuvre musicale",
+			"it": "opera musicale",
+			"nl": "muziekwerk"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"musicalKey": {
+			"oneOf": [
+				{"$ref": "#/definitions/musicalKey"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/musicalKey"}
+				}
+			]
+		},
+		"recordDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/recordDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/recordDate"}
+				}
+			]
+		},
+		"lyrics": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"musicType": {
+			"oneOf": [
+				{"$ref": "#/definitions/musicType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/musicType"}
+				}
+			]
+		},
+		"recordedIn": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"artist": {
+			"oneOf": [
+				{"$ref": "Agent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Agent.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"musicalKey": {
+			"title": "musical key",
+			"description": "",
+			"type": "string"
+		},
+		"recordDate": {
+			"title": "record date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"musicType": {
+			"title": "musicType",
+			"description": "Type is too general. We should be able to distinguish types of music from types of architecture",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MusicalWork",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MusicalWork"}
+}

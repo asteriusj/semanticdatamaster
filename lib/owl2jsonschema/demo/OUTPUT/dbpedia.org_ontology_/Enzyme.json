@@ -1,0 +1,56 @@
+{
+	"id": "Enzyme.json",
+	"title": "enzyme",
+	"translations": {
+		"title": {
+			"de": "Enzym",
+			"el": "ένζυμο",
+			"fr": "enzyme",
+			"it": "enzima",
+			"ga": "einsím",
+			"ko": "효소",
+			"nl": "enzym",
+			"ja": "酵素"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Biomolecule.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Enzyme",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Enzyme"}
+}

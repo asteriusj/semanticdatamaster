@@ -1,0 +1,57 @@
+{
+	"id": "AmericanFootballPlayer.json",
+	"title": "american football player",
+	"translations": {
+		"title": {
+			"de": "American Footballspieler",
+			"el": "παίκτης αμερικανικού ποδοσφαίρου",
+			"fr": "joueur de football américain",
+			"it": "giocatore di football americano",
+			"es": "jugador de fútbol americano",
+			"gl": "xogador de fútbol americano",
+			"ko": "미식 축구 선수",
+			"nl": "American footballspeler",
+			"ja": "アメリカンフットボール選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}, {"$ref": "GridironFootballPlayer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AmericanFootballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AmericanFootballPlayer"}
+}

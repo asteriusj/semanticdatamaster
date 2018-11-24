@@ -1,0 +1,312 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"circulation": {
+			"title": "circulation",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"coden": {
+			"title": "CODEN",
+			"description": "CODEN is a six character, alphanumeric bibliographic code, that provides concise, unique and unambiguous identification of the titles of serials and non-serial publications from all subject areas.",
+			"type": "string"
+		},
+		"dutchPPNCode": {
+			"title": "Dutch PPN code",
+			"description": "Dutch PPN code is a library cataloguing code for collection items &amp;&#35;40;books, journals and the like&#41;.",
+			"type": "string"
+		},
+		"firstPublicationDate": {
+			"title": "first publication date",
+			"description": "Date of the first publication.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"isbn": {
+			"title": "ISBN",
+			"description": "The International Standard Book Number &amp;&#35;40;ISBN&#41; is a unique numeric commercial book identifier based upon the 9-digit Standard Book Numbering (SBN) code.",
+			"type": "string"
+		},
+		"lastPublicationDate": {
+			"title": "last publication date",
+			"description": "Date of the last publication.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"lcc": {
+			"title": "LCC",
+			"description": "The Library of Congress Classification &amp;&#35;40;LCC&#41; is a system of library classification developed by the Library of Congress.",
+			"type": "string"
+		},
+		"lccn": {
+			"title": "LCCN",
+			"description": "The Library of Congress Control Number or LCCN is a serially based system of numbering cataloging records in the Library of Congress in the United States. It has nothing to do with the contents of any book, and should not be confused with Library of Congress Classification.",
+			"type": "string"
+		},
+		"literaryGenre": {
+			"title": "literary genre",
+			"description": "A literary genre is a category of literary composition. Genres may be determined by literary technique, tone, content, or even &amp;&#35;40;as in the case of fiction&#41; length.",
+			"anyOf": []
+		},
+		"mediaType": {
+			"title": "media type",
+			"description": "Print / On-line &amp;&#35;40;then binding types etc. if relevant&#41;",
+			"anyOf": []
+		},
+		"nonFictionSubject": {
+			"title": "non-fiction subject",
+			"description": "The subject of a non-fiction book &amp;&#35;40;e.g.: History, Biography, Cookbook, Climate change, ...&#41;.",
+			"anyOf": []
+		},
+		"numberOfPages": {
+			"title": "number of pages",
+			"description": "The books number of pages.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"numberOfVolumes": {
+			"title": "number of volumes",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"oclc": {
+			"title": "OCLC",
+			"description": "Online Computer Library Center number",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "Written work is any text written to read it &amp;&#35;40;e.g.: books, newspaper, articles&#41;",
+	"format": "http://dbpedia.org/ontology/WrittenWork",
+	"id": "WrittenWork.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WrittenWork"},
+	"properties": {
+		"circulation": {
+			"oneOf": [
+				{"$ref": "#/definitions/circulation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/circulation"}
+				}
+			]
+		},
+		"coden": {
+			"oneOf": [
+				{"$ref": "#/definitions/coden"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coden"}
+				}
+			]
+		},
+		"dutchPPNCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/dutchPPNCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dutchPPNCode"}
+				}
+			]
+		},
+		"filmVersion": {
+			"oneOf": [
+				{"$ref": "Film.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Film.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstPublicationDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstPublicationDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstPublicationDate"}
+				}
+			]
+		},
+		"firstPublisher": {
+			"oneOf": [
+				{"$ref": "Agent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Agent.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"illustrator": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"isbn": {
+			"oneOf": [
+				{"$ref": "#/definitions/isbn"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isbn"}
+				}
+			]
+		},
+		"lastPublicationDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastPublicationDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastPublicationDate"}
+				}
+			]
+		},
+		"lcc": {
+			"oneOf": [
+				{"$ref": "#/definitions/lcc"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lcc"}
+				}
+			]
+		},
+		"lccn": {
+			"oneOf": [
+				{"$ref": "#/definitions/lccn"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lccn"}
+				}
+			]
+		},
+		"literaryGenre": {
+			"oneOf": [
+				{"$ref": "#/definitions/literaryGenre"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/literaryGenre"}
+				}
+			]
+		},
+		"magazine": {
+			"oneOf": [
+				{"$ref": "Magazine.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Magazine.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mediaType": {
+			"oneOf": [
+				{"$ref": "#/definitions/mediaType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mediaType"}
+				}
+			]
+		},
+		"nonFictionSubject": {
+			"oneOf": [
+				{"$ref": "#/definitions/nonFictionSubject"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nonFictionSubject"}
+				}
+			]
+		},
+		"numberOfPages": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPages"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPages"}
+				}
+			]
+		},
+		"numberOfVolumes": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfVolumes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfVolumes"}
+				}
+			]
+		},
+		"oclc": {
+			"oneOf": [
+				{"$ref": "#/definitions/oclc"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/oclc"}
+				}
+			]
+		},
+		"prefaceBy": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "written work",
+	"translations": {
+		"title": {
+			"de": "geschriebenes Erzeugnis",
+			"fr": "œuvre écrite",
+			"es": "obra escrita",
+			"ga": "obair scríofa",
+			"da": "skriftligt værk",
+			"nl": "geschreven werk"
+		},
+		"description": {"de": "Ein geschriebenes Erzeugnis ist jede Art von Text der geschrieben wurde um ihn zu lesen &amp;&#35;40;z.B. Bücher, Zeitungen, Artikel&#41;."}
+	},
+	"type": "object"
+}

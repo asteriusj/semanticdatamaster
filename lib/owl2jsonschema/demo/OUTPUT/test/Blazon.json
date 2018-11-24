@@ -1,0 +1,70 @@
+{
+	"id": "Blazon.json",
+	"title": "Blazon",
+	"translations": {
+		"title": {
+			"de": "Wappen",
+			"el": "οικόσημο",
+			"fr": "Blason",
+			"nl": "blazoen &amp;&#35;40;wapenschild&#41;",
+			"ja": "紋章記述"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"blazonCaption": {
+			"oneOf": [
+				{"$ref": "#/definitions/blazonCaption"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/blazonCaption"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"blazonCaption": {
+			"title": "Blazon caption",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Blazon",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Blazon"}
+}

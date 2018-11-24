@@ -1,0 +1,76 @@
+{
+	"id": "ShoppingMall.json",
+	"title": "shopping mall",
+	"translations": {
+		"title": {
+			"de": "Einkaufszentrum",
+			"el": "εμπορικό κέντρο",
+			"fr": "centre commercial",
+			"ga": "ionad siopadóireachta",
+			"ko": "쇼핑몰",
+			"nl": "winkelcentrum",
+			"pt": "shopping",
+			"ja": "ショッピングモール"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfStores": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfStores"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfStores"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfStores": {
+			"title": "number of sores",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ShoppingMall",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ShoppingMall"}
+}

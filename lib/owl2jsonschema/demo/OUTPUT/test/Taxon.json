@@ -1,0 +1,53 @@
+{
+	"id": "Taxon.json",
+	"title": "taxonomic group",
+	"description": "a category within a classification system for Species",
+	"translations": {
+		"title": {
+			"de": "taxonomische Gruppe",
+			"el": "ταξονομική ομάδα",
+			"nl": "taxon",
+			"ja": "タクソン"
+		},
+		"description": {"nl": "categorie binnen een classificatiesysteem voor plant- en diersoorten"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Taxon",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Taxon"}
+}

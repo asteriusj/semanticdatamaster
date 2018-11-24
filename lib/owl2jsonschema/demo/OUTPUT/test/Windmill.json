@@ -1,0 +1,58 @@
+{
+	"id": "Windmill.json",
+	"title": "Windmill",
+	"description": "A windmill is a machine that converts the energy of wind into rotational energy by means of vanes called sails",
+	"translations": {
+		"title": {
+			"de": "Windmühle",
+			"el": "Ανεμόμυλος",
+			"fr": "moulin à vent",
+			"it": "mulino a vento",
+			"es": "Molinos de viento",
+			"ga": "muileann gaoithe",
+			"da": "vindmølle",
+			"nl": "Windmolen",
+			"ja": "風車"
+		},
+		"description": {"fr": "Le moulin à vent est un dispositif qui transforme l’énergie éolienne &amp;&#35;40;énergie cinétique du vent&#41; en mouvement rotatif au moyen d’ailes ajustables."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Mill.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Windmill",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Windmill"}
+}

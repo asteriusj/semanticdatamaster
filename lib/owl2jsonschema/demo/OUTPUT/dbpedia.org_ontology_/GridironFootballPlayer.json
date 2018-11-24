@@ -1,0 +1,128 @@
+{
+	"id": "GridironFootballPlayer.json",
+	"title": "gridiron football player",
+	"translations": {
+		"title": {
+			"nl": "Gridiron voetballer",
+			"de": "Gridiron Footballspieler",
+			"fr": "joueur de football américain gridiron"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"supplementalDraftYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/supplementalDraftYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/supplementalDraftYear"}
+				}
+			]
+		},
+		"undraftedYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/undraftedYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/undraftedYear"}
+				}
+			]
+		},
+		"bbr": {
+			"oneOf": [
+				{"$ref": "#/definitions/bbr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bbr"}
+				}
+			]
+		},
+		"draftRound": {
+			"oneOf": [
+				{"$ref": "#/definitions/draftRound"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/draftRound"}
+				}
+			]
+		},
+		"draftPick": {
+			"oneOf": [
+				{"$ref": "#/definitions/draftPick"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/draftPick"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"supplementalDraftYear": {
+			"title": "supplemental draft year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"undraftedYear": {
+			"title": "undrafted year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"bbr": {
+			"title": "BBR",
+			"description": "For NBA players, the text between the last slash and .html in the URL of the player&apos;s basketball-reference.com profile &amp;&#35;40;linked at http://www.basketball-reference.com/players/&#41;.",
+			"type": "string"
+		},
+		"draftRound": {
+			"title": "draft round",
+			"description": "",
+			"type": "string"
+		},
+		"draftPick": {
+			"title": "draft pick",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GridironFootballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GridironFootballPlayer"}
+}

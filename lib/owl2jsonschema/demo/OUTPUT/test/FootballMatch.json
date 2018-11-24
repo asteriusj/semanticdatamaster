@@ -1,0 +1,55 @@
+{
+	"id": "FootballMatch.json",
+	"title": "football match",
+	"description": "a competition between two football teams",
+	"translations": {
+		"title": {
+			"pl": "mecz piłki nożnej",
+			"de": "Fußballspiel",
+			"el": "αγώνας ποδοσφαίρου",
+			"es": "partido de fútbol",
+			"ga": "cluiche peile",
+			"nl": "voetbal wedstrijd"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FootballMatch",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FootballMatch"}
+}

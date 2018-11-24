@@ -1,0 +1,114 @@
+{
+	"id": "GeneLocation.json",
+	"title": "GeneLocation",
+	"translations": {
+		"title": {
+			"de": "Gen Lokation",
+			"el": "θέση γονιδίων",
+			"nl": "locus",
+			"ja": "遺伝子座"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"geneLocationStart": {
+			"oneOf": [
+				{"$ref": "#/definitions/geneLocationStart"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/geneLocationStart"}
+				}
+			]
+		},
+		"genomeDB": {
+			"oneOf": [
+				{"$ref": "#/definitions/genomeDB"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/genomeDB"}
+				}
+			]
+		},
+		"onChromosome": {
+			"oneOf": [
+				{"$ref": "#/definitions/onChromosome"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/onChromosome"}
+				}
+			]
+		},
+		"geneLocationEnd": {
+			"oneOf": [
+				{"$ref": "#/definitions/geneLocationEnd"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/geneLocationEnd"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"geneLocationStart": {
+			"title": "gene location start",
+			"description": "the start of the gene coordinates",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"genomeDB": {
+			"title": "Genome DB",
+			"description": "the edition of the database used &amp;&#35;40;i.e. hg19&#41;",
+			"type": "string"
+		},
+		"onChromosome": {
+			"title": "on chromosome",
+			"description": "the number corresponding to the chromosome on which the gene is located",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"geneLocationEnd": {
+			"title": "gene location end",
+			"description": "the end of the gene",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GeneLocation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GeneLocation"}
+}

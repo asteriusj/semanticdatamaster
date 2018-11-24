@@ -1,0 +1,53 @@
+{
+	"id": "VoiceActor.json",
+	"title": "voice actor",
+	"translations": {
+		"title": {
+			"de": "Synchronsprecher",
+			"fr": "acteur de doublage",
+			"ko": "성우",
+			"nl": "stemacteur",
+			"ja": "声優"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}, {"$ref": "Actor.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/VoiceActor",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/VoiceActor"}
+}

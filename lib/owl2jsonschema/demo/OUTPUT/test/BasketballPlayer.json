@@ -1,0 +1,57 @@
+{
+	"id": "BasketballPlayer.json",
+	"title": "basketball player",
+	"translations": {
+		"title": {
+			"de": "Basketballspieler",
+			"el": "παίκτης καλαθοσφαίρισης",
+			"fr": "joueur de basketball",
+			"it": "giocatore di pallacanestro",
+			"es": "Basquetbolista",
+			"ga": "imreoir cispheile",
+			"ko": "농구 선수",
+			"nl": "basketbal speler",
+			"ja": "バスケットボール選手"
+		},
+		"description": {"el": "Ένας αθλητής &amp;&#35;40;άνδρας ή γυναίκα&#41; που ασχολείται με το άθλημα της καλαθοσφαίρισης."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BasketballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BasketballPlayer"}
+}

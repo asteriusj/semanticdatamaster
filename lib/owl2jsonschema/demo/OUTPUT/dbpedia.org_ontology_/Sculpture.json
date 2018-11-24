@@ -1,0 +1,58 @@
+{
+	"id": "Sculpture.json",
+	"title": "Sculpture",
+	"description": "Sculpture is three-dimensional artwork created by shaping or combining hard materials, typically stone such as marble, metal, glass, or wood, or plastic materials such as clay, textiles, polymers and softer metals.",
+	"translations": {
+		"title": {
+			"de": "Skulptur",
+			"el": "Γλυπτική",
+			"fr": "sculpture",
+			"it": "scultura",
+			"nl": "beeldhouwwerk",
+			"ja": "彫刻"
+		},
+		"description": {
+			"el": "Γλυπτική είναι τρισδιάστατο έργο τέχνης το οποίο δημιουργήθηκε από τη διαμόρφωση ή συνδυάζοντας σκληρά υλικά, τυπικώς πέτρα όπως μάρμαρο, μέταλλο, γυαλί, ή ξύλο, ή πλαστικά υλικά όπως άργιλος, υφάσματα, πολυμερή και μαλακότερα μέταλλα.",
+			"nl": "Een beeldhouwwerk is een drie-dimensionaal kunstvoorwerp of plastiek, gemaakt van harde materialen zoals steen of metaal. Ook kunnen textiel of kunststoffen erin verwerkt zijn of het hoofdbestanddeel ervan uitmaken."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Artwork.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Sculpture",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Sculpture"}
+}

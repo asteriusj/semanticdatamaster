@@ -1,0 +1,58 @@
+{
+	"id": "Asteroid.json",
+	"title": "asteroid",
+	"translations": {
+		"title": {
+			"de": "Asteroid",
+			"el": "αστεροειδής",
+			"fr": "astéroïde",
+			"it": "asteroide",
+			"es": "asteroide",
+			"ga": "astaróideach",
+			"ko": "소행성",
+			"nl": "asteroïde",
+			"pt": "asteróide",
+			"ja": "小惑星"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "CelestialBody.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Asteroid",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Asteroid"}
+}

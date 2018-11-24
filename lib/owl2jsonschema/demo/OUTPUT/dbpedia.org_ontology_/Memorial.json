@@ -1,0 +1,71 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Monument.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"codeMemorial": {
+			"title": "memorial ID number",
+			"description": "Identifier for monuments of the Memorial type",
+			"type": "string"
+		}
+	},
+	"description": "A monument erected to commemorate a person, an event and/or group. In the case of a person, this might be a grave or tomb.",
+	"format": "http://dbpedia.org/ontology/Memorial",
+	"id": "Memorial.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Memorial"},
+	"properties": {
+		"codeMemorial": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeMemorial"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeMemorial"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "memorial",
+	"translations": {
+		"title": {
+			"de": "Denkmal",
+			"el": "μνημείο",
+			"fr": "mémorial",
+			"nl": "gedenkteken",
+			"ja": "記念碑"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

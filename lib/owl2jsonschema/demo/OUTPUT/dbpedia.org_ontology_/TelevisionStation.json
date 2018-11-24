@@ -1,0 +1,77 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Broadcaster.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"timeshiftChannel": {
+			"title": "timeshift channel",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A television station has usually one line up. For instance the television station WABC-TV &amp;&#35;40;or ABC 7, Channel 7&#41;. Not to be confused with the broadcasting network ABC, which has many television stations.",
+	"format": "http://dbpedia.org/ontology/TelevisionStation",
+	"id": "TelevisionStation.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TelevisionStation"},
+	"properties": {
+		"timeshiftChannel": {
+			"oneOf": [
+				{"$ref": "#/definitions/timeshiftChannel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/timeshiftChannel"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "television station",
+	"translations": {
+		"title": {
+			"de": "Fernsehsender",
+			"el": "τηλεοπτικός σταθμός",
+			"fr": "chaînes de télévision",
+			"it": "canale televisivo",
+			"es": "canal de televisión",
+			"ga": "stáisiún teilifíse",
+			"nl": "televisie zender",
+			"ja": "テレビジョン放送局"
+		},
+		"description": {
+			"el": "Ένας τηλεοπτικός σταθμός έχει μια παράταξη.Για παράδειγμα ο τηλεοπτικός σταθμός WABC-TV &amp;&#35;40;or ABC 7, Channel 7&#41;.Δεν πρέπει να συγχέεται με το τηλεοπτικό δίκτυο ABC,που έχει πολλούς τηλεοπτικούς σταθμούς.",
+			"de": "Ein Fernsehsender hat normalerweise ein Programm, zum Beispiel der Sender Erstes Deutsches Fernsehen &amp;&#35;40;Das Erste&#41;. Nicht zu verwechseln mit der Rundfunkanstalt ARD, welche mehrere Fernsehsender hat."
+		}
+	},
+	"type": "object"
+}

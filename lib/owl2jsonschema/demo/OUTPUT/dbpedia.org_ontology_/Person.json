@@ -1,0 +1,3268 @@
+{
+	"id": "Person.json",
+	"title": "person",
+	"translations": {
+		"title": {
+			"ar": "شخص",
+			"da": "person",
+			"de": "Person",
+			"el": "Πληροφορίες προσώπου",
+			"es": "persona",
+			"eu": "pertsona",
+			"fr": "personne",
+			"ga": "duine",
+			"hy": "անձ",
+			"it": "persona",
+			"ja": "人_&amp;&#35;40;法律&#41;",
+			"nl": "persoon",
+			"pl": "osoba",
+			"pt": "pessoa",
+			"sl": "Oseba"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"Person/height": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/centimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/centimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Person/weight": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"achievement": {
+			"oneOf": [
+				{"$ref": "#/definitions/achievement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/achievement"}
+				}
+			]
+		},
+		"activeYears": {
+			"oneOf": [
+				{"$ref": "#/definitions/activeYears"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/activeYears"}
+				}
+			]
+		},
+		"activeYearsEndDateMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/activeYearsEndDateMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/activeYearsEndDateMgr"}
+				}
+			]
+		},
+		"activeYearsEndYearMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/activeYearsEndYearMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/activeYearsEndYearMgr"}
+				}
+			]
+		},
+		"activeYearsStartDateMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/activeYearsStartDateMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/activeYearsStartDateMgr"}
+				}
+			]
+		},
+		"activeYearsStartYearMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/activeYearsStartYearMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/activeYearsStartYearMgr"}
+				}
+			]
+		},
+		"activity": {
+			"oneOf": [
+				{"$ref": "#/definitions/activity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/activity"}
+				}
+			]
+		},
+		"affair": {
+			"oneOf": [
+				{"$ref": "#/definitions/affair"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/affair"}
+				}
+			]
+		},
+		"agency": {
+			"oneOf": [
+				{"$ref": "#/definitions/agency"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/agency"}
+				}
+			]
+		},
+		"allegiance": {
+			"oneOf": [
+				{"$ref": "#/definitions/allegiance"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/allegiance"}
+				}
+			]
+		},
+		"almaMater": {
+			"oneOf": [
+				{"$ref": "EducationalInstitution.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "EducationalInstitution.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"announcedFrom": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"approach": {
+			"oneOf": [
+				{"$ref": "#/definitions/approach"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/approach"}
+				}
+			]
+		},
+		"arrestDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/arrestDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/arrestDate"}
+				}
+			]
+		},
+		"artisticFunction": {
+			"oneOf": [
+				{"$ref": "#/definitions/artisticFunction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/artisticFunction"}
+				}
+			]
+		},
+		"astrologicalSign": {
+			"oneOf": [
+				{"$ref": "#/definitions/astrologicalSign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/astrologicalSign"}
+				}
+			]
+		},
+		"awardName": {
+			"oneOf": [
+				{"$ref": "#/definitions/awardName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/awardName"}
+				}
+			]
+		},
+		"badGuy": {
+			"oneOf": [
+				{"$ref": "#/definitions/badGuy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/badGuy"}
+				}
+			]
+		},
+		"bestLap": {
+			"oneOf": [
+				{"$ref": "#/definitions/bestLap"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bestLap"}
+				}
+			]
+		},
+		"bigPoolRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/bigPoolRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bigPoolRecord"}
+				}
+			]
+		},
+		"birthDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/birthDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/birthDate"}
+				}
+			]
+		},
+		"birthName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"birthPlace": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"birthSign": {
+			"oneOf": [
+				{"$ref": "#/definitions/birthSign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/birthSign"}
+				}
+			]
+		},
+		"birthYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/birthYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/birthYear"}
+				}
+			]
+		},
+		"bloodGroup": {
+			"oneOf": [
+				{"$ref": "#/definitions/bloodGroup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bloodGroup"}
+				}
+			]
+		},
+		"bloodType": {
+			"oneOf": [
+				{"$ref": "#/definitions/bloodType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bloodType"}
+				}
+			]
+		},
+		"board": {
+			"oneOf": [
+				{"$ref": "#/definitions/board"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/board"}
+				}
+			]
+		},
+		"bodyDiscovered": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"britishWins": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"bustSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/bustSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bustSize"}
+				}
+			]
+		},
+		"bustWaistHipSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/bustWaistHipSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bustWaistHipSize"}
+				}
+			]
+		},
+		"careerStation": {
+			"oneOf": [
+				{"$ref": "CareerStation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "CareerStation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"case": {
+			"oneOf": [
+				{"$ref": "#/definitions/case"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/case"}
+				}
+			]
+		},
+		"catch": {
+			"oneOf": [
+				{"$ref": "#/definitions/catch"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/catch"}
+				}
+			]
+		},
+		"causeOfDeath": {
+			"oneOf": [
+				{"$ref": "#/definitions/causeOfDeath"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/causeOfDeath"}
+				}
+			]
+		},
+		"child": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"circumcised": {
+			"oneOf": [
+				{"$ref": "#/definitions/circumcised"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/circumcised"}
+				}
+			]
+		},
+		"citizenship": {
+			"oneOf": [
+				{"$ref": "#/definitions/citizenship"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/citizenship"}
+				}
+			]
+		},
+		"clothSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/clothSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/clothSize"}
+				}
+			]
+		},
+		"clothingSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/clothingSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/clothingSize"}
+				}
+			]
+		},
+		"coalition": {
+			"oneOf": [
+				{"$ref": "#/definitions/coalition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coalition"}
+				}
+			]
+		},
+		"collaboration": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"colleague": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"college": {
+			"oneOf": [
+				{"$ref": "EducationalInstitution.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "EducationalInstitution.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"competitionTitle": {
+			"oneOf": [
+				{"$ref": "SportsEvent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsEvent.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"complexion": {
+			"oneOf": [
+				{"$ref": "#/definitions/complexion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/complexion"}
+				}
+			]
+		},
+		"contest": {
+			"oneOf": [
+				{"$ref": "Contest.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Contest.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"continentalTournament": {
+			"oneOf": [
+				{"$ref": "Tournament.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Tournament.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"continentalTournamentBronze": {
+			"oneOf": [
+				{"$ref": "#/definitions/continentalTournamentBronze"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/continentalTournamentBronze"}
+				}
+			]
+		},
+		"continentalTournamentGold": {
+			"oneOf": [
+				{"$ref": "#/definitions/continentalTournamentGold"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/continentalTournamentGold"}
+				}
+			]
+		},
+		"continentalTournamentSilver": {
+			"oneOf": [
+				{"$ref": "#/definitions/continentalTournamentSilver"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/continentalTournamentSilver"}
+				}
+			]
+		},
+		"convictionDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/convictionDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/convictionDate"}
+				}
+			]
+		},
+		"copilote": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"cousurper": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"created": {
+			"oneOf": [
+				{"$ref": "Work.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Work.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"currentTeamManager": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"danseCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/danseCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/danseCompetition"}
+				}
+			]
+		},
+		"danseScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/danseScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/danseScore"}
+				}
+			]
+		},
+		"dateOfBurial": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateOfBurial"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateOfBurial"}
+				}
+			]
+		},
+		"deadInFightDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/deadInFightDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deadInFightDate"}
+				}
+			]
+		},
+		"deadInFightPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/deadInFightPlace"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deadInFightPlace"}
+				}
+			]
+		},
+		"deathAge": {
+			"oneOf": [
+				{"$ref": "#/definitions/deathAge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deathAge"}
+				}
+			]
+		},
+		"deathCause": {
+			"oneOf": [
+				{"$ref": "#/definitions/deathCause"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deathCause"}
+				}
+			]
+		},
+		"deathDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/deathDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deathDate"}
+				}
+			]
+		},
+		"deathPlace": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"deathYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/deathYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/deathYear"}
+				}
+			]
+		},
+		"debutWork": {
+			"oneOf": [
+				{"$ref": "Work.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Work.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"decoration": {
+			"oneOf": [
+				{"$ref": "#/definitions/decoration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/decoration"}
+				}
+			]
+		},
+		"derivedWord": {
+			"oneOf": [
+				{"$ref": "#/definitions/derivedWord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/derivedWord"}
+				}
+			]
+		},
+		"detractor": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"diploma": {
+			"oneOf": [
+				{"$ref": "Diploma.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Diploma.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dubber": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"education": {
+			"oneOf": [
+				{"$ref": "#/definitions/education"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/education"}
+				}
+			]
+		},
+		"educationPlace": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"electionDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/electionDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/electionDate"}
+				}
+			]
+		},
+		"employer": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"endCareer": {
+			"oneOf": [
+				{"$ref": "#/definitions/endCareer"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/endCareer"}
+				}
+			]
+		},
+		"endReign": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"escalafon": {
+			"oneOf": [
+				{"$ref": "#/definitions/escalafon"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/escalafon"}
+				}
+			]
+		},
+		"ethnicity": {
+			"oneOf": [
+				{"$ref": "EthnicGroup.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "EthnicGroup.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"expedition": {
+			"oneOf": [
+				{"$ref": "#/definitions/expedition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/expedition"}
+				}
+			]
+		},
+		"externalOrnament": {
+			"oneOf": [
+				{"$ref": "#/definitions/externalOrnament"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/externalOrnament"}
+				}
+			]
+		},
+		"eyeColor": {
+			"oneOf": [
+				{"$ref": "#/definitions/eyeColor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eyeColor"}
+				}
+			]
+		},
+		"eyeColour": {
+			"oneOf": [
+				{"$ref": "#/definitions/eyeColour"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eyeColour"}
+				}
+			]
+		},
+		"father": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"feat": {
+			"oneOf": [
+				{"$ref": "#/definitions/feat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/feat"}
+				}
+			]
+		},
+		"federation": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"filmNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/filmNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/filmNumber"}
+				}
+			]
+		},
+		"foot": {
+			"oneOf": [
+				{"$ref": "#/definitions/foot"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/foot"}
+				}
+			]
+		},
+		"freeDanseScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/freeDanseScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/freeDanseScore"}
+				}
+			]
+		},
+		"freeProgCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/freeProgCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/freeProgCompetition"}
+				}
+			]
+		},
+		"freeProgScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/freeProgScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/freeProgScore"}
+				}
+			]
+		},
+		"freeScoreCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/freeScoreCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/freeScoreCompetition"}
+				}
+			]
+		},
+		"friend": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fullCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/fullCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fullCompetition"}
+				}
+			]
+		},
+		"fullScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/fullScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fullScore"}
+				}
+			]
+		},
+		"grave": {
+			"oneOf": [
+				{"$ref": "#/definitions/grave"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/grave"}
+				}
+			]
+		},
+		"gymApparatus": {
+			"oneOf": [
+				{"$ref": "#/definitions/gymApparatus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gymApparatus"}
+				}
+			]
+		},
+		"hairColor": {
+			"oneOf": [
+				{"$ref": "#/definitions/hairColor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hairColor"}
+				}
+			]
+		},
+		"hairColour": {
+			"oneOf": [
+				{"$ref": "#/definitions/hairColour"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hairColour"}
+				}
+			]
+		},
+		"hand": {
+			"oneOf": [
+				{"$ref": "#/definitions/hand"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hand"}
+				}
+			]
+		},
+		"handedness": {
+			"oneOf": [
+				{"$ref": "#/definitions/handedness"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/handedness"}
+				}
+			]
+		},
+		"handisport": {
+			"oneOf": [
+				{"$ref": "#/definitions/handisport"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/handisport"}
+				}
+			]
+		},
+		"hasNaturalBust": {
+			"oneOf": [
+				{"$ref": "#/definitions/hasNaturalBust"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hasNaturalBust"}
+				}
+			]
+		},
+		"hipSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/hipSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hipSize"}
+				}
+			]
+		},
+		"homage": {
+			"oneOf": [
+				{"$ref": "#/definitions/homage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/homage"}
+				}
+			]
+		},
+		"idNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/idNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/idNumber"}
+				}
+			]
+		},
+		"iihfHof": {
+			"oneOf": [
+				{"$ref": "#/definitions/iihfHof"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iihfHof"}
+				}
+			]
+		},
+		"imposedDanseCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/imposedDanseCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/imposedDanseCompetition"}
+				}
+			]
+		},
+		"imposedDanseScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/imposedDanseScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/imposedDanseScore"}
+				}
+			]
+		},
+		"individualisedPnd": {
+			"oneOf": [
+				{"$ref": "#/definitions/individualisedPnd"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/individualisedPnd"}
+				}
+			]
+		},
+		"juniorYearsEndYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/juniorYearsEndYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/juniorYearsEndYear"}
+				}
+			]
+		},
+		"juniorYearsStartYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/juniorYearsStartYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/juniorYearsStartYear"}
+				}
+			]
+		},
+		"jutsu": {
+			"oneOf": [
+				{"$ref": "#/definitions/jutsu"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/jutsu"}
+				}
+			]
+		},
+		"killedBy": {
+			"oneOf": [
+				{"$ref": "#/definitions/killedBy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/killedBy"}
+				}
+			]
+		},
+		"lahHof": {
+			"oneOf": [
+				{"$ref": "#/definitions/lahHof"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lahHof"}
+				}
+			]
+		},
+		"leadership": {
+			"oneOf": [
+				{"$ref": "#/definitions/leadership"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/leadership"}
+				}
+			]
+		},
+		"leagueManager": {
+			"oneOf": [
+				{"$ref": "SportsLeague.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsLeague.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"linguisticsTradition": {
+			"oneOf": [
+				{"$ref": "#/definitions/linguisticsTradition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/linguisticsTradition"}
+				}
+			]
+		},
+		"littlePoolRecord": {
+			"oneOf": [
+				{"$ref": "#/definitions/littlePoolRecord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/littlePoolRecord"}
+				}
+			]
+		},
+		"livingPlace": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mainDomain": {
+			"oneOf": [
+				{"$ref": "#/definitions/mainDomain"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mainDomain"}
+				}
+			]
+		},
+		"mastersWins": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"matchPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/matchPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/matchPoint"}
+				}
+			]
+		},
+		"measurements": {
+			"oneOf": [
+				{"$ref": "#/definitions/measurements"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/measurements"}
+				}
+			]
+		},
+		"media": {
+			"oneOf": [
+				{"$ref": "#/definitions/media"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/media"}
+				}
+			]
+		},
+		"member": {
+			"oneOf": [
+				{"$ref": "#/definitions/member"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/member"}
+				}
+			]
+		},
+		"militaryService": {
+			"oneOf": [
+				{"$ref": "MilitaryService.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MilitaryService.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mood": {
+			"oneOf": [
+				{"$ref": "#/definitions/mood"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mood"}
+				}
+			]
+		},
+		"mother": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mount": {
+			"oneOf": [
+				{"$ref": "#/definitions/mount"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mount"}
+				}
+			]
+		},
+		"movie": {
+			"oneOf": [
+				{"$ref": "Film.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Film.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nationalTeamMatchPoint": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalTeamMatchPoint"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalTeamMatchPoint"}
+				}
+			]
+		},
+		"nationalTeamYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalTeamYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalTeamYear"}
+				}
+			]
+		},
+		"nationalTournament": {
+			"oneOf": [
+				{"$ref": "Tournament.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Tournament.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nationalTournamentBronze": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalTournamentBronze"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalTournamentBronze"}
+				}
+			]
+		},
+		"nationalTournamentGold": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalTournamentGold"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalTournamentGold"}
+				}
+			]
+		},
+		"nationalTournamentSilver": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalTournamentSilver"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalTournamentSilver"}
+				}
+			]
+		},
+		"nationality": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"networth": {
+			"oneOf": [
+				{"$ref": "#/definitions/networth"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/networth"}
+				}
+			]
+		},
+		"nndbId": {
+			"oneOf": [
+				{"$ref": "#/definitions/nndbId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nndbId"}
+				}
+			]
+		},
+		"nonProfessionalCareer": {
+			"oneOf": [
+				{"$ref": "#/definitions/nonProfessionalCareer"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nonProfessionalCareer"}
+				}
+			]
+		},
+		"notableIdea": {
+			"oneOf": [
+				{"$ref": "#/definitions/notableIdea"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/notableIdea"}
+				}
+			]
+		},
+		"noteOnRestingPlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/noteOnRestingPlace"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/noteOnRestingPlace"}
+				}
+			]
+		},
+		"numberOfRun": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfRun"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfRun"}
+				}
+			]
+		},
+		"olympicGames": {
+			"oneOf": [
+				{"$ref": "Tournament.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Tournament.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"olympicGamesBronze": {
+			"oneOf": [
+				{"$ref": "#/definitions/olympicGamesBronze"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/olympicGamesBronze"}
+				}
+			]
+		},
+		"olympicGamesGold": {
+			"oneOf": [
+				{"$ref": "#/definitions/olympicGamesGold"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/olympicGamesGold"}
+				}
+			]
+		},
+		"olympicGamesSilver": {
+			"oneOf": [
+				{"$ref": "#/definitions/olympicGamesSilver"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/olympicGamesSilver"}
+				}
+			]
+		},
+		"olympicGamesWins": {
+			"oneOf": [
+				{"$ref": "#/definitions/olympicGamesWins"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/olympicGamesWins"}
+				}
+			]
+		},
+		"opponent": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"orientation": {
+			"oneOf": [
+				{"$ref": "#/definitions/orientation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/orientation"}
+				}
+			]
+		},
+		"originalDanseCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/originalDanseCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/originalDanseCompetition"}
+				}
+			]
+		},
+		"originalDanseScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/originalDanseScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/originalDanseScore"}
+				}
+			]
+		},
+		"otherActivity": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherActivity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherActivity"}
+				}
+			]
+		},
+		"otherFunction": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherFunction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherFunction"}
+				}
+			]
+		},
+		"otherMedia": {
+			"oneOf": [
+				{"$ref": "PeriodicalLiterature.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PeriodicalLiterature.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"otherOccupation": {
+			"oneOf": [
+				{"$ref": "PersonFunction.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PersonFunction.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"parent": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"parliamentaryGroup": {
+			"oneOf": [
+				{"$ref": "#/definitions/parliamentaryGroup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/parliamentaryGroup"}
+				}
+			]
+		},
+		"particularSign": {
+			"oneOf": [
+				{"$ref": "#/definitions/particularSign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/particularSign"}
+				}
+			]
+		},
+		"partner": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"patent": {
+			"oneOf": [
+				{"$ref": "#/definitions/patent"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/patent"}
+				}
+			]
+		},
+		"penisLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/penisLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/penisLength"}
+				}
+			]
+		},
+		"personFunction": {
+			"oneOf": [
+				{"$ref": "PersonFunction.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PersonFunction.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"pgaWins": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"philosophicalSchool": {
+			"oneOf": [
+				{"$ref": "#/definitions/philosophicalSchool"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/philosophicalSchool"}
+				}
+			]
+		},
+		"piercing": {
+			"oneOf": [
+				{"$ref": "#/definitions/piercing"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/piercing"}
+				}
+			]
+		},
+		"placeOfBurial": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"playerStatus": {
+			"oneOf": [
+				{"$ref": "#/definitions/playerStatus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/playerStatus"}
+				}
+			]
+		},
+		"podium": {
+			"oneOf": [
+				{"$ref": "#/definitions/podium"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/podium"}
+				}
+			]
+		},
+		"polePosition": {
+			"oneOf": [
+				{"$ref": "#/definitions/polePosition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/polePosition"}
+				}
+			]
+		},
+		"politicalFunction": {
+			"oneOf": [
+				{"$ref": "#/definitions/politicalFunction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/politicalFunction"}
+				}
+			]
+		},
+		"proPeriod": {
+			"oneOf": [
+				{"$ref": "#/definitions/proPeriod"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/proPeriod"}
+				}
+			]
+		},
+		"proSince": {
+			"oneOf": [
+				{"$ref": "#/definitions/proSince"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/proSince"}
+				}
+			]
+		},
+		"profession": {
+			"oneOf": [
+				{"$ref": "#/definitions/profession"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/profession"}
+				}
+			]
+		},
+		"project": {
+			"oneOf": [
+				{"$ref": "Project.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Project.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"pseudonym": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"publication": {
+			"oneOf": [
+				{"$ref": "#/definitions/publication"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/publication"}
+				}
+			]
+		},
+		"raceWins": {
+			"oneOf": [
+				{"$ref": "#/definitions/raceWins"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/raceWins"}
+				}
+			]
+		},
+		"radio": {
+			"oneOf": [
+				{"$ref": "RadioStation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "RadioStation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"reign": {
+			"oneOf": [
+				{"$ref": "#/definitions/reign"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/reign"}
+				}
+			]
+		},
+		"reignName": {
+			"oneOf": [
+				{"$ref": "#/definitions/reignName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/reignName"}
+				}
+			]
+		},
+		"relatedFunctions": {
+			"oneOf": [
+				{"$ref": "List.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "List.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"relation": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"relative": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"residence": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"restingDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/restingDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/restingDate"}
+				}
+			]
+		},
+		"restingPlace": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"restingPlacePosition": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"retirementDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/retirementDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/retirementDate"}
+				}
+			]
+		},
+		"salary": {
+			"oneOf": [
+				{"$ref": "#/definitions/salary"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/salary"}
+				}
+			]
+		},
+		"scene": {
+			"oneOf": [
+				{"$ref": "#/definitions/scene"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/scene"}
+				}
+			]
+		},
+		"school": {
+			"oneOf": [
+				{"$ref": "EducationalInstitution.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "EducationalInstitution.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"seasonManager": {
+			"oneOf": [
+				{"$ref": "#/definitions/seasonManager"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/seasonManager"}
+				}
+			]
+		},
+		"second": {
+			"oneOf": [
+				{"$ref": "#/definitions/second"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/second"}
+				}
+			]
+		},
+		"seiyu": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sentence": {
+			"oneOf": [
+				{"$ref": "#/definitions/sentence"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sentence"}
+				}
+			]
+		},
+		"sex": {
+			"oneOf": [
+				{"$ref": "#/definitions/sex"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sex"}
+				}
+			]
+		},
+		"sexualOrientation": {
+			"oneOf": [
+				{"$ref": "#/definitions/sexualOrientation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sexualOrientation"}
+				}
+			]
+		},
+		"shoeNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/shoeNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shoeNumber"}
+				}
+			]
+		},
+		"shoeSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/shoeSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shoeSize"}
+				}
+			]
+		},
+		"shoot": {
+			"oneOf": [
+				{"$ref": "#/definitions/shoot"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shoot"}
+				}
+			]
+		},
+		"shortProgCompetition": {
+			"oneOf": [
+				{"$ref": "#/definitions/shortProgCompetition"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shortProgCompetition"}
+				}
+			]
+		},
+		"shortProgScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/shortProgScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shortProgScore"}
+				}
+			]
+		},
+		"sibling": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"signature": {
+			"oneOf": [
+				{"$ref": "#/definitions/signature"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/signature"}
+				}
+			]
+		},
+		"significantProject": {
+			"oneOf": [
+				{"$ref": "#/definitions/significantProject"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/significantProject"}
+				}
+			]
+		},
+		"skinColor": {
+			"oneOf": [
+				{"$ref": "#/definitions/skinColor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/skinColor"}
+				}
+			]
+		},
+		"specialTrial": {
+			"oneOf": [
+				{"$ref": "#/definitions/specialTrial"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/specialTrial"}
+				}
+			]
+		},
+		"speciality": {
+			"oneOf": [
+				{"$ref": "#/definitions/speciality"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/speciality"}
+				}
+			]
+		},
+		"sportDiscipline": {
+			"oneOf": [
+				{"$ref": "Sport.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Sport.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"sportsFunction": {
+			"oneOf": [
+				{"$ref": "#/definitions/sportsFunction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/sportsFunction"}
+				}
+			]
+		},
+		"spouse": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"spouseName": {
+			"oneOf": [
+				{"$ref": "#/definitions/spouseName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/spouseName"}
+				}
+			]
+		},
+		"startCareer": {
+			"oneOf": [
+				{"$ref": "#/definitions/startCareer"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/startCareer"}
+				}
+			]
+		},
+		"startReign": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"startWct": {
+			"oneOf": [
+				{"$ref": "#/definitions/startWct"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/startWct"}
+				}
+			]
+		},
+		"startWqs": {
+			"oneOf": [
+				{"$ref": "#/definitions/startWqs"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/startWqs"}
+				}
+			]
+		},
+		"stateOfOrigin": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"statusManager": {
+			"oneOf": [
+				{"$ref": "#/definitions/statusManager"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/statusManager"}
+				}
+			]
+		},
+		"student": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tattoo": {
+			"oneOf": [
+				{"$ref": "#/definitions/tattoo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tattoo"}
+				}
+			]
+		},
+		"teamManager": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"temple": {
+			"oneOf": [
+				{"$ref": "#/definitions/temple"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/temple"}
+				}
+			]
+		},
+		"templeYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/templeYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/templeYear"}
+				}
+			]
+		},
+		"tessitura": {
+			"oneOf": [
+				{"$ref": "#/definitions/tessitura"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tessitura"}
+				}
+			]
+		},
+		"third": {
+			"oneOf": [
+				{"$ref": "#/definitions/third"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/third"}
+				}
+			]
+		},
+		"titleDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/titleDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/titleDate"}
+				}
+			]
+		},
+		"tvShow": {
+			"oneOf": [
+				{"$ref": "TelevisionShow.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "TelevisionShow.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"usopenWins": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"usurper": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"victory": {
+			"oneOf": [
+				{"$ref": "#/definitions/victory"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/victory"}
+				}
+			]
+		},
+		"victoryAsMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/victoryAsMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/victoryAsMgr"}
+				}
+			]
+		},
+		"victoryPercentageAsMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/victoryPercentageAsMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/victoryPercentageAsMgr"}
+				}
+			]
+		},
+		"waistSize": {
+			"oneOf": [
+				{"$ref": "#/definitions/waistSize"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/waistSize"}
+				}
+			]
+		},
+		"weapon": {
+			"oneOf": [
+				{"$ref": "#/definitions/weapon"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/weapon"}
+				}
+			]
+		},
+		"weddingParentsDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/weddingParentsDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/weddingParentsDate"}
+				}
+			]
+		},
+		"world": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#Concept.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"worldTournament": {
+			"oneOf": [
+				{"$ref": "Tournament.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Tournament.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"worldTournamentBronze": {
+			"oneOf": [
+				{"$ref": "#/definitions/worldTournamentBronze"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worldTournamentBronze"}
+				}
+			]
+		},
+		"worldTournamentGold": {
+			"oneOf": [
+				{"$ref": "#/definitions/worldTournamentGold"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worldTournamentGold"}
+				}
+			]
+		},
+		"worldTournamentSilver": {
+			"oneOf": [
+				{"$ref": "#/definitions/worldTournamentSilver"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worldTournamentSilver"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"achievement": {
+			"title": "achievement",
+			"description": "",
+			"anyOf": []
+		},
+		"activeYears": {
+			"title": "active years",
+			"description": "Also called&quot;floruit&quot;. Use this if the active years are in one field that can&apos;t be split. Else use activeYearsStartYear and activeYearsEndYear",
+			"type": "string"
+		},
+		"activeYearsEndDateMgr": {
+			"title": "active years end date manager",
+			"description": "",
+			"type": "string"
+		},
+		"activeYearsEndYearMgr": {
+			"title": "active years end year manager",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"activeYearsStartDateMgr": {
+			"title": "active years start date manager",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"activeYearsStartYearMgr": {
+			"title": "active years start year manager",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"activity": {
+			"title": "activity",
+			"description": "",
+			"anyOf": []
+		},
+		"affair": {
+			"title": "affair",
+			"description": "",
+			"type": "string"
+		},
+		"agency": {
+			"title": "agency",
+			"description": "",
+			"anyOf": []
+		},
+		"allegiance": {
+			"title": "allegiance",
+			"description": "The country or other power the person served. Multiple countries may be indicated together with the corresponding dates. This field should not be used to indicate a particular service branch, which is better indicated by the branch field.",
+			"type": "string"
+		},
+		"approach": {
+			"title": "approach",
+			"description": "",
+			"anyOf": []
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"arrestDate": {
+			"title": "arrest date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"artisticFunction": {
+			"title": "artistic function",
+			"description": "",
+			"type": "string"
+		},
+		"astrologicalSign": {
+			"title": "astrological sign",
+			"description": "",
+			"anyOf": []
+		},
+		"awardName": {
+			"title": "awardName",
+			"description": "Award a person has received &amp;&#35;40;literal&#41;. Compare to award (ObjectProperty)",
+			"type": "string"
+		},
+		"badGuy": {
+			"title": "bad guy",
+			"description": "",
+			"type": "string"
+		},
+		"bestLap": {
+			"title": "best lap",
+			"description": "",
+			"type": "string"
+		},
+		"bigPoolRecord": {
+			"title": "big pool record",
+			"description": "",
+			"type": "string"
+		},
+		"birthDate": {
+			"title": "birth date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"birthSign": {
+			"title": "birth sign",
+			"description": "",
+			"anyOf": []
+		},
+		"birthYear": {
+			"title": "birth year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"bloodGroup": {
+			"title": "blood group",
+			"description": "",
+			"type": "string"
+		},
+		"bloodType": {
+			"title": "blood type",
+			"description": "",
+			"anyOf": []
+		},
+		"board": {
+			"title": "board",
+			"description": "",
+			"anyOf": []
+		},
+		"bustSize": {
+			"title": "bust size &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"bustWaistHipSize": {
+			"title": "bust-waist-hip Size",
+			"description": "Use this property if all 3 sizes are given together &amp;&#35;40;DBpedia cannot currently extract 3 Lengths out of a field&#41;. Otherwise use separate fields bustSize, waistSize, hipSize",
+			"type": "string"
+		},
+		"case": {
+			"title": "case",
+			"description": "",
+			"type": "string"
+		},
+		"catch": {
+			"title": "catch",
+			"description": "",
+			"type": "string"
+		},
+		"causeOfDeath": {
+			"title": "cause of death",
+			"description": "",
+			"type": "string"
+		},
+		"circumcised": {
+			"title": "circumcised",
+			"description": "",
+			"type": "string"
+		},
+		"citizenship": {
+			"title": "citizenship",
+			"description": "",
+			"anyOf": []
+		},
+		"clothSize": {
+			"title": "cloth size",
+			"description": "",
+			"type": "string"
+		},
+		"clothingSize": {
+			"title": "clothing size",
+			"description": "",
+			"type": "string"
+		},
+		"coalition": {
+			"title": "coalition",
+			"description": "",
+			"type": "string"
+		},
+		"complexion": {
+			"title": "complexion",
+			"description": "",
+			"anyOf": []
+		},
+		"continentalTournamentBronze": {
+			"title": "continental tournament bronze",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"continentalTournamentGold": {
+			"title": "continental tournament gold",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"continentalTournamentSilver": {
+			"title": "continental tournament silver",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"convictionDate": {
+			"title": "conviction date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"danseCompetition": {
+			"title": "danse competition",
+			"description": "",
+			"type": "string"
+		},
+		"danseScore": {
+			"title": "danse score",
+			"description": "",
+			"type": "string"
+		},
+		"dateOfBurial": {
+			"title": "date of burial",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"deadInFightDate": {
+			"title": "dead in fight date",
+			"description": "",
+			"type": "string"
+		},
+		"deadInFightPlace": {
+			"title": "dead in fight place",
+			"description": "",
+			"type": "string"
+		},
+		"deathAge": {
+			"title": "death age",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"deathCause": {
+			"title": "death cause",
+			"description": "",
+			"anyOf": []
+		},
+		"deathDate": {
+			"title": "death date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"deathYear": {
+			"title": "death year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"decoration": {
+			"title": "decoration",
+			"description": "",
+			"anyOf": []
+		},
+		"derivedWord": {
+			"title": "derived word",
+			"description": "",
+			"type": "string"
+		},
+		"education": {
+			"title": "education",
+			"description": "",
+			"anyOf": []
+		},
+		"electionDate": {
+			"title": "election date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"endCareer": {
+			"title": "end career",
+			"description": "",
+			"type": "string"
+		},
+		"escalafon": {
+			"title": "escalafon",
+			"description": "",
+			"type": "string"
+		},
+		"expedition": {
+			"title": "expedition",
+			"description": "",
+			"type": "string"
+		},
+		"externalOrnament": {
+			"title": "external ornament",
+			"description": "",
+			"type": "string"
+		},
+		"eyeColor": {
+			"title": "eye color",
+			"description": "",
+			"type": "string"
+		},
+		"eyeColour": {
+			"title": "eye colour",
+			"description": "",
+			"type": "string"
+		},
+		"feat": {
+			"title": "feat",
+			"description": "",
+			"type": "string"
+		},
+		"filmNumber": {
+			"title": "film number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"foot": {
+			"title": "foot",
+			"description": "",
+			"type": "string"
+		},
+		"freeDanseScore": {
+			"title": "free danse score",
+			"description": "",
+			"type": "string"
+		},
+		"freeProgCompetition": {
+			"title": "free prog competition",
+			"description": "",
+			"type": "string"
+		},
+		"freeProgScore": {
+			"title": "free prog score",
+			"description": "",
+			"type": "string"
+		},
+		"freeScoreCompetition": {
+			"title": "free score competition",
+			"description": "",
+			"type": "string"
+		},
+		"fullCompetition": {
+			"title": "full competition",
+			"description": "",
+			"type": "string"
+		},
+		"fullScore": {
+			"title": "full score",
+			"description": "",
+			"type": "string"
+		},
+		"grave": {
+			"title": "grave",
+			"description": "",
+			"type": "string"
+		},
+		"gymApparatus": {
+			"title": "gym apparatus",
+			"description": "",
+			"anyOf": []
+		},
+		"hairColor": {
+			"title": "hair color",
+			"description": "",
+			"type": "string"
+		},
+		"hairColour": {
+			"title": "hair colour",
+			"description": "",
+			"type": "string"
+		},
+		"hand": {
+			"title": "hand",
+			"description": "",
+			"anyOf": []
+		},
+		"handedness": {
+			"title": "handedness",
+			"description": "an attribute of humans defined by their unequal distribution of fine motor skill between the left and right hands.",
+			"anyOf": []
+		},
+		"handisport": {
+			"title": "handisport",
+			"description": "",
+			"type": "string"
+		},
+		"hasNaturalBust": {
+			"title": "has natural bust",
+			"description": "",
+			"type": "string"
+		},
+		"hipSize": {
+			"title": "hip size &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"homage": {
+			"title": "homage",
+			"description": "",
+			"type": "string"
+		},
+		"idNumber": {
+			"title": "id number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"iihfHof": {
+			"title": "lihf hof",
+			"description": "",
+			"type": "string"
+		},
+		"imposedDanseCompetition": {
+			"title": "imposed danse competition",
+			"description": "",
+			"type": "string"
+		},
+		"imposedDanseScore": {
+			"title": "imposed danse score",
+			"description": "",
+			"type": "string"
+		},
+		"individualisedPnd": {
+			"title": "individualised PND number",
+			"description": "PND &amp;&#35;40;Personennamendatei&#41; data about a person. PND is published by the German National Library. For each person there is a record with her/his name, birth and occupation connected with a unique identifier, the PND number.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"juniorYearsEndYear": {
+			"title": "junior years end year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"juniorYearsStartYear": {
+			"title": "junior years start year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"jutsu": {
+			"title": "jutsu",
+			"description": "",
+			"type": "string"
+		},
+		"killedBy": {
+			"title": "killed by",
+			"description": "",
+			"type": "string"
+		},
+		"lahHof": {
+			"title": "lah hof",
+			"description": "",
+			"type": "string"
+		},
+		"leadership": {
+			"title": "leadership",
+			"description": "",
+			"type": "string"
+		},
+		"linguisticsTradition": {
+			"title": "linguistics tradition",
+			"description": "",
+			"anyOf": []
+		},
+		"littlePoolRecord": {
+			"title": "little pool record",
+			"description": "",
+			"type": "string"
+		},
+		"mainDomain": {
+			"title": "main domain",
+			"description": "",
+			"anyOf": []
+		},
+		"matchPoint": {
+			"title": "match point",
+			"description": "",
+			"type": "string"
+		},
+		"measurements": {
+			"title": "measurements",
+			"description": "",
+			"type": "string"
+		},
+		"media": {
+			"title": "media",
+			"description": "",
+			"anyOf": []
+		},
+		"member": {
+			"title": "member",
+			"description": "",
+			"type": "string"
+		},
+		"mood": {
+			"title": "mood",
+			"description": "",
+			"type": "string"
+		},
+		"mount": {
+			"title": "mount",
+			"description": "",
+			"type": "string"
+		},
+		"nationalTeamMatchPoint": {
+			"title": "national team match point",
+			"description": "",
+			"type": "string"
+		},
+		"nationalTeamYear": {
+			"title": "national team year",
+			"description": "",
+			"type": "string"
+		},
+		"nationalTournamentBronze": {
+			"title": "national tournament bronze",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"nationalTournamentGold": {
+			"title": "national tournament gold",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"nationalTournamentSilver": {
+			"title": "national tournament silver",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"networth": {
+			"title": "networth &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"nndbId": {
+			"title": "NNDB id",
+			"description": "",
+			"type": "string"
+		},
+		"nonProfessionalCareer": {
+			"title": "non professional career",
+			"description": "",
+			"type": "string"
+		},
+		"notableIdea": {
+			"title": "notableIdea",
+			"description": "",
+			"anyOf": []
+		},
+		"noteOnRestingPlace": {
+			"title": "note on resting place",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfRun": {
+			"title": "number of run",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"olympicGamesBronze": {
+			"title": "olympic games bronze",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"olympicGamesGold": {
+			"title": "olympic games gold",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"olympicGamesSilver": {
+			"title": "olympic games silver",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"olympicGamesWins": {
+			"title": "olympic games wins",
+			"description": "",
+			"type": "string"
+		},
+		"orientation": {
+			"title": "orientation",
+			"description": "",
+			"type": "string"
+		},
+		"originalDanseCompetition": {
+			"title": "original danse competititon",
+			"description": "",
+			"type": "string"
+		},
+		"originalDanseScore": {
+			"title": "original danse score",
+			"description": "",
+			"type": "string"
+		},
+		"otherActivity": {
+			"title": "other activity",
+			"description": "",
+			"type": "string"
+		},
+		"otherFunction": {
+			"title": "other function",
+			"description": "",
+			"anyOf": []
+		},
+		"parliamentaryGroup": {
+			"title": "parliamentary group",
+			"description": "",
+			"type": "string"
+		},
+		"particularSign": {
+			"title": "particular sign",
+			"description": "",
+			"type": "string"
+		},
+		"patent": {
+			"title": "patent",
+			"description": "",
+			"anyOf": []
+		},
+		"penisLength": {
+			"title": "penis length",
+			"description": "",
+			"type": "string"
+		},
+		"philosophicalSchool": {
+			"title": "philosophicalSchool",
+			"description": "",
+			"anyOf": []
+		},
+		"piercing": {
+			"title": "piercing",
+			"description": "",
+			"type": "string"
+		},
+		"playerStatus": {
+			"title": "player status",
+			"description": "",
+			"type": "string"
+		},
+		"podium": {
+			"title": "podium",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"polePosition": {
+			"title": "pole position",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"politicalFunction": {
+			"title": "political function",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"proPeriod": {
+			"title": "pro period",
+			"description": "",
+			"type": "string"
+		},
+		"proSince": {
+			"title": "pro since",
+			"description": "",
+			"type": "string"
+		},
+		"profession": {
+			"title": "profession",
+			"description": "",
+			"anyOf": []
+		},
+		"publication": {
+			"title": "publication",
+			"description": "",
+			"type": "string"
+		},
+		"raceWins": {
+			"title": "race wins",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"reign": {
+			"title": "reign",
+			"description": "",
+			"type": "string"
+		},
+		"reignName": {
+			"title": "reign name",
+			"description": "",
+			"type": "string"
+		},
+		"restingDate": {
+			"title": "resting date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"retirementDate": {
+			"title": "retirement date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"salary": {
+			"title": "salary &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"scene": {
+			"title": "scene",
+			"description": "",
+			"type": "string"
+		},
+		"seasonManager": {
+			"title": "season manager",
+			"description": "",
+			"type": "string"
+		},
+		"second": {
+			"title": "second",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"sentence": {
+			"title": "sentence",
+			"description": "",
+			"type": "string"
+		},
+		"sex": {
+			"title": "sex",
+			"description": "",
+			"type": "string"
+		},
+		"sexualOrientation": {
+			"title": "sexual orientation",
+			"description": "",
+			"anyOf": []
+		},
+		"shoeNumber": {
+			"title": "shoe number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"shoeSize": {
+			"title": "shoe size",
+			"description": "",
+			"type": "string"
+		},
+		"shoot": {
+			"title": "shoot",
+			"description": "",
+			"type": "string"
+		},
+		"shortProgCompetition": {
+			"title": "short prog competition",
+			"description": "",
+			"type": "string"
+		},
+		"shortProgScore": {
+			"title": "short prog score",
+			"description": "",
+			"type": "string"
+		},
+		"signature": {
+			"title": "signature",
+			"description": "",
+			"type": "string"
+		},
+		"significantProject": {
+			"title": "significant project",
+			"description": "A siginificant artifact constructed by the person.",
+			"anyOf": []
+		},
+		"skinColor": {
+			"title": "skin color",
+			"description": "",
+			"type": "string"
+		},
+		"specialTrial": {
+			"title": "special trial",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"speciality": {
+			"title": "speciality",
+			"description": "",
+			"type": "string"
+		},
+		"sportsFunction": {
+			"title": "sports function",
+			"description": "",
+			"type": "string"
+		},
+		"spouseName": {
+			"title": "spouse name",
+			"description": "",
+			"type": "string"
+		},
+		"startCareer": {
+			"title": "start career",
+			"description": "",
+			"type": "string"
+		},
+		"startWct": {
+			"title": "start xct",
+			"description": "",
+			"type": "string"
+		},
+		"startWqs": {
+			"title": "start wqs",
+			"description": "",
+			"type": "string"
+		},
+		"statusManager": {
+			"title": "status manager",
+			"description": "",
+			"type": "string"
+		},
+		"tattoo": {
+			"title": "tattoo",
+			"description": "",
+			"type": "string"
+		},
+		"temple": {
+			"title": "temple",
+			"description": "",
+			"type": "string"
+		},
+		"templeYear": {
+			"title": "temple year",
+			"description": "",
+			"type": "string"
+		},
+		"tessitura": {
+			"title": "tessitura",
+			"description": "",
+			"type": "string"
+		},
+		"third": {
+			"title": "third",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"titleDate": {
+			"title": "title date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"victory": {
+			"title": "victory",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"victoryAsMgr": {
+			"title": "victory as manager",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"victoryPercentageAsMgr": {
+			"title": "victory percentage as manager",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"waistSize": {
+			"title": "waist size &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"weapon": {
+			"title": "weapon",
+			"description": "",
+			"anyOf": []
+		},
+		"weddingParentsDate": {
+			"title": "Parents Wedding Date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"worldTournamentBronze": {
+			"title": "world tournament bronze",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"worldTournamentGold": {
+			"title": "world tournament gold",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"worldTournamentSilver": {
+			"title": "world tournament silver",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Person",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Person"}
+}

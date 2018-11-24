@@ -1,0 +1,66 @@
+{
+	"id": "OfficeHolder.json",
+	"title": "office holder",
+	"translations": {
+		"title": {
+			"de": "Amtsinhaber",
+			"el": "κάτοχος δημόσιου αξιώματος",
+			"fr": "titulaire",
+			"es": "cargo público",
+			"ko": "공직자",
+			"nl": "ambtsdrager"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"otherParty": {
+			"oneOf": [
+				{"$ref": "PoliticalParty.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PoliticalParty.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/OfficeHolder",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/OfficeHolder"}
+}

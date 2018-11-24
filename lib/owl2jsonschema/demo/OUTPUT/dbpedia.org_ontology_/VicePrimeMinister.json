@@ -1,0 +1,52 @@
+{
+	"id": "VicePrimeMinister.json",
+	"title": "vice prime minister",
+	"translations": {
+		"title": {
+			"de": "Vizeministerpräsident",
+			"el": "αντιπρωθυπουργός",
+			"fr": "vice premier ministre",
+			"nl": "vicepremier"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/VicePrimeMinister",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/VicePrimeMinister"}
+}

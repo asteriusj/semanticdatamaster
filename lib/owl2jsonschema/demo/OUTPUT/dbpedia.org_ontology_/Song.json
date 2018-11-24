@@ -1,0 +1,77 @@
+{
+	"id": "Song.json",
+	"title": "song",
+	"translations": {
+		"title": {
+			"de": "lied",
+			"el": "τραγούδι",
+			"fr": "chanson",
+			"it": "canzone",
+			"ga": "amhrán",
+			"da": "sang",
+			"ko": "노래",
+			"nl": "lied",
+			"ja": "歌"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "MusicalWork.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"trackNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/trackNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/trackNumber"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"trackNumber": {
+			"title": "track number",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Song",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Song"}
+}

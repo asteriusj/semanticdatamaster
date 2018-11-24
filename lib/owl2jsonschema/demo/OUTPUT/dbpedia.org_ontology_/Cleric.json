@@ -1,0 +1,109 @@
+{
+	"id": "Cleric.json",
+	"title": "cleric",
+	"translations": {
+		"title": {
+			"de": "geistlicher",
+			"el": "Κλήρος",
+			"fr": "ecclésiastique",
+			"it": "ecclesiastico",
+			"ko": "성직자",
+			"nl": "geestelijke",
+			"ja": "聖職者"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"consecration": {
+			"oneOf": [
+				{"$ref": "#/definitions/consecration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/consecration"}
+				}
+			]
+		},
+		"abbeychurchBlessing": {
+			"oneOf": [
+				{"$ref": "#/definitions/abbeychurchBlessing"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/abbeychurchBlessing"}
+				}
+			]
+		},
+		"abbeychurchBlessingCharge": {
+			"oneOf": [
+				{"$ref": "#/definitions/abbeychurchBlessingCharge"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/abbeychurchBlessingCharge"}
+				}
+			]
+		},
+		"reigningPope": {
+			"oneOf": [
+				{"$ref": "Pope.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Pope.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"consecration": {
+			"title": "consecration",
+			"description": "",
+			"type": "string"
+		},
+		"abbeychurchBlessing": {
+			"title": "abbey church blessing",
+			"description": "",
+			"type": "string"
+		},
+		"abbeychurchBlessingCharge": {
+			"title": "abbey church blessing charge",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Cleric",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Cleric"}
+}

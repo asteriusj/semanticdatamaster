@@ -1,0 +1,252 @@
+{
+	"id": "MilitaryPerson.json",
+	"title": "military person",
+	"translations": {
+		"title": {
+			"de": "militärische Person",
+			"el": "στρατιωτικός",
+			"fr": "militaire",
+			"it": "militare",
+			"ko": "군인",
+			"nl": "militair",
+			"ja": "軍人"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"army": {
+			"oneOf": [
+				{"$ref": "#/definitions/army"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/army"}
+				}
+			]
+		},
+		"command": {
+			"oneOf": [
+				{"$ref": "#/definitions/command"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/command"}
+				}
+			]
+		},
+		"militaryBranch": {
+			"oneOf": [
+				{"$ref": "MilitaryUnit.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MilitaryUnit.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"militaryCommand": {
+			"oneOf": [
+				{"$ref": "#/definitions/militaryCommand"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/militaryCommand"}
+				}
+			]
+		},
+		"militaryFunction": {
+			"oneOf": [
+				{"$ref": "#/definitions/militaryFunction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/militaryFunction"}
+				}
+			]
+		},
+		"militaryRank": {
+			"oneOf": [
+				{"$ref": "#/definitions/militaryRank"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/militaryRank"}
+				}
+			]
+		},
+		"militaryUnit": {
+			"oneOf": [
+				{"$ref": "MilitaryUnit.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MilitaryUnit.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"noteOnPlaceOfBurial": {
+			"oneOf": [
+				{"$ref": "#/definitions/noteOnPlaceOfBurial"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/noteOnPlaceOfBurial"}
+				}
+			]
+		},
+		"serviceEndDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/serviceEndDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/serviceEndDate"}
+				}
+			]
+		},
+		"serviceEndYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/serviceEndYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/serviceEndYear"}
+				}
+			]
+		},
+		"serviceNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/serviceNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/serviceNumber"}
+				}
+			]
+		},
+		"serviceStartDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/serviceStartDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/serviceStartDate"}
+				}
+			]
+		},
+		"serviceStartYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/serviceStartYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/serviceStartYear"}
+				}
+			]
+		},
+		"war": {
+			"oneOf": [
+				{"$ref": "#/definitions/war"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/war"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"army": {
+			"title": "army",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"command": {
+			"title": "command",
+			"description": "",
+			"type": "string"
+		},
+		"militaryCommand": {
+			"title": "military command",
+			"description": "For persons who are notable as commanding officers, the units they commanded. Dates should be given if multiple notable commands were held.",
+			"type": "string"
+		},
+		"militaryFunction": {
+			"title": "military function",
+			"description": "",
+			"type": "string"
+		},
+		"militaryRank": {
+			"title": "military rank",
+			"description": "The highest rank achieved by a person.",
+			"anyOf": []
+		},
+		"noteOnPlaceOfBurial": {
+			"title": "note on place of burial",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"serviceEndDate": {
+			"title": "service end date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"serviceEndYear": {
+			"title": "service end year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"serviceNumber": {
+			"title": "service number",
+			"description": "The service number held by the individual during military service.",
+			"type": "string"
+		},
+		"serviceStartDate": {
+			"title": "service start date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"serviceStartYear": {
+			"title": "service start year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"war": {
+			"title": "wars",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MilitaryPerson",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MilitaryPerson"}
+}

@@ -1,0 +1,792 @@
+{
+  "@graph" : [ {
+    "@id" : "_:b0",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b36", "_:b29" ]
+    }
+  }, {
+    "@id" : "_:b12",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":additional-name",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b15",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":honorific-prefix",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b16",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":locality"
+  }, {
+    "@id" : "_:b17",
+    "@type" : "owl:Restriction",
+    "minQualifiedCardinality" : "1",
+    "onDataRange" : "xs:string",
+    "onProperty" : ":fn"
+  }, {
+    "@id" : "_:b19",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b54", "_:b40" ]
+    }
+  }, {
+    "@id" : "_:b2",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":postal-code"
+  }, {
+    "@id" : "_:b21",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":country-name"
+  }, {
+    "@id" : "_:b22",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":given-name"
+  }, {
+    "@id" : "_:b25",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b7", "_:b2" ]
+    }
+  }, {
+    "@id" : "_:b26",
+    "@type" : "owl:Restriction",
+    "minCardinality" : "0",
+    "onProperty" : ":additional-name"
+  }, {
+    "@id" : "_:b27",
+    "@type" : "owl:Restriction",
+    "minCardinality" : "0",
+    "onProperty" : ":honorific-prefix"
+  }, {
+    "@id" : "_:b28",
+    "@type" : "owl:Restriction",
+    "cardinality" : "1",
+    "onProperty" : ":hasIntegerValue"
+  }, {
+    "@id" : "_:b29",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":region"
+  }, {
+    "@id" : "_:b3",
+    "@type" : "owl:Class",
+    "unionOf" : {
+      "@list" : [ "_:b34", "_:b60", "_:b25", "_:b0", "_:b19" ]
+    }
+  }, {
+    "@id" : "_:b30",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":locality",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b31",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":given-name",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b32",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":country-name",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b34",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b32", "_:b21" ]
+    }
+  }, {
+    "@id" : "_:b36",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":region",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b39",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b12", "_:b26" ]
+    }
+  }, {
+    "@id" : "_:b40",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":street-address"
+  }, {
+    "@id" : "_:b43",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b15", "_:b27" ]
+    }
+  }, {
+    "@id" : "_:b46",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":honorific-suffix",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b47",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":family-name",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b48",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b47", "_:b51" ]
+    }
+  }, {
+    "@id" : "_:b50",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b46", "_:b57" ]
+    }
+  }, {
+    "@id" : "_:b51",
+    "@type" : "owl:Restriction",
+    "maxCardinality" : "1",
+    "onProperty" : ":family-name"
+  }, {
+    "@id" : "_:b54",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":street-address",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b57",
+    "@type" : "owl:Restriction",
+    "minCardinality" : "0",
+    "onProperty" : ":honorific-suffix"
+  }, {
+    "@id" : "_:b59",
+    "@type" : "owl:Class",
+    "unionOf" : {
+      "@list" : [ "_:b39", "_:b48", "_:b8", "_:b43", "_:b50" ]
+    }
+  }, {
+    "@id" : "_:b60",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b30", "_:b16" ]
+    }
+  }, {
+    "@id" : "_:b7",
+    "@type" : "owl:Restriction",
+    "onProperty" : ":postal-code",
+    "someValuesFrom" : "xs:string"
+  }, {
+    "@id" : "_:b8",
+    "@type" : "owl:Class",
+    "intersectionOf" : {
+      "@list" : [ "_:b31", "_:b22" ]
+    }
+  }, {
+    "@id" : "dcterms:title",
+    "@type" : "owl:DatatypeProperty",
+    "isDefinedBy" : "http://purl.org/dc/terms/"
+  }, {
+    "@id" : "vann:example",
+    "@type" : "owl:AnnotationProperty"
+  }, {
+    "@id" : "schema:Person",
+    "@type" : "owl:Class",
+    "isDefinedBy" : "http://schema.org/"
+  }, {
+    "@id" : "vaem:rationale",
+    "@type" : "owl:AnnotationProperty"
+  }, {
+    "@id" : "vcard:organization-name",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "To specify the organizational name associated with the object"
+    },
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "organization name"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : "foaf:Person",
+    "@type" : "owl:Class",
+    "isDefinedBy" : "http://xmlns.com/foaf/0.1/"
+  }, {
+    "@id" : "./",
+    "@type" : "owl:Ontology",
+    "creator" : "http://github.com/asteriusj",
+    "date" : "$Date: 2018-02-04 20:18:26 $",
+    "description" : "The proof of concept aims to provide semantic data model conceptual information for selected objects and properties.\n",
+    "publisher" : "http://github.com/asteriusj",
+    "title" : {
+      "@language" : "en",
+      "@value" : "Semantic Data Master (SDM) Ontology"
+    },
+    "abstract" : {
+      "@language" : "en",
+      "@value" : "An experimental ontology for defining entity relationships and data property definitions and constraints\n"
+    },
+    "created" : "$Date: 2018-02-04 20:18:26 $",
+    "issued" : "$Date: 2018-02-04 20:18:26 $",
+    "license" : "http://creativecommons.org/licenses/by/2.0/",
+    "modified" : "$Date: 2018-02-04 20:18:26 $",
+    "status" : {
+      "@language" : "en",
+      "@value" : "Draft"
+    },
+    "preferredNamespacePrefix" : "sdm",
+    "preferredNamespaceUri" : "https://github.com/asteriusj/semanticdatamaster#",
+    "contributor" : [ "http://github.com/asteriusj", "http://LinkedIn.com/jeffreyastewart/" ],
+    "comment" : "An experimental ontology for defining entity relationships and data property definitions and constraints\n",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Ontology for Semantic Data Model"
+    },
+    "versionIRI" : {
+      "@language" : "en",
+      "@value" : "https://github.com/asteriusj/semanticdatamaster/Draft"
+    },
+    "versionInfo" : {
+      "@language" : "en",
+      "@value" : "Draft"
+    },
+    "generatedAtTime" : "$Date: 2018-02-04 20:18:26 $"
+  }, {
+    "@id" : ":Address",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "To specify the components of the delivery address for the  object"
+    },
+    "domain" : [ ":Organization", ":Employee", ":Person" ],
+    "label" : {
+      "@language" : "en",
+      "@value" : "Address"
+    },
+    "equivalentClass" : "_:b3"
+  }, {
+    "@id" : ":Contact",
+    "@type" : "owl:Class",
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Contact"
+    },
+    "subClassOf" : ":Person",
+    "equivalentClass" : [ "sf:Contact", "vcard:Contact" ]
+  }, {
+    "@id" : ":Employee",
+    "@type" : "owl:Class",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Employee"
+    },
+    "subClassOf" : ":Person"
+  }, {
+    "@id" : ":Gender",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "Used for gender codes. The URI of the gender code must be used as the value for Gender."
+    },
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Gender"
+    }
+  }, {
+    "@id" : ":IntegerValueObject",
+    "@type" : "owl:Class",
+    "subClassOf" : [ "_:b28", ":Thing" ]
+  }, {
+    "@id" : ":Kind",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The parent class for all objects"
+    },
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Kind"
+    },
+    "equivalentClass" : [ ":VCard", "_:b17" ]
+  }, {
+    "@id" : ":Name",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "To specify the components of the name of the object"
+    },
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : {
+      "@language" : "en",
+      "@value" : "Name"
+    },
+    "equivalentClass" : "_:b59"
+  }, {
+    "@id" : ":Organization",
+    "@type" : "owl:Class",
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Organization"
+    },
+    "subClassOf" : [ "foaf:Agent", "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" ]
+  }, {
+    "@id" : ":Person",
+    "@type" : "owl:Class",
+    "comment" : "A person. A person (alive, dead, undead, or fictional).",
+    "label" : "Person",
+    "subClassOf" : [ "foaf:Agent", "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" ],
+    "equivalentClass" : [ "sf:Person", "foaf:Person", "schema:Person" ]
+  }, {
+    "@id" : ":Thing",
+    "@type" : "rdfs:Class",
+    "comment" : "The most generic type of item.",
+    "label" : "Thing",
+    "equivalentClass" : "schema:Thing"
+  }, {
+    "@id" : ":Type",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "Used for type codes. The URI of the type code must be used as the value for Type."
+    },
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "Type"
+    }
+  }, {
+    "@id" : ":VCard",
+    "@type" : "owl:Class",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)"
+    },
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "VCard"
+    },
+    "equivalentClass" : ":Kind"
+  }, {
+    "@id" : ":additional-name",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The additional name associated with the object"
+    },
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : {
+      "@language" : "en",
+      "@value" : "additional name"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":adr",
+    "@type" : "owl:ObjectProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "This object property has been mapped"
+    },
+    "domain" : [ ":Organization", ":Person" ],
+    "label" : {
+      "@language" : "en",
+      "@value" : "address"
+    },
+    "range" : ":Address",
+    "equivalentProperty" : ":hasAddress"
+  }, {
+    "@id" : ":age",
+    "@type" : [ "owl:DatatypeProperty", "owl:FunctionalProperty" ],
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : "age",
+    "range" : ":IntegerValueObject"
+  }, {
+    "@id" : ":birthday",
+    "@type" : [ "owl:DatatypeProperty", "owl:FunctionalProperty" ],
+    "comment" : "\nThe birthday of this Agent, represented in mm-dd string form, eg. '12-31'.\n",
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : "birthday",
+    "range" : "xs:date",
+    "equivalentProperty" : [ "sf:birthday", "foaf:birthday" ]
+  }, {
+    "@id" : ":country-name",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The country name associated with the address of the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "country name"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":family-name",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The family name associated with the object"
+    },
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : {
+      "@language" : "en",
+      "@value" : "family name"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":firstName",
+    "@type" : [ "owl:FunctionalProperty", "owl:DatatypeProperty" ],
+    "comment" : "\nFirst or given name of contact person.\n ",
+    "domain" : [ ":Person", ":Employee" ],
+    "label" : "First Name",
+    "range" : "rdfs:Literal",
+    "equivalentProperty" : [ "sf:firstName", "vcard:given-name", "con:firstName", ":given-name", "foaf:givenName", "schema:givenName" ]
+  }, {
+    "@id" : ":given-name",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The given name associated with the object"
+    },
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : {
+      "@language" : "en",
+      "@value" : "given name"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":hasAddress",
+    "@type" : [ "owl:ObjectProperty", "owl:FunctionalProperty" ],
+    "domain" : ":Employee",
+    "label" : {
+      "@language" : "en",
+      "@value" : "has address"
+    },
+    "range" : ":Address"
+  }, {
+    "@id" : ":hasIntegerValue",
+    "@type" : [ "owl:DatatypeProperty", "owl:FunctionalProperty" ],
+    "domain" : ":IntegerValueObject",
+    "range" : "xs:int"
+  }, {
+    "@id" : ":hasMember",
+    "@type" : "owl:ObjectProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "To include a member in the group this object represents. (This property can only be used by Group individuals)"
+    },
+    "domain" : ":Group",
+    "isDefinedBy" : "http://www.w3.org/2006/vcard/ns",
+    "label" : {
+      "@language" : "en",
+      "@value" : "has member"
+    },
+    "range" : [ ":Person", ":Kind" ]
+  }, {
+    "@id" : ":hasTitle",
+    "@type" : "owl:DatatypeProperty",
+    "rationale" : {
+      "@language" : "en",
+      "@value" : "Allows to store typical contact info "
+    },
+    "comment" : {
+      "@language" : "en",
+      "@value" : "Answers the question: What the  ?"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "has title"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":honorific-prefix",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The honorific prefix of the name associated with the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "honorific prefix"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":honorific-suffix",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The honorific suffix of the name associated with the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "honorific suffix"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":lastName",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : "Last or family name of contact person.",
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : "Last Name",
+    "range" : "rdfs:Literal",
+    "equivalentProperty" : [ "con:lastName", "schema:familyName", ":given-name", "foaf:familyName", "sf:lastName", "vcard:family-name", "dbo:FamilyName" ]
+  }, {
+    "@id" : ":locality",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The locality (e.g. city or town) associated with the address of the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "locality"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":name",
+    "@type" : "rdf:Property",
+    "domainIncludes" : [ ":Organization", ":Contact", ":Person", ":Thing" ],
+    "rangeIncludes" : "schema:Text",
+    "comment" : "The name of the item.",
+    "label" : "name"
+  }, {
+    "@id" : ":nick",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : "\nA short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).\n",
+    "domain" : [ ":Employee", ":Person" ],
+    "label" : "nickname",
+    "term_status" : "testing"
+  }, {
+    "@id" : ":org-name",
+    "@type" : [ "rdf:Property", "owl:DatatypeProperty" ],
+    "rationale" : {
+      "@language" : "en",
+      "@value" : "Part of the standard properties for a vcard org"
+    },
+    "comment" : {
+      "@language" : "en",
+      "@value" : "Answers the question: What is the name of the Organization?"
+    },
+    "domain" : ":Organization",
+    "label" : {
+      "@language" : "en",
+      "@value" : "organization name"
+    },
+    "range" : "xs:string",
+    "subPropertyOf" : "vcard:organization-name"
+  }, {
+    "@id" : ":postal-code",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The postal code associated with the address of the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "postal code"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":prefix",
+    "@type" : [ "owl:DatatypeProperty", "owl:FunctionalProperty" ],
+    "comment" : "\nSalutation or title as prefix to name.\n ",
+    "domain" : [ ":Person", ":Employee" ],
+    "label" : "prefix",
+    "range" : "xs:string",
+    "equivalentProperty" : [ "vcard:honorific-prefix", "schema:honorificPrefix", "foaf:title", "sf:salutation", "con:personalPrefix" ]
+  }, {
+    "@id" : ":region",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The region (e.g. state or province) associated with the address of the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "region"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":street-address",
+    "@type" : "owl:DatatypeProperty",
+    "comment" : {
+      "@language" : "en",
+      "@value" : "The street address associated with the address of the object"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "street address"
+    },
+    "range" : "xs:string"
+  }, {
+    "@id" : ":title",
+    "@type" : "owl:DatatypeProperty",
+    "rationale" : {
+      "@language" : "en",
+      "@value" : "Part of standard metadata for Entities"
+    },
+    "comment" : {
+      "@language" : "en",
+      "@value" : "Answers the question: What is the title of the... ?"
+    },
+    "domain" : ":Person",
+    "label" : {
+      "@language" : "en",
+      "@value" : "title"
+    },
+    "range" : "xs:string",
+    "subPropertyOf" : "dcterms:title"
+  } ],
+  "@id" : "urn:x-arq:DefaultGraphNode",
+  "@context" : {
+    "range" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type" : "@id"
+    },
+    "domain" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
+      "@type" : "@id"
+    },
+    "comment" : "http://www.w3.org/2000/01/rdf-schema#comment",
+    "label" : "http://www.w3.org/2000/01/rdf-schema#label",
+    "intersectionOf" : {
+      "@id" : "http://www.w3.org/2002/07/owl#intersectionOf",
+      "@type" : "@id"
+    },
+    "equivalentProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#equivalentProperty",
+      "@type" : "@id"
+    },
+    "onProperty" : {
+      "@id" : "http://www.w3.org/2002/07/owl#onProperty",
+      "@type" : "@id"
+    },
+    "maxCardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#maxCardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "unionOf" : {
+      "@id" : "http://www.w3.org/2002/07/owl#unionOf",
+      "@type" : "@id"
+    },
+    "rest" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#rest",
+      "@type" : "@id"
+    },
+    "first" : {
+      "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#first",
+      "@type" : "@id"
+    },
+    "equivalentClass" : {
+      "@id" : "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type" : "@id"
+    },
+    "isDefinedBy" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+      "@type" : "@id"
+    },
+    "onDataRange" : {
+      "@id" : "http://www.w3.org/2002/07/owl#onDataRange",
+      "@type" : "@id"
+    },
+    "minQualifiedCardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#minQualifiedCardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "rationale" : "http://www.linkedmodel.org/schema/vaem#rationale",
+    "minCardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#minCardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+    },
+    "cardinality" : {
+      "@id" : "http://www.w3.org/2002/07/owl#cardinality",
+      "@type" : "http://www.w3.org/2001/XMLSchema#int"
+    },
+    "someValuesFrom" : {
+      "@id" : "http://www.w3.org/2002/07/owl#someValuesFrom",
+      "@type" : "@id"
+    },
+    "subPropertyOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+      "@type" : "@id"
+    },
+    "rangeIncludes" : {
+      "@id" : "http://schema.org/rangeIncludes",
+      "@type" : "@id"
+    },
+    "domainIncludes" : {
+      "@id" : "http://schema.org/domainIncludes",
+      "@type" : "@id"
+    },
+    "subClassOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type" : "@id"
+    },
+    "term_status" : "http:/s/www.w3.org/2003/06/sw-vocab-status/ns#term_status",
+    "preferredNamespaceUri" : "http://purl.org/vocab/vann/preferredNamespaceUri",
+    "contributor" : {
+      "@id" : "http://schema.org/contributor",
+      "@type" : "@id"
+    },
+    "publisher" : {
+      "@id" : "http://purl.org/dc/elements/1.1/publisher",
+      "@type" : "@id"
+    },
+    "versionIRI" : "http://www.w3.org/2002/07/owl#versionIRI",
+    "issued" : "http://purl.org/dc/terms/issued",
+    "created" : "http://purl.org/dc/terms/created",
+    "description" : "http://purl.org/dc/elements/1.1/description",
+    "creator" : {
+      "@id" : "http://purl.org/dc/elements/1.1/creator",
+      "@type" : "@id"
+    },
+    "modified" : "http://purl.org/dc/terms/modified",
+    "license" : "http://purl.org/dc/terms/license",
+    "preferredNamespacePrefix" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
+    "versionInfo" : "http://www.w3.org/2002/07/owl#versionInfo",
+    "date" : "http://purl.org/dc/elements/1.1/date",
+    "title" : "http://purl.org/dc/elements/1.1/title",
+    "status" : "http://purl.org/ontology/bibo/status",
+    "abstract" : "http://purl.org/dc/terms/abstract",
+    "generatedAtTime" : "http://www.w3.org/ns/prov#generatedAtTime",
+    "@base" : "https://github.com/asteriusj/semanticdatamaster/",
+    "" : "https://github.com/asteriusj/semanticdatamaster/",
+    "schema" : "http://schema.org/",
+    "con" : "http://www.w3.org/2000/10/swap/pim/contact#",
+    "pav" : "http://purl.org/pav/",
+    "sw" : "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "vaem" : "http://www.linkedmodel.org/schema/vaem#",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "org" : "http://www.w3.org/ns/org#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard" : "http://www.w3.org/2006/vcard/ns#",
+    "dbo" : "http://dbpedia.org/ontology/",
+    "sf" : "https://github.com/vocol/salesforce/",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dcterms" : "http://purl.org/dc/terms/",
+    "bibo" : "http://purl.org/ontology/bibo/",
+    "xs" : "http://www.w3.org/2001/XMLSchema#",
+    "vann" : "http://purl.org/vocab/vann/",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "obo" : "http://purl.obolibrary.org/obo/",
+    "vs" : "http:/s/www.w3.org/2003/06/sw-vocab-status/ns#",
+    "sdm" : "https://github.com/asteriusj/semanticdatamaster/",
+    "foaf" : "http://xmlns.com/foaf/0.1/",
+    "dc" : "http://purl.org/dc/elements/1.1/"
+  }
+}

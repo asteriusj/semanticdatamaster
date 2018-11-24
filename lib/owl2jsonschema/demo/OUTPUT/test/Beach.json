@@ -1,0 +1,57 @@
+{
+	"id": "Beach.json",
+	"title": "beach",
+	"description": "The shore of a body of water, especially when sandy or pebbly.",
+	"translations": {
+		"title": {
+			"de": "Strand",
+			"fr": "plage",
+			"es": "playa",
+			"ca": "platja",
+			"da": "strand",
+			"nl": "strand",
+			"pt": "praia",
+			"ja": "砂浜"
+		},
+		"description": {"es": "Ribera del mar o de un río grande, formada de arenales en superficie casi plana."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Beach",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Beach"}
+}

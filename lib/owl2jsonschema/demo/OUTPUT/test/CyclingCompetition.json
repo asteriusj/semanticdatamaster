@@ -1,0 +1,55 @@
+{
+	"id": "CyclingCompetition.json",
+	"title": "cycling competition",
+	"translations": {
+		"title": {
+			"de": "Radrennen",
+			"el": "διαγωνισμός ποδηλασίας",
+			"it": "gara ciclistica",
+			"es": "Prueba ciclista",
+			"da": "cykelløb",
+			"ko": "사이클 대회",
+			"nl": "wielercompetitie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CyclingCompetition",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CyclingCompetition"}
+}

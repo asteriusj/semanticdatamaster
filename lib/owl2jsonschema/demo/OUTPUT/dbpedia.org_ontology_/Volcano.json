@@ -1,0 +1,75 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"eruptionYear": {
+			"title": "eruption date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		}
+	},
+	"description": "A volcano is currently subclass of naturalplace, but it might also be considered a mountain.",
+	"format": "http://dbpedia.org/ontology/Volcano",
+	"id": "Volcano.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Volcano"},
+	"properties": {
+		"eruptionYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/eruptionYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eruptionYear"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "volcano",
+	"translations": {
+		"title": {
+			"de": "Vulkan",
+			"el": "ηφαίστειο",
+			"fr": "volcan",
+			"ga": "bolcán",
+			"nl": "vulkaan",
+			"pt": "vulcão",
+			"ja": "火山"
+		},
+		"description": {"el": "Το ηφαίστειο είναι υποκατηγορία φυσικών καταστάσεων, αλλά μπορεί επίσης να θεωρηθεί και βουνό."}
+	},
+	"type": "object"
+}

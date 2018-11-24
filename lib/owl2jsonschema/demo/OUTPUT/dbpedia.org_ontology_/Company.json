@@ -1,0 +1,293 @@
+{
+	"id": "Company.json",
+	"title": "company",
+	"translations": {
+		"title": {
+			"de": "Unternehmen",
+			"el": "εταιρία",
+			"fr": "entreprise",
+			"es": "empresa",
+			"ga": "comhlacht",
+			"da": "firma",
+			"ko": "회사",
+			"nl": "bedrijf",
+			"pt": "empresa",
+			"ja": "会社"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"assetUnderManagement": {
+			"oneOf": [
+				{"$ref": "#/definitions/assetUnderManagement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/assetUnderManagement"}
+				}
+			]
+		},
+		"assets": {
+			"oneOf": [
+				{"$ref": "#/definitions/assets"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/assets"}
+				}
+			]
+		},
+		"codeStockExchange": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeStockExchange"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeStockExchange"}
+				}
+			]
+		},
+		"defunct": {
+			"oneOf": [
+				{"$ref": "#/definitions/defunct"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/defunct"}
+				}
+			]
+		},
+		"equity": {
+			"oneOf": [
+				{"$ref": "#/definitions/equity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/equity"}
+				}
+			]
+		},
+		"fate": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"groundsForLiquidation": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"industry": {
+			"oneOf": [
+				{"$ref": "#/definitions/industry"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/industry"}
+				}
+			]
+		},
+		"internationally": {
+			"oneOf": [
+				{"$ref": "#/definitions/internationally"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/internationally"}
+				}
+			]
+		},
+		"marketCapitalisation": {
+			"oneOf": [
+				{"$ref": "#/definitions/marketCapitalisation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/marketCapitalisation"}
+				}
+			]
+		},
+		"netIncome": {
+			"oneOf": [
+				{"$ref": "#/definitions/netIncome"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/netIncome"}
+				}
+			]
+		},
+		"operatingIncome": {
+			"oneOf": [
+				{"$ref": "#/definitions/operatingIncome"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/operatingIncome"}
+				}
+			]
+		},
+		"production": {
+			"oneOf": [
+				{"$ref": "#/definitions/production"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/production"}
+				}
+			]
+		},
+		"registration": {
+			"oneOf": [
+				{"$ref": "#/definitions/registration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/registration"}
+				}
+			]
+		},
+		"stockExchange": {
+			"oneOf": [
+				{"$ref": "#/definitions/stockExchange"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/stockExchange"}
+				}
+			]
+		},
+		"subsidiary": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tradingName": {
+			"oneOf": [
+				{"$ref": "#/definitions/tradingName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/tradingName"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"assetUnderManagement": {
+			"title": "asset under management &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"assets": {
+			"title": "assets &amp;&#35;40;$&#41;",
+			"description": "Assets and liabilities are part of a companis balance sheet. In financial accounting, assets are economic resources. Anything tangible or intangible that is capable of being owned or controlled to produce value and that is held to have positive economic value is considered an asset.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"codeStockExchange": {
+			"title": "code Stock Exchange",
+			"description": "",
+			"type": "string"
+		},
+		"defunct": {
+			"title": "",
+			"description": "If the company is defunct or not. Use end_date if a date is given",
+			"type": "boolean"
+		},
+		"equity": {
+			"title": "equity &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"industry": {
+			"title": "industry",
+			"description": "",
+			"anyOf": []
+		},
+		"internationally": {
+			"title": "internationally",
+			"description": "",
+			"type": "boolean"
+		},
+		"marketCapitalisation": {
+			"title": "market capitalisation &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"netIncome": {
+			"title": "net income &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"operatingIncome": {
+			"title": "operating income &amp;&#35;40;$&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"production": {
+			"title": "production",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"registration": {
+			"title": "registration",
+			"description": "",
+			"type": "string"
+		},
+		"stockExchange": {
+			"title": "Registered at Stock Exchange",
+			"description": "",
+			"type": "string"
+		},
+		"tradingName": {
+			"title": "trading name",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Company",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Company"}
+}

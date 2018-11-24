@@ -1,0 +1,54 @@
+{
+	"id": "Skater.json",
+	"title": "skater",
+	"translations": {
+		"title": {
+			"de": "Schlittschuhläufer",
+			"el": "παγοδρόμος",
+			"it": "pattinatore",
+			"ga": "scátálaí",
+			"nl": "schaatser",
+			"ja": "スケート選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}, {"$ref": "WinterSportPlayer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Skater",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Skater"}
+}

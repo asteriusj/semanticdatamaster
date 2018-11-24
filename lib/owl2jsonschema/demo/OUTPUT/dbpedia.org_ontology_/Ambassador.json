@@ -1,0 +1,59 @@
+{
+	"id": "Ambassador.json",
+	"title": "ambassador",
+	"description": "An ambassador is the highest ranking diplomat that represents a nation and is usually accredited to a foreign sovereign or government, or to an international organization.",
+	"translations": {
+		"title": {
+			"de": "Botschafter",
+			"el": "πρεσβευτής",
+			"fr": "ambassadeur",
+			"it": "ambasciatore",
+			"es": "embajador",
+			"ga": "ambasadóir",
+			"gl": "embaixador",
+			"ko": "대사 &amp;&#35;40;외교관&#41;",
+			"nl": "ambassadeur",
+			"ja": "大使"
+		},
+		"description": {"gl": "Un embaixador é o funcionario diplomático de máis alto nivel acreditado diante de un Estado estranxeiro ou organización internacional.&amp;lt;ref&amp;gt;https://gl.wikipedia.org/wiki/Embaixador&amp;lt;/ref&amp;gt;"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Ambassador",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Ambassador"}
+}

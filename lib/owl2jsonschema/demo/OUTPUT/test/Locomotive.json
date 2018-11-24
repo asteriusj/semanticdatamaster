@@ -1,0 +1,102 @@
+{
+	"id": "Locomotive.json",
+	"title": "locomotive",
+	"translations": {
+		"title": {
+			"de": "Lokomotive",
+			"el": "κινητήριος",
+			"fr": "locomotive",
+			"ga": "traen",
+			"nl": "locomotief",
+			"ja": "機関車"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"cylinderCount": {
+			"oneOf": [
+				{"$ref": "#/definitions/cylinderCount"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cylinderCount"}
+				}
+			]
+		},
+		"boiler": {
+			"oneOf": [
+				{"$ref": "#/definitions/boiler"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/boiler"}
+				}
+			]
+		},
+		"boilerPressure": {
+			"oneOf": [
+				{"$ref": "#/definitions/boilerPressure"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/boilerPressure"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"cylinderCount": {
+			"title": "cylinder count",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"boiler": {
+			"title": "boiler",
+			"description": "",
+			"anyOf": []
+		},
+		"boilerPressure": {
+			"title": "boiler pressure",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Locomotive",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Locomotive"}
+}

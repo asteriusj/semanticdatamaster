@@ -1,0 +1,55 @@
+{
+	"id": "Lieutenant.json",
+	"title": "lieutenant",
+	"translations": {
+		"title": {
+			"de": "Leutnant",
+			"el": "υπολοχαγός",
+			"fr": "lieutenant",
+			"ga": "leifteanant",
+			"nl": "luitenant",
+			"pt": "tenente",
+			"ja": "中尉"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Lieutenant",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Lieutenant"}
+}

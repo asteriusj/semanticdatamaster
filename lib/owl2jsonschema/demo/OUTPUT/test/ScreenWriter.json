@@ -1,0 +1,54 @@
+{
+	"id": "ScreenWriter.json",
+	"title": "screenwriter",
+	"translations": {
+		"title": {
+			"de": "Drehbuchautor",
+			"el": "σεναριογράφος",
+			"fr": "scénariste",
+			"it": "sceneggiatore",
+			"ga": "scríbhneoir scáileáin",
+			"nl": "scenarioschrijver"
+		},
+		"description": {"el": "Ο σεναριογράφος όχι μόνο γράφει την υπόθεση μιας σειράς άλλα είναι αυτός που επινοεί και τους πρωταγωνιστές του έργου."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Writer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ScreenWriter",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ScreenWriter"}
+}

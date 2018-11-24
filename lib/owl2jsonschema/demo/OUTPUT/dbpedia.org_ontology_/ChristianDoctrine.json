@@ -1,0 +1,129 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}, {"$ref": "TheologicalConcept.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"theology": {
+			"title": "Theology",
+			"description": "",
+			"type": "string"
+		},
+		"primate": {
+			"title": "Primite",
+			"description": "",
+			"type": "string"
+		},
+		"establishment": {
+			"title": "Establishment",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"established": {
+			"title": "Established",
+			"description": "",
+			"type": "string"
+		},
+		"believers": {
+			"title": "Believers",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "Tenets of the Christian faith, e.g. Trinity, Nicene Creed",
+	"format": "http://dbpedia.org/ontology/ChristianDoctrine",
+	"id": "ChristianDoctrine.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChristianDoctrine"},
+	"properties": {
+		"theology": {
+			"oneOf": [
+				{"$ref": "#/definitions/theology"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/theology"}
+				}
+			]
+		},
+		"primate": {
+			"oneOf": [
+				{"$ref": "#/definitions/primate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/primate"}
+				}
+			]
+		},
+		"establishment": {
+			"oneOf": [
+				{"$ref": "#/definitions/establishment"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/establishment"}
+				}
+			]
+		},
+		"established": {
+			"oneOf": [
+				{"$ref": "#/definitions/established"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/established"}
+				}
+			]
+		},
+		"believers": {
+			"oneOf": [
+				{"$ref": "#/definitions/believers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/believers"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Christian Doctrine",
+	"translations": {
+		"title": {
+			"de": "Christliche Lehre",
+			"el": "Χριστιανικό Δόγμα",
+			"fr": "doctrine chrétienne",
+			"it": "dottrina cristiana",
+			"ko": "기독교 교리",
+			"nl": "Christelijke leer"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

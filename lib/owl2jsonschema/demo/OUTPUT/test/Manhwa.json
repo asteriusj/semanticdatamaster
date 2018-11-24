@@ -1,0 +1,57 @@
+{
+	"id": "Manhwa.json",
+	"title": "manhwa",
+	"description": "Korean term for comics and print cartoons",
+	"translations": {
+		"title": {
+			"de": "manhwa",
+			"el": "manhwa",
+			"nl": "manhwa",
+			"ja": "韓国の漫画"
+		},
+		"description": {
+			"de": "ist die in der westlichen Welt verbreitete Bezeichnung für Comics aus Südkorea.",
+			"nl": "Manhua is het Koreaanse equivalent van het stripverhaal",
+			"el": "Κορεάτικος όρος για τα κόμικς και τα κινούμενα σχέδια εκτύπωσης"
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "Comic.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Manhwa",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Manhwa"}
+}

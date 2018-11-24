@@ -1,0 +1,52 @@
+{
+	"id": "SerialKiller.json",
+	"title": "serial killer",
+	"translations": {
+		"title": {
+			"de": "Serienmörder",
+			"el": "κατά συρροήν δολοφόνος",
+			"fr": "tueur en série",
+			"nl": "seriemoordenaar"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Criminal.json"}, {"$ref": "Murderer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SerialKiller",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SerialKiller"}
+}

@@ -1,0 +1,256 @@
+<!-- import polymer-element -->
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+<!-- import the iron-input element -->
+<link rel="import"  href="https://polygit.org/components/iron-input/iron-input.html">
+
+    <script src="../deps/jquery.min.js"></script>
+    <script src="../deps/underscore.js"></script>
+    <script src="../deps/opt/jsv.js"></script>
+    <script src="../deps/opt/jquery.ui.core.js"></script>
+    <script src="../deps/opt/jquery.ui.widget.js"></script>
+    <script src="../deps/opt/jquery.ui.mouse.js"></script>
+    <script src="../deps/opt/jquery.ui.sortable.js"></script>
+    <script src="../deps/opt/bootstrap-dropdown.js"></script>
+    <script src="../deps/opt/spectrum.js"></script>
+    <script src="../lib/jsonform.js"></script>
+    
+    <script type="text/javascript" src="../js/common.js"></script>
+  
+
+<dom-module id="newguy-form">
+    <script>
+        function doNext() { 
+            // doForm(mySchema) 
+        }
+    </script>
+    
+  <template id="element-details-template">
+    <!-- bind to the "owner" property -->
+    This is <b>{{owner}}</b>'s name-tag element.
+    
+    <h1>JSON Schema</h1>
+    <div>
+      <textarea  rows="20" cols="50">
+        {{MySchema}}
+      </textarea>
+    </div>
+    
+    
+    <h1>JSON Form</h1>
+    <!--<form>{{MyForm}}</form>-->
+    <form id="myform"></form>
+    <!--<form>-->
+    <!--  <div><div class="control-group jsonform-error-prefix"><label class="control-label" for="jsonform-0-elt-prefix">Prefix</label><div class="controls"><input type="text" name="prefix" value="" id="jsonform-0-elt-prefix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-firstName jsonform-required"><label class="control-label" for="jsonform-0-elt-firstName"> First Name</label><div class="controls"><input type="text" name="firstName" value="" id="jsonform-0-elt-firstName" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-middlename"><label class="control-label" for="jsonform-0-elt-middlename">Middle Name</label><div class="controls"><input type="text" name="middlename" value="" id="jsonform-0-elt-middlename"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-lastname jsonform-required"><label class="control-label" for="jsonform-0-elt-lastname">Last Name</label><div class="controls"><input type="text" name="lastname" value="" id="jsonform-0-elt-lastname" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-suffix"><label class="control-label" for="jsonform-0-elt-suffix">Suffix</label><div class="controls"><input type="text" name="suffix" value="" id="jsonform-0-elt-suffix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-fullName"><label class="control-label" for="jsonform-0-elt-fullName">Full Name</label><div class="controls"><input type="text" name="fullName" value="" id="jsonform-0-elt-fullName"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-age"><label class="control-label" for="jsonform-0-elt-age">Age</label><div class="controls"><input type="text" name="age" value="" id="jsonform-0-elt-age"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-birthdate"><label class="control-label" for="jsonform-0-elt-birthdate">Birthday</label><div class="controls"><input type="date" name="birthdate" value="" id="jsonform-0-elt-birthdate"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="form-actions "><input type="submit" class="btn btn-primary " value="Submit"></div></div>-->
+    <!--</form>-->
+    <div id="res" class="alert"></div>
+     
+    <!-- iron-input exposes a two-way bindable input value -->
+    <!--<iron-input bind-value="{{owner}}">-->
+    <!--  <input is="iron-input" placeholder="Your name here...">-->
+    <!--</iron-input>-->
+
+    
+  </template>
+  
+
+<script>
+    // customElements.define('element-details',
+    //   class extends HTMLElement {
+    //     constructor() {
+    //       super();
+    //       var template = document
+    //         .getElementById('element-details-template')
+    //         // .content;
+    //       console.log('template',template)
+    //       const shadowRoot = this.attachShadow({mode: 'open'})
+    //         .appendChild(template.cloneNode(true));
+    //     }
+    //   })
+</script>
+
+  <script>
+    function getSTUFF(){
+      // let stuff = '<div><div class="control-group jsonform-error-prefix"><label class="control-label" for="jsonform-0-elt-prefix">Prefix</label><div class="controls"><input type="text" name="prefix" value="" id="jsonform-0-elt-prefix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-firstName jsonform-required"><label class="control-label" for="jsonform-0-elt-firstName"> First Name</label><div class="controls"><input type="text" name="firstName" value="" id="jsonform-0-elt-firstName" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-middlename"><label class="control-label" for="jsonform-0-elt-middlename">Middle Name</label><div class="controls"><input type="text" name="middlename" value="" id="jsonform-0-elt-middlename"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-lastname jsonform-required"><label class="control-label" for="jsonform-0-elt-lastname">Last Name</label><div class="controls"><input type="text" name="lastname" value="" id="jsonform-0-elt-lastname" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-suffix"><label class="control-label" for="jsonform-0-elt-suffix">Suffix</label><div class="controls"><input type="text" name="suffix" value="" id="jsonform-0-elt-suffix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-fullName"><label class="control-label" for="jsonform-0-elt-fullName">Full Name</label><div class="controls"><input type="text" name="fullName" value="" id="jsonform-0-elt-fullName"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-age"><label class="control-label" for="jsonform-0-elt-age">Age</label><div class="controls"><input type="text" name="age" value="" id="jsonform-0-elt-age"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-birthdate"><label class="control-label" for="jsonform-0-elt-birthdate">Birthday</label><div class="controls"><input type="date" name="birthdate" value="" id="jsonform-0-elt-birthdate"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="form-actions "><input type="submit" class="btn btn-primary " value="Submit"></div></div>';
+      let stuff = getMyForm().html()
+      console.log('stuff',stuff)
+      return stuff
+    }
+    function getSchema1() {
+      let schema1 = 
+        {
+          firstName: {
+            type: 'string',
+            title: 'First Name',
+            required: true
+          },
+          lastName: {
+            type: 'string',
+            title: 'First Name',
+            required: true
+          },
+          birthDay: {
+            type: 'date',
+            title: 'Birthday'
+          }
+        } ;
+      return schema1;
+    }
+    
+    function getMyForm() {
+      _schema = getSchema1();
+      console.log('_schema',_schema)
+        
+        let objForm = $("<form id='myform'></form>");
+        
+        objForm.jsonForm({
+        // var $mine = $.jsonForm({
+          schema: _schema,
+          onSubmit: function (errors, values) {
+            if (errors) {
+              $('#res').html('<p>I beg your pardon?</p>');
+            }
+            else {
+              var _name = name || firstName
+              var _age = age || ""
+              var _birth = birthDay || ""
+              $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+                (values.age ? '<br/>You are ' + values.age + '.' : '') +
+                (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+                '</p>');
+            }
+          }
+        });
+        console.log('objForm after',objForm)
+        console.log('objForm.html()',objForm.html()) 
+        console.log('JSON.stringify( objForm.html() )',JSON.stringify( objForm.html() ) ) 
+        // console.log('JSON.parse( objForm.html() )',JSON.parse( objForm.html() ) ) 
+        var myformhtml = objForm.html()
+        console.log('myformhtml',myformhtml)
+        return objForm;
+    } // end getMyForm
+      
+    /*global Polymer*/
+    class NewGuy extends Polymer.Element {
+      static get is() { return "newguy-form"; }
+      
+      // set this element's propertys
+      constructor() {
+        super();
+        this.owner = "Bubba",
+        
+        this.MySchema = JSON.stringify( getSchema1() );
+        
+        // this.MyForm = getSTUFF()
+        // this.MyForm = '<div><div class="control-group jsonform-error-prefix"><label class="control-label" for="jsonform-0-elt-prefix">Prefix</label><div class="controls"><input type="text" name="prefix" value="" id="jsonform-0-elt-prefix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-firstName jsonform-required"><label class="control-label" for="jsonform-0-elt-firstName"> First Name</label><div class="controls"><input type="text" name="firstName" value="" id="jsonform-0-elt-firstName" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-middlename"><label class="control-label" for="jsonform-0-elt-middlename">Middle Name</label><div class="controls"><input type="text" name="middlename" value="" id="jsonform-0-elt-middlename"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-lastname jsonform-required"><label class="control-label" for="jsonform-0-elt-lastname">Last Name</label><div class="controls"><input type="text" name="lastname" value="" id="jsonform-0-elt-lastname" required="required"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-suffix"><label class="control-label" for="jsonform-0-elt-suffix">Suffix</label><div class="controls"><input type="text" name="suffix" value="" id="jsonform-0-elt-suffix"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-fullName"><label class="control-label" for="jsonform-0-elt-fullName">Full Name</label><div class="controls"><input type="text" name="fullName" value="" id="jsonform-0-elt-fullName"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-age"><label class="control-label" for="jsonform-0-elt-age">Age</label><div class="controls"><input type="text" name="age" value="" id="jsonform-0-elt-age"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="control-group jsonform-error-birthdate"><label class="control-label" for="jsonform-0-elt-birthdate">Birthday</label><div class="controls"><input type="date" name="birthdate" value="" id="jsonform-0-elt-birthdate"><span class="help-block jsonform-errortext" style="display:none;"></span></div></div><div class="form-actions "><input type="submit" class="btn btn-primary " value="Submit"></div></div>';
+        // this.MyForm = getMyForm().html()  ;
+      }
+    }
+    
+      
+    customElements.define(NewGuy.is, NewGuy);
+      
+      
+    // customElements.define('newguy-form',
+    //     class extends HTMLElement {
+    //       constructor() {
+    //         super();
+    //         let mfrm = document.getElementById('form#myform');
+    //         console.log('mfrm',mfrm)
+            
+    //       }
+    // })
+    
+    </script>
+    
+    <script>
+    function doForm(mySchema) {
+//       console.log('doForm')
+      
+//       let schema0 = 
+//         {
+//           name: {
+//             type: 'string',
+//             title: 'Name',
+//             required: true
+//           },
+//           age: {
+//             type: 'number',
+//             title: 'Age'
+//           }
+//         } ;
+        
+//       let schema1 = 
+//         {
+//           firstName: {
+//             type: 'string',
+//             title: 'First Name',
+//             required: true
+//           },
+//           lastName: {
+//             type: 'string',
+//             title: 'First Name',
+//             required: true
+//           },
+//           birthDay: {
+//             type: 'date',
+//             title: 'Birthday'
+//           }
+//         } ;
+
+//       let schema2 = {}
+//       let schema3 = {}
+    
+//       console.log('mySchema',mySchema)
+//       var _schema = mySchema || schema1 ;
+//       console.log('_schema', _schema)
+      
+//       $myform = $("<form id='myform'>empty</form>");
+//       // var myform = $("<form id='myform'>empty</form>");
+// // console.log('$myform before',$myform) 
+// // console.log('myform before',myform) 
+
+// // // var myformhtml = document.getElementById("form#myform").innerHTML
+// // var myformhtmlbefore = $myform.html()
+// // console.log('myformhtmlbefore',myformhtmlbefore) 
+// let objForm = $myform
+// $myForm = getMyForm(objForm)
+// function getMyForm(objForm) {
+//       // var myDomElement = document.getElementById( "myform" );
+//       objForm.jsonForm({
+//       // var $mine = $.jsonForm({
+//         schema: _schema,
+//         onSubmit: function (errors, values) {
+//           if (errors) {
+//             $('#res').html('<p>I beg your pardon?</p>');
+//           }
+//           else {
+//             var _name = name || firstName
+//             var _age = age || ""
+//             var _birth = birthDay || ""
+//             $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+//               (values.age ? '<br/>You are ' + values.age + '.' : '') +
+//               (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+//               '</p>');
+//           }
+//         }
+//       });
+//       console.log('objForm after',objForm)
+//       return objForm;
+// }
+
+// // console.log('$myform after',$myform) 
+// // var myformhtmlafter = $myform.html()
+// // console.log('myformhtmlafter',myformhtmlafter) 
+
+// // console.log("$('div#mydiv') before",$('div#mydiv') )
+
+// //       $('div#mydiv').html(myformhtmlafter);
+      
+// // var mydivhtmlafter = $('div#mydiv').html()
+// // console.log("$('div#mydiv') after",$('div#mydiv') )
+// // console.log('mydivhtmlafter',mydivhtmlafter) 
+      
+    } // end doForm
+    </script>
+
+</dom-module>

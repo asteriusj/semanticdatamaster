@@ -1,0 +1,53 @@
+{
+	"id": "Mollusca.json",
+	"title": "mollusca",
+	"translations": {
+		"title": {
+			"de": "Weichtiere",
+			"el": "μαλάκια",
+			"fr": "mollusque",
+			"nl": "weekdier",
+			"ja": "軟体動物"
+		},
+		"description": {"el": "Τα μαλάκια αποτελούν μια τεράστια συνομοταξία ζώων, την πολυπληθέστερη μετά τα αρθρόποδα, με πάνω από 100.000 είδη."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Animal.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Mollusca",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Mollusca"}
+}

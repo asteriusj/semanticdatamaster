@@ -1,0 +1,52 @@
+{
+	"id": "NaturalRegion.json",
+	"title": "natural region",
+	"translations": {
+		"title": {
+			"de": "Naturraum",
+			"el": "φυσική περιοχή",
+			"fr": "région naturelle",
+			"nl": "natuurlijke regio"
+		},
+		"description": {"el": "H φυσική περιοχή χρησιμοποιείται για να περιγράψει την έκταση μιας γεωγραφικής περιοχής στην οποία η ανθρωπογενής παρέμβαση είναι ανύπαρκτη μέχρι ελάχιστη"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Region.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/NaturalRegion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/NaturalRegion"}
+}

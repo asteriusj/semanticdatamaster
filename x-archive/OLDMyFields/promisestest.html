@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		
+		<!-- Minified version of `es6-promise-auto` below. -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>  
+
+<!--https://github.com/googlesamples/web-fundamentals/tree/gh-pages/fundamentals/primers-->
+<style>
+@-webkit-keyframes spin {
+  to {
+    stroke-dashoffset: -264;
+  }
+}
+
+@keyframes spin {
+  to {
+    stroke-dashoffset: -264;
+  }
+}
+
+.spinner circle {
+  fill: none;
+  stroke: slategray;
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-dasharray: 0, 0, 70, 194;
+  stroke-dashoffset: 0;
+  animation: spin 1s infinite linear;
+  -webkit-animation: spin 1s infinite linear;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-size: 14px;
+}
+h1 {
+  font-family: Cambria, Georgia, serif;
+  font-size: 2em;
+  line-height: 1.3em;
+  margin: 0 0 0.5em;
+}
+.network-fake {
+  display: none;
+  margin-bottom: 1em;
+}
+input {
+  vertical-align: middle;
+}
+</style>
+
+ 
+    <script type="text/javascript" src="../deps/jquery.min.js"></script>
+    <script type="text/javascript" src="../deps/underscore.js"></script>
+    <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="../lib/jsonform.js"></script>
+    
+    <script type="text/javascript" src="../js/common.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles()">
+      <script>
+        function isJSONValid(_json) {
+            console.log('isJSONValid')
+
+            var promise = new Promise(function(resolve, reject) {
+                // vanillaJS
+                function isJSON(str) {
+                    try {
+                        var res = JSON.parse(str)
+                        return true;
+                    } catch (e) {
+                        return false;
+                    }
+                }
+                  
+                if ( isJSON(_json) ) {
+                    console.log('isJSON',true)
+                    resolve(true);
+                    
+                } else {
+                    console.log('isJSON',false)
+                    var msg = "JSONSchemaEditor content is NOT valid JSON" ;
+                    console.error(msg)
+                    alert(msg)
+                    resolve(false);
+                }
+                
+                
+              });
+        
+            return promise;
+        }; // end function getGenres
+    </script>
+    <script>
+        //
+        //
+        //
+        function doFieldEditData(_data) {
+            console.log('doFieldEditData',_data)
+            
+            // setFieldEditSchema(_data).then(function(response) {
+            //     console.log("setFieldEditSchema Success!", response);
+   
+            // }).catch(function(e) {
+            //     console.log("doFieldEditData Fail!", e);
+            // }).then(function() {
+
+            // })
+        }
+        
+        //
+        //
+        //
+        function doJSONSchemaData(_data) {
+            console.log('doJSONSchemaData',_data)
+            
+            setJSONFormSchema(_data).then(function(_schema) {
+                console.log("setJSONFormSchema Success! _schema", _schema);
+                return _schema;
+                
+            }).then(function(_schema) {
+                    console.log("doJSONSchemaData then _schema", _schema);
+                    
+                    doFieldSelect(_schema).then(function(_list) {
+                        console.log("doFieldSelect Success! _list", _list);
+                        return _list;
+                        
+                    }).catch(function(e) {
+                        console.error('setFieldSelectList Fail! e',e)
+                        
+                    });
+                
+            }).catch(function(err) {
+                console.error("doJSONSchemaData Fail!", err);
+              
+            });
+        }
+    </script> 
+
+
+    <script>
+    
+        //
+        // create myJSONFormSchema
+        //
+        console.log('localStorage.getItem(myJSONFormSchema)',localStorage.getItem('myJSONFormSchema'))
+        if (localStorage.getItem('myJSONFormSchema') === null ) localStorage.setItem('myJSONFormSchema', JSON.stringify({}));
+        console.log('localStorage.getItem(myJSONFormSchema)',localStorage.getItem('myJSONFormSchema'))
+        
+        //
+        // set myJSONFormSchema from _jsonformschema 
+        //
+        function setJSONFormSchema(_jsonformschema) {
+            console.log('setJSONFormSchema',_jsonformschema)
+            // Return a new promise.
+            return new Promise(function(resolve, reject) {
+                try {
+                    
+                    let myJSONFormSchema = _jsonformschema || {} ;
+                    // console.log('setJSONFormSchema myJSONFormSchema', myJSONFormSchema)
+                    
+                    localStorage.setItem('myJSONFormSchema', JSON.stringify(myJSONFormSchema));
+                    
+                    var retrievedObject = localStorage.getItem('myJSONFormSchema');
+                    // console.log('setJSONFormSchema retrievedObject: ', JSON.parse(retrievedObject));
+                    
+                    let _JSONFormSchema = JSON.parse(retrievedObject) ;
+                    console.log('_JSONFormSchema',_JSONFormSchema)
+                    
+                    resolve(_JSONFormSchema)
+                
+                } catch(e) {
+                    console.error('setJSONFormSchema e',e)
+                    reject(e);
+                    
+                }; 
+            });
+        };
+        
+        //
+        // get myJSONFormSchema from set value 
+        //
+        function getJSONFormSchema() {
+            console.log('getJSONFormSchema')
+
+                // MovieLibrary.getGenres = function() {
+                //   var promise = new Promise(function(resolve, reject) {
+                //     /* missing implementation */
+                //     resolve(result);
+                //   });
+                
+                //   return promise;
+                // };
+                
+            // Return a new promise.
+            var promise = new Promise(function(resolve, reject) {
+                
+                 try {
+
+                    var retrievedObject = localStorage.getItem('myJSONFormSchema');
+                    // console.log('retrievedObject: ', retrievedObject);
+                    // console.log('retrievedObject: ', JSON.parse(retrievedObject));
+                    
+                    let _jsonformschema = JSON.parse(retrievedObject) ;
+                    
+                    // console.log('getJSONFormSchema _jsonformschema: ', _jsonformschema);
+                    resolve(_jsonformschema)
+                
+                } catch(e) {
+                    console.error('getJSONFormSchema e',e)
+                    reject(e);
+                    
+                }; // end try 
+                
+            });
+            
+            return promise;
+        } // end getJSONFormSchema
+        
+        //
+        // Update JSONFormSchema with _fieldjson with a subschema for one fieldtype.
+        // Retrieves current _JSONFormSchema, finds and replaces fieldtype element with new one
+        //
+        function updateJSONFormSchema(_fieldjson) {
+            console.log('updateJSONFormSchema _fieldjson',_fieldjson)
+
+            // Return a new promise.
+            var promise = new Promise(function(resolve, reject) {
+                
+                 try {
+                     
+                        let _JSONFormSchema = {};
+                        
+                        // let _fieldtype = JSON.parse(_fieldjson.key) ;
+                        let _fieldtype = _fieldjson.key ;
+                        console.log('updateJSONFormSchema _fieldtype',_fieldtype)
+                        
+                        getJSONFormSchema().then(function(result) {
+                            console.log('call getJSONFormSchema result',result)
+                            
+                            _JSONFormSchema = result.schema || result;
+                            // console.log('call getJSONFormSchema _JSONFormSchema',_JSONFormSchema)
+                            
+                            // loop over type elements then replace _fieldtype with new _fieldjson
+                            for (key in _JSONFormSchema) {
+                                
+                                if (key === _fieldtype) {
+                                    let el = _JSONFormSchema[key]
+                                    console.log('  key el',key, el)
+                                    // if key = fieldtype change element to updated value
+                                    _JSONFormSchema[_fieldtype] = _fieldjson
+                                }
+                                
+                            }
+                            
+                            if (_JSONFormSchema === {}) {
+                                console.log('call getJSONFormSchema EMPTY!',_JSONFormSchema)
+                                throw '{}'
+                            } else {
+                                setJSONFormSchema(_JSONFormSchema).then(function(result) {
+                                    console.log('call setJSONFormSchema Success! result',result)
+                                }).catch(function(e) {
+                                    console.error('call setJSONFormSchema Fail! e',e)
+                                });
+                            }
+                            
+                            // console.log('call getJSONFormSchema',_JSONFormSchema)
+                            return _JSONFormSchema
+                            
+                        }).then(function(_JSONFormSchema) {
+                            
+                            resolve(_JSONFormSchema)
+                       
+                        }).catch(function(e) {
+                            console.error('call getJSONFormSchema Fail! e',e)
+                        });
+                   
+                } catch(e) {
+                    console.error('ERR updateJSONFormSchema e',e)
+                    reject(e);
+                    
+                }; // end try 
+                
+            });
+            
+            return promise;
+        } // end updateJSONFormSchema
+
+    </script>
+    
+    <script>
+    
+        //
+        // create myFieldJSON
+        // 
+        console.log('localStorage.getItem(myFieldJSON)',localStorage.getItem('myFieldJSON'))
+        if (localStorage.getItem('myFieldJSON') === null ) localStorage.setItem('myFieldJSON', JSON.stringify({}));
+        console.log('localStorage.getItem(myFieldJSON)',localStorage.getItem('myFieldJSON'))
+        
+        //
+        // set myFieldJSON
+        //
+        function setFieldJSON(_fieldjson) {
+            console.log('setFieldJSON',_fieldjson)
+            
+            return new Promise(function(resolve, reject) {
+                try {
+
+                    let myFieldJSON = _fieldjson || {} ;
+                    console.log('myFieldJSON', myFieldJSON)
+                    
+                    localStorage.setItem('myFieldJSON', JSON.stringify(myFieldJSON));
+                    var retrievedObject = localStorage.getItem('myFieldJSON');
+                    // console.log('retrievedObject: ', JSON.parse(retrievedObject));
+                    // console.log('retrievedObject: ', retrievedObject);
+                    _FieldJSON = JSON.parse(retrievedObject) ;
+                    
+                    resolve(_FieldJSON)
+
+                } catch(e) {
+                    console.error('setFieldJSON e',e)
+                    reject(e);
+                } 
+            })
+        } // end setFieldJSON
+        
+        // retrieve myFieldJSON
+        function getFieldJSON(_fieldtype) {
+            console.log('getFieldJSON _fieldtype', _fieldtype)
+            
+                // MovieLibrary.getGenres().then(function(result) {
+                //     // you can access the result from the promise here
+                // });
+            
+            return new Promise(function(resolve, reject) {
+                try {
+                    
+                    let _fieldjson = {} ;
+                    
+                    if (_fieldtype != null) {
+                        
+                        getJSONFormSchema().then(function(result) {
+                            console.log('call getJSONFormSchema result',result)
+                            
+                            let _JSONFormSchema = result.schema || result ;
+                            console.log('call getJSONFormSchema _JSONFormSchema',_JSONFormSchema)
+                            
+                            _fieldjson = _JSONFormSchema[_fieldtype] ;
+                            // console.log('getFieldJSON _JSONFormSchema[fieldtype]',_JSONFormSchema[fieldtype])
+                        
+                            // console.log('getFieldJSON _fieldjson',_fieldjson)
+                            resolve(_fieldjson);
+                            
+                        }).catch(function(e) {
+                            console.error('call getJSONFormSchema Fail! e',e)
+                        });
+                        
+                    } else {
+                    
+                        var retrievedObject = localStorage.getItem('myFieldJSON');
+                        // console.log('getFieldJSON retrievedObject',retrievedObject)
+                        // console.log('retrievedObject: ', JSON.parse(retrievedObject));
+                        
+                        _fieldjson = JSON.parse(retrievedObject) ;
+                        
+                        // console.log('getFieldJSON _fieldjson',_fieldjson)
+                        resolve(_fieldjson);
+                    }
+                    
+                } catch(e) {
+                    console.error('getFieldJSON e',e)
+                    reject(e);
+                    
+                }; // end try 
+            }); // end promise
+        } // end setFieldJSON
+        
+        // // update myFieldJSON with _fieldjson
+        // function updateFieldJSON(_fieldjson) {
+        //     console.log('updateFieldJSON _fieldjson',_fieldjson)
+
+        //     // Return a new promise.
+        //     var promise = new Promise(function(resolve, reject) {
+                
+        //          try {
+                     
+                     
+        //             resolve()
+                
+        //         } catch(e) {
+        //             console.error('updateFieldJSON e',e)
+        //             reject(e);
+                    
+        //         }; // end try 
+                
+        //     });
+            
+        //     return promise;
+        // } // end updateFieldJSON
+    </script>
+    
+    
+    <script>
+        // create myFieldEditSchema
+        function setFieldEditSchema(_fieldeditschema) {
+            console.log('setFieldEditSchema',_fieldeditschema)
+            // Return a new promise.
+            return new Promise(function(resolve, reject) {
+
+                let myFieldEditSchema = _fieldeditschema;
+                resolve(true)
+            
+            }); // end promise
+        }; // end setFieldEditSchema
+        
+       
+    </script>
+
+
+    <div class="myheader">
+      <h2>My JSON Form Fields</h2>
+      <div id="selectFieldList">Select Field: </div>
+    </div>
+    <script>
+        // prepare select list with field types option items
+        function doFieldSelect(_schema) {
+            console.log('doFieldSelect _schema',_schema)
+            
+            return new Promise(function(resolve, reject) {
+                // get field select list from schema
+                var _props = _schema.schema;
+                console.log('_props',_props)
+                
+                setFieldSelectList(_props).then(function(selectList) {
+                    // handle next
+                    console.log('setFieldSelectList Success! selectList',selectList)
+
+                    resolve(selectList)
+                    
+                }).catch(function(e) {
+                    console.error('setFieldSelectList Fail! e',e)
+                    reject(e)
+                    
+                });
+            });
+        }; // end doFieldSelect
+ 
+        function setFieldSelectList(_schema) {
+            console.log('setFieldSelectList',_schema)
+            
+            return new Promise(function(resolve, reject) {
+
+                try {
+                    
+                    // var _props = _schema.schema.properties
+                    var myDiv = document.getElementById("selectFieldList");
+                    
+                    var selectList = document.createElement("select");
+                    selectList.id = "mySelect";
+                    myDiv.appendChild(selectList);
+                    
+                    // loopover _schema elements assign each to a select option item
+                    for (key in _schema) {
+                        // console.log('key',key)
+                        var option = document.createElement("option");
+                        option.value = key;
+                        option.text = _schema[key].title || key;
+                        selectList.appendChild(option);
+                        
+                    }
+                    // console.log('selectList',selectList)
+                    // console.log('_schema[key]',_schema[key])
+                        
+                    // set onchange listener for select
+                    myDiv.addEventListener("change", onchangeSelectFieldList)
+                    // console.log('myDiv',myDiv)
+                    
+                    // set current field schema in editor
+                    onchangeSelectFieldList().then(function(result) {
+                        console.log('call onchangeSelectFieldList Success! result',result)
+                        
+                    }).catch(function(e) {
+                        console.error('call onchangeSelectFieldList Fail! e',e)
+                    });
+
+                    resolve(selectList);
+                                
+                } catch(e) {
+                    console.error('setFieldSelectListreject e',e)
+                    reject(e);
+                    
+                }; // end try
+            }); // end promise
+        }; // end setFieldSelectList
+    
+        function onchangeSelectFieldList() {
+            console.log('onchangeSelectFieldList')
+            
+            return new Promise(function(resolve, reject) {
+
+                try {
+
+                    var myDiv = document.getElementById("mySelect");
+                    // console.log('myDiv',myDiv)
+                    var key = document.getElementById("mySelect").value;
+                    console.log('onchangeSelectFieldList key',key)
+
+                    getFieldJSON(key).then(function(_fieldjson) {
+                        // handle next
+                        console.log('call getFieldJSON Success! _fieldjson',_fieldjson)
+                        
+                        doJSONSchemaEditor(_fieldjson).then(function(result) {
+                            console.log('call doJSONSchemaEditor Success! result',result)
+                            
+                            resolve(result)
+                        
+                        }).catch(function(e) {
+                            console.error('call doJSONSchemaEditor Fail! e',e)
+                            reject(e)
+                        
+                        }); // enddoJSONSchemaEditor
+                    }).catch(function(e) {
+                        console.error('call getFieldJSON Fail! e',e)
+                        reject(e)
+                        
+                    }); // end getFieldJSON
+                } catch(e) {
+                    console.error('onchangeSelectFieldList e',e)
+                    reject(e);
+                    
+                }; // end try
+            }); // end promise
+        }; // end onchangeSelectFieldList
+        
+    </script>
+    
+    
+    <div class="myJSONSchema">
+      <div id="JSONSchema"><textarea id="myTextarea"></textarea></div>
+    </div>
+    <script>
+        //
+        // Called with target JSON Schema to instantiate and populate text editor wth JSOM style / the,e
+        // Functions for SchemaEditor include setJSONSchemaEditor, getJSONSchemaEditor, and onchangeJSONSchemaEditor
+        //
+        function doJSONSchemaEditor(_schema) {
+            console.log('doJSONSchemaEditor _schema',_schema)
+            
+            return new Promise(function(resolve, reject) {
+
+                try {
+                    
+                    // call setJSONSchemaEditor 
+                    setJSONSchemaEditor(_schema).then(function(result) {
+                        console.log('setJSONSchemaEditor Success! result',result)
+                        
+                        
+                        getJSONSchemaEditor().then(function(content) {
+                            console.log('getJSONSchemaEditor Success! content',content)
+                        }).catch(function(e) {
+                            console.error('getJSONSchemaEditor Fail! e',e)
+                        });
+                        
+                        resolve(result);
+                        
+                    }).catch(function(e) {
+                        console.error('setJSONSchemaEditor Fail! e',e)
+                        reject(e)
+                        
+                    }); // end setJSONSchemaEditor
+                } catch(e) {
+                    console.error('doJSONSchemaEditor e',e)
+                    reject(e);
+                }; // end try 
+            }); // end promise
+        } // end doJSONSchemaEditor
+        
+        //
+        //
+        //
+        function setJSONSchemaEditor(_schema) {
+            console.log('doJSONSchemaEditor _schema',_schema)
+            
+            return new Promise(function(resolve, reject) {
+
+                try {
+                    
+                    var myEl = document.getElementById("myTextarea");
+                    // myDiv.innerHTML= "<textarea>" + JSON.stringify(_schema) + "</textarea>";
+                    let content = JSON.stringify(_schema)
+                    myEl.value =  content;
+
+                    myEl.addEventListener("change", onchangeJSONSchemaEditor) ;
+                    
+                    
+                    resolve(myEl.value);
+                                
+                } catch(e) {
+                    console.error('setJSONSchemaEditor e',e)
+                    reject(e);
+                    
+                }; // end try 
+            }); // end promise
+        }; // end doJSONSchemaEditor
+        
+        //
+        //
+        //
+        function getJSONSchemaEditor() {
+            console.log('getJSONSchemaEditor ')
+            
+            return new Promise(function(resolve, reject) {
+
+                try {
+                    
+                    var myEl = document.getElementById("myTextarea");
+                    let content = myEl.value
+                    let _shema = JSON.parse(content)
+                    
+                    // console.log('getJSONSchemaEditor _shema',_shema)
+                    resolve(_shema);
+                                
+                } catch(e) {
+                    console.error('getJSONSchemaEditor e',e)
+                    reject(e);
+                    
+                }; // end try 
+            }); // end promise
+        }; // end getJSONSchemaEditor
+        
+        function onchangeJSONSchemaEditor() {
+            console.log('onchangeJSONSchemaEditor')
+            
+            return new Promise(function(resolve, reject) {
+               
+                try {
+                     
+                    var myEl = document.getElementById("myTextarea");
+                    let content = myEl.value
+                    
+                    console.log('onchangeJSONSchemaEditor content',content)
+                    
+                    
+                    if ( isJSONValid(content) === false ) {
+                        var msg = "JSONSchemaEditor content is NOT valid JSON" ;
+                        alert(msg);
+                        console.error(msg)
+                        reject(msg)
+                    }
+                    
+                    
+                    
+                    
+                    // check for json syntax correctness - JSON Schema validation?
+                    let cn = content;
+
+                    function checkJSONValid() {
+                        console.log('checkJSONValid')
+                        var promise = new Promise(function(resolve, reject) {
+                            // vanillaJS
+                            function isJSON(str) {
+                                try {
+                                    var res = JSON.parse(str)
+                                    return true;
+                                } catch (e) {
+                                    return false;
+                                }
+                            }
+                              
+                            if ( isJSON(content) ) {
+                                console.log('isJSON',true)
+                                cn = JSON.parse(content)
+                            } else {
+                                console.log('isJSON',false)
+                                cn = content
+                            }
+                            
+                            console.log('onchangeJSONSchemaEditor cn',cn)
+                            
+                            resolve(cn);
+                          });
+                    
+                        return promise;
+                    }; // end function getGenres
+                    
+                    
+                    checkJSONValid().then(function(result) {
+                        console.log('call checkJSONValid Success! result',result)
+                        // you can access the result from the promise here
+                        setFieldJSON(result).then(function(_fieldjson) {
+                            console.log('call setFieldJSON Success! _fieldjson',_fieldjson)
+        
+                            updateJSONFormSchema(_fieldjson).then(function(result) {
+                                console.log('call updateJSONFormSchema Success! result',result)
+            
+                            }).catch(function(e) {
+                                console.error('call updateJSONFormSchema Fail! e',e)
+                            }); // end updateJSONFormSchema
+                            
+                        }).catch(function(e) {
+                            console.error('call setFieldJSON Fail! e',e)
+                        }); // end setFieldJSON
+                       
+                    }).catch(function(e) {
+                        console.error('call checkJSONValid Fail! e',e)
+                    });
+                    
+                        
+                   
+                    
+                    resolve(cn);
+                    
+                } catch(e) {
+                    console.error('onchangeJSONSchemaEditor e',e)
+                    reject(e);
+                    
+                }; // end try 
+            }); // end promise
+        }; // end onchangeJSONSchemaEditor
+    </script>
+    
+    
+    
+    
+</body>
+</html>

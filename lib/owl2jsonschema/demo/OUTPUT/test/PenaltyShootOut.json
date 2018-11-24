@@ -1,0 +1,97 @@
+{
+	"id": "PenaltyShootOut.json",
+	"title": "penalty shoot-out",
+	"translations": {
+		"title": {
+			"nl": "penalty schieten",
+			"ga": "ciceanna éirice",
+			"de": "Elfmeterschießen"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"penaltiesTeamA": {
+			"oneOf": [
+				{"$ref": "#/definitions/penaltiesTeamA"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/penaltiesTeamA"}
+				}
+			]
+		},
+		"penaltiesTeamB": {
+			"oneOf": [
+				{"$ref": "#/definitions/penaltiesTeamB"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/penaltiesTeamB"}
+				}
+			]
+		},
+		"penaltyScore": {
+			"oneOf": [
+				{"$ref": "#/definitions/penaltyScore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/penaltyScore"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"penaltiesTeamA": {
+			"title": "Penalties Team A",
+			"description": "",
+			"type": "string"
+		},
+		"penaltiesTeamB": {
+			"title": "Penalties Team B",
+			"description": "",
+			"type": "string"
+		},
+		"penaltyScore": {
+			"title": "penalty score",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/PenaltyShootOut",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PenaltyShootOut"}
+}

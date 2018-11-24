@@ -1,0 +1,105 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"abstentions": {
+			"title": "abstentions",
+			"description": "Number of abstentions from the vote",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"votesAgainst": {
+			"title": "Votes against the resolution",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"votesFor": {
+			"title": "Number of votes in favour of the resolution",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A Resolution describes a formal statement adopted by a meeting or convention.",
+	"format": "http://dbpedia.org/ontology/StatedResolution",
+	"id": "StatedResolution.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/StatedResolution"},
+	"properties": {
+		"abstentions": {
+			"oneOf": [
+				{"$ref": "#/definitions/abstentions"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/abstentions"}
+				}
+			]
+		},
+		"votesAgainst": {
+			"oneOf": [
+				{"$ref": "#/definitions/votesAgainst"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/votesAgainst"}
+				}
+			]
+		},
+		"votesFor": {
+			"oneOf": [
+				{"$ref": "#/definitions/votesFor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/votesFor"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Stated Resolution",
+	"translations": {
+		"title": {
+			"de": "Angenommen Beschluß",
+			"nl": "Aangenomen Besluit"
+		},
+		"description": {"nl": "Een Besluit of Verklaring beschrijft een formeel besluit of formele aanbeveling aangenomen door een vergadering."}
+	},
+	"type": "object"
+}

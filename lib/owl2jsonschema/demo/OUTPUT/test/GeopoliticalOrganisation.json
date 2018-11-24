@@ -1,0 +1,75 @@
+{
+	"id": "GeopoliticalOrganisation.json",
+	"title": "geopolitical organisation",
+	"translations": {
+		"title": {
+			"de": "geopolitische Organisation",
+			"el": "γεωπολιτική οργάνωση",
+			"fr": "organisation géopolitique",
+			"es": "organización geopolítica",
+			"ko": "지정학적 조직",
+			"nl": "geopolitieke organisatie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"GeopoliticalOrganisation/populationDensity": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/inhabitantsPerSquareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"GeopoliticalOrganisation/areaMetro": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GeopoliticalOrganisation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GeopoliticalOrganisation"}
+}

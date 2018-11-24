@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/css/demo.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.1/jquery.rateyo.min.css">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <script type="text/javascript" src="js/common.js"></script>
+  </head>
+  <body>
+
+    <my-fields jsonobj="
+    {schema:{firstName:{type:'string',title:'First Name',required:true},lastName:{type:'string',title:'First Name',required:true},birthDay:{type:'date',title:'Birthday'}}}
+    ">
+        
+    </my-fields>
+    
+    <script>
+    jQuery(function($) {
+  var editor = document.getElementById('fb-editor');
+  $(editor).formBuilder();
+});
+</script>
+    
+    
+    <!--<li class="number-field form-field editing" type="number" id="frmb-1515276232135-fld-3">-->
+      
+    <!--  <div class="field-actions">-->
+    <!--    <a type="remove" id="del_frmb-1515276232135-fld-3" class="del-button btn icon-cancel delete-confirm" title="Remove Element"></a>-->
+    <!--    <a type="edit" id="frmb-1515276232135-fld-3-edit" class="toggle-form btn icon-pencil open" title="Edit"></a>-->
+    <!--    <a type="copy" id="frmb-1515276232135-fld-3-copy" class="copy-button btn icon-copy" title="Copy"></a>-->
+    <!--  </div>-->
+      
+    <!--  <label class="field-label">Number</label>-->
+    <!--  <span class="required-asterisk" style="display: none;"> *</span>-->
+    <!--  <span class="tooltip-element" tooltip="undefined" style="display:none">?</span>-->
+      
+    <!--  <div class="prev-holder" style="display: none;">-->
+          
+    <!--      <div class="fb-number form-group field-number-1515276724013-preview">-->
+    <!--        <label for="number-1515276724013-preview" class="fb-number-label">Number</label>-->
+    <!--        <input type="number" class="form-control" name="number-1515276724013-preview" id="number-1515276724013-preview">-->
+    <!--      </div>-->
+      
+    <!--  </div>-->
+      
+    <!--  <div id="frmb-1515276232135-fld-3-holder" class="frm-holder" style="display: block;">-->
+    <!--      <div class="form-elements">-->
+    <!--        <div class="form-group required-wrap">-->
+    <!--          <label for="required-frmb-1515276232135-fld-3">Required</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--            <input type="checkbox" class="fld-required" name="required" id="required-frmb-1515276232135-fld-3">-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--        <div class="form-group label-wrap" style="display: block">-->
+    <!--              <label for="label-frmb-1515276232135-fld-3">Label</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--              <div name="label" placeholder="Label" class="fld-label form-control" id="label-frmb-1515276232135-fld-3" contenteditable="true">Number</div>-->
+    <!--              </div>-->
+    <!--          </div>-->
+    <!--          <div class="form-group description-wrap" style="display: block">-->
+    <!--              <label for="description-frmb-1515276232135-fld-3">Help Text</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--              <input name="description" placeholder="" class="fld-description form-control" id="description-frmb-1515276232135-fld-3" value="" type="text">-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--        <div class="form-group placeholder-wrap" style="display: block">-->
+    <!--              <label for="placeholder-frmb-1515276232135-fld-3">Placeholder</label>-->
+    <!--        <div class="input-wrap">-->
+    <!--              <input name="placeholder" placeholder="" class="fld-placeholder form-control" id="placeholder-frmb-1515276232135-fld-3" value="" type="text">-->
+    <!--        </div>-->
+    <!--      </div>-->
+          
+    <!--      <div class="form-group className-wrap" style="display: block">-->
+    <!--              <label for="className-frmb-1515276232135-fld-3">Class</label>-->
+    <!--        <div class="input-wrap">-->
+    <!--              <input name="className" placeholder="space separated classes" class="fld-className form-control" id="className-frmb-1515276232135-fld-3" value="form-control" type="text">-->
+    <!--        </div>-->
+    <!--      </div>-->
+                                    
+    <!--      <div class="form-group name-wrap" style="display: block">-->
+    <!--              <label for="name-frmb-1515276232135-fld-3">Name</label>-->
+    <!--        <div class="input-wrap">-->
+    <!--              <input name="name" placeholder="" class="fld-name form-control" id="name-frmb-1515276232135-fld-3" value="number-1515276724013" type="text">-->
+    <!--        </div>-->
+    <!--      </div>-->
+          
+    <!--      <div class="form-group access-wrap">-->
+    <!--          <label for="access-frmb-1515276232135-fld-3">Access</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--              <input type="checkbox" class="fld-access" name="access" id="access-frmb-1515276232135-fld-3"> -->
+    <!--              <label for="access-frmb-1515276232135-fld-3">Limit access to one or more of the following roles:</label>-->
+    <!--          <div class="available-roles">-->
+    <!--              <label for="fld-frmb-1515276232135-fld-3-roles-1">-->
+    <!--              <input type="checkbox" name="roles[]" value="1" id="fld-frmb-1515276232135-fld-3-roles-1" class="roles-field"> Administrator</label>-->
+    <!--          </div>-->
+    <!--      </div>-->
+    <!--      </div>-->
+    <!--      <div class="form-group value-wrap" style="display: undefined">-->
+    <!--          <label for="value-frmb-1515276232135-fld-3">Value</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--              <input name="value" placeholder="Value" class="fld-value form-control" id="value-frmb-1515276232135-fld-3" value="" type="text">-->
+    <!--          </div>-->
+    <!--      </div>-->
+    <!--      <div class="form-group min-wrap">-->
+    <!--          <label for="min-frmb-1515276232135-fld-3">min</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--              <input type="number" name="min" min="0" class="fld-min form-control" id="min-frmb-1515276232135-fld-3">-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--      <div class="form-group max-wrap">-->
+    <!--          <label for="max-frmb-1515276232135-fld-3">max</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--              <input type="number" name="max" min="0" class="fld-max form-control" id="max-frmb-1515276232135-fld-3">-->
+    <!--          </div>-->
+    <!--      </div>-->
+    <!--      <div class="form-group step-wrap">-->
+    <!--          <label for="step-frmb-1515276232135-fld-3">step</label>-->
+    <!--          <div class="input-wrap">-->
+    <!--            <input type="number" name="step" min="0" class="fld-step form-control" id="step-frmb-1515276232135-fld-3">-->
+    <!--          </div>-->
+    <!--      </div>-->
+    <!--      <a class="close-field">Close</a>-->
+    <!--    </div>-->
+        
+    <!--  </div>-->
+    <!--</li>-->
+  
+  
+  
+  
+  
+  <!--<div data-cloud9-id="56" id="stage1" class="build-wrap">-->
+    <!--  <div id="frmb-1515276232135-form-wrap" class="form-wrap form-builder">-->
+        
+    <!--    <div id="frmb-1515276232135-stage-wrap" class="stage-wrap pull-left empty" data-content="Drag a field from the right to this area">-->
+    <!--      <ul id="frmb-1515276232135" class="frmb ui-sortable" style="min-height: 569.479px;"></ul>-->
+    <!--    </div>-->
+        
+    <!--    <div id="frmb-1515276232135-cb-wrap" class="cb-wrap pull-right">-->
+          
+    <!--      <ul id="frmb-1515276232135-control-box" class="frmb-control sort-enabled ui-sortable">-->
+    <!--        <li class="icon-autocomplete input-control input-control-15 ui-sortable-handle" data-type="autocomplete-6716">-->
+    <!--          <span>Custom Autocomplete</span>-->
+    <!--        </li>-->
+    <!--        <li class="icon-button input-control input-control-1 ui-sortable-handle" data-type="button">-->
+    <!--            <span>Button</span>-->
+    <!--        </li>-->
+    <!--        <li class="icon-checkbox-group input-control input-control-6 ui-sortable-handle" data-type="checkbox-group">-->
+    <!--          <span>Checkbox Group</span>-->
+    <!--          </li>-->
+    <!--        <li class="icon-date input-control input-control-11 ui-sortable-handle" data-type="date"><span>Date Field</span></li><li class="icon-file input-control input-control-10 ui-sortable-handle" data-type="file"><span>File Upload</span></li><li class="icon-header input-control input-control-4 ui-sortable-handle" data-type="header"><span>Header</span></li><li class="icon-hidden input-control input-control-2 ui-sortable-handle" data-type="hidden"><span>Hidden Input</span></li><li class="icon-paragraph input-control input-control-3 ui-sortable-handle" data-type="paragraph"><span>Paragraph</span></li><li class="icon-number input-control input-control-12 ui-sortable-handle" data-type="number"><span>Number</span></li><li class="icon-radio-group input-control input-control-7 ui-sortable-handle" data-type="radio-group"><span>Radio Group</span></li><li class="icon-select input-control input-control-5 ui-sortable-handle" data-type="select"><span>Select</span></li><li class="icon-text input-control input-control-9 ui-sortable-handle" data-type="text"><span>Text Field</span></li><li class="icon-textarea input-control input-control-16 ui-sortable-handle" data-type="textarea-2124"><span>tinyMCE</span></li><li class="input-control input-control-14 ui-sortable-handle" data-type="starRating"><span><span class="control-icon">ðŸŒŸ</span>Star Rating</span></li>-->
+    <!--        <li class="input-set-control input-set-0 ui-sortable-handle" data-type="user-details"><span class="control-icon">ðŸ‘¨</span>User Details</li>-->
+    <!--      </ul>-->
+            
+    <!--      <div class="form-actions btn-group">-->
+    <!--          <button type="button" id="frmb-1515276232135-clear-action" class="clear-all btn btn-danger">Clear</button>-->
+    <!--          <button type="button" id="frmb-1515276232135-data-action" class="btn btn-default get-data">{  }</button>-->
+    <!--          <button type="button" id="frmb-1515276232135-save-action" class="btn btn-primary save-template">Save</button>-->
+    <!--          <button id="frmb-1515276232135-smile-action" class="btn btn-success" type="button">ðŸ˜</button>-->
+    <!--      </div>-->
+            
+    <!--    </div>-->
+        
+    <!--  </div>-->
+    <!--</div>-->
+    
+    <script src="assets/js/vendor.js"></script>
+    <script src="assets/js/form-builder.min.js"></script>
+    <script src="assets/js/form-render.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.1/jquery.rateyo.min.js"></script>
+    <script src="assets/js/demo.js"></script>
+  
+  </body>
+</html>
+
+<!--<my-fields jsonobj="{{data['@graph']}}"></my-fields>-->

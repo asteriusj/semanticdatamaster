@@ -1,0 +1,72 @@
+{
+	"id": "CyclingTeam.json",
+	"title": "cycling team",
+	"translations": {
+		"title": {
+			"de": "Radsportteam",
+			"el": "ομάδα ποδηλασίας",
+			"it": "squadra di ciclismo",
+			"ga": "foireann rothaíochta",
+			"da": "cykelhold",
+			"ko": "사이클 팀",
+			"nl": "wielerploeg"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"uciCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/uciCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/uciCode"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"uciCode": {
+			"title": "UCI code",
+			"description": "Official UCI code for cycling teams",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CyclingTeam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CyclingTeam"}
+}

@@ -1,0 +1,56 @@
+{
+	"id": "Watermill.json",
+	"title": "Watermill",
+	"description": "A watermill is a structure that uses a water wheel or turbine to drive a mechanical process such as flour, lumber or textile production, or metal shaping &amp;&#35;40;rolling, grinding or wire drawing&#41;",
+	"translations": {
+		"title": {
+			"de": "Wassermühle",
+			"el": "Νερόμυλος",
+			"fr": "Moulin à eau",
+			"it": "mulino ad acqua",
+			"ga": "muileann uisce",
+			"nl": "Watermolen",
+			"ja": "水車小屋"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Mill.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Watermill",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Watermill"}
+}

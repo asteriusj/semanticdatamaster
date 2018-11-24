@@ -1,0 +1,52 @@
+{
+	"id": "MotorcycleRacingLeague.json",
+	"title": "motorcycle racing league",
+	"description": "a group of sports teams or bikerider that compete against each other in Motorcycle Racing",
+	"translations": {
+		"title": {
+			"de": "Motorradrennen Liga",
+			"fr": "ligue de courses motocycliste",
+			"nl": "motorrace competitie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsLeague.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MotorcycleRacingLeague",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MotorcycleRacingLeague"}
+}

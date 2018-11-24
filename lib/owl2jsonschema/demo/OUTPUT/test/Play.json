@@ -1,0 +1,203 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"characterInPlay": {
+			"title": "character in play",
+			"description": "Name of a character in play.",
+			"type": "string"
+		},
+		"chorusCharacterInPlay": {
+			"title": "chorus character in play",
+			"description": "The name of the &amp;&#35;40;Greek&#41; chorus character in play.",
+			"type": "string"
+		},
+		"ibdbId": {
+			"title": "IBDB ID",
+			"description": "The Internet Broadway Database ID &amp;&#35;40;IBDB ID&#41; from ibdb.com.",
+			"type": "string"
+		},
+		"iobdbId": {
+			"title": "IOBDB ID",
+			"description": "Lortel Archives Internet Off-Broadway database&quot;show id&quot;from lortel.org.",
+			"type": "string"
+		},
+		"muteCharacterInPlay": {
+			"title": "mute character in play",
+			"description": "Name of a mute character in play.",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"premiereDate": {
+			"title": "premiere date",
+			"description": "Date the play was first performed.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"premierePlace": {
+			"title": "premiere place",
+			"description": "The theatre and/or city the play was first performed in.",
+			"anyOf": []
+		},
+		"premiereYear": {
+			"title": "premiere year",
+			"description": "Year the play was first performed.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"settingOfPlay": {
+			"title": "setting of play",
+			"description": "The places and time where the play takes place.",
+			"type": "string"
+		},
+		"subjectOfPlay": {
+			"title": "subject of play",
+			"description": "The overall subject matter dealt with by the play.",
+			"type": "string"
+		}
+	},
+	"description": "A play is a form of literature written by a playwright, usually consisting of scripted dialogue between characters, intended for theatrical performance rather than just reading.",
+	"format": "http://dbpedia.org/ontology/Play",
+	"id": "Play.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Play"},
+	"properties": {
+		"subjectOfPlay": {
+			"oneOf": [
+				{"$ref": "#/definitions/subjectOfPlay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subjectOfPlay"}
+				}
+			]
+		},
+		"iobdbId": {
+			"oneOf": [
+				{"$ref": "#/definitions/iobdbId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iobdbId"}
+				}
+			]
+		},
+		"muteCharacterInPlay": {
+			"oneOf": [
+				{"$ref": "#/definitions/muteCharacterInPlay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/muteCharacterInPlay"}
+				}
+			]
+		},
+		"premiereYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/premiereYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/premiereYear"}
+				}
+			]
+		},
+		"chorusCharacterInPlay": {
+			"oneOf": [
+				{"$ref": "#/definitions/chorusCharacterInPlay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/chorusCharacterInPlay"}
+				}
+			]
+		},
+		"settingOfPlay": {
+			"oneOf": [
+				{"$ref": "#/definitions/settingOfPlay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/settingOfPlay"}
+				}
+			]
+		},
+		"ibdbId": {
+			"oneOf": [
+				{"$ref": "#/definitions/ibdbId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ibdbId"}
+				}
+			]
+		},
+		"premiereDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/premiereDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/premiereDate"}
+				}
+			]
+		},
+		"characterInPlay": {
+			"oneOf": [
+				{"$ref": "#/definitions/characterInPlay"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/characterInPlay"}
+				}
+			]
+		},
+		"premierePlace": {
+			"oneOf": [
+				{"$ref": "#/definitions/premierePlace"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/premierePlace"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "play",
+	"translations": {
+		"title": {
+			"de": "Theaterstück",
+			"el": "παιχνίδι",
+			"fr": "pièce de théâtre",
+			"es": "obra de teatro",
+			"ga": "dráma",
+			"nl": "toneelstuk",
+			"ja": "戯曲"
+		},
+		"description": {"el": "Ένα παιχνίδι είναι μια μορφή της λογοτεχνίας, γραμμένο από έναν συγγραφέα, που συνήθως αποτελείται από σενάριο του διαλόγου μεταξύ των χαρακτήρων, που προορίζεται για την θεατρική παράσταση και όχι μόνο ανάγνωση."}
+	},
+	"type": "object"
+}

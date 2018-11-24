@@ -1,0 +1,53 @@
+{
+	"id": "Medicine.json",
+	"title": "Medicine",
+	"description": "The science and art of healing the human body and identifying the causes of disease",
+	"translations": {
+		"title": {
+			"de": "Medizin",
+			"fr": "médecine",
+			"nl": "geneeskunde",
+			"ja": "医学"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Medicine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Medicine"}
+}

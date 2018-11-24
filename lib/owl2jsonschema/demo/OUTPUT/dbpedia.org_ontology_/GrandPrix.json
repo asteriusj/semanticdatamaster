@@ -1,0 +1,243 @@
+{
+	"id": "GrandPrix.json",
+	"title": "Grand Prix",
+	"translations": {
+		"title": {
+			"de": "grosser Preis",
+			"el": "γκραν πρι",
+			"fr": "grand prix",
+			"it": "gran premio",
+			"ga": "Grand Prix",
+			"nl": "grand prix",
+			"ja": "グランプリ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"GrandPrix/course": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"GrandPrix/distance": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"course": {
+			"oneOf": [
+				{"$ref": "#/definitions/course"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/course"}
+				}
+			]
+		},
+		"distanceLaps": {
+			"oneOf": [
+				{"$ref": "#/definitions/distanceLaps"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/distanceLaps"}
+				}
+			]
+		},
+		"fastestDriver": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fastestDriverCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fastestDriverTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstDriver": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstDriverCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstDriverTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"poleDriver": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"poleDriverCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"poleDriverTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"secondDriver": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"secondDriverCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"secondTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"thirdDriver": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"thirdDriverCountry": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"thirdTeam": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"distanceLaps": {
+			"title": "distance laps",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"course": {
+			"title": "course &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GrandPrix",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GrandPrix"}
+}

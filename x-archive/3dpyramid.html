@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML5 Pyramid</title>
+    <style>
+        @-webkit-keyframes turnIt {
+            from {
+                -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @-moz-keyframes turnIt {
+            from {
+                -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                -moz-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @-ms-keyframes turnIt {
+            from {
+                -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                -ms-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @-o-keyframes turnIt {
+            from {
+                -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                -o-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes turnIt {
+            from {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        html, body{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            -webkit-perspective:800px;
+            -moz-perspective:800px;
+            -ms-perspective:800px;
+            -o-perspective:800px;
+            perspective:800px;
+            background: -webkit-repeating-linear-gradient(-45deg, transparent, rgba(255,255,255,.05) 350px), #333;
+            background: -moz-repeating-linear-gradient(-45deg, transparent, rgba(255,255,255,.05) 350px), #333;
+            background: -ms-repeating-linear-gradient(-45deg, transparent, rgba(255,255,255,.05) 350px), #333;
+            background: -o-repeating-linear-gradient(-45deg, transparent, rgba(255,255,255,.05) 350px), #333;
+            background: repeating-linear-gradient(-45deg, transparent, rgba(255,255,255,.05) 350px), #333;
+        }
+        #pyramid{
+            position: absolute;
+            top:50%;
+            left:50%;
+            width: 200px;
+            height: 200px;
+            margin: -100px 0 0 -100px;
+            background: transparent url("images/lg_html5.svg") no-repeat center center;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-animation: turnIt 12s linear infinite;
+            -moz-animation: turnIt 12s linear infinite;
+            -ms-animation: turnIt 12s linear infinite;
+            -o-animation: turnIt 12s linear infinite;
+            animation: turnIt 12s linear infinite;
+        }
+        #pyramid div{
+            position: absolute;
+            top:-10px;
+            left:-95px;
+            width: 0;
+            height: 0;
+            border-width: 275px 195px;
+            border-style: solid;
+            border-color: transparent transparent rgba(119, 119, 119, .8) transparent;
+            -webkit-transition:opacity .75s ease-in-out;
+            -moz-transition:opacity .75s ease-in-out;
+            -ms-transition:opacity .75s ease-in-out;
+            -o-transition:opacity .75s ease-in-out;
+            transition:opacity .75s ease-in-out;
+        }
+        #pyramid div:hover{
+            opacity: .2;
+        }
+        #pyramid div:not(:last-of-type)::after{
+            content: url("images/lg_html5.svg");
+            position: absolute;
+            left:-68px;
+            top:115px;
+        }
+        #pyramid div:nth-of-type(1){
+            -webkit-transform: translate3d(0,-300px,0) rotateX(45deg);
+            -moz-transform: translate3d(0,-300px,0) rotateX(45deg);
+            -ms-transform: translate3d(0,-300px,0) rotateX(45deg);
+            -o-transform: translate3d(0,-300px,0) rotateX(45deg);
+            transform: translate3d(0,-300px,0) rotateX(45deg);
+        }
+        #pyramid div:nth-of-type(2){
+            -webkit-transform: translate3d(0,-300px,0) rotateY(180deg) rotateX(45deg);
+            -moz-transform: translate3d(0,-300px,0) rotateY(180deg) rotateX(45deg);
+            -ms-transform: translate3d(0,-300px,0) rotateY(180deg) rotateX(45deg);
+            -o-transform: translate3d(0,-300px,0) rotateY(180deg) rotateX(45deg);
+            transform: translate3d(0,-300px,0) rotateY(180deg) rotateX(45deg);
+        }
+        #pyramid div:nth-of-type(3){
+            -webkit-transform: translate3d(0,-300px,0) rotateY(90deg) rotateX(45deg);
+            -moz-transform: translate3d(0,-300px,0) rotateY(90deg) rotateX(45deg);
+            -ms-transform: translate3d(0,-300px,0) rotateY(90deg) rotateX(45deg);
+            -o-transform: translate3d(0,-300px,0) rotateY(90deg) rotateX(45deg);
+            transform: translate3d(0,-300px,0) rotateY(90deg) rotateX(45deg);
+        }
+        #pyramid div:nth-of-type(4){
+            -webkit-transform: translate3d(0,-300px,0) rotateY(-90deg) rotateX(45deg);
+            -moz-transform: translate3d(0,-300px,0) rotateY(-90deg) rotateX(45deg);
+            -ms-transform: translate3d(0,-300px,0) rotateY(-90deg) rotateX(45deg);
+            -o-transform: translate3d(0,-300px,0) rotateY(-90deg) rotateX(45deg);
+            transform: translate3d(0,-300px,0) rotateY(-90deg) rotateX(45deg);
+        }
+        #pyramid div:nth-of-type(5){
+            top:-96px;
+            bottom:-96px;
+            left:-96px;
+            right:-96px;
+            width: auto;
+            height: auto;
+            border: none;
+            -webkit-transform: translate3d(0,59px,0) rotateX(-90deg);
+            -moz-transform: translate3d(0,59px,0) rotateX(-90deg);
+            -ms-transform: translate3d(0,59px,0) rotateX(-90deg);
+            -o-transform: translate3d(0,59px,0) rotateX(-90deg);
+            transform: translate3d(0,59px,0) rotateX(-90deg);
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,.8) 0%, rgba(119, 119, 119, .8) 90%);
+            background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,.8) 0%, rgba(119, 119, 119, .8) 90%);
+            background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,.8) 0%, rgba(119, 119, 119, .8) 90%);
+            background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,.8) 0%, rgba(119, 119, 119, .8) 90%);
+            background: radial-gradient(center, ellipse cover, rgba(255,255,255,.8) 0%, rgba(119, 119, 119, .8) 90%);
+        }
+    </style>
+</head>
+<body>
+    <div id="pyramid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

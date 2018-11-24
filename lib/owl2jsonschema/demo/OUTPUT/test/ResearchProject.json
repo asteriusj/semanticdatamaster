@@ -1,0 +1,143 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "UnitOfWork.json"}, {"$ref": "Project.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"projectReferenceID": {
+			"title": "project reference ID",
+			"description": "The reference identification of the project.",
+			"type": "string"
+		},
+		"projectBudgetFunding": {
+			"title": "project budget funding &amp;&#35;40;$&#41;",
+			"description": "The part of the project budget that is funded by the Organistaions given in the&quot;FundedBy&quot;property.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"projectBudgetTotal": {
+			"title": "project budget total &amp;&#35;40;$&#41;",
+			"description": "The total budget of the research project.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"projectType": {
+			"title": "project type",
+			"description": "The type of the research project. Mostly used for the funding schemes of the European Union, for instance: Specific Targeted Research Projects &amp;&#35;40;STREP&#41;, Network of Excellence (NoE) or Integrated Project.",
+			"type": "string"
+		}
+	},
+	"description": "A research project is a scientific investigation, usually using scientific methods, to achieve defined objectives.",
+	"format": "http://dbpedia.org/ontology/ResearchProject",
+	"id": "ResearchProject.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ResearchProject"},
+	"properties": {
+		"projectReferenceID": {
+			"oneOf": [
+				{"$ref": "#/definitions/projectReferenceID"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/projectReferenceID"}
+				}
+			]
+		},
+		"projectBudgetFunding": {
+			"oneOf": [
+				{"$ref": "#/definitions/projectBudgetFunding"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/projectBudgetFunding"}
+				}
+			]
+		},
+		"projectBudgetTotal": {
+			"oneOf": [
+				{"$ref": "#/definitions/projectBudgetTotal"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/projectBudgetTotal"}
+				}
+			]
+		},
+		"projectType": {
+			"oneOf": [
+				{"$ref": "#/definitions/projectType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/projectType"}
+				}
+			]
+		},
+		"projectCoordinator": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"projectParticipant": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fundedBy": {
+			"oneOf": [
+				{"$ref": "Organisation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Organisation.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "research project",
+	"translations": {
+		"title": {
+			"de": "Forschungsprojekt",
+			"el": "ερευνητικό έργο",
+			"fr": "projet de recherche",
+			"es": "proyecto de investigación",
+			"ga": "tionscadal taighde",
+			"nl": "onderzoeksproject"
+		},
+		"description": {"el": "Ένα ερευνητικό έργο είναι μια επιστημονική έρευνα, συνήθως με τη χρήση επιστημονικών μεθόδων, για την επίτευξη των καθορισμένων στόχων."}
+	},
+	"type": "object"
+}

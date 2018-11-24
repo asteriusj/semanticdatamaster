@@ -1,0 +1,53 @@
+{
+	"id": "Earthquake.json",
+	"title": "earthquake",
+	"description": "the result of a sudden release of energy in the Earth&apos;s crust that creates seismic waves",
+	"translations": {
+		"title": {
+			"de": "Erdbeben",
+			"fr": "tremblement de terre",
+			"nl": "aardbeving",
+			"ja": "地震"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "NaturalEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Earthquake",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Earthquake"}
+}

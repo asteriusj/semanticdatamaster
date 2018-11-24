@@ -1,0 +1,1126 @@
+{
+  "@graph": [
+    {
+      "@id": "http://foafiaf-asteriusj.c9.io/owl/perseprofile.owl",
+      "@type": "owl:Ontology",
+      "dc:creator": {
+        "@language": "en",
+        "@value": "Asterius Media LLC"
+      },
+      "description": {
+        "@language": "en",
+        "@value": "This ontology contains a list of the classes and properties that can be used when for creating and publishing a Perse personalization profile."
+      },
+      "dc:publisher": {
+        "@language": "en",
+        "@value": "Asterius Media LLC"
+      },
+      "title": {
+        "@language": "en",
+        "@value": "Strategy Maps"
+      },
+      "created": "2016-08-18",
+      "dcterms:modified": {
+        "@type": "xs:date",
+        "@value": "2016-08-31"
+      },
+      "termGroup": "bio:termsLinkedInSkills",
+      "comment": {
+        "@language": "en",
+        "@value": "Copyright (c) 2016 Asterius Media LLC "
+      },
+      "rdfs:description": "Perse - def. by or in itself or themselves; intrinsically. Perse is a Greek mythological character... an abstraction. So too the Perse set of classes and for creating an publishing a personalization profile wil multiple facets or dimensions.",
+      "label": {
+        "@language": "en",
+        "@value": "Perse Personalizaion Profile Vocabulary Dataset Schema"
+      }
+    },
+    {
+      "@id": "perse:Analysic_skill",
+      "@type": "rdfs:Class",
+      "label": "Analysic SkillType",
+      "subClassOf": "perse:SkillType"
+    },
+    {
+      "@id": "perse:Axciom_interest",
+      "@type": "rdfs:Class",
+      "label": "Axciom InterestType",
+      "subClassOf": "perse:InterestType"
+    },
+    {
+      "@id": "perse:Certification",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for Certification",
+      "label": "Certification",
+      "subClassOf": "perse:Certification_knowledge"
+    },
+    {
+      "@id": "perse:Certification_knowledge",
+      "@type": "rdfs:Class",
+      "label": "Certification KnowledgeType",
+      "subClassOf": "perse:KnowledgeType"
+    },
+    {
+      "@id": "perse:Company",
+      "@type": "rdfs:Class",
+      "comment": "A class for company information.",
+      "label": "Company",
+      "subClassOf": "perse:Organization",
+      "equivalentClass": "dbo:Company"
+    },
+    {
+      "@id": "perse:Corporation",
+      "@type": "rdfs:Class",
+      "comment": "Corporation organization",
+      "label": "Corporation",
+      "subClassOf": "perse:Organization",
+      "equivalentClass": "personasonto:Corporation"
+    },
+    {
+      "@id": "perse:Delivery_skill",
+      "@type": "rdfs:Class",
+      "label": "Delivery SkillType",
+      "subClassOf": "perse:SkillType"
+    },
+    {
+      "@id": "perse:DiSC",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for DiSC",
+      "label": "DiSC",
+      "subClassOf": "perse:DiSC_profile"
+    },
+    {
+      "@id": "perse:DiSC_profile",
+      "@type": "rdfs:Class",
+      "description": "",
+      "label": "DiSC_profile",
+      "subClassOf": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:Education",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for Education",
+      "label": "Education",
+      "subClassOf": "perse:Education_knowledge"
+    },
+    {
+      "@id": "perse:Education_knowledge",
+      "@type": "rdfs:Class",
+      "label": "Education KnowledgeType",
+      "subClassOf": "perse:KnowledgeType"
+    },
+    {
+      "@id": "perse:EducationalOrganization",
+      "@type": "rdfs:Class",
+      "comment": "Educational organization (university, ...)",
+      "label": "EducationalOrganization",
+      "subClassOf": "perse:Organization",
+      "equivalentClass": "personasonto:EducationalOrganization"
+    },
+    {
+      "@id": "perse:Experience",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for experiences",
+      "label": "Experience",
+      "disjointWith": [
+        "skos:Skill",
+        "perse:Interest",
+        "perse:Knowledge",
+        "perse:Personality"
+      ],
+      "equivalentClass": "skos:Concept"
+    },
+    {
+      "@id": "perse:ExperienceType",
+      "@type": "rdfs:Class",
+      "comment": "Profile entry for experience",
+      "label": "ExperienceType",
+      "subClassOf": "perse:Experience"
+    },
+    {
+      "@id": "perse:Government",
+      "@type": "rdfs:Class",
+      "comment": "A class for Government org information.",
+      "label": "Government",
+      "subClassOf": "perse:Organization",
+      "equivalentClass": "personasonto:GovernmentOrganization"
+    },
+    {
+      "@id": "perse:Industry",
+      "@type": "rdf:Property",
+      "comment": "Industry of the company",
+      "domain": "perse:Company",
+      "label": "Industry",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:Interest",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for description of interests",
+      "label": "Interests",
+      "disjointWith": [
+        "skos:Skill",
+        "perse:Experience",
+        "perse:Knowledge",
+        "perse:Personality"
+      ],
+      "equivalentClass": "skos:Concept",
+      "definition": {
+        "@language": "en",
+        "@value": "An idea or notion; a unit of thought."
+      }
+    },
+    {
+      "@id": "perse:InterestType",
+      "@type": "rdfs:Class",
+      "comment": "Profile entry for interest",
+      "label": "InterestType",
+      "subClassOf": "perse:Interest"
+    },
+    {
+      "@id": "perse:KTS_profile",
+      "@type": "rdfs:Class",
+      "description": "",
+      "label": "Kersey Temparament Sorter",
+      "subClassOf": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:Knowledge",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for Knowledge",
+      "label": "Knowledge",
+      "disjointWith": [
+        "skos:Skill",
+        "perse:Experience",
+        "perse:Interest",
+        "perse:Personality"
+      ],
+      "equivalentClass": "skos:Concept"
+    },
+    {
+      "@id": "perse:KnowledgeType",
+      "@type": "rdfs:Class",
+      "comment": "Profile entry for Knowledge",
+      "label": "KnowledgeType",
+      "subClassOf": "perse:Knowledge"
+    },
+    {
+      "@id": "perse:Leaderhip",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for Leaderhip",
+      "label": "Leaderhip",
+      "subClassOf": "perse:Leadership_knowledge"
+    },
+    {
+      "@id": "perse:Leadership_knowledge",
+      "@type": "rdfs:Class",
+      "label": "Leadership KnowledgeType",
+      "subClassOf": "perse:KnowledgeType"
+    },
+    {
+      "@id": "perse:LinkedIn_interest",
+      "@type": "rdfs:Class",
+      "label": "LinkedIn InterestType",
+      "subClassOf": "perse:InterestType"
+    },
+    {
+      "@id": "perse:LinkedIn_knowledge",
+      "@type": "rdfs:Class",
+      "label": "LinkedIn KnowledgeType",
+      "subClassOf": "perse:KnowledgeType"
+    },
+    {
+      "@id": "perse:LinkedIn_skill",
+      "@type": "rdfs:Class",
+      "label": "LinkedIn SkillType",
+      "subClassOf": "perse:SkillType"
+    },
+    {
+      "@id": "perse:Locality",
+      "@type": "rdf:Property",
+      "comment": "Region / state of the company.",
+      "domain": "perse:Organization",
+      "label": "Locality",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:MBTI",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for MBTI",
+      "label": "MBTI",
+      "subClassOf": "perse:MBTI_profile"
+    },
+    {
+      "@id": "perse:MBTI_profile",
+      "@type": "rdfs:Class",
+      "description": "",
+      "label": "Myers-Briggs Type Indicator",
+      "subClassOf": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:Name",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty",
+        "rdf:Property"
+      ],
+      "description": "Full or formated name of a person.",
+      "comment": "Name of the company",
+      "domain": [
+        "perse:Person",
+        "perse:Organization"
+      ],
+      "label": "Name",
+      "range": [
+        "xs:string",
+        "rdfs:Literal"
+      ],
+      "equivalentClass": [
+        "foaf:name",
+        "vcard:fn"
+      ]
+    },
+    {
+      "@id": "perse:NonProfit",
+      "@type": "rdfs:Class",
+      "comment": "A class for Non-Profit oerg information.",
+      "label": "Non-Profit",
+      "subClassOf": "perse:Organization",
+      "equivalentClass": "personasonto:NGO"
+    },
+    {
+      "@id": "perse:Notes",
+      "@type": "rdf:Property",
+      "comment": "Notes about the company.",
+      "domain": "perse:Organization",
+      "label": "Notes",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:Organization",
+      "@type": "rdfs:Class",
+      "comment": "General class for organizations",
+      "label": "Organization",
+      "subClassOf": "owl:Thing",
+      "equivalentClass": [
+        "foaf:Organization",
+        "dbo:Organization",
+        "http://schema.org/Organization"
+      ]
+    },
+    {
+      "@id": "perse:Perse",
+      "@type": "rdfs:Class",
+      "abstract": "",
+      "description": "",
+      "comment": "Perse is/can be a subclass of WordNet Curriculum Vitae",
+      "label": "Perse Profile",
+      "subClassOf": "perse:Person",
+      "disjointWith": "skos:Concept",
+      "equivalentClass": "skos:ConceptScheme",
+      "definition": {
+        "@language": "en",
+        "@value": "A set of concepts, optionally including statements about semantic relationships between those concepts."
+      },
+      "example": {
+        "@language": "en",
+        "@value": "Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies."
+      },
+      "scopeNote": {
+        "@language": "en",
+        "@value": "A concept scheme may be defined to include concepts from different sources."
+      }
+    },
+    {
+      "@id": "perse:Person",
+      "@type": [
+        "owl:Class",
+        "rdfs:Class"
+      ],
+      "comment": {
+        "@language": "en",
+        "@value": "An object representing a single person"
+      },
+      "isDefinedBy": "https://foafiaf-asteriusj.c9.io/owl/perseprofile#",
+      "label": {
+        "@language": "en",
+        "@value": "Person"
+      },
+      "subClassOf": "owl:Thing",
+      "equivalentClass": [
+        "contact:Person",
+        "dbo:Person",
+        "foaf:Person",
+        "schema:Person"
+      ]
+    },
+    {
+      "@id": "perse:PersonalReference",
+      "@type": "rdfs:Class",
+      "comment": "Personal reference",
+      "label": "PersonalRefernece",
+      "subClassOf": "perse:Reference"
+    },
+    {
+      "@id": "perse:Personality",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for personality",
+      "label": "Personality",
+      "subClassOf": "perse:Perse",
+      "disjointWith": [
+        "skos:Skill",
+        "perse:Experience",
+        "perse:Knowledge",
+        "perse:Interest"
+      ],
+      "equivalentClass": "skos:Concept"
+    },
+    {
+      "@id": "perse:PersonalityType",
+      "@type": "rdfs:Class",
+      "description": "Each Personality is classified by a Type and a Person might fit into several PersonaTypes.",
+      "comment": "Type entry for personality",
+      "label": "PersonalityType",
+      "subClassOf": "perse:Personality",
+      "equivalentClass": "personasonto:PersonaType"
+    },
+    {
+      "@id": "perse:Project",
+      "@type": "rdfs:Class",
+      "comment": "CV entry for a project",
+      "label": "Project",
+      "subClassOf": "perse:Project_experience"
+    },
+    {
+      "@id": "perse:Project_experience",
+      "@type": "rdfs:Class",
+      "label": "Project ExperienceType",
+      "subClassOf": "perse:ExperienceType"
+    },
+    {
+      "@id": "perse:Publication",
+      "@type": "rdfs:Class",
+      "comment": "CV entry for a publication",
+      "label": "Publication",
+      "subClassOf": "perse:Publication_experience"
+    },
+    {
+      "@id": "perse:Publication_experience",
+      "@type": "rdfs:Class",
+      "label": "Publication ExperienceType",
+      "subClassOf": "perse:ExperienceType"
+    },
+    {
+      "@id": "perse:Recomendation",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for recomendations",
+      "label": "Recomendation"
+    },
+    {
+      "@id": "perse:Reference",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for references",
+      "label": "Reference",
+      "subClassOf": "perse:Reference_knowledge"
+    },
+    {
+      "@id": "perse:Reference_knowledge",
+      "@type": "rdfs:Class",
+      "label": "Reference KnowledgeType",
+      "subClassOf": "perse:KnowledgeType"
+    },
+    {
+      "@id": "perse:Role",
+      "@type": "rdfs:Class",
+      "comment": "perse entry for roles",
+      "label": "Role"
+    },
+    {
+      "@id": "perse:SST",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for SST",
+      "label": "SST",
+      "subClassOf": "perse:SST_profile"
+    },
+    {
+      "@id": "perse:SST_profile",
+      "@type": "rdfs:Class",
+      "description": "",
+      "comment": [
+        "V",
+        "VII",
+        "III",
+        "II",
+        "IV",
+        "I",
+        "VI"
+      ],
+      "label": "(SST) Stratified Systems Theory",
+      "subClassOf": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:Skill",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for  skills",
+      "label": "Skills",
+      "disjointWith": [
+        "skos:Interest",
+        "perse:Experience",
+        "perse:Knowledge",
+        "perse:Personality"
+      ],
+      "equivalentClass": "skos:Concept",
+      "definition": {
+        "@language": "en",
+        "@value": "An idea or notion; a unit of thought."
+      }
+    },
+    {
+      "@id": "perse:SkillType",
+      "@type": "rdfs:Class",
+      "comment": "Profile entry for skill",
+      "label": "SkillType",
+      "subClassOf": "perse:Skill"
+    },
+    {
+      "@id": "perse:TKI_profile",
+      "@type": "rdfs:Class",
+      "description": "",
+      "label": "Thomas-Kilmann Conflict Mode Instrument",
+      "subClassOf": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:Traxion",
+      "@type": "rdfs:Class",
+      "comment": "Perse entry for Traxion",
+      "label": "Traxion",
+      "subClassOf": "perse:Traxion_profile"
+    },
+    {
+      "@id": "perse:Traxion_interest",
+      "@type": "rdfs:Class",
+      "label": "Traxion InterestType",
+      "subClassOf": "perse:InterestType"
+    },
+    {
+      "@id": "perse:Traxion_profile",
+      "@type": "rdfs:Class",
+      "description": "",
+      "label": "Traxion Temparament Profile",
+      "subClassOf": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:URL",
+      "@type": "rdf:Property",
+      "comment": "Company home page",
+      "domain": "perse:Organization",
+      "label": "URL",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:VCard",
+      "@type": "rdfs:Class",
+      "comment": "VCard for Person",
+      "label": "VCard",
+      "subClassOf": "perse:Person",
+      "equivalentClass": "vcard:VCard"
+    },
+    {
+      "@id": "perse:WorkHistory",
+      "@type": "rdfs:Class",
+      "comment": "perse entry for Work History",
+      "label": "WorkHistory",
+      "subClassOf": "perse:Work_experience"
+    },
+    {
+      "@id": "perse:Work_experience",
+      "@type": "rdfs:Class",
+      "description": "",
+      "subClassOf": "perse:ExperienceType"
+    },
+    {
+      "@id": "perse:aboutPerson",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "aboutPerson",
+      "range": "foaf:Person"
+    },
+    {
+      "@id": "perse:abstract",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "description": "Gender of a person.",
+      "domain": "perse:Person",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:age",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "description": "Age of a person.",
+      "domain": "perse:Person",
+      "range": "xs:float"
+    },
+    {
+      "@id": "perse:degreeType",
+      "@type": "rdf:Property",
+      "comment": "Type (title) of the degree.",
+      "domain": "perse:Education",
+      "label": "degreeType",
+      "range": "cv_base:EduDegree"
+    },
+    {
+      "@id": "perse:eduDescription",
+      "@type": "rdf:Property",
+      "comment": "Description of the education info.",
+      "domain": "perse:Education",
+      "label": "eduDescription",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:eduEndDate",
+      "@type": "rdf:Property",
+      "comment": "Education end date (YYYY-MM-DD)\nMay contain only year or year and month.",
+      "domain": "perse:Education",
+      "label": "eduendDate",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:eduGradDate",
+      "@type": "rdf:Property",
+      "comment": "Education end (graducation) date (YYYY-MM-DD)\nMay contain only year or year and month.",
+      "domain": "perse:Education",
+      "label": "eduGradDate",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:eduMajor",
+      "@type": "rdf:Property",
+      "comment": "Major speciality graduated.",
+      "domain": "perse:Education",
+      "label": "eduMajor",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:eduStartDate",
+      "@type": "rdf:Property",
+      "comment": "Education start date (YYYY-MM-DD)\nMay contain only year or year and month.",
+      "domain": "perse:Education",
+      "label": "eduStartDate",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:endDate",
+      "@type": "rdf:Property",
+      "comment": "End date of employment.\nFormat: YYYY-MM-DD\nMay containt only year or year and month.",
+      "domain": "perse:WorkHistory",
+      "label": "endDate",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:firstName",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "description": "First or Given name of a person.",
+      "domain": "perse:Person",
+      "range": "xs:string",
+      "equivalentClass": [
+        "foaf:givenName",
+        "vcard:given-name"
+      ],
+      "propertyDisjointWith": "perse:lastName"
+    },
+    {
+      "@id": "perse:gender",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "description": "Gender of a person.",
+      "domain": "perse:Person",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:hasAffiliation",
+      "@type": "owl:ObjectProperty",
+      "description": "A person might have a certain type of affiliation to an organization and might not be member of it.",
+      "domain": "perse:Person",
+      "range": "perse:Organization"
+    },
+    {
+      "@id": "perse:hasCertification",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:Certification_knowledge",
+      "label": "hasCertification",
+      "range": "perse:Certification"
+    },
+    {
+      "@id": "perse:hasConcept",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "hasInterest",
+      "equivalentClass": "skos:HasTopConcept"
+    },
+    {
+      "@id": "perse:hasDiSC",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:DiSC_profile",
+      "label": "hasDiSC",
+      "range": "perse:DiSC"
+    },
+    {
+      "@id": "perse:hasEducation",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:Education_knowledge",
+      "label": "hasEducation",
+      "range": "perse:Education"
+    },
+    {
+      "@id": "perse:hasExperience",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "hasExperience",
+      "range": "perse:Experience"
+    },
+    {
+      "@id": "perse:hasExperienceType",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Experience",
+      "label": "hasExperienceType",
+      "range": "perse:ExperienceType"
+    },
+    {
+      "@id": "perse:hasInterest",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "hasInterest",
+      "range": "perse:Interest"
+    },
+    {
+      "@id": "perse:hasInterestType",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Interest",
+      "label": "hasInterestType",
+      "range": "perse:InterestType"
+    },
+    {
+      "@id": "perse:hasKnowledge",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "hasKnowledge",
+      "range": "perse:Knowledge"
+    },
+    {
+      "@id": "perse:hasKnowledgeType",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Knowledge",
+      "label": "hasKnowledgeType",
+      "range": "perse:KnowledgeType"
+    },
+    {
+      "@id": "perse:hasLeaderhip",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:Leadership_knowledge",
+      "label": "hasLeaderhip",
+      "range": "perse:Leaderhip"
+    },
+    {
+      "@id": "perse:hasMBTI",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:MBTI_profile",
+      "label": "hasMBTI",
+      "range": "perse:MBTI"
+    },
+    {
+      "@id": "perse:hasMember",
+      "@type": [
+        "owl:ObjectProperty",
+        "rdf:Property"
+      ],
+      "comment": "Indicates a member of an organization",
+      "domain": "perse:Organization",
+      "label": "member",
+      "range": "perse:Person"
+    },
+    {
+      "@id": "perse:hasPersonality",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "hasPersonality",
+      "range": "perse:Personality"
+    },
+    {
+      "@id": "perse:hasPersonalityType",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Personality",
+      "label": "hasPersonalityType",
+      "range": "perse:PersonalityType"
+    },
+    {
+      "@id": "perse:hasProject",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Project_experience",
+      "label": "hasProject",
+      "range": "perse:Project"
+    },
+    {
+      "@id": "perse:hasPublication",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Publication_experience",
+      "label": "hasPublication",
+      "range": "perse:Publication"
+    },
+    {
+      "@id": "perse:hasReference",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:Reference_knowledge",
+      "label": "has a reference.",
+      "range": "perse:Reference"
+    },
+    {
+      "@id": "perse:hasRole",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Organization",
+      "label": "hasRole",
+      "range": "perse:Role"
+    },
+    {
+      "@id": "perse:hasSST",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:SST_profile",
+      "label": "hasSST",
+      "range": "perse:SST"
+    },
+    {
+      "@id": "perse:hasSkill",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "hasSkill",
+      "range": "perse:Skill"
+    },
+    {
+      "@id": "perse:hasSkillType",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Skill",
+      "label": "hasSkillType",
+      "range": "perse:SkillType"
+    },
+    {
+      "@id": "perse:hasTraxion",
+      "@type": "owl:ObjectProperty",
+      "domain": "perse:Traxion_profile",
+      "label": "hasTraxion",
+      "range": "perse:Traxion"
+    },
+    {
+      "@id": "perse:hasVCard",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:VCard",
+      "label": "hasVCard",
+      "range": "perse:hasVCard"
+    },
+    {
+      "@id": "perse:hasWorkHistory",
+      "@type": "rdf:ObjectProperty",
+      "comment": "...",
+      "domain": "perse:Work_experience",
+      "label": "hasWorkHistory",
+      "range": "perse:WorkHistory"
+    },
+    {
+      "@id": "perse:interestName",
+      "@type": "rdf:Property",
+      "comment": "Name of the interest",
+      "domain": "perse:Interest",
+      "label": "interestName",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:interestScore",
+      "@type": "rdf:Property",
+      "comment": "Level of the interest (0..5)",
+      "domain": "perse:Interest",
+      "label": "interestScore",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:isCurrent",
+      "@type": "rdf:Property",
+      "comment": "Indicates if this is a current workplace.",
+      "domain": "perse:WorkHistory",
+      "label": "isCurrent",
+      "range": "cv_base:BooleanValue"
+    },
+    {
+      "@id": "perse:isMemberOf",
+      "@type": "owl:ObjectProperty",
+      "description": "A person might be memeber of an organization.",
+      "domain": "perse:Person",
+      "range": "perse:Organization"
+    },
+    {
+      "@id": "perse:jobDescription",
+      "@type": "rdf:Property",
+      "comment": "Description of the job in company.",
+      "domain": "perse:WorkHistory",
+      "label": "jobDescription",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:jobFunction",
+      "@type": "rdf:Property",
+      "comment": "Function in the job.",
+      "domain": "perse:WorkHistory",
+      "label": "jobFunction",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:jobTitle",
+      "@type": "rdf:Property",
+      "comment": "Title in the job.",
+      "domain": "perse:WorkHistory",
+      "label": "jobTitle",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:jobType",
+      "@type": "rdf:Property",
+      "comment": "Type of the job: employee / contractor / intern",
+      "domain": "perse:WorkHistory",
+      "label": "jobType",
+      "range": "perse:CVJobType"
+    },
+    {
+      "@id": "perse:knows",
+      "@type": "owl:ObjectProperty",
+      "description": "A person knows another person (similar to FOAF ontology).",
+      "domain": "perse:Person",
+      "range": "perse:Person",
+      "equivalentClass": "foaf:Knows"
+    },
+    {
+      "@id": "perse:lastName",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "description": "Family or Last name of a person.",
+      "domain": "perse:Person",
+      "range": "xs:string",
+      "equivalentClass": [
+        "foaf:surname",
+        "vcard:family-name"
+      ],
+      "propertyDisjointWith": "perse:firstName"
+    },
+    {
+      "@id": "perse:nickName",
+      "@type": [
+        "owl:FunctionalProperty",
+        "owl:DatatypeProperty"
+      ],
+      "description": "Nick name of a person.",
+      "domain": "perse:Person",
+      "range": "xs:string",
+      "equivalentClass": [
+        "foaf:nick",
+        "vcard:nickname"
+      ]
+    },
+    {
+      "@id": "perse:prefLabel",
+      "@type": "rdf:Property",
+      "domain": "perse:Perse",
+      "label": "prefLabel",
+      "equivalentClass": "skos:prefLabel"
+    },
+    {
+      "@id": "perse:referenceBy",
+      "@type": "owl:ObjectProperty",
+      "comment": "Points to a person who provides the reference.",
+      "domain": "perse:Reference",
+      "label": "referenceBy",
+      "range": "perse:Person"
+    },
+    {
+      "@id": "perse:roleDescription",
+      "@type": "rdf:Property",
+      "comment": "Description of the experience in organization.",
+      "domain": "perse:Role",
+      "label": "roleDescription",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:roleResponsibility",
+      "@type": "rdf:Property",
+      "comment": "The Responsibility of the role in organization.",
+      "domain": "perse:Role",
+      "label": "roleResponsibility",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:roleTitle",
+      "@type": "rdf:Property",
+      "comment": "Title in the role.",
+      "domain": "perse:Role",
+      "label": "roleTitle",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:skillLevel",
+      "@type": "rdf:Property",
+      "comment": "Level of the skill (0..5)",
+      "domain": "perse:Skill",
+      "label": "skillLevel",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:skillName",
+      "@type": "rdf:Property",
+      "comment": "Name of the skill",
+      "domain": "perse:Skill",
+      "label": "skillName",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:startDate",
+      "@type": "rdf:Property",
+      "comment": "Start date of employment.\nFormat: YYYY-MM-DD\nMay containt only year or year and month.",
+      "domain": "perse:WorkHistory",
+      "label": "startDate",
+      "range": "rdfs:Literal"
+    },
+    {
+      "@id": "perse:studiedIn",
+      "@type": "rdf:Property",
+      "comment": "Educational organization where person studied.",
+      "domain": "perse:Education",
+      "label": "studiedIn",
+      "range": "perse:EducationalOrganization"
+    },
+    {
+      "@id": "rdfs:Class",
+      "@type": "owl:Class"
+    },
+    {
+      "@id": "owl:Thing",
+      "label": "Thing"
+    },
+    {
+      "@id": "https://foafiaf-asteriusj.c9.io/owl/perseprofile/",
+      "@type": "owl:Ontology",
+      "date": "2016-08-14",
+      "modified": "2016-11-22",
+      "dc:publisher": "",
+      "rights": "http://creativecommons.org/licenses/by/4.0/",
+      "title": {
+        "@language": "en",
+        "@value": "Perse"
+      },
+      "contributor": "",
+      "creator": "Asterius Media LLC",
+      "dcterms:description": "Formal general description of network map foaf entities and relationships.",
+      "format": "OWL-Full",
+      "publisher": "Asterius Media LLC",
+      "comment": " Copyright (c) 2016 Asterius Media LLC , Transform Rockford LLC ",
+      "label": "Perse profile OWL",
+      "versionInfo": "0.1.0"
+    }
+  ],
+  "@id": "urn:x-arq:DefaultGraphNode",
+  "@context": {
+    "definition": "http://www.w3.org/2004/02/skos/core#definition",
+    "equivalentClass": {
+      "@id": "http://www.w3.org/2002/07/owl#equivalentClass",
+      "@type": "@id"
+    },
+    "disjointWith": {
+      "@id": "http://www.w3.org/2002/07/owl#disjointWith",
+      "@type": "@id"
+    },
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+    "description": "http://purl.org/dc/elements/1.1/description",
+    "range": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type": "@id"
+    },
+    "domain": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#domain",
+      "@type": "@id"
+    },
+    "subClassOf": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "@type": "@id"
+    },
+    "propertyDisjointWith": {
+      "@id": "http://www.w3.org/2002/07/owl#propertyDisjointWith",
+      "@type": "@id"
+    },
+    "scopeNote": "http://www.w3.org/2004/02/skos/core#scopeNote",
+    "example": "http://www.w3.org/2004/02/skos/core#example",
+    "abstract": "http://purl.org/dc/elements/1.1/abstract",
+    "isDefinedBy": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
+      "@type": "@id"
+    },
+    "publisher": "http://purl.org/dc/terms/publisher",
+    "modified": {
+      "@id": "http://purl.org/dc/elements/1.1/modified",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "title": "http://purl.org/dc/elements/1.1/title",
+    "creator": "http://purl.org/dc/terms/creator",
+    "format": "http://purl.org/dc/terms/format",
+    "rights": {
+      "@id": "http://purl.org/dc/elements/1.1/rights",
+      "@type": "@id"
+    },
+    "contributor": "http://purl.org/dc/terms/contributor",
+    "versionInfo": "http://www.w3.org/2002/07/owl#versionInfo",
+    "date": "http://purl.org/dc/elements/1.1/date",
+    "termGroup": {
+      "@id": "http://purl.org/vocab/vann/termGroup",
+      "@type": "@id"
+    },
+    "created": {
+      "@id": "http://purl.org/dc/terms/created",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "cc": "http://creativecommons.org/ns#",
+    "schema": "http://www.w3.org/2001/XMLSchema/",
+    "personasonto": "http://blankdots.com/open/personasonto.owl",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "bio": "http://purl.org/vocab/bio/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "cv_base": "http://rdfs.org/resume-rdf/base.rdfs#",
+    "dbo": "http://dbpedia.org/ontology/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "perse": "http://foafiaf-asteriusj.c9.io/owl/perseprofile/",
+    "contact": "http://www.w3.org/2000/10/swap/pim/contact/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ns_1_6": "http://xmlns.com/wordnet/1.6/",
+    "xs": "http://www.w3.org/2001/XMLSchema#",
+    "vann": "http://purl.org/vocab/vann/",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "dc": "http://purl.org/dc/elements/1.1/"
+  }
+}

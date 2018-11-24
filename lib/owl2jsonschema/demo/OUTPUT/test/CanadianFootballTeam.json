@@ -1,0 +1,54 @@
+{
+	"id": "CanadianFootballTeam.json",
+	"title": "canadian football Team",
+	"translations": {
+		"title": {
+			"de": "kanadische Footballmannschaft",
+			"el": "καναδέζικη ομάδα ποδοσφαίρου",
+			"fr": "équipe canadienne de football américain",
+			"it": "squadra di football canadese",
+			"ko": "캐나다 축구 팀",
+			"nl": "Canadees footballteam"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CanadianFootballTeam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CanadianFootballTeam"}
+}

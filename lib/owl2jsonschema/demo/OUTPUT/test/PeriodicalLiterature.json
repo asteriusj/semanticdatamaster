@@ -1,0 +1,163 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"zdb": {
+			"title": "zdb",
+			"description": "Identifier for serial titles. More precise than issn",
+			"type": "string"
+		},
+		"frequencyOfPublication": {
+			"title": "frequency of publication",
+			"description": "The frequency of periodical publication &amp;&#35;40;eg. Weekly, Bimonthly&#41;.",
+			"type": "string"
+		},
+		"finalPublicationDate": {
+			"title": "final publication date",
+			"description": "Date of the final publication.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"openAccessContent": {
+			"title": "open access content",
+			"description": "Availability of open access content.",
+			"type": "string"
+		},
+		"firstPublicationYear": {
+			"title": "first publication year",
+			"description": "Year of the first publication.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"finalPublicationYear": {
+			"title": "final publication year",
+			"description": "Year of the final publication.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"issn": {
+			"title": "issn",
+			"description": "International Standard Serial Number &amp;&#35;40;ISSN&#41;",
+			"type": "string"
+		}
+	},
+	"description": "Periodical literature &amp;&#35;40;also called a periodical publication or simply a periodical&#41; is a published work that appears in a new edition on a regular schedule. The most familiar examples are the newspaper, often published daily, or weekly; or the magazine, typically published weekly, monthly or as a quarterly. Other examples would be a newsletter, a literary journal or learned journal, or a yearbook.",
+	"format": "http://dbpedia.org/ontology/PeriodicalLiterature",
+	"id": "PeriodicalLiterature.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PeriodicalLiterature"},
+	"properties": {
+		"zdb": {
+			"oneOf": [
+				{"$ref": "#/definitions/zdb"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/zdb"}
+				}
+			]
+		},
+		"frequencyOfPublication": {
+			"oneOf": [
+				{"$ref": "#/definitions/frequencyOfPublication"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/frequencyOfPublication"}
+				}
+			]
+		},
+		"finalPublicationDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalPublicationDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalPublicationDate"}
+				}
+			]
+		},
+		"openAccessContent": {
+			"oneOf": [
+				{"$ref": "#/definitions/openAccessContent"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/openAccessContent"}
+				}
+			]
+		},
+		"firstPublicationYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstPublicationYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstPublicationYear"}
+				}
+			]
+		},
+		"finalPublicationYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalPublicationYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalPublicationYear"}
+				}
+			]
+		},
+		"issn": {
+			"oneOf": [
+				{"$ref": "#/definitions/issn"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/issn"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "periodical literature",
+	"translations": {
+		"title": {
+			"de": "Periodikum",
+			"el": "περιοδικός τύπος",
+			"fr": "publication périodique"
+		},
+		"description": {
+			"el": "Περιοδικός Τύπος &amp;&#35;40;ή αλλιώς περιοδικό ή εφημερίδα&#41; είναι η δημοσίευση άρθρου ή νέων ανά τακτά διαστήματα. Το πιο γνωστό παράδειγμα είναι οι εφημερίδες, που δημοσιεύονται σε καθημερινή ή εβδομαδιαία βάση και το περιοδικό, που τυπικά εκδίδεται σε εβδομαδιαία, μηνιαία ή δίμηνη βάση. Άλλα παραδείγματα μπορεί να είναι τα νέα ενός οργανισμού ή εταιρείας, ένα λογοτεχνικό ή εκπαιδευτικό περιοδικό ή ένα ετήσιο λεύκωμα.",
+			"de": "Unter Periodikum wird im Bibliothekswesen im Gegensatz zu Monografien ein &amp;&#35;40;in der Regel&#41; regelmäßig erscheinendes Druckwerk bezeichnet. Es handelt sich um den Fachbegriff für Heftreihen, Gazetten, Journale, Magazine, Zeitschriften und Zeitungen.",
+			"fr": "Une publication périodique est un titre de presse qui paraît régulièrement."
+		}
+	},
+	"type": "object"
+}

@@ -1,0 +1,53 @@
+{
+	"id": "BaseballSeason.json",
+	"title": "baseball season",
+	"translations": {
+		"title": {
+			"de": "Baseballsaison",
+			"el": "σεζόν του μπέιζμπολ",
+			"fr": "saison de baseball",
+			"ga": "séasúr daorchluiche",
+			"nl": "honkbalseizoen"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "SportsSeason.json"}, {"$ref": "SportsTeamSeason.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BaseballSeason",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BaseballSeason"}
+}

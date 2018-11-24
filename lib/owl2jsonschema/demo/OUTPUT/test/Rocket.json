@@ -1,0 +1,189 @@
+{
+	"id": "Rocket.json",
+	"title": "rocket",
+	"translations": {
+		"title": {
+			"de": "Rakete",
+			"el": "πύραυλος",
+			"fr": "fusée",
+			"ga": "roicéad",
+			"ko": "로켓",
+			"nl": "raket",
+			"ja": "ロケット"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"finalFlight": {
+			"oneOf": [
+				{"$ref": "#/definitions/finalFlight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/finalFlight"}
+				}
+			]
+		},
+		"rocketStages": {
+			"oneOf": [
+				{"$ref": "#/definitions/rocketStages"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rocketStages"}
+				}
+			]
+		},
+		"unknownOutcomes": {
+			"oneOf": [
+				{"$ref": "#/definitions/unknownOutcomes"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/unknownOutcomes"}
+				}
+			]
+		},
+		"maidenFlight": {
+			"oneOf": [
+				{"$ref": "#/definitions/maidenFlight"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maidenFlight"}
+				}
+			]
+		},
+		"lowerEarthOrbitPayload": {
+			"oneOf": [
+				{"$ref": "#/definitions/lowerEarthOrbitPayload"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lowerEarthOrbitPayload"}
+				}
+			]
+		},
+		"Rocket/mass": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Rocket/lowerEarthOrbitPayload": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"countryOrigin": {
+			"oneOf": [
+				{"$ref": "Country.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Country.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"rocketFunction": {
+			"oneOf": [
+				{"$ref": "#/definitions/rocketFunction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rocketFunction"}
+				}
+			]
+		},
+		"comparable": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"finalFlight": {
+			"title": "final flight",
+			"description": "date of final flight",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"rocketStages": {
+			"title": "number of rocket stages",
+			"description": "number of stages, not including boosters",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"unknownOutcomes": {
+			"title": "unknown outcomes",
+			"description": "number of launches with unknown outcomes &amp;&#35;40;or in progress&#41;",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"maidenFlight": {
+			"title": "maiden flight",
+			"description": "date of maiden flight",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"lowerEarthOrbitPayload": {
+			"title": "lower earth orbit payload &amp;&#35;40;g&#41;",
+			"description": "Payload mass in a typical Low Earth orbit",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"rocketFunction": {
+			"title": "rocket function",
+			"description": "purpose of the rocket",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Rocket",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Rocket"}
+}

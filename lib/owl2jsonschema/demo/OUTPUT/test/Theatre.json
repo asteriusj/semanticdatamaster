@@ -1,0 +1,72 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}, {"$ref": "Venue.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"currentProduction": {
+			"title": "current production",
+			"description": "The current production running in the theatre.",
+			"anyOf": []
+		}
+	},
+	"description": "A theater or theatre &amp;&#35;40;also a playhouse&#41; is a structure where theatrical works or plays are performed or other performances such as musical concerts may be produced.",
+	"format": "http://dbpedia.org/ontology/Theatre",
+	"id": "Theatre.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Theatre"},
+	"properties": {
+		"currentProduction": {
+			"oneOf": [
+				{"$ref": "#/definitions/currentProduction"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/currentProduction"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "theatre",
+	"translations": {
+		"title": {
+			"de": "Theater",
+			"el": "θέατρο",
+			"fr": "théâtre",
+			"ga": "amharclann",
+			"nl": "schouwburg",
+			"ja": "劇場"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

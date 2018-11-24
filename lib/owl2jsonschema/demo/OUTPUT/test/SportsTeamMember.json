@@ -1,0 +1,75 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "OrganisationMember.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"squadNumber": {
+			"title": "squad number",
+			"description": "The number that an athlete wears in a team sport.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A member of an athletic team.",
+	"format": "http://dbpedia.org/ontology/SportsTeamMember",
+	"id": "SportsTeamMember.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SportsTeamMember"},
+	"properties": {
+		"squadNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/squadNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/squadNumber"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Sports team member",
+	"translations": {
+		"title": {
+			"el": "μέλος αθλητικής ομάδας",
+			"nl": "sport teamlid",
+			"de": "Sport Team Mitglied"
+		},
+		"description": {
+			"nl": "lid van een athletisch team",
+			"el": "Μέλος αθλητικής ομάδας."
+		}
+	},
+	"type": "object"
+}

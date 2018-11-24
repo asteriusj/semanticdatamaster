@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "email": {
+            "type": "string",
+            "required": false
+        },
+        "password": {
+            "type": "string",
+            "required": false,
+            "pattern": {}
+        },
+        "file": {
+            "type": "string",
+            "required": false
+        },
+        "check": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+        }
+    }
+}

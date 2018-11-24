@@ -1,0 +1,55 @@
+{
+	"id": "Drama.json",
+	"title": "drama",
+	"translations": {
+		"title": {
+			"de": "Drama",
+			"el": "δράμα",
+			"fr": "drame",
+			"ga": "dráma",
+			"ko": "드라마",
+			"nl": "drama",
+			"ja": "ドラマ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Drama",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Drama"}
+}

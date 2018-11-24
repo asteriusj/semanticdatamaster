@@ -1,0 +1,145 @@
+{
+	"id": "MilitaryConflict.json",
+	"title": "military conflict",
+	"translations": {
+		"title": {
+			"de": "militärischer Konflikt",
+			"el": "στρατιωτική σύγκρουση",
+			"fr": "conflit militaire",
+			"da": "militær konflikt",
+			"ko": "전쟁",
+			"nl": "militair conflict"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"causalties": {
+			"oneOf": [
+				{"$ref": "#/definitions/causalties"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/causalties"}
+				}
+			]
+		},
+		"result": {
+			"oneOf": [
+				{"$ref": "#/definitions/result"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/result"}
+				}
+			]
+		},
+		"strength": {
+			"oneOf": [
+				{"$ref": "#/definitions/strength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/strength"}
+				}
+			]
+		},
+		"combatant": {
+			"oneOf": [
+				{"$ref": "#/definitions/combatant"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/combatant"}
+				}
+			]
+		},
+		"opponents": {
+			"oneOf": [
+				{"$ref": "#/definitions/opponents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/opponents"}
+				}
+			]
+		},
+		"place": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"isPartOfMilitaryConflict": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"causalties": {
+			"title": "causalties",
+			"description": "",
+			"type": "string"
+		},
+		"result": {
+			"title": "result",
+			"description": "",
+			"type": "string"
+		},
+		"strength": {
+			"title": "strength",
+			"description": "",
+			"type": "string"
+		},
+		"combatant": {
+			"title": "combatant",
+			"description": "",
+			"type": "string"
+		},
+		"opponents": {
+			"title": "opponents",
+			"description": "&quot;opponent in a military conflict, an organisation, country, or group of countries.&quot;",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MilitaryConflict",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MilitaryConflict"}
+}

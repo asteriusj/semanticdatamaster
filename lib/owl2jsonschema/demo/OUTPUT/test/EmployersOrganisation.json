@@ -1,0 +1,52 @@
+{
+	"id": "EmployersOrganisation.json",
+	"title": "Employers&apos; Organisation",
+	"description": "An employers&apos; organisation is an organisation of entrepreneurs who work together to coordinate their actions in the field of labour relations",
+	"translations": {
+		"title": {
+			"de": "Arbeitgeberverbände",
+			"nl": "werkgeversorganisatie",
+			"fr": "syndicat de patrons"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/EmployersOrganisation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/EmployersOrganisation"}
+}

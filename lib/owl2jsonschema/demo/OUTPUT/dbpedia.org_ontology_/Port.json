@@ -1,0 +1,54 @@
+{
+	"id": "Port.json",
+	"title": "Port",
+	"description": "a location on a coast or shore containing one or more harbors where ships can dock and transfer people or cargo to or from land.",
+	"translations": {
+		"title": {
+			"de": "Hafen",
+			"fr": "Port",
+			"ga": "caladh",
+			"nl": "haven",
+			"ja": "港湾"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Port",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Port"}
+}

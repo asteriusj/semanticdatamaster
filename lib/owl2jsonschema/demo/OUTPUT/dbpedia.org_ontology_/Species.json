@@ -1,0 +1,423 @@
+{
+	"id": "Species.json",
+	"title": "species",
+	"translations": {
+		"title": {
+			"de": "Spezie",
+			"el": "είδος",
+			"fr": "espèce",
+			"es": "especies",
+			"ga": "speiceas",
+			"da": "arter",
+			"nl": "soort",
+			"ja": "種_&amp;&#35;40;分類学&#41;"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"binomial": {
+			"oneOf": [
+				{"$ref": "#/definitions/binomial"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/binomial"}
+				}
+			]
+		},
+		"binomialAuthority": {
+			"oneOf": [
+				{"$ref": "#/definitions/binomialAuthority"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/binomialAuthority"}
+				}
+			]
+		},
+		"clade": {
+			"oneOf": [
+				{"$ref": "#/definitions/clade"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/clade"}
+				}
+			]
+		},
+		"classis": {
+			"oneOf": [
+				{"$ref": "#/definitions/classis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/classis"}
+				}
+			]
+		},
+		"conservationStatus": {
+			"oneOf": [
+				{"$ref": "#/definitions/conservationStatus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/conservationStatus"}
+				}
+			]
+		},
+		"conservationStatusSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/conservationStatusSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/conservationStatusSystem"}
+				}
+			]
+		},
+		"domain": {
+			"oneOf": [
+				{"$ref": "#/definitions/domain"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/domain"}
+				}
+			]
+		},
+		"extinctionYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/extinctionYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/extinctionYear"}
+				}
+			]
+		},
+		"family": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fossil": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"genus": {
+			"oneOf": [
+				{"$ref": "#/definitions/genus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/genus"}
+				}
+			]
+		},
+		"kingdom": {
+			"oneOf": [
+				{"$ref": "#/definitions/kingdom"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/kingdom"}
+				}
+			]
+		},
+		"order": {
+			"oneOf": [
+				{"$ref": "#/definitions/order"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/order"}
+				}
+			]
+		},
+		"parentheses": {
+			"oneOf": [
+				{"$ref": "#/definitions/parentheses"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/parentheses"}
+				}
+			]
+		},
+		"phylum": {
+			"oneOf": [
+				{"$ref": "#/definitions/phylum"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/phylum"}
+				}
+			]
+		},
+		"redListIdNL": {
+			"oneOf": [
+				{"$ref": "#/definitions/redListIdNL"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/redListIdNL"}
+				}
+			]
+		},
+		"scientificName": {
+			"oneOf": [
+				{"$ref": "#/definitions/scientificName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/scientificName"}
+				}
+			]
+		},
+		"species": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subClassis": {
+			"oneOf": [
+				{"$ref": "#/definitions/subClassis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subClassis"}
+				}
+			]
+		},
+		"subFamily": {
+			"oneOf": [
+				{"$ref": "Taxon.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Taxon.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subGenus": {
+			"oneOf": [
+				{"$ref": "#/definitions/subGenus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subGenus"}
+				}
+			]
+		},
+		"subOrder": {
+			"oneOf": [
+				{"$ref": "#/definitions/subOrder"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/subOrder"}
+				}
+			]
+		},
+		"subTribus": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"superFamily": {
+			"oneOf": [
+				{"$ref": "Taxon.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Taxon.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"superOrder": {
+			"oneOf": [
+				{"$ref": "#/definitions/superOrder"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/superOrder"}
+				}
+			]
+		},
+		"superTribus": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"taxon": {
+			"oneOf": [
+				{"$ref": "Taxon.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Taxon.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"tribus": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"woRMS": {
+			"oneOf": [
+				{"$ref": "#/definitions/woRMS"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/woRMS"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"binomial": {
+			"title": "binomial",
+			"description": "",
+			"anyOf": []
+		},
+		"binomialAuthority": {
+			"title": "binomial authority",
+			"description": "",
+			"anyOf": []
+		},
+		"clade": {
+			"title": "clade",
+			"description": "",
+			"anyOf": []
+		},
+		"classis": {
+			"title": "classis",
+			"description": "the living thing class &amp;&#35;40;from the Latin&quot;classis&quot;&amp;&#35;41;, according to the biological taxonomy",
+			"anyOf": []
+		},
+		"conservationStatus": {
+			"title": "conservation status",
+			"description": "",
+			"type": "string"
+		},
+		"conservationStatusSystem": {
+			"title": "conservation status system",
+			"description": "",
+			"type": "string"
+		},
+		"domain": {
+			"title": "domain",
+			"description": "",
+			"anyOf": []
+		},
+		"extinctionYear": {
+			"title": "extinction year",
+			"description": "!!! Do NOT use this property for non Species related dates!!! - Year this species went extinct.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"genus": {
+			"title": "genus",
+			"description": "A rank in the classification of organisms, below family and above species; a taxon at that rank",
+			"anyOf": []
+		},
+		"kingdom": {
+			"title": "kingdom",
+			"description": "In biology, kingdom &amp;&#35;40;Latin: regnum, pl. regna&#41; is a taxonomic rank, which is either the highest rank or in the more recent three-domain system, the rank below domain.",
+			"anyOf": []
+		},
+		"order": {
+			"title": "order &amp;&#35;40;taxonomy&#41;",
+			"description": "",
+			"anyOf": []
+		},
+		"parentheses": {
+			"title": "parentheses",
+			"description": "",
+			"anyOf": []
+		},
+		"phylum": {
+			"title": "phylum",
+			"description": "A rank in the classification of organisms, below kingdom and above class; also called a division, especially in describing plants; a taxon at that rank.",
+			"anyOf": []
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"redListIdNL": {
+			"title": "red list ID NL",
+			"description": "red list code for treatened species NL &amp;&#35;40;different from IUCN&#41;",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"scientificName": {
+			"title": "scientific name",
+			"description": "",
+			"type": "string"
+		},
+		"subClassis": {
+			"title": "sub-classis",
+			"description": "a subdivision within a Species classis",
+			"anyOf": []
+		},
+		"subGenus": {
+			"title": "subgenus",
+			"description": "A rank in the classification of organisms, below genus ; a taxon at that rank",
+			"anyOf": []
+		},
+		"subOrder": {
+			"title": "sub-order",
+			"description": "",
+			"anyOf": []
+		},
+		"superOrder": {
+			"title": "super-order",
+			"description": "",
+			"anyOf": []
+		},
+		"woRMS": {
+			"title": "WoRMS",
+			"description": "World Register of Marine Species",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Species",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Species"}
+}

@@ -1,0 +1,62 @@
+{
+	"id": "Parish.json",
+	"title": "parish",
+	"description": "The smallest unit of a clerical administrative body",
+	"translations": {
+		"title": {
+			"de": "Gemeinde",
+			"el": "ενορία",
+			"fr": "paroisse",
+			"ga": "paróiste",
+			"nl": "parochie",
+			"ja": "小教区"
+		},
+		"description": {"el": "Είναι η μικρότερη μονάδα στην διοικητική ιερατική δομή."}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "ClericalAdministrativeRegion.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Parish",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Parish"}
+}

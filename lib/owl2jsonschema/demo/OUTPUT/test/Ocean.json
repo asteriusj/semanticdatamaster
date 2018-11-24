@@ -1,0 +1,56 @@
+{
+	"id": "Ocean.json",
+	"title": "Ocean",
+	"description": "A body of saline water that composes much of a planet&apos;s hydrosphere.",
+	"translations": {
+		"title": {
+			"de": "Ozean",
+			"el": "Ωκεανός",
+			"fr": "Océan",
+			"ga": "aigéan",
+			"nl": "oceaan",
+			"pt": "oceano",
+			"ja": "大洋"
+		},
+		"description": {"el": "Μάζα αλμυρού νερού που αποτελεί σημαντικό μέρος της υδρόσφαιρας ενός πλανήτη."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Ocean",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Ocean"}
+}

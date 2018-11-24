@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Field Schema Edit - OWL JSON Schema Form Field Translators Editors</title>
+		
+		<!-- Minified version of `es6-promise-auto` below. -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>  
+
+        <!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="ace/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="ace/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+        
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="ace/assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/chosen.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datepicker3.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-timepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/daterangepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-datetimepicker.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/bootstrap-colorpicker.min.css" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="ace/assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="ace/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="ace/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="ace/assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="ace/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="ace/assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+    <style>
+        .myheader {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .myFieldSchema {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+        }
+        #editor {
+            width: 400px;
+            height: 600px;
+        }
+    </style>
+    
+
+    <script type="text/javascript" src="../deps/jquery.min.js"></script>
+    <script type="text/javascript" src="../deps/underscore.js"></script>
+    <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+    <script type="text/javascript" src="../lib/jsonform.js"></script>
+    
+    <script type="text/javascript" src="../js/common.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles('FieldSchemaData')">
+   
+    <script>
+        function doFieldSchemaData(_data) {
+            console.log('doFieldSchemaData',_data)
+            
+            setFieldSchema(_data).then(function(_owl) {
+                console.log("setFieldSchema Success! _owl", _owl);
+                return _owl;
+                
+            }).then(function(_owl) {
+                    console.log("doFieldSchemaData then _owl", _owl);
+
+                    doFieldSchemaAceEditor(_owl).then(function (result) {
+                        console.log('call doFieldSchemaEditor Success! result', result)
+                    
+                    }).catch(function (e) {
+                        console.error('call doFieldSchemaEditor Fail! e', e)
+            
+                    }); // enddoFieldSchemaEditor
+
+            }).catch(function(err) {
+                console.error("doFieldSchemaData Fail!", err);
+              
+            });
+        }
+    </script> 
+
+
+
+    <div class="myheader">
+      <h2>Field Schema Edit</h2>
+    </div>
+  
+    
+    
+    <div class="myFieldSchema">
+      <h3>Field Schema</h3>
+      <!--https://github.com/ajaxorg/ace-->
+      <div id="editor"></div>
+      <script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
+      <script src="ace/src/theme-twilight.js" type="text/javascript" charset="utf-8"></script>
+      <script src="ace/src/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+      <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+        editor.session.setMode(new JavaScriptMode());
+        console.log('editor',editor)
+        //
+        //
+        function doFieldSchemaAceEditor(_owl) {
+          console.log('doFieldSchemaAceEditor _owl', _owl)
+        
+          return new Promise(function (resolve, reject) {
+        
+            try {
+        
+              // call setFieldSchemaAceEditor 
+                setFieldSchemaAceEditor(_owl).then(function (result) {
+                console.log('setFieldSchemaAceEditor Success! result', result)
+        
+                resolve(result);
+        
+              }).catch(function (e) {
+                console.error('call setFieldSchemaAceEditor Fail! e', e)
+                reject(e)
+        
+              }); // end setFieldSchemaAceEditor
+            }
+            catch (e) {
+              console.error('doFieldSchemaAceEditor e', e)
+              reject(e);
+            }; // end try 
+          }); // end promise
+        } // end doFieldSchemaAceEditor
+        
+        //
+        //
+        //
+        function setFieldSchemaAceEditor(_owl) {
+          console.log('setFieldSchemaAceEditor _owl', _owl)
+        
+          return new Promise(function (resolve, reject) {
+        
+            try {
+        
+                editor.setValue(JSON.stringify( _owl, null, '\t' ));
+            
+                editor.addEventListener("click", onchangeFieldSchemaAceEditor);
+            
+                resolve(true);
+        
+            }
+            catch (e) {
+              console.error('setFieldSchemaAceEditor e', e)
+              reject(e);
+        
+            }; // end try 
+          }); // end promise
+        }; // end doFieldSchemaEditor
+
+        //
+        // getFieldSchemaAceEditor content
+        //
+        function getFieldSchemaAceEditor() {
+          console.log('getFieldSchemaAceEditor ')
+        
+          return new Promise(function (resolve, reject) {
+        
+            try {
+        
+                let content = editor.getValue() ;
+  
+                    if ( isJSONValid(content) === false ) {
+                        var msg = "FieldSchemaEditor content is NOT valid JSON" ;
+                        alert(msg);
+                        console.error(msg)
+                        
+                        reject(msg)
+                        
+                    } else {
+
+                        let _owl = JSON.parse(content)
+                
+                        setFieldSchema(_owl).then(function (result) {
+                            console.log('call setFieldSchema Success! result', result)
+                            
+                            resolve(result);
+                            
+                        }).catch(function (e) {
+                            console.error('call setFieldSchema Fail! e', e)
+                            
+                            reject(e)
+                            
+                        });
+
+                    }; // end if
+                  
+            } catch (e) {
+              console.error('getFieldSchemaAceEditor e', e)
+              reject(e);
+        
+            }; // end try 
+          }); // end promise
+        }; // end getFieldSchemaEditor
+
+        function onchangeFieldSchemaAceEditor() {
+          console.log('onchangeFieldSchemaAceEditor')
+        
+          return new Promise(function (resolve, reject) {
+        
+            try {
+                
+                getFieldSchemaAceEditor().then(function (_owl) {
+                    console.log('call getFieldSchemaAceEditor Success! _owl', _owl)
+                  
+                    resolve(_owl);
+                  
+                  
+                }).catch(function (e) {
+                  console.error('call getFieldSchemaAceEditor Fail! e', e)
+                });
+        
+            }
+            catch (e) {
+                console.error('onchangeFieldSchemaAceEditor e', e)
+                reject(e);
+        
+            }; // end try 
+          }); // end promise
+        }; // end onchangeFieldSchemaEditor
+
+      </script>
+    </div>    
+    
+  
+  </body>
+</html>

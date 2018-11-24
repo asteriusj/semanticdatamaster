@@ -51,13 +51,40 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+  
+
+    <!--<script type="text/javascript" src="../deps/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="../deps/underscore.js"></script>-->
+    <!--<script type="text/javascript" src="../deps/opt/jsv.js"></script>-->
+    
+    
+    <!-- https://github.com/joshfire/jsonform -->
+    <script src="./deps/jquery.min.js"></script>
+    <script src="./deps/underscore.js"></script>
+    <script src="./deps/opt/jquery.ui.core.js"></script>
+    <script src="./deps/opt/jquery.ui.widget.js"></script>
+    <script src="./deps/opt/jquery.ui.mouse.js"></script>
+    <script src="./deps/opt/jquery.ui.sortable.js"></script>
+    <script src="./deps/opt/bootstrap-dropdown.js"></script>
+    <script src="./deps/opt/jsv.js">// JSON Schema Validator https://github.com/garycourt/JSV</script>                                   
+    <script src="./deps/opt/spectrum.js"></script>
+    <script src="./deps/opt/ace/ace.js"></script>
+    <script src="./deps/opt/ace/mode-json.js"></script>
+    <style>
+      @import url("./deps/opt/bootstrap.css");
+      @import url("./deps/opt/spectrum.css");
+      /* @import url("./deps/opt/bootstrap-wysihtml5.css"); */
+    </style>
+    
+    <script type="text/javascript" src="./lib/jsonform.js"></script>
+
 
     <style>
 html,
 body {
    margin:0;
    padding:0;
-   height:100%;
+   height:90%;
 }
 #container {
    min-height:100%;
@@ -113,8 +140,7 @@ body {
             margin: 0px;
         }
         .modal-dialog {
-            width: 480px;
-            height: 640px;
+            width: 600px;
         }
         .modal-content {
             margin: 0px;
@@ -123,6 +149,7 @@ body {
             margin: 5px;
         }
         .modal-body {
+            max-height: 800px;
             margin: 5px;
         }
         .modal-footer {
@@ -133,33 +160,8 @@ body {
           font-weight: bold;
         }
     </style>
-    
-
-    <!--<script type="text/javascript" src="../deps/jquery.min.js"></script>-->
-    <!--<script type="text/javascript" src="../deps/underscore.js"></script>-->
-    <!--<script type="text/javascript" src="../deps/opt/jsv.js"></script>-->
-    
-    
-    <!-- https://github.com/joshfire/jsonform -->
-    <script src="./deps/jquery.min.js"></script>
-    <script src="./deps/underscore.js"></script>
-    <script src="./deps/opt/jquery.ui.core.js"></script>
-    <script src="./deps/opt/jquery.ui.widget.js"></script>
-    <script src="./deps/opt/jquery.ui.mouse.js"></script>
-    <script src="./deps/opt/jquery.ui.sortable.js"></script>
-    <script src="./deps/opt/bootstrap-dropdown.js"></script>
-    <script src="./deps/opt/jsv.js">// JSON Schema Validator https://github.com/garycourt/JSV</script>                                   
-    <script src="./deps/opt/spectrum.js"></script>
-    <script src="./deps/opt/ace/ace.js"></script>
-    <script src="./deps/opt/ace/mode-json.js"></script>
-    <style>
-      @import url("./deps/opt/bootstrap.css");
-      @import url("./deps/opt/spectrum.css");
-      /* @import url("./deps/opt/bootstrap-wysihtml5.css"); */
-    </style>
-    
-    <script type="text/javascript" src="./lib/jsonform.js"></script>
-    
+  
+      
     <!-- Asterius Media LLC semanticdatamaster commonfiles-->
     <!--<link rel="stylesheet" href="common.css" />-->
     <script type="text/javascript" src="../js/common.js"></script>
@@ -201,40 +203,46 @@ body {
     </div>
   
     <div class="myFieldSchema">
-      <h3>Field Schema Editor</h3>
+      <h3>Field Schema</h3>
       
-        <div id="modalFieldEditor"  class="modal-wrapper" style="visibility: visible;">
+        <div id="modalFieldEditor"  class="modal-wrapper well" style="visibility: visible;">
           
-          <div class="modal-dialog">    
+            <div id="" class="modal-dialog">    
           
-            <div class="modal-content">  
+                <div class="modal-content">  
            
-              <div class="modal-header">  
+                    <div class="modal-header">  
            
-                <button type="button" class="close" data-dismiss="modal">
-                  <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                </button>
+                        <button type="button" class="close" data-dismiss="modal">
+                          <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                    
+                        <h4 class="modal-title"><span id="fieldtitle"></span></h4> 
             
-                <h4 class="modal-title"><span id="fieldtitle"></span></h4> 
-            
-            </div> 
+                    </div> 
            
-            <div class="modal-body">    
-              <span id="fieldinfo"></span>
+                    <div class="modal-body">    
+                
+                        <span id="fieldinfo"></span>
+                      
+                        <div class="editform">
+                            <form id="fieldeditform"></form>
+                        </div>
+                  
+                    </div>
+                    
+                    <div class="modal-footer"> 
+                        
+                    </div>
           
-              <div class="editform">
-                <form id="fieldeditform"></form>
-              </div>
-          
+                </div>
+           
             </div>
-           
-          </div>
        
         </div>
-      
-      </div>
+          
+    </div>
    
-   </div>
 
  <script>
  

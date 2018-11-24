@@ -1,0 +1,52 @@
+{
+	"id": "WomensTennisAssociationTournament.json",
+	"title": "Women&apos;s Tennis Association tournament",
+	"translations": {
+		"title": {
+			"de": "WTA Turnier",
+			"fr": "Tournoi de la Women&apos;s Tennis Association",
+			"it": "Torneo di Women&apos;s Tennis Association",
+			"nl": "WTA-toernooi"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}, {"$ref": "SportsEvent.json"}, {"$ref": "Tournament.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/WomensTennisAssociationTournament",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/WomensTennisAssociationTournament"}
+}

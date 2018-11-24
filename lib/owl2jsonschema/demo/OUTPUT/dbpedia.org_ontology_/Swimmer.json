@@ -1,0 +1,76 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"swimmingStyle": {
+			"title": "Swimming style",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "a trained athlete who participates in swimming meets",
+	"format": "http://dbpedia.org/ontology/Swimmer",
+	"id": "Swimmer.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Swimmer"},
+	"properties": {
+		"swimmingStyle": {
+			"oneOf": [
+				{"$ref": "#/definitions/swimmingStyle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/swimmingStyle"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "swimmer",
+	"translations": {
+		"title": {
+			"de": "Schwimmer",
+			"el": "Kολυμβητής",
+			"fr": "nageur",
+			"it": "nuotatore",
+			"es": "nadador",
+			"ga": "snámhaí",
+			"ko": "수영 선수",
+			"nl": "zwemmer",
+			"pt": "nadador",
+			"ja": "競泳選手"
+		},
+		"description": {"el": "ένας εκπαιδευμένος αθλητής που συμμετέχει σε συναντήσεις κολύμβησης"}
+	},
+	"type": "object"
+}

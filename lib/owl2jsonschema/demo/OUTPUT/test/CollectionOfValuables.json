@@ -1,0 +1,53 @@
+{
+	"id": "CollectionOfValuables.json",
+	"title": "collection of valuables",
+	"description": "Collection of valuables is a collection considered to be a work in itself&amp;&#35;41;",
+	"translations": {
+		"title": {
+			"de": "Kunst- und Wertsachenversammlung",
+			"fr": "collection d&apos;objets",
+			"ko": "귀중품의 컬렉션",
+			"nl": "verzameling van kostbaarheden"
+		},
+		"description": {"nl": "Een verzameling van kostbaarheden, die als een werk beschouwd wordt &amp;&#35;41;."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CollectionOfValuables",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CollectionOfValuables"}
+}

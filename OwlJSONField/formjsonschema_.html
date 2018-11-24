@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Form JSON Forms _</title>
+		
+			<!-- Minified version of `es6-promise-auto` below. -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>  
+
+ <style>
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:100%;
+   position:relative;
+}
+#header {
+   /*background:#ff0;*/
+   padding:10px;
+}
+#content {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+#footer {
+   position:absolute;
+   padding:10px;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   /*background:#6cf;*/
+}
+        .myheader {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .myJSONSchema {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+        }
+        .myFormFieldDef {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+        }
+        .myFieldSchema {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+        }
+        .mySchemaForm {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+        }
+        #editor {
+            width: 400px;
+            height: 600px;
+        }
+        .modal-wrapper {
+            margin: 0px;
+        }
+        .modal-dialog {
+            width: 480px;
+            height: 640px;
+        }
+        .modal-content {
+            margin: 0px;
+        }
+        .modal-header {
+            margin: 5px;
+        }
+        .modal-body {
+            margin: 5px;
+        }
+        .modal-footer {
+            margin: 5px;
+        }
+        .control-label {
+          font-size: 13px;
+          font-weight: bold;
+        }
+    </style>		
+
+    
+    <!-- https://github.com/joshfire/jsonform -->
+    <script src="./deps/jquery.min.js"></script>
+    <script src="./deps/underscore.js"></script>
+    <script src="./deps/opt/jquery.ui.core.js"></script>
+    <script src="./deps/opt/jquery.ui.widget.js"></script>
+    <script src="./deps/opt/jquery.ui.mouse.js"></script>
+    <script src="./deps/opt/jquery.ui.sortable.js"></script>
+    <script src="./deps/opt/bootstrap-dropdown.js"></script>
+    <script src="./deps/opt/jsv.js">// JSON Schema Validator https://github.com/garycourt/JSV</script>                                   
+    <script src="./deps/opt/spectrum.js"></script>
+    <script src="./deps/opt/ace/ace.js"></script>
+    <script src="./deps/opt/ace/mode-json.js"></script>
+    <style>
+      @import url("./deps/opt/bootstrap.css");
+      @import url("./deps/opt/spectrum.css");
+      /* @import url("./deps/opt/bootstrap-wysihtml5.css"); */
+    </style>
+    
+<!--<script src="dist/js/brutusin-json-forms-bootstrap.min.js"></script>    -->
+<link rel="stylesheet" href='dist/css/brutusin-json-forms.min.css'/>
+<script src="dist/js/brutusin-json-forms.min.js"></script>
+
+    <!-- Asterius Media LLC semanticdatamaster commonfiles-->
+    <!--<link rel="stylesheet" href="common.css" />-->
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script src="../lib/Transforms.js"></script>
+    
+  </head>
+  <body  onload="getDataFiles('JSONSchemaData')">
+   <div id="container">
+       
+       <script>
+        function doJSONSchemaData(_data) {
+            console.log('doJSONSchemaData',_data)
+            
+            getJSONSchema(_data).then(function(_jsonschema) {
+                console.log("call getJSONSchema Success! _jsonschema", _jsonschema);
+                return _jsonschema;
+                
+            }).then(function(_jsonschema) {
+                    console.log("doJSONForms then _jsonschema", _jsonschema);
+                    
+                    //
+                    // Translate Schema v4 to JSON Form Subset
+                    //
+
+                    doJSONForms(_jsonschema).then(function (result) {
+                        console.log('call doJSONForms Success! result', result)
+                    
+                    }).catch(function (e) {
+                        console.error('call doJSONForms Fail! e', e)
+            
+                    }); // enddoJSONSchemaEditor
+
+            }).catch(function(err) {
+                console.error("doJSONSchemaData Fail!", err);
+              
+            }); // end 
+        }; // end doJSONForms
+    </script> 
+    
+<div class="myheader">
+      <h2>Form JSON Schema</h2>
+    </div>
+  
+    <div class="mySchemaForm">
+      <h3>Schema Form</h3>
+      
+        <div id="modalSchemaForm"  class="modal-wrapper" style="visibility: visible;">
+          
+          <div class="modal-dialog">    
+          
+            <div class="modal-content">  
+           
+              <div class="modal-header">  
+           
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+            
+                <h4 class="modal-title"><span id="fieldtitle"></span></h4> 
+            
+            </div> 
+           
+            <div class="modal-body">    
+              <span id="fieldinfo"></span>
+          
+              <div class="json-forms">
+                <form id="jsonforms"></form>
+              </div>
+              
+              <div class="alert alert-info" role="alert"><strong id="example-title"></strong><div id="example-desc"></div></div>
+              <div id='container' style="padding-left:12px;padding-right:12px;padding-bottom: 12px;"></div>
+                
+          
+            </div>
+           
+          </div>
+       
+        </div>
+      
+      </div>
+   
+   </div>
+       
+       
+ <script>
+ 
+function doJSONForms (_jsonschema) {
+  console.log('doJSONForms',_jsonschema)
+  // Return a new promise.
+  return new Promise(function (resolve, reject) {
+    try {
+ 
+        setModalJSONForm(_jsonschema).then(function (result) {
+            console.log('call setModalJSONForm Success! result', result)
+        
+        }).catch(function (e) {
+            console.error('call setModalJSONForm Fail! e', e)
+
+        }); // end setModalJSONForm
+        
+        resolve(true)
+
+    }
+    catch (e) {
+      console.error('doJSONForms e', e)
+      reject(e);
+
+    };
+  });
+}; // end doJSONForms
+    
+function setModalJSONForm(_jsonschema) {
+  console.log('setModalJSONForm',_jsonschema)
+  // Return a new promise.
+  return new Promise(function (resolve, reject) {
+    try {
+    
+      if(_jsonschema != null){
+          //   var mySpan = document.getElementById("fieldinfo");
+          //   mySpan.textContent = JSON.stringify(_fieldjson) ;
+         
+         
+        //   let _properties = _jsonschema.schema.properties || _jsonschema.schema || _jsonschema.properties ;
+          
+          // reset form     
+        //   var myJSONForm = document.getElementById("jsonform");
+        //   console.log('_properties',_properties)
+         
+            var schema = {"type": "boolean"}
+            var BrutusinForms = brutusin["json-forms"];
+            var bf = BrutusinForms.create(schema);
+            console.log('bf',bf)
+            var container = document.getElementById('container');
+            console.log('container',container)
+            var data = {"$schema": "http://json-schema.org/draft-03/schema#", "title": "A boolean", "description": "A simple boolean data type as schema root", "type": "boolean"}
+            console.log('data',data)
+            bf.render(container, data);
+         
+        resolve(_jsonschema)
+        
+      } else {
+        reject(_jsonschema)
+      } // end != null
+
+
+    }
+    catch (e) {
+      console.error('setModalJSONForm e', e)
+      reject(e);
+
+    };
+  });
+}; // end setModalJSONForm
+
+    function generateForm() {
+                var schema;
+                var data;
+                var message;
+                var resolver;
+                var tabId;
+                inputString[selectedTab] = codeMirrors[selectedTab].getValue();
+                $("#jsonAlert").hide();
+                try {
+                    message = "The was a syntax error in the schema JSON";
+                    tabId = "schema";
+                    eval("schema=" + inputString.schema);
+                    if (inputString.data) {
+                        message = "The was a syntax error in the initial data JSON";
+                        tabId = "data";
+                        eval("data=" + inputString.data);
+                    } else {
+                        data = null;
+                    }
+                    if (inputString.resolver) {
+                        tabId = "resolver";
+                        message = "The was a syntax error in the resolver code";
+                        eval("resolver=" + inputString.resolver);
+                        if ("function" !== typeof resolver) {
+                            throw "Schema resolver does not evaluate to a function";
+                        }
+                    }
+                } catch (err) {
+                    document.getElementById('error-message').innerHTML = message + (err ? ". " + err : "");
+                    $('[href=#' + tabId + ']').tab('show');
+                    $("#jsonAlert").show();
+                    return;
+                }
+                $('#formLink').click();
+                bf = BrutusinForms.create(schema);
+                if (resolver) {
+                    bf.schemaResolver = resolver;
+                }
+                var container = document.getElementById('container');
+                while (container.firstChild) {
+                    container.removeChild(container.firstChild);
+                }
+                if (title) {
+                    document.getElementById('example-title').innerHTML = title;
+                }
+                if (desc) {
+                    document.getElementById('example-desc').innerHTML = desc;
+                }
+
+                bf.render(container, data);
+    }
+
+function getModalJSONEditor() {
+    console.log('getModalJSONEditor')
+    var myJSONForm = document.getElementById("jsonform");
+    let contents = myJSONForm.textContent ;
+    
+    //// PROCESS UPDATES TO FIELD VALES - SOMEWHERE
+    
+    console.log('getModalJSONEditor contents',contents)
+    return contents ;
+} // end getModalJSONEditor
+</script>   
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+   </div>
+   
+   <div id="footer" class="myfooter">
+      <a href="index.html">Editors Home</a>
+   </div>
+    
+  <div>
+ </body>
+</html>

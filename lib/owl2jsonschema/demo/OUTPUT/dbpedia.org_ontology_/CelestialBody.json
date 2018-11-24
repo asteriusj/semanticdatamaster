@@ -1,0 +1,277 @@
+{
+	"id": "CelestialBody.json",
+	"title": "celestial body",
+	"translations": {
+		"title": {
+			"de": "Himmelskörper",
+			"el": "ουράνιο σώμα",
+			"fr": "corps celeste",
+			"it": "corpo celeste",
+			"es": "cuerpo celeste",
+			"ga": "rinn neimhe",
+			"ko": "천체",
+			"nl": "hemellichaam",
+			"ja": "天体"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"absoluteMagnitude": {
+			"oneOf": [
+				{"$ref": "#/definitions/absoluteMagnitude"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/absoluteMagnitude"}
+				}
+			]
+		},
+		"apoapsis": {
+			"oneOf": [
+				{"$ref": "#/definitions/apoapsis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/apoapsis"}
+				}
+			]
+		},
+		"apofocus": {
+			"oneOf": [
+				{"$ref": "#/definitions/apofocus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/apofocus"}
+				}
+			]
+		},
+		"constellation": {
+			"oneOf": [
+				{"$ref": "#/definitions/constellation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/constellation"}
+				}
+			]
+		},
+		"discovered": {
+			"oneOf": [
+				{"$ref": "#/definitions/discovered"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/discovered"}
+				}
+			]
+		},
+		"maxAbsoluteMagnitude": {
+			"oneOf": [
+				{"$ref": "#/definitions/maxAbsoluteMagnitude"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maxAbsoluteMagnitude"}
+				}
+			]
+		},
+		"maxApparentMagnitude": {
+			"oneOf": [
+				{"$ref": "#/definitions/maxApparentMagnitude"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/maxApparentMagnitude"}
+				}
+			]
+		},
+		"messierName": {
+			"oneOf": [
+				{"$ref": "#/definitions/messierName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/messierName"}
+				}
+			]
+		},
+		"ngcName": {
+			"oneOf": [
+				{"$ref": "#/definitions/ngcName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/ngcName"}
+				}
+			]
+		},
+		"orbitalEccentricity": {
+			"oneOf": [
+				{"$ref": "#/definitions/orbitalEccentricity"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/orbitalEccentricity"}
+				}
+			]
+		},
+		"periapsis": {
+			"oneOf": [
+				{"$ref": "#/definitions/periapsis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/periapsis"}
+				}
+			]
+		},
+		"perifocus": {
+			"oneOf": [
+				{"$ref": "#/definitions/perifocus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/perifocus"}
+				}
+			]
+		},
+		"rightAscension": {
+			"oneOf": [
+				{"$ref": "#/definitions/rightAscension"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rightAscension"}
+				}
+			]
+		},
+		"stellarClassification": {
+			"oneOf": [
+				{"$ref": "http://www.w3.org/2004/02/skos/core#OrderedCollection.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://www.w3.org/2004/02/skos/core#OrderedCollection.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"vonKlitzingConstant": {
+			"oneOf": [
+				{"$ref": "#/definitions/vonKlitzingConstant"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/vonKlitzingConstant"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"absoluteMagnitude": {
+			"title": "absolute magnitude",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"apoapsis": {
+			"title": "apoapsis &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"apofocus": {
+			"title": "apofocus",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"constellation": {
+			"title": "constellation",
+			"description": "",
+			"anyOf": []
+		},
+		"discovered": {
+			"title": "discovery date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"maxAbsoluteMagnitude": {
+			"title": "maximum absolute magnitude",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"maxApparentMagnitude": {
+			"title": "maximum apparent magnitude",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"messierName": {
+			"title": "Messier name",
+			"description": "Name for Messier objects",
+			"type": "string"
+		},
+		"ngcName": {
+			"title": "NGC name",
+			"description": "Name for NGC objects",
+			"type": "string"
+		},
+		"orbitalEccentricity": {
+			"title": "orbital eccentricity",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#float"
+		},
+		"periapsis": {
+			"title": "periapsis &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"perifocus": {
+			"title": "perifocus",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"rightAscension": {
+			"title": "right ascension",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"vonKlitzingConstant": {
+			"title": "von Klitzing electromagnetic constant &amp;&#35;40;RK&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CelestialBody",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CelestialBody"}
+}

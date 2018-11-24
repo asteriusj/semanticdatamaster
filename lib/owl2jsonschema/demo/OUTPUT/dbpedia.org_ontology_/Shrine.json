@@ -1,0 +1,80 @@
+{
+	"id": "Shrine.json",
+	"title": "shrine",
+	"translations": {
+		"title": {
+			"de": "schrein",
+			"el": "βωμός",
+			"fr": "sanctuaire",
+			"it": "santuario",
+			"nl": "heiligdom",
+			"ja": "神社"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}, {"$ref": "ReligiousBuilding.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"mainBuilding": {
+			"oneOf": [
+				{"$ref": "#/definitions/mainBuilding"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mainBuilding"}
+				}
+			]
+		},
+		"enshrinedDeity": {
+			"oneOf": [
+				{"$ref": "Deity.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Deity.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mainBuilding": {
+			"title": "main building",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Shrine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Shrine"}
+}

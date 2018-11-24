@@ -1,0 +1,125 @@
+{
+  "title": "Activty Action",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "activity name",
+      "minLength": 4,
+      "default": ""
+    },
+    "percentcomplete": {
+      "type": "integer",
+      "default": 33,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "status_color": {
+      "type": "string",
+      "format": "color",
+      "title": "status color",
+      "default": "#ffff00"
+    },
+
+    "plans": {
+      "type": "array",
+      "format": "table",
+      "title": "Plans",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Plan",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "cat",
+              "dog",
+              "other"
+            ],
+            "default": "other"
+          },
+          "name": {
+            "type": "string",
+            "title": "Plan Name"
+          },
+          "details": {
+            "type": "string",
+            "title": "Plan Details"
+          },
+          "progress": {
+            "type": "object",
+            "title": "Progress",
+            "properties": {
+              "city": {
+                "type": "string",
+                "default": "San Francisco"
+              },
+              "state": {
+                "type": "string",
+                "default": "CA"
+              },
+              "citystate": {
+                "type": "string",
+                "description": "This is generated automatically from the previous two fields",
+                "template": "{{city}}, {{state}}",
+                "watch": {
+                  "city": "location.city",
+                  "state": "location.state"
+                }
+              }
+            }
+          },
+          "planitems": {
+            "type": "array",
+            "format": "table",
+            "title": "Plan Items",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "title": "Plans Item",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "Plan Item Name"
+                },
+                "details": {
+                  "type": "string",
+                  "title": "Plan Item Details"
+                },
+                "steps": {
+                  "type": "array",
+                  "format": "table",
+                  "title": "Steps",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "title": "Step",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "title": "Plan Item Step Name"
+                      },
+                      "details": {
+                        "type": "string",
+                        "title": "Plan Item Step Details"
+                      },
+                      "completed": {
+                        "type": "string",
+                        "enum": [
+                          "yes",
+                          "no"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

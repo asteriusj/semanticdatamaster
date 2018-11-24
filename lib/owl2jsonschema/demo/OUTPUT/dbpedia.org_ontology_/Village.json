@@ -1,0 +1,59 @@
+{
+	"id": "Village.json",
+	"title": "village",
+	"description": "a clustered human settlement or community, usually smaller a town",
+	"translations": {
+		"title": {
+			"pl": "wieś",
+			"de": "dorf",
+			"el": "χωριό",
+			"hi": "गाँव",
+			"fr": "village",
+			"ga": "sráidbhaile",
+			"id": "desa",
+			"gl": "lugar",
+			"nl": "dorp",
+			"ja": "村"
+		},
+		"description": {"gl": "Núcleo pequeno de poboación en que se divide unha parroquia, con poucos veciños e de carácter rural."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Settlement.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Village",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Village"}
+}

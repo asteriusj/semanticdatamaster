@@ -1,0 +1,156 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Region.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"seatNumber": {
+			"title": "number of seats in the land parlement",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"landtag": {
+			"title": "austrian land tag",
+			"description": "",
+			"type": "string"
+		},
+		"landtagMandate": {
+			"title": "austrian land tag mandate",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfCountries": {
+			"title": "number of countries",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"congressionalDistrict": {
+			"title": "congressional district",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"description": "A PopulatedPlace under the jurisdiction of an administrative body. This body may administer either a whole region or one or more adjacent Settlements &amp;&#35;40;town administration&#41;",
+	"format": "http://dbpedia.org/ontology/AdministrativeRegion",
+	"id": "AdministrativeRegion.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AdministrativeRegion"},
+	"properties": {
+		"seatNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/seatNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/seatNumber"}
+				}
+			]
+		},
+		"landtag": {
+			"oneOf": [
+				{"$ref": "#/definitions/landtag"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landtag"}
+				}
+			]
+		},
+		"landtagMandate": {
+			"oneOf": [
+				{"$ref": "#/definitions/landtagMandate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/landtagMandate"}
+				}
+			]
+		},
+		"numberOfCountries": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCountries"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCountries"}
+				}
+			]
+		},
+		"congressionalDistrict": {
+			"oneOf": [
+				{"$ref": "#/definitions/congressionalDistrict"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/congressionalDistrict"}
+				}
+			]
+		},
+		"administrativeCenter": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"landeshauptmann": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "administrative region",
+	"translations": {
+		"title": {
+			"de": "Verwaltungsregion",
+			"el": "διοικητική περιφέρεια",
+			"fr": "région administrative",
+			"it": "regione amministrativa",
+			"ga": "réigiún riaracháin",
+			"gl": "rexión administrativa",
+			"zh": "行政區",
+			"ko": "관리 지역",
+			"nl": "bestuurlijk gebied",
+			"ja": "行政区画"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

@@ -1,0 +1,52 @@
+{
+	"id": "LineOfFashion.json",
+	"title": "line of fashion",
+	"description": "A coherent type of clothing or dressing following a particular fashion",
+	"translations": {
+		"title": {
+			"de": "Modelinie",
+			"nl": "modelijn",
+			"fr": "type de couture"
+		},
+		"description": {"nl": "Een samenhangend geheel van kleding in een bepaalde stijl volgens een bepaalde mode."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/LineOfFashion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LineOfFashion"}
+}

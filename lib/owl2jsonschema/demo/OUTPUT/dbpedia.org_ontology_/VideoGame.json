@@ -1,0 +1,85 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Software.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"gameEngine": {
+			"title": "Game Engine",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"description": "A video game is an electronic game that involves interaction with a user interface to generate visual feedback on a video device.",
+	"format": "http://dbpedia.org/ontology/VideoGame",
+	"id": "VideoGame.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/VideoGame"},
+	"properties": {
+		"gameArtist": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"gameEngine": {
+			"oneOf": [
+				{"$ref": "#/definitions/gameEngine"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gameEngine"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "video game",
+	"translations": {
+		"title": {
+			"de": "Videospiel",
+			"el": "βιντεοπαιχνίδι",
+			"fr": "jeux vidéo",
+			"es": "videojuego",
+			"ga": "físchluiche",
+			"da": "computerspil",
+			"ko": "비디오 게임",
+			"nl": "videospel",
+			"pt": "videojogo",
+			"ja": "テレビゲーム"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

@@ -1,0 +1,122 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"documentNumber": {
+			"title": "document number",
+			"description": "Identification a document within a particular registry",
+			"type": "string"
+		},
+		"dateLastUpdated": {
+			"title": "Date Last Updated",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"registryNumber": {
+			"title": "registry number",
+			"description": "Identification of the registry a document is in",
+			"type": "string"
+		}
+	},
+	"description": "Any document",
+	"format": "http://dbpedia.org/ontology/Document",
+	"id": "Document.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Document"},
+	"properties": {
+		"documentNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/documentNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/documentNumber"}
+				}
+			]
+		},
+		"dateLastUpdated": {
+			"oneOf": [
+				{"$ref": "#/definitions/dateLastUpdated"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dateLastUpdated"}
+				}
+			]
+		},
+		"registryNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/registryNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/registryNumber"}
+				}
+			]
+		},
+		"galleryItem": {
+			"oneOf": [
+				{"$ref": "File.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "File.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"hasAnnotation": {
+			"oneOf": [
+				{"$ref": "Annotation.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Annotation.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "document",
+	"translations": {
+		"title": {
+			"de": "Dokument",
+			"el": "έγγραφο",
+			"fr": "document",
+			"it": "documento",
+			"ga": "cáipéis",
+			"da": "dokument",
+			"nl": "document",
+			"ja": "ドキュメント"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

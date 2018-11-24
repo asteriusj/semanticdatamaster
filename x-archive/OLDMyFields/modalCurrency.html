@@ -1,0 +1,287 @@
+<!--http://www.alpacajs.org/demos/form-builder/form-builder.html-->
+
+<link rel="stylesheet" style="text/css" href="../deps/opt/bootstrap.css" />
+<link rel="stylesheet" style="text/css" href="../deps/opt/bootstrap-theme.css" />
+<link type="text/css" href="../deps/opt/alpaca.css" rel="stylesheet" />
+<script type="text/javascript" src="form-builder.js"></script>
+<link type="text/css" href="form-builder.css" rel="stylesheet" />
+
+
+ <div class="modal-dialog"> 
+ <div class="modal-content">   
+
+ <div class="modal-header">                         
+    <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>                         
+    <h4 class="modal-title">Currency Field</h4>                     
+ </div>   
+ 
+ <div class="modal-body">                     
+    <div class="alpaca-field alpaca-field-object alpaca-optional alpaca-edit alpaca-top alpaca-field-valid" data-alpaca-field-id="alpaca304" data-alpaca-field-path="/" data-alpaca-field-name="">
+
+    <div class="alpaca-container alpaca-horizontal form-horizontal alpaca-container-has-items" data-alpaca-container-item-count="10">
+
+        <div class="alpaca-container-item alpaca-container-item-first" data-alpaca-container-item-index="0" data-alpaca-container-item-name="readonly" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-checkbox alpaca-optional alpaca-field-valid" data-alpaca-field-id="alpaca305" data-alpaca-field-path="/readonly" data-alpaca-field-name="readonly">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca305">Readonly</label>
+
+        <div class="col-sm-9"><div class="alpaca-control checkbox" name="readonly">
+
+            <label>
+
+                <input type="checkbox" name="readonly" class="">
+
+                This field is read-only
+            </label>
+
+        </div>
+    </div>
+
+        <p class="help-block " style="display: none;">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            Field will be read only if checked
+        </p>
+
+
+        <div style="clear:both;"></div>
+        
+    </div>
+
+ </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="1" data-alpaca-container-item-name="required" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-checkbox alpaca-optional alpaca-field-valid" data-alpaca-field-id="alpaca306" data-alpaca-field-path="/required" data-alpaca-field-name="required">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca306">Required</label>
+
+        <div class="col-sm-9"><div class="alpaca-control checkbox" name="required">
+
+            <label>
+
+                <input type="checkbox" name="required" class="">
+
+                This field is required
+            </label>
+
+        </div></div>
+
+        <p class="help-block " style="display: none;">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            Field value must be set if checked
+        </p>
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="2" data-alpaca-container-item-name="default" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-text alpaca-optional alpaca-autocomplete alpaca-field-valid" data-alpaca-field-id="alpaca307" data-alpaca-field-path="/default" data-alpaca-field-name="default">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca307">Default</label>
+
+        <div class="col-sm-9"><input type="text" id="alpaca307" name="default" class="alpaca-control form-control" autocomplete="off"></div>
+
+        <p class="help-block " style="display: none;">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            Field default value
+        </p>
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="3" data-alpaca-container-item-name="type" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-text alpaca-optional alpaca-readonly alpaca-autocomplete" data-alpaca-field-id="alpaca308" data-alpaca-field-path="/type" data-alpaca-field-name="type" style="display: none;">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca308">Type</label>
+
+        <div class="col-sm-9"><input type="text" id="alpaca308" readonly="readonly" name="type" class="alpaca-control form-control" disabled="" autocomplete="off"></div>
+
+        <p class="help-block " style="display: none;">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            Field data type
+        </p>
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="4" data-alpaca-container-item-name="format" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-select alpaca-optional alpaca-field-valid" data-alpaca-field-id="alpaca309" data-alpaca-field-path="/format" data-alpaca-field-name="format">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca309">Format</label>
+
+        <div class="col-sm-9"><select id="alpaca309" name="format" class="alpaca-control form-control">
+
+
+        <option value="">None</option>
+
+        <option value="country">country</option>
+        <option value="date">date</option>
+        <option value="date-time">date-time</option>
+        <option value="datetime">datetime</option>
+        <option value="email">email</option>
+        <option value="ip-address">ip-address</option>
+        <option value="lowercase">lowercase</option>
+        <option value="password">password</option>
+        <option value="phone">phone</option>
+        <option value="state">state</option>
+        <option value="time">time</option>
+        <option value="uppercase">uppercase</option>
+        <option value="url">url</option>
+        <option value="zipcode">zipcode</option>
+
+
+    </select></div>
+
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="5" data-alpaca-container-item-name="disallow" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="alpaca-field alpaca-field-array alpaca-optional alpaca-field-valid" data-alpaca-field-id="alpaca310" data-alpaca-field-path="/disallow" data-alpaca-field-name="disallow">
+
+        <legend class="alpaca-container-label">
+
+
+            Disallowed Values
+
+
+        </legend>
+
+        <p class="alpaca-helper help-block " style="display: none;">
+            <i class="alpaca-icon-16 glyphicon glyphicon-info-sign"></i>
+            Disallowed values for the field
+        </p>
+
+        <div class="alpaca-container alpaca-horizontal form-horizontal">
+
+        <div class="alpaca-array-toolbar" data-alpaca-array-toolbar-field-id="alpaca310" btn-group="" style="display: block;">
+
+
+
+                <button class="alpaca-array-toolbar-action btn btn-default btn-sm" data-alpaca-array-toolbar-action="add">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                    Add New Item
+                </button>
+
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="6" data-alpaca-container-item-name="enum" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="alpaca-field alpaca-field-array alpaca-optional alpaca-field-valid" data-alpaca-field-id="alpaca311" data-alpaca-field-path="/enum" data-alpaca-field-name="enum">
+
+        <legend class="alpaca-container-label">
+
+
+            Enumerated Values
+
+
+        </legend>
+
+
+        <div class="alpaca-container alpaca-horizontal form-horizontal">
+
+        <div class="alpaca-array-toolbar" data-alpaca-array-toolbar-field-id="alpaca311" btn-group="" style="display: block;">
+
+
+
+                <button class="alpaca-array-toolbar-action btn btn-default btn-sm" data-alpaca-array-toolbar-action="add">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                    Add New Item
+                </button>
+
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="7" data-alpaca-container-item-name="minLength" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-integer alpaca-optional alpaca-autocomplete alpaca-field-valid" data-alpaca-field-id="alpaca312" data-alpaca-field-path="/minLength" data-alpaca-field-name="minLength">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca312">Minimal Length</label>
+
+        <div class="col-sm-9"><input type="text" id="alpaca312" name="minLength" class="alpaca-control form-control" autocomplete="off"></div>
+
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+            <div class="alpaca-container-item" data-alpaca-container-item-index="8" data-alpaca-container-item-name="maxLength" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-integer alpaca-optional alpaca-autocomplete alpaca-field-valid" data-alpaca-field-id="alpaca313" data-alpaca-field-path="/maxLength" data-alpaca-field-name="maxLength">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca313">Maximum Length</label>
+
+        <div class="col-sm-9"><input type="text" id="alpaca313" name="maxLength" class="alpaca-control form-control" autocomplete="off"></div>
+
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+            <div class="alpaca-container-item alpaca-container-item-last" data-alpaca-container-item-index="9" data-alpaca-container-item-name="pattern" data-alpaca-container-item-parent-field-id="alpaca304">
+
+        <div class="form-group alpaca-field alpaca-field-text alpaca-optional alpaca-autocomplete alpaca-field-valid" data-alpaca-field-id="alpaca314" data-alpaca-field-path="/pattern" data-alpaca-field-name="pattern">
+
+        <label class="control-label alpaca-control-label col-sm-3" for="alpaca314">Pattern</label>
+
+        <div class="col-sm-9"><input type="text" id="alpaca314" name="pattern" class="alpaca-control form-control" autocomplete="off"></div>
+
+
+
+    <div style="clear:both;"></div></div>
+
+    </div>
+
+
+    </div>
+
+    </div></div>                     
+    
+    <div class="modal-footer">                     
+    <button class="btn btn-primary pull-right okay" data-dismiss="modal" aria-hidden="true">Okay</button><button class="btn btn-default pull-left" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    </div>                 
+    
+    </div>
+ </div>

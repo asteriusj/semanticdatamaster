@@ -1,0 +1,130 @@
+{
+	"id": "HistoricPlace.json",
+	"title": "historic place",
+	"translations": {
+		"title": {
+			"de": "historischer Ort",
+			"el": "ιστορικός χώρος",
+			"fr": "site historique",
+			"ga": "áit stairiúil",
+			"nl": "plaats van geschiedkundig belang"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"nrhpReferenceNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/nrhpReferenceNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nrhpReferenceNumber"}
+				}
+			]
+		},
+		"numberOfVisitorsAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfVisitorsAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfVisitorsAsOf"}
+				}
+			]
+		},
+		"added": {
+			"oneOf": [
+				{"$ref": "#/definitions/added"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/added"}
+				}
+			]
+		},
+		"eventDescription": {
+			"oneOf": [
+				{"$ref": "#/definitions/eventDescription"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/eventDescription"}
+				}
+			]
+		},
+		"nrhpType": {
+			"oneOf": [
+				{"$ref": "#/definitions/nrhpType"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nrhpType"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"nrhpReferenceNumber": {
+			"title": "NRHP Reference Number",
+			"description": "",
+			"type": "string"
+		},
+		"numberOfVisitorsAsOf": {
+			"title": "number of visitors as of",
+			"description": "The year in which number of visitors occurred.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"added": {
+			"title": "added",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"eventDescription": {
+			"title": "event description",
+			"description": "",
+			"type": "string"
+		},
+		"nrhpType": {
+			"title": "NRHP type",
+			"description": "Type of historic place as defined by the US National Park Service. For instance National Historic Landmark, National Monument or National Battlefield.",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricPlace",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricPlace"}
+}

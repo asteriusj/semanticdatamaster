@@ -1,0 +1,114 @@
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+
+<dom-module id="xxxooo-3">
+
+  <script type="text/javascript" src="../deps/jquery.min.js"></script>
+  <script type="text/javascript" src="../deps/underscore.js"></script>
+  <script type="text/javascript" src="../deps/opt/jsv.js"></script>
+  <script type="text/javascript" src="../lib/jsonform.js"></script>
+  <!--<script type="text/javascript" src="../js/common.js"></script>-->
+  
+  <template>
+    <!-- bind to the "guy" property -->
+    This is <b>[[guy]]</b>'s json scheme. <br>
+    [[jschema]]
+    
+    <h1> [[guy]]'s Form </h1>
+    <form></form>
+    <div id="res" class="alert"></div>
+    
+    
+  </template>
+  
+  <script>
+
+      class TheForm extends Polymer.Element {
+        static get is() { return "xxxooo-3"; }
+        // configure owner property
+        static get properties() {
+          return {
+            guy: {
+              type: String,
+              value: "Default Guy",
+            },
+            jschema: {}
+          };
+        }
+      }
+      customElements.define(TheForm.is, TheForm);
+      console.log('WhatGuy')
+      doForm()
+  
+      function doForm(mySchema) {
+        console.log('doForm',mySchema)
+        try {
+
+          let schema0 = 
+            {
+              name: {
+                type: 'string',
+                title: 'Name',
+                required: true
+              },
+              age: {
+                type: 'number',
+                title: 'Age'
+              }
+            } ;
+            
+          let schema1 = 
+            {
+              firstName: {
+                type: 'string',
+                title: 'First Name',
+                required: true
+              },
+              lastName: {
+                type: 'string',
+                title: 'First Name',
+                required: true
+              },
+              birthDay: {
+                type: 'date',
+                title: 'Birthday'
+              }
+            } ;
+    
+          let schema2 = {}
+          let schema3 = {}
+        
+          console.log('mySchema',mySchema)
+          var _schema = mySchema || schema1 ;
+          console.log('_schema', _schema)
+          
+          $('form').jsonForm({
+            schema: _schema,
+            onSubmit: function (errors, values) {
+              if (errors) {
+                $('#res').html('<p>I beg your pardon?</p>');
+              }
+              else {
+                var _name = name || firstName
+                var _age = age || ""
+                var _birth = birthDay || ""
+                $('#res').html('<p>Hello ' + values.name  + values.firstName + '.' +
+                  (values.age ? '<br/>You are ' + values.age + '.' : '') +
+                  (values.birthDay ? '<br/>You are ' + values.age + '.' : '') +
+                  '</p>');
+              }
+            }
+          });
+                  
+        } 
+        catch (ex) {
+          console.error('ex', ex.message);
+        } 
+        finally {
+          console.log('finally end doForm')
+        }
+        
+      } // end doForm
+      
+    </script>
+    
+</dom-module>

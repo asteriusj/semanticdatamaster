@@ -1,0 +1,60 @@
+{
+	"id": "Employer.json",
+	"title": "Employer",
+	"description": "a person, business, firm, etc, that employs workers.",
+	"translations": {
+		"title": {
+			"de": "Arbeitgeber",
+			"el": "Εργοδότης",
+			"fr": "Employeur",
+			"es": "Empleador",
+			"ga": "fostóir",
+			"da": "arbejdsgiver",
+			"nl": "werkgever",
+			"ja": "雇用者"
+		},
+		"description": {
+			"de": "Arbeitgeber ist, wer die Arbeitsleistung des Arbeitnehmers kraft Arbeitsvertrages fordern kann und das Arbeitsentgelt schuldet.",
+			"el": "άτομο, επιχείρηση, οργανισμός, κλπ που προσλαμβάνει εργαζόμενους."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Employer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Employer"}
+}

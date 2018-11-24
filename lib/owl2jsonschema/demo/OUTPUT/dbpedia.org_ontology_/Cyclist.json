@@ -1,0 +1,58 @@
+{
+	"id": "Cyclist.json",
+	"title": "cyclist",
+	"translations": {
+		"title": {
+			"de": "Radfahrer",
+			"el": "ποδηλάτης",
+			"fr": "cycliste",
+			"es": "ciclista",
+			"ga": "rothaí",
+			"da": "cyklist",
+			"ko": "사이클 선수",
+			"nl": "wielrenner",
+			"pt": "ciclista",
+			"ja": "自転車選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Cyclist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Cyclist"}
+}

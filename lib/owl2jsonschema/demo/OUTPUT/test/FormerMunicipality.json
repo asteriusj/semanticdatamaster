@@ -1,0 +1,95 @@
+{
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"},
+		{"$ref": "Municipality.json"}
+	],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"presentName": {
+			"title": "a municipality&apos;s present name",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A municipality that has ceased to exist, and most of the time got incorporated &amp;&#35;40;wholesale or partly&#41; into another municipality",
+	"format": "http://dbpedia.org/ontology/FormerMunicipality",
+	"id": "FormerMunicipality.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FormerMunicipality"},
+	"properties": {
+		"presentName": {
+			"oneOf": [
+				{"$ref": "#/definitions/presentName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/presentName"}
+				}
+			]
+		},
+		"municipalityAbsorbedBy": {
+			"oneOf": [
+				{"$ref": "Municipality.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Municipality.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"presentMunicipality": {
+			"oneOf": [
+				{"$ref": "Municipality.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Municipality.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "one-time municipality",
+	"translations": {
+		"title": {
+			"fr": "commune historique",
+			"de": "ehemalige Gemeinde",
+			"nl": "voormalige gemeente"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

@@ -1,0 +1,52 @@
+{
+	"id": "GovernmentalAdministrativeRegion.json",
+	"title": "governmental administrative region",
+	"description": "An administrative body governing some territorial unity, in this case a governmental administrative body",
+	"translations": {
+		"title": {
+			"de": "staatliche Verwaltungsregion",
+			"fr": "région administrative d&apos;état",
+			"nl": "gebied onder overheidsbestuur"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Region.json"}, {"$ref": "AdministrativeRegion.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GovernmentalAdministrativeRegion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GovernmentalAdministrativeRegion"}
+}

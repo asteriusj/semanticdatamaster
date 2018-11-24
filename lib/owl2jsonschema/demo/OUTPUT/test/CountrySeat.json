@@ -1,0 +1,51 @@
+{
+	"id": "CountrySeat.json",
+	"title": "country estate",
+	"description": "A country seat is a rural patch of land owned by a land owner.",
+	"translations": {
+		"title": {
+			"de": "Landgut",
+			"nl": "buitenplaats"
+		},
+		"description": {"nl": "Een buitenplaats is een landgoed."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CountrySeat",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CountrySeat"}
+}

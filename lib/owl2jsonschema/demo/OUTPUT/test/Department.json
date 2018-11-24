@@ -1,0 +1,168 @@
+{
+	"id": "Department.json",
+	"title": "department",
+	"translations": {
+		"title": {
+			"de": "Distrikt",
+			"el": "τμήμα",
+			"fr": "département",
+			"es": "Distrito",
+			"ga": "roinn",
+			"ko": "부서",
+			"nl": "departement"
+		},
+		"description": {}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"}
+	],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfDistrict": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfDistrict"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfDistrict"}
+				}
+			]
+		},
+		"numberOfIntercommunality": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfIntercommunality"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfIntercommunality"}
+				}
+			]
+		},
+		"numberOfCanton": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCanton"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCanton"}
+				}
+			]
+		},
+		"numberOfArrondissement": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfArrondissement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfArrondissement"}
+				}
+			]
+		},
+		"numberOfSettlement": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSettlement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSettlement"}
+				}
+			]
+		},
+		"prefecture": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"subprefecture": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfDistrict": {
+			"title": "number of district",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfIntercommunality": {
+			"title": "number of intercommunality",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfCanton": {
+			"title": "number of canton",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfArrondissement": {
+			"title": "number of arrondissement",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfSettlement": {
+			"title": "number of settlement",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Department",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Department"}
+}

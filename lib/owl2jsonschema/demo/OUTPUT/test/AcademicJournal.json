@@ -1,0 +1,141 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "PeriodicalLiterature.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"impactFactor": {
+			"title": "impact factor",
+			"description": "The impact factor, often abbreviated IF, is a measure reflecting the average number of citations to articles published in science and social science journals.",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"isPeerReviewed": {
+			"title": "is peer reviewed",
+			"description": "In academia peer review is often used to determine an academic papers suitability for publication.",
+			"type": "boolean"
+		},
+		"jstor": {
+			"title": "JSTOR",
+			"description": "JSTOR number &amp;&#35;40;short for Journal Storage&#41; is a United States-based online system number for archiving academic journals.",
+			"type": "string"
+		},
+		"impactFactorAsOf": {
+			"title": "impact factor as of",
+			"description": "Census year of the imapct factor.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"academicDiscipline": {
+			"title": "academic discipline",
+			"description": "An academic discipline, or field of study, is a branch of knowledge that is taught and researched at the college or university level. Disciplines are defined &amp;&#35;40;in part&#41;, and recognized by the academic journals in which research is published, and the learned societies and academic departments or faculties to which their practitioners belong.",
+			"anyOf": []
+		}
+	},
+	"description": "An academic journal is a mostly peer-reviewed periodical in which scholarship relating to a particular academic discipline is published. Academic journals serve as forums for the introduction and presentation for scrutiny of new research, and the critique of existing research. Content typically takes the form of articles presenting original research, review articles, and book reviews.",
+	"format": "http://dbpedia.org/ontology/AcademicJournal",
+	"id": "AcademicJournal.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AcademicJournal"},
+	"properties": {
+		"impactFactor": {
+			"oneOf": [
+				{"$ref": "#/definitions/impactFactor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/impactFactor"}
+				}
+			]
+		},
+		"isPeerReviewed": {
+			"oneOf": [
+				{"$ref": "#/definitions/isPeerReviewed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isPeerReviewed"}
+				}
+			]
+		},
+		"jstor": {
+			"oneOf": [
+				{"$ref": "#/definitions/jstor"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/jstor"}
+				}
+			]
+		},
+		"impactFactorAsOf": {
+			"oneOf": [
+				{"$ref": "#/definitions/impactFactorAsOf"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/impactFactorAsOf"}
+				}
+			]
+		},
+		"academicDiscipline": {
+			"oneOf": [
+				{"$ref": "#/definitions/academicDiscipline"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/academicDiscipline"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "academic journal",
+	"translations": {
+		"title": {
+			"de": "Wissenschaftliche Fachzeitschrift",
+			"el": "ακαδημαϊκό περιοδικό",
+			"fr": "journal académique",
+			"ga": "iris acadúil",
+			"gl": "revista académica",
+			"it": "giornale accademico",
+			"ja": "学術雑誌",
+			"ko": "학술지",
+			"nl": "wetenschappelijk tijdschrift",
+			"pl": "czasopismo naukowe",
+			"zh": "學術期刊"
+		},
+		"description": {
+			"pl": "Czasopismo naukowe – rodzaj czasopisma, w którym są drukowane publikacje naukowe podlegające recenzji naukowej. Współcześnie szacuje się, że na świecie jest wydawanych ponad 54 tys. czasopism naukowych, w których pojawia się ponad milion artykułów rocznie.",
+			"de": "Wissenschaftliche Fachzeitschriften sind regelmäßig verlegte Fachzeitschriften über Spezialthemen aus den verschiedensten wissenschaftlichen Disziplinen. Sie stellen neue Methoden, Techniken und aktuelle Trends aus den Wissenschaften dar.",
+			"el": "Ένα ακαδημαϊκό περιοδικό είναι ως επί το πλείστον περιοδικό για κριτικές οι οποίες σχετίζονται με έναν συγκεκριμένο ακαδημαϊκό τομέα. Τα ακαδημαϊκά περιοδικά χρησιμεύουν ως φόρουμ για την εισαγωγή και παρουσίαση του ελέγχου των νέων ερευνών και της κριτικής της υπάρχουσας έρευνας. Το περιεχόμενο έχει συνήθως την μορφή άρθρων παρουσίασης νέας έρευνας, ανασκόπησης υπάρχων άρθρων και κριτικές βιβλίων.",
+			"gl": "Unha revista académica é unha publicación periódica revisada por expertos na que se publican artigos dunha disciplina académica."
+		}
+	},
+	"type": "object"
+}

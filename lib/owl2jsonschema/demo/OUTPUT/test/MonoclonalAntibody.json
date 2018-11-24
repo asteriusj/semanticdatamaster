@@ -1,0 +1,51 @@
+{
+	"id": "MonoclonalAntibody.json",
+	"title": "monoclonal antibody",
+	"description": "Medikamente welche monoklonale Antikörper sind",
+	"translations": {
+		"title": {
+			"de": "monoklonaler Antikörper",
+			"fr": "monoclonal anticorps"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "ChemicalSubstance.json"}, {"$ref": "Drug.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MonoclonalAntibody",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MonoclonalAntibody"}
+}

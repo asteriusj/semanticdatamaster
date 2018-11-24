@@ -1,0 +1,52 @@
+{
+	"id": "HumanGeneLocation.json",
+	"title": "HumanGeneLocation",
+	"translations": {
+		"title": {
+			"de": "Humangen Lokation",
+			"el": "τοποθεσία του ανθρώπινου γονιδίου",
+			"nl": "menselijk genoom locatie",
+			"ja": "ヒト遺伝子座"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "GeneLocation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HumanGeneLocation",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HumanGeneLocation"}
+}

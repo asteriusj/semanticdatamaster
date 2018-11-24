@@ -1,0 +1,92 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Company.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfLawyers": {
+			"title": "number of lawyers",
+			"description": "Number of lawyers or attorneys in the company.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfOffices": {
+			"title": "number of offices",
+			"description": "Number of the company&apos;s offices.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"description": "A law firm is a business entity formed by one or more lawyers to engage in the practice of law. The primary service provided by a law firm is to advise clients &amp;&#35;40;individuals or corporations&#41; about their legal rights and responsibilities, and to represent their clients in civil or criminal cases, business transactions, and other matters in which legal advice and other assistance are sought.",
+	"format": "http://dbpedia.org/ontology/LawFirm",
+	"id": "LawFirm.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LawFirm"},
+	"properties": {
+		"numberOfLawyers": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLawyers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLawyers"}
+				}
+			]
+		},
+		"numberOfOffices": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfOffices"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfOffices"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "law firm",
+	"translations": {
+		"title": {
+			"de": "Anwaltskanzlei",
+			"el": "εταιρεία δικηγόρων",
+			"es": "bufete de abogados",
+			"ga": "gnólacht dlí",
+			"nl": "advocatenkantoor",
+			"ja": "法律事務所"
+		},
+		"description": {"de": "Als Anwaltskanzlei bezeichnet man die Büroräume und das Unternehmen oder den Betrieb eines Rechtsanwalts oder mehrerer Rechtsanwälte."}
+	},
+	"type": "object"
+}

@@ -1,0 +1,173 @@
+{
+	"id": "SoccerClub.json",
+	"title": "soccer club",
+	"translations": {
+		"title": {
+			"pl": "klub piłkarski",
+			"de": "Fußballverein",
+			"el": "ομάδα ποδοσφαίρου",
+			"fr": "club de football",
+			"es": "equipo de fútbol",
+			"ga": "club sacair",
+			"ca": "club de futbol",
+			"da": "fodboldklub",
+			"nl": "voetbalclub"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"fansgroup": {
+			"oneOf": [
+				{"$ref": "#/definitions/fansgroup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fansgroup"}
+				}
+			]
+		},
+		"firstGame": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstGame"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstGame"}
+				}
+			]
+		},
+		"dissolved": {
+			"oneOf": [
+				{"$ref": "#/definitions/dissolved"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dissolved"}
+				}
+			]
+		},
+		"chairmanTitle": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"worstDefeat": {
+			"oneOf": [
+				{"$ref": "#/definitions/worstDefeat"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/worstDefeat"}
+				}
+			]
+		},
+		"largestWin": {
+			"oneOf": [
+				{"$ref": "#/definitions/largestWin"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/largestWin"}
+				}
+			]
+		},
+		"managerTitle": {
+			"oneOf": [
+				{"$ref": "#/definitions/managerTitle"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/managerTitle"}
+				}
+			]
+		},
+		"ground": {
+			"oneOf": [
+				{"$ref": "Place.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Place.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"clubsRecordGoalscorer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fansgroup": {
+			"title": "fansgroup",
+			"description": "",
+			"type": "string"
+		},
+		"firstGame": {
+			"title": "first game",
+			"description": "",
+			"type": "string"
+		},
+		"dissolved": {
+			"title": "dissolved",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"worstDefeat": {
+			"title": "worst defeat",
+			"description": "",
+			"type": "string"
+		},
+		"largestWin": {
+			"title": "largest win",
+			"description": "",
+			"type": "string"
+		},
+		"managerTitle": {
+			"title": "manager title",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SoccerClub",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SoccerClub"}
+}

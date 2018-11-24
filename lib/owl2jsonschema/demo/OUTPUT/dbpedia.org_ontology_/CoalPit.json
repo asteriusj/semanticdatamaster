@@ -1,0 +1,51 @@
+{
+	"id": "CoalPit.json",
+	"title": "coal pit",
+	"description": "A coal pit is a place where charcoal is or was extracted",
+	"translations": {
+		"title": {
+			"nl": "steenkolenmijn",
+			"de": "Kohlengrube"
+		},
+		"description": {"nl": "Een mijn is een plaats waar steenkool wordt of werd gewonnen"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "Mine.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/CoalPit",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/CoalPit"}
+}

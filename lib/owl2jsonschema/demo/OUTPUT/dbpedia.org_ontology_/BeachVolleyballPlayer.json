@@ -1,0 +1,55 @@
+{
+	"id": "BeachVolleyballPlayer.json",
+	"title": "beach volleyball player",
+	"translations": {
+		"title": {
+			"de": "Beachvolleyballspieler",
+			"el": "παίκτης του beach volley",
+			"fr": "joueur de volleyball de plage",
+			"it": "giocatore di beach volley",
+			"ko": "비치발리볼 선수",
+			"nl": "beachvolleybal speler",
+			"ja": "ビーチバレー選手"
+		},
+		"description": {"el": "Ένα άτομο &amp;&#35;40;άνδρας ή γυναίκα&#41; που ασχολείται με το άθλημα του μπίτς βόλλεϋ."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}, {"$ref": "VolleyballPlayer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BeachVolleyballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BeachVolleyballPlayer"}
+}

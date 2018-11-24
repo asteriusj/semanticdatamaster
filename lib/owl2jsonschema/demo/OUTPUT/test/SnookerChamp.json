@@ -1,0 +1,52 @@
+{
+	"id": "SnookerChamp.json",
+	"title": "snooker world champion",
+	"description": "An athlete that plays snooker and won the world championship at least once",
+	"translations": {
+		"title": {
+			"nl": "wereldkampioen snooker",
+			"de": "Snookerweltmeister",
+			"ga": "curadh domhanda sa snúcar"
+		},
+		"description": {"de": "Ein Sportler der Snooker spielt und mindestens einmal die Weltmeisterschaft gewonnen hat"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}, {"$ref": "SnookerPlayer.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SnookerChamp",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SnookerChamp"}
+}

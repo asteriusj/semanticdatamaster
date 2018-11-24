@@ -1,0 +1,72 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "UnitOfWork.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"procedure": {
+			"title": "procedure",
+			"description": "The name designating a formal collection of steps to be taken to complete the case",
+			"type": "string"
+		}
+	},
+	"description": "A case is the total of work done to prepare for an administrative or business decision. As a rule, a case is reflected in a set of documents.",
+	"format": "http://dbpedia.org/ontology/Case",
+	"id": "Case.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Case"},
+	"properties": {
+		"procedure": {
+			"oneOf": [
+				{"$ref": "#/definitions/procedure"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/procedure"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "case",
+	"translations": {
+		"title": {
+			"de": "Sache",
+			"el": "υπόθεση",
+			"fr": "dossier",
+			"ga": "cás",
+			"ko": "케이스",
+			"nl": "zaak"
+		},
+		"description": {"de": "Een zaak is het geheel aan werk gedaan om tot een bestuurlijke of zakelijke beslissing te komen. Een zaak slaat doorgaans neer in een verzameling documenten."}
+	},
+	"type": "object"
+}

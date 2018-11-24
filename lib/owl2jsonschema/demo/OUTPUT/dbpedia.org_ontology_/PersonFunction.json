@@ -1,0 +1,142 @@
+{
+	"id": "PersonFunction.json",
+	"title": "person function",
+	"translations": {
+		"title": {
+			"de": "Funktion einer Person",
+			"fr": "fonction de personne",
+			"es": "función de persona",
+			"nl": "functie van persoon"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"functionEndDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/functionEndDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/functionEndDate"}
+				}
+			]
+		},
+		"functionStartDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/functionStartDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/functionStartDate"}
+				}
+			]
+		},
+		"functionEndYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/functionEndYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/functionEndYear"}
+				}
+			]
+		},
+		"personName": {
+			"oneOf": [
+				{"$ref": "#/definitions/personName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/personName"}
+				}
+			]
+		},
+		"functionStartYear": {
+			"oneOf": [
+				{"$ref": "#/definitions/functionStartYear"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/functionStartYear"}
+				}
+			]
+		},
+		"person": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"functionEndDate": {
+			"title": "function end date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"functionStartDate": {
+			"title": "function start date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"functionEndYear": {
+			"title": "function end year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"personName": {
+			"title": "personName",
+			"description": "",
+			"type": "string"
+		},
+		"functionStartYear": {
+			"title": "function start year",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/PersonFunction",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PersonFunction"}
+}

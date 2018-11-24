@@ -1,0 +1,84 @@
+{
+	"id": "VolleyballPlayer.json",
+	"title": "volleyball player",
+	"translations": {
+		"title": {
+			"pl": "siatkarz",
+			"de": "Volleyballspieler",
+			"el": "παίχτης βόλεϊ",
+			"ko": "배구 선수",
+			"nl": "volleyballer"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"block": {
+			"oneOf": [
+				{"$ref": "#/definitions/block"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/block"}
+				}
+			]
+		},
+		"spike": {
+			"oneOf": [
+				{"$ref": "#/definitions/spike"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/spike"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"block": {
+			"title": "block",
+			"description": "",
+			"type": "string"
+		},
+		"spike": {
+			"title": "spike",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/VolleyballPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/VolleyballPlayer"}
+}

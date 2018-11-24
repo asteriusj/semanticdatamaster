@@ -1,0 +1,54 @@
+{
+	"id": "MusicFestival.json",
+	"title": "music festival",
+	"translations": {
+		"title": {
+			"de": "Musikfestival",
+			"el": "φεστιβάλ μουσικής",
+			"fr": "festival de musique",
+			"es": "festival de música",
+			"ko": "음악제",
+			"nl": "muziekfestival"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Event.json"}, {"$ref": "SocietalEvent.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MusicFestival",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MusicFestival"}
+}

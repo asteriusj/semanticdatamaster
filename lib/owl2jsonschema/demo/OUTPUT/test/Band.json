@@ -1,0 +1,79 @@
+{
+	"id": "Band.json",
+	"title": "Band",
+	"translations": {
+		"title": {
+			"de": "Musikgruppe",
+			"el": "μουσικό συγκρότημα",
+			"fr": "groupe de musique",
+			"it": "gruppo musicale",
+			"es": "banda",
+			"ga": "banna ceoil",
+			"ko": "음악 그룹",
+			"nl": "band",
+			"pt": "banda",
+			"ja": "バンド_&amp;&#35;40;音楽&#41;"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "Group.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"bandMember": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"formerBandMember": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Band",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Band"}
+}

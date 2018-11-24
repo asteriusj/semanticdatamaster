@@ -1,0 +1,53 @@
+{
+	"id": "GrossDomesticProductPerCapita.json",
+	"title": "gross domestic product per capita",
+	"translations": {
+		"title": {
+			"de": "Bruttoinlandsprodukt pro Kopf",
+			"el": "ακαθάριστο εγχώριο προϊόν κατά κεφαλήν",
+			"fr": "produit intérieur brut par habitant",
+			"ga": "olltáirgeacht intíre per capita",
+			"nl": "bruto nationaal product per hoofd van de bevolking"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GrossDomesticProductPerCapita",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GrossDomesticProductPerCapita"}
+}

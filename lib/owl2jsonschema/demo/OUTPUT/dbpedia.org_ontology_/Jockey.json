@@ -1,0 +1,53 @@
+{
+	"id": "Jockey.json",
+	"title": "jockey &amp;&#35;40;horse racer&#41;",
+	"translations": {
+		"title": {
+			"de": "Jockey &amp;&#35;40;Pferderennprofi&#41;",
+			"el": "αναβάτης αλόγου αγώνων",
+			"ga": "marcach",
+			"nl": "jockey",
+			"ja": "騎手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Jockey",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Jockey"}
+}

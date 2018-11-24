@@ -1,0 +1,91 @@
+{
+	"id": "SkiArea.json",
+	"title": "ski area",
+	"translations": {
+		"title": {
+			"de": "Skigebiet",
+			"el": "Περιοχή Χιονοδρομίας",
+			"fr": "domaine skiable",
+			"ga": "láthair sciála",
+			"nl": "skigebied",
+			"ja": "スキー場"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "SportFacility.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfLifts": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfLifts"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfLifts"}
+				}
+			]
+		},
+		"numberOfTrails": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfTrails"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfTrails"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfLifts": {
+			"title": "number of lifts",
+			"description": "Number of lifts.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfTrails": {
+			"title": "number of trails",
+			"description": "Number of trails in ski area.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SkiArea",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SkiArea"}
+}

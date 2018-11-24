@@ -1,0 +1,66 @@
+<script>
+
+    // https://stackoverflow.com/questions/17126040/save-json-data-from-a-localhost-webservice-with-javascript
+    var DataStore = {
+      set: function(key, value) {
+        if (!key || !value) {return;}
+    
+        if (typeof value === "object") {
+          value = JSON.stringify(value);
+        }
+        localStorage.setItem(key, value);
+        console.log('DataStore.set key value', key, value)
+      },
+      get: function(key) {
+        var value = localStorage.getItem(key);
+    
+        if (!value) {return;}
+    
+        // assume it is an object that has been stringified
+        if (value[0] === "{") {
+          value = JSON.parse(value);
+        }
+        console.log('DataStore.get key value', key, value)
+        return value;
+      }
+    }
+
+    function getSchema(schemaname) {
+        let txtjschema = {
+          firstName: {
+            type: 'string',
+            title: 'First Name',
+            required: true
+          },
+          lastName: {
+            type: 'string',
+            title: 'First Name',
+            required: true
+          },
+          birthDay: {
+            type: 'date',
+            title: 'Birthday'
+          }
+        } ;
+        
+        // ,
+        // {
+        // "age": {"type": "number","title": "Age"
+        // }
+        
+        let jschema = DataStore.get(schemaname) || txtjschema;
+        console.log('getSchema jschema',jschema)
+        
+        return jschema;
+    }
+    
+    function setSchema(schemaname, jschema) {
+        console.log('setSchema schemaname',schemaname,jschema)
+        
+        let res = DataStore.set(schemaname,jschema)
+        console.log('setSchema res',res)
+        
+        return res;
+    }
+    
+</script>      

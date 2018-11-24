@@ -1,0 +1,54 @@
+{
+	"id": "TradeUnion.json",
+	"title": "trade union",
+	"description": "A trade union or labor union is an organization of workers who have banded together to achieve common goals such as better working conditions.",
+	"translations": {
+		"title": {
+			"de": "Gewerkschaft",
+			"el": "Κουτί πληροφοριών ένωσης",
+			"fr": "syndicat professionnel",
+			"ga": "ceardchumann",
+			"nl": "vakbond"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TradeUnion",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TradeUnion"}
+}

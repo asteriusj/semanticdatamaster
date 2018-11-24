@@ -1,0 +1,58 @@
+{
+	"id": "Amphibian.json",
+	"title": "amphibian",
+	"translations": {
+		"title": {
+			"de": "Amphibie",
+			"el": "αμφίβιο",
+			"fr": "amphibien",
+			"it": "anfibio",
+			"ga": "amfaibiach",
+			"gl": "anfibio",
+			"ko": "양서류",
+			"nl": "amfibie",
+			"pt": "anfíbio",
+			"ja": "両生類"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Species.json"}, {"$ref": "Eukaryote.json"}, {"$ref": "Animal.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Amphibian",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Amphibian"}
+}

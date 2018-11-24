@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>TagList</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+<link rel="import" name="kurt-app" href="kurt-app.html"></link>
+
+<kurt-app>
+  <kurt-headline level="1">Tagger</kurt-headline>
+  <kurt-appcontainer>
+     <kurt-tagger id="tag1">
+       This is an #active #web #component. You can type into the 
+       #text_area (this #pane), and every #hashtag (#) will become a 
+       #button that returns a #dictionary entry.
+     </kurt-tagger>
+     <kurt-defs id="defs1"></kurt-defs>
+     <kurt-suggest id="suggest1"></kurt-suggest>
+  </kurt-appcontainer>
+</kurt-app> 
+
+<!-- This is the actual HTML page -->
+<div class="app">
+  <h2>Tagger</h2>
+<div class="app-container">
+  <kurt-tagger id="tag1">
+    This is an #active #web #component. You can type into the #text_area (this #pane), and every #hashtag (#) will become a #button that returns a #dictionary entry.
+  </kurt-tagger>
+<kurt-defs id="defs1">
+ </kurt-defs>
+<kurt-suggest  id="suggest1">
+</kurt-suggest>
+  </div>
+</div>
+
+<div id="currentTags"></div>
+  <!-- webcomponents polyfill -->
+  <!--<script src='https://unpkg.com/snuggsi'></script>-->
+  
+  <script src='js/snuggsi.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js'></script>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

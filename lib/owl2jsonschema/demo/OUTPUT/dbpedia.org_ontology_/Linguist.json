@@ -1,0 +1,56 @@
+{
+	"id": "Linguist.json",
+	"title": "linguist",
+	"translations": {
+		"title": {
+			"pl": "lingwista",
+			"de": "Sprachwissenschaftler",
+			"el": "γλωσσολόγος",
+			"fr": "linguiste",
+			"ga": "teangeolaí",
+			"ca": "lingüista",
+			"nl": "linguïst",
+			"ja": "言語学者"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Linguist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Linguist"}
+}

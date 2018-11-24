@@ -1,0 +1,53 @@
+{
+	"id": "HotSpring.json",
+	"title": "hot spring",
+	"translations": {
+		"title": {
+			"de": "heiße Quelle",
+			"ga": "foinse the",
+			"nl": "warmwaterbron",
+			"pt": "fonte termal",
+			"ja": "温泉"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HotSpring",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HotSpring"}
+}

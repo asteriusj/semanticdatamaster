@@ -1,0 +1,103 @@
+{
+	"id": "Lake.json",
+	"title": "lake",
+	"translations": {
+		"title": {
+			"pl": "jezioro",
+			"de": "See",
+			"el": "λίμνη",
+			"fr": "lac",
+			"ga": "loch",
+			"ru": "озеро",
+			"ko": "호수",
+			"nl": "meer",
+			"pt": "lago",
+			"ja": "호수"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"areaOfCatchment": {
+			"oneOf": [
+				{"$ref": "#/definitions/areaOfCatchment"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/areaOfCatchment"}
+				}
+			]
+		},
+		"Lake/volume": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/cubicMetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/cubicMetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Lake/shoreLength": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Lake/areaOfCatchment": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/squareKilometre.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"areaOfCatchment": {
+			"title": "area of catchment &amp;&#35;40;m2&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Lake",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Lake"}
+}

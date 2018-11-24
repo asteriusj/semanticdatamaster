@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "id": "Person.json",
+  "title": "Person",
+  "description": "A Person is an Entity of type...",
+  "format": "http://schema.org/Person",
+  "media": {
+    "type": "application/json;profile=http://schema.org/Person"
+  },
+  "allOf": [
+    {
+      "$ref": "Thing.json"
+    }
+  ],
+  "required": [
+    "familyName",
+    "givenName"
+  ],
+  "properties": {
+    "s1": {
+      "type": "string",
+      "title": "A validated string",
+      "minLength": 1,
+      "maxLength": 2,
+      "pattern": "a",
+      "description": "A string of length `1` or `2` characters long and containing `'a'`"
+    },
+    "familyName": {
+      "$ref": "#/definitions/familyName"
+    },
+    "follows": {
+      "$ref": "Person.json#/definitions/possibleRefArray"
+    },
+    "givenName": {
+      "title": "Given Name",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/givenName"
+      }
+    },
+    "name": {
+      "title": "Name",
+      "description": "Nickname allowed",
+      "type": "string"
+    },
+    "birthDate": {
+      "$ref": "#/definitions/birthDate"
+    },
+    "age": {
+      "$ref": "#/definitions/age"
+    },
+    "adult": {
+      "type": "boolean",
+      "title": "Adult ?",
+      "format": "checkbox",
+      
+    },
+    "color": {
+      "type": "string",
+      "title": "Birthstone color",
+      "format": "color",
+      "description": "Using a custom format decorator via `addFormatDecorator(...)` of the bootstrap extension script"
+    },
+    "gender": {
+      "$ref": "#/definitions/gender"
+    },
+    "color": {
+      "type": "string",
+      "title": "Birthstone color",
+      "format": "color",
+      "description": "Using a custom format decorator via `addFormatDecorator(...)` of the bootstrap extension script"
+    },
+    "address": {
+      "$ref": "PostalAddress.json#/definitions/possibleRef"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Summary as long text",
+      "format": "text",
+      "description": "A long text property whose input is rendered as `textarea`"
+    },
+    "location": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/location"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/location"
+          }
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "array": {
+      "type": "array",
+      "items": {
+        "$ref": "#"
+      }
+    },
+    "possibleRefArray": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "links": [
+            {
+              "rel": "full",
+              "href": "{+$}"
+            }
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/possibleRef"
+          }
+        }
+      ]
+    },
+    "additionalName": {
+      "title": "Additional Name",
+      "description": "An additional name for a Person, can be used for a middle name.",
+      "type": "string"
+    },
+    "age": {
+      "type": "integer",
+      "format": "range",
+      "title": "Age",
+      "minimum": 0,
+      "exclusiveMinimum": true,
+      "maximum": 100,
+      "exclusiveMaximum": true,
+      "description": "A integer between `1` and `99` (inclusive). This example makes use of `exclusiveMinimum` and `exclusiveMaximum` schema keywords"
+    },
+    "birthDate": {
+      "title": "Birth Date",
+      "description": "Date of birth.",
+      "type": "string",
+      "format": "date"
+    },
+    "familyName": {
+      "title": "Family Name",
+      "description": "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the Name property.",
+      "type": "string"
+    },
+    "gender": {
+      "title": "Gender",
+      "description": "Gender of the person.",
+      "type": "string",
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "alien"
+      ]
+    },
+    "givenName": {
+      "title": "Given Name",
+      "description": "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the Name property.",
+      "type": "string"
+    },
+    "location": {
+      "title": "Location",
+      "description": "A contact location for a person.",
+      "anyOf": [
+        {
+          "$ref": "ContactPoint.json#/definitions/possibleRef"
+        },
+        {
+          "$ref": "Place.json#/definitions/possibleRef"
+        }
+      ]
+    }
+  }
+}

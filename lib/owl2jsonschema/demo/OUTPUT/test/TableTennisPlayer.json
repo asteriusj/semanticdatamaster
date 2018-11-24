@@ -1,0 +1,55 @@
+{
+	"id": "TableTennisPlayer.json",
+	"title": "table tennis player",
+	"description": "Athlete who plays table tennis",
+	"translations": {
+		"title": {
+			"de": "Tischtennisspieler",
+			"el": "παίκτης πινγκ-πονγκ",
+			"ga": "imreoir leadóg bhoird",
+			"ko": "탁구 선수",
+			"nl": "tafeltennisser",
+			"ja": "卓球選手"
+		},
+		"description": {"el": "O αθλητής που παίζει πινγκ-πονγκ"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TableTennisPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TableTennisPlayer"}
+}

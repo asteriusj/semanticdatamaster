@@ -1,0 +1,341 @@
+{
+	"id": "AutomobileEngine.json",
+	"title": "automobile engine",
+	"translations": {
+		"title": {
+			"de": "Fahrzeugmotor",
+			"el": "κινητήρας αυτοκινήτου",
+			"fr": "moteur d&apos;automobile",
+			"it": "motore d&apos;automobile",
+			"ga": "inneall gluaisteáin",
+			"ko": "자동차 엔진",
+			"nl": "automotor",
+			"pt": "motor de automóvel",
+			"ja": "内燃機関"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}, {"$ref": "Engine.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"acceleration": {
+			"oneOf": [
+				{"$ref": "#/definitions/acceleration"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/acceleration"}
+				}
+			]
+		},
+		"automobileModel": {
+			"oneOf": [
+				{"$ref": "#/definitions/automobileModel"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/automobileModel"}
+				}
+			]
+		},
+		"blockAlloy": {
+			"oneOf": [
+				{"$ref": "#/definitions/blockAlloy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/blockAlloy"}
+				}
+			]
+		},
+		"co2Emission": {
+			"oneOf": [
+				{"$ref": "#/definitions/co2Emission"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/co2Emission"}
+				}
+			]
+		},
+		"compressionRatio": {
+			"oneOf": [
+				{"$ref": "#/definitions/compressionRatio"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/compressionRatio"}
+				}
+			]
+		},
+		"configuration": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/engineConfiguration.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/engineConfiguration.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"coolingSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/coolingSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/coolingSystem"}
+				}
+			]
+		},
+		"cylinderBore": {
+			"oneOf": [
+				{"$ref": "#/definitions/cylinderBore"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/cylinderBore"}
+				}
+			]
+		},
+		"displacement": {
+			"oneOf": [
+				{"$ref": "#/definitions/displacement"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/displacement"}
+				}
+			]
+		},
+		"endYearOfInsertion": {
+			"oneOf": [
+				{"$ref": "#/definitions/endYearOfInsertion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/endYearOfInsertion"}
+				}
+			]
+		},
+		"fuelConsumption": {
+			"oneOf": [
+				{"$ref": "#/definitions/fuelConsumption"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fuelConsumption"}
+				}
+			]
+		},
+		"fuelSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/fuelSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fuelSystem"}
+				}
+			]
+		},
+		"headAlloy": {
+			"oneOf": [
+				{"$ref": "#/definitions/headAlloy"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/headAlloy"}
+				}
+			]
+		},
+		"note": {
+			"oneOf": [
+				{"$ref": "#/definitions/note"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/note"}
+				}
+			]
+		},
+		"oilSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/oilSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/oilSystem"}
+				}
+			]
+		},
+		"pistonStroke": {
+			"oneOf": [
+				{"$ref": "#/definitions/pistonStroke"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/pistonStroke"}
+				}
+			]
+		},
+		"redline": {
+			"oneOf": [
+				{"$ref": "#/definitions/redline"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/redline"}
+				}
+			]
+		},
+		"startYearOfInsertion": {
+			"oneOf": [
+				{"$ref": "#/definitions/startYearOfInsertion"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/startYearOfInsertion"}
+				}
+			]
+		},
+		"torqueOutput": {
+			"oneOf": [
+				{"$ref": "#/definitions/torqueOutput"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/torqueOutput"}
+				}
+			]
+		},
+		"valvetrain": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/valvetrain.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/valvetrain.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"acceleration": {
+			"title": "acceleration &amp;&#35;40;s&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"automobileModel": {
+			"title": "automobile model",
+			"description": "",
+			"type": "string"
+		},
+		"blockAlloy": {
+			"title": "block alloy",
+			"description": "",
+			"anyOf": []
+		},
+		"co2Emission": {
+			"title": "CO2 emission &amp;&#35;40;g/km&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"compressionRatio": {
+			"title": "compression ratio",
+			"description": "",
+			"type": "string"
+		},
+		"coolingSystem": {
+			"title": "cooling system",
+			"description": "",
+			"anyOf": []
+		},
+		"cylinderBore": {
+			"title": "cylinder bore &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"displacement": {
+			"title": "displacement &amp;&#35;40;μ³&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"endYearOfInsertion": {
+			"title": "end year of insertion",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"fuelConsumption": {
+			"title": "fuel consumption",
+			"description": "",
+			"type": "string"
+		},
+		"fuelSystem": {
+			"title": "fuel system",
+			"description": "",
+			"anyOf": []
+		},
+		"headAlloy": {
+			"title": "head alloy",
+			"description": "",
+			"anyOf": []
+		},
+		"note": {
+			"title": "note",
+			"description": "",
+			"type": "string"
+		},
+		"oilSystem": {
+			"title": "oil system",
+			"description": "",
+			"anyOf": []
+		},
+		"pistonStroke": {
+			"title": "piston stroke &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"redline": {
+			"title": "redline &amp;&#35;40;kmh&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"startYearOfInsertion": {
+			"title": "start year of insertion",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"torqueOutput": {
+			"title": "torque output &amp;&#35;40;Nm&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/AutomobileEngine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/AutomobileEngine"}
+}

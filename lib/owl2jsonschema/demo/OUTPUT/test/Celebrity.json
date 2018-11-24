@@ -1,0 +1,56 @@
+{
+	"id": "Celebrity.json",
+	"title": "celebrity",
+	"translations": {
+		"title": {
+			"de": "Berühmtheit",
+			"el": "διασημότητα",
+			"fr": "célébrité",
+			"it": "celebrità",
+			"ga": "duine cáiliúil",
+			"ko": "유명인",
+			"nl": "beroemdheid",
+			"ja": "セレブリティ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Celebrity",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Celebrity"}
+}

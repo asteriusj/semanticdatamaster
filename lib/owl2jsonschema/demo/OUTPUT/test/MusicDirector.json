@@ -1,0 +1,52 @@
+{
+	"id": "MusicDirector.json",
+	"title": "music director",
+	"description": "A person who is the director of an orchestra or concert band.",
+	"translations": {
+		"title": {
+			"nl": "dirigent",
+			"de": "Dirigent",
+			"fr": "chef d&apos;orchestre"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}, {"$ref": "MusicalArtist.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MusicDirector",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MusicDirector"}
+}

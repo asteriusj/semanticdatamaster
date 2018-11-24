@@ -1,0 +1,65 @@
+{
+	"id": "Monastery.json",
+	"title": "monastery",
+	"description": "Monastery denotes the building, or complex of buildings, comprising the domestic quarters and workplace&amp;&#35;40;s&#41; of monastics, whether monks or nuns, and whether living in community or alone (hermits). The monastery generally includes a place reserved for prayer which may be a chapel, church or temple, and may also serve as an oratory.",
+	"translations": {
+		"title": {
+			"pl": "klasztor",
+			"de": "Kloster",
+			"el": "μοναστήρι",
+			"fr": "monastère",
+			"ga": "mainistir",
+			"ca": "monestir",
+			"da": "kloster",
+			"nl": "klooster",
+			"ja": "僧院"
+		},
+		"description": {
+			"pl": "Klasztor – budynek lub zespół budynków, w którym mieszkają wspólnoty religijne zakonników albo zakonnic.",
+			"el": "Μονή υποδηλώνει το κτίριο ή συγκρότημα κτιρίων, που αποτελείται από τις εγχώρια τρίμηνα και στο χώρο εργασίας &amp;&#35;40;ες&#41; των μοναχών, αν οι μοναχοί ή μοναχές, και αν ζουν στην κοινότητα ή μεμονωμένα (ερημίτες). Η μονή περιλαμβάνει γενικά ένα χώρο που προορίζεται για την προσευχή που μπορεί να είναι ένα παρεκκλήσι, εκκλησία ή ναό, και μπορεί επίσης να χρησιμεύσει ως μια ρητορική.",
+			"fr": "Le monastère est un ensemble de bâtiments où habite une communauté religieuse de moines ou de moniales..",
+			"ga": "Is pobal manaigh ina gcónaí faoi móideanna reiligiúnach í mainistir.",
+			"ca": "Un monestir és un tipus d&apos;edificació per a la reclusió dels religiosos, que hi viuen en comú. Originàriament un monestir era la cel·la d'un sol monjo, dit en aquest cas ermità o anacoreta.",
+			"nl": "Een klooster &amp;&#35;40;van het Latijnse claustrum, afgesloten ruimte&#41; is een gebouw of een samenstel van gebouwen dat dient tot huisvesting van een groep of gemeenschap van mannen of vrouwen, vaak monniken of monialen genoemd, die zich uit de wereld heeft teruggetrokken om een godsdienstig leven te leiden."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}, {"$ref": "ReligiousBuilding.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Monastery",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Monastery"}
+}

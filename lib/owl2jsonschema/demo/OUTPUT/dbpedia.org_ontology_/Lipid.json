@@ -1,0 +1,52 @@
+{
+	"id": "Lipid.json",
+	"title": "lipid",
+	"translations": {
+		"title": {
+			"de": "lipid",
+			"fr": "lipide",
+			"nl": "lipide",
+			"ja": "脂質"
+		},
+		"description": {"nl": "Zijn vetten en vetachtige stoffen die in de biochemie een belangrijke rol spelen"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Biomolecule.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Lipid",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Lipid"}
+}

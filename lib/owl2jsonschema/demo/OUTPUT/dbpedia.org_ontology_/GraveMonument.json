@@ -1,0 +1,63 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Monument.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "A monument erected on a tomb, or a memorial stone.",
+	"format": "http://dbpedia.org/ontology/GraveMonument",
+	"id": "GraveMonument.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GraveMonument"},
+	"properties": {
+		"inCemetery": {
+			"oneOf": [
+				{"$ref": "Cemetery.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Cemetery.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "grave stone or grave monument",
+	"translations": {
+		"title": {
+			"nl": "grafsteen of grafmonument",
+			"de": "Grabdenkmal"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

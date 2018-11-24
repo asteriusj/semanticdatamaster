@@ -1,0 +1,73 @@
+{
+	"id": "Opera.json",
+	"title": "opera",
+	"translations": {
+		"title": {
+			"de": "oper",
+			"el": "όπερα",
+			"fr": "opéra",
+			"it": "opera",
+			"es": "όpera",
+			"ga": "ceoldráma",
+			"nl": "opera",
+			"ja": "オペラ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "MusicalWork.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"libretto": {
+			"oneOf": [
+				{"$ref": "#/definitions/libretto"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/libretto"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"libretto": {
+			"title": "libretto",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Opera",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Opera"}
+}

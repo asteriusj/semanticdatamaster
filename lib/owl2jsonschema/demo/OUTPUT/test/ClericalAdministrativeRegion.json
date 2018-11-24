@@ -1,0 +1,65 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "PopulatedPlace.json"}, {"$ref": "Region.json"}, {"$ref": "AdministrativeRegion.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "An administrative body governing some territorial unity, in this case a clerical administrative body",
+	"format": "http://dbpedia.org/ontology/ClericalAdministrativeRegion",
+	"id": "ClericalAdministrativeRegion.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ClericalAdministrativeRegion"},
+	"properties": {
+		"placeOfWorship": {
+			"oneOf": [
+				{"$ref": "Church.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Church.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "clerical administrative region",
+	"translations": {
+		"title": {
+			"de": "klerikale Verwaltungsregion",
+			"fr": "région administrative dans une église",
+			"ko": "사무 관리 지역",
+			"nl": "kerkelijk bestuurlijk gebied"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

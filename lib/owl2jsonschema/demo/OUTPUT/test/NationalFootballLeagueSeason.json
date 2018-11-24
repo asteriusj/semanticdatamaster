@@ -1,0 +1,47 @@
+{
+	"id": "NationalFootballLeagueSeason.json",
+	"title": "national football league season",
+	"translations": {
+		"title": {"de": "NFL Saison"},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "SportsSeason.json"}, {"$ref": "SportsTeamSeason.json"}, {"$ref": "FootballLeagueSeason.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/NationalFootballLeagueSeason",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/NationalFootballLeagueSeason"}
+}

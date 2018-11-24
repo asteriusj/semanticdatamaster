@@ -1,0 +1,64 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "RouteOfTransportation.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"description": "A road junction is a location where vehicular traffic going in different directions can proceed in a controlled manner designed to minimize accidents. In some cases, vehicles can change between different routes or directions of travel &amp;&#35;40;http://en.wikipedia.org/wiki/Junction_%28road%29&#41;.",
+	"format": "http://dbpedia.org/ontology/RoadJunction",
+	"id": "RoadJunction.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RoadJunction"},
+	"properties": {
+		"meetingRoad": {
+			"oneOf": [
+				{"$ref": "Road.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Road.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "road junction",
+	"translations": {
+		"title": {
+			"ga": "acomhal bóithre",
+			"de": "Straßenkreuzung",
+			"nl": "wegkruising"
+		},
+		"description": {"de": "Eine Straßenkreuzung ist eine Stelle, an der sich zwei oder mehrere Straßen kreuzen &amp;&#35;40;http://de.wikipedia.org/wiki/Stra%C3%9Fenkreuzung&#41;."}
+	},
+	"type": "object"
+}

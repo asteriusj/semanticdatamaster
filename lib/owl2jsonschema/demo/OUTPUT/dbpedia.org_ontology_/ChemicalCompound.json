@@ -1,0 +1,102 @@
+{
+	"id": "ChemicalCompound.json",
+	"title": "chemical compound",
+	"translations": {
+		"title": {
+			"de": "chemische Verbindung",
+			"el": "χημική ένωση",
+			"fr": "produit chimique",
+			"it": "composto chimico",
+			"ga": "comhdhúileach",
+			"ko": "화합물",
+			"nl": "chemisch component",
+			"pt": "composto químico",
+			"ja": "化合物"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "ChemicalSubstance.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"inchi": {
+			"oneOf": [
+				{"$ref": "#/definitions/inchi"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/inchi"}
+				}
+			]
+		},
+		"smiles": {
+			"oneOf": [
+				{"$ref": "#/definitions/smiles"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/smiles"}
+				}
+			]
+		},
+		"inn": {
+			"oneOf": [
+				{"$ref": "#/definitions/inn"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/inn"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"inchi": {
+			"title": "The IUPAC International Chemical Identifier",
+			"description": "",
+			"type": "string"
+		},
+		"smiles": {
+			"title": "SMILES",
+			"description": "The Simplified Molecular-Input Line-Entry System or SMILES is a specification in form of a line notation for describing the structure of chemical molecules using short ASCII strings.",
+			"type": "string"
+		},
+		"inn": {
+			"title": "INN",
+			"description": "International Nonproprietary Name given to a pharmaceutical substance",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChemicalCompound",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChemicalCompound"}
+}

@@ -1,0 +1,390 @@
+{
+	"id": "Disease.json",
+	"title": "disease",
+	"translations": {
+		"title": {
+			"de": "Krankheit",
+			"el": "ασθένεια",
+			"fr": "maladie",
+			"it": "malattia",
+			"ga": "galar",
+			"da": "sygdom",
+			"ko": "질병",
+			"nl": "ziekte",
+			"ja": "病気"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"aoCloassification": {
+			"oneOf": [
+				{"$ref": "#/definitions/aoCloassification"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/aoCloassification"}
+				}
+			]
+		},
+		"complications": {
+			"oneOf": [
+				{"$ref": "#/definitions/complications"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/complications"}
+				}
+			]
+		},
+		"differentialDiagnosis": {
+			"oneOf": [
+				{"$ref": "#/definitions/differentialDiagnosis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/differentialDiagnosis"}
+				}
+			]
+		},
+		"diseasesDB": {
+			"oneOf": [
+				{"$ref": "#/definitions/diseasesDB"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/diseasesDB"}
+				}
+			]
+		},
+		"diseasesDb": {
+			"oneOf": [
+				{"$ref": "#/definitions/diseasesDb"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/diseasesDb"}
+				}
+			]
+		},
+		"eMedicineSubject": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"eMedicineTopic": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"geneReviewsId": {
+			"oneOf": [
+				{"$ref": "#/definitions/geneReviewsId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/geneReviewsId"}
+				}
+			]
+		},
+		"geneReviewsName": {
+			"oneOf": [
+				{"$ref": "rdf$langString.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "rdf$langString.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"gradName": {
+			"oneOf": [
+				{"$ref": "#/definitions/gradName"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gradName"}
+				}
+			]
+		},
+		"gradNum": {
+			"oneOf": [
+				{"$ref": "#/definitions/gradNum"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gradNum"}
+				}
+			]
+		},
+		"icd1": {
+			"oneOf": [
+				{"$ref": "#/definitions/icd1"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/icd1"}
+				}
+			]
+		},
+		"icd10": {
+			"oneOf": [
+				{"$ref": "#/definitions/icd10"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/icd10"}
+				}
+			]
+		},
+		"icd9": {
+			"oneOf": [
+				{"$ref": "#/definitions/icd9"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/icd9"}
+				}
+			]
+		},
+		"icdo": {
+			"oneOf": [
+				{"$ref": "#/definitions/icdo"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/icdo"}
+				}
+			]
+		},
+		"medicalCause": {
+			"oneOf": [
+				{"$ref": "#/definitions/medicalCause"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/medicalCause"}
+				}
+			]
+		},
+		"medicalDiagnosis": {
+			"oneOf": [
+				{"$ref": "#/definitions/medicalDiagnosis"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/medicalDiagnosis"}
+				}
+			]
+		},
+		"medicalSpecialty": {
+			"oneOf": [
+				{"$ref": "MedicalSpecialty.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MedicalSpecialty.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"medication": {
+			"oneOf": [
+				{"$ref": "#/definitions/medication"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/medication"}
+				}
+			]
+		},
+		"meshId": {
+			"oneOf": [
+				{"$ref": "#/definitions/meshId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/meshId"}
+				}
+			]
+		},
+		"nciId": {
+			"oneOf": [
+				{"$ref": "#/definitions/nciId"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nciId"}
+				}
+			]
+		},
+		"nord": {
+			"oneOf": [
+				{"$ref": "#/definitions/nord"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nord"}
+				}
+			]
+		},
+		"orpha": {
+			"oneOf": [
+				{"$ref": "#/definitions/orpha"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/orpha"}
+				}
+			]
+		},
+		"symptom": {
+			"oneOf": [
+				{"$ref": "#/definitions/symptom"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/symptom"}
+				}
+			]
+		},
+		"treatment": {
+			"oneOf": [
+				{"$ref": "#/definitions/treatment"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/treatment"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"aoCloassification": {
+			"title": "AO",
+			"description": "",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"complications": {
+			"title": "complications",
+			"description": "",
+			"type": "string"
+		},
+		"differentialDiagnosis": {
+			"title": "differential diagnosis",
+			"description": "",
+			"anyOf": []
+		},
+		"diseasesDB": {
+			"title": "DiseasesDB",
+			"description": "",
+			"type": "string"
+		},
+		"diseasesDb": {
+			"title": "diseasesDb",
+			"description": "",
+			"type": "string"
+		},
+		"geneReviewsId": {
+			"title": "geneReviewsId",
+			"description": "",
+			"type": "string"
+		},
+		"gradName": {
+			"title": "GARDName",
+			"description": "",
+			"type": "string"
+		},
+		"gradNum": {
+			"title": "GARDNum",
+			"description": "",
+			"type": "string"
+		},
+		"icd1": {
+			"title": "ICD1",
+			"description": "",
+			"type": "string"
+		},
+		"icd10": {
+			"title": "ICD10",
+			"description": "",
+			"type": "string"
+		},
+		"icd9": {
+			"title": "ICD9",
+			"description": "",
+			"type": "string"
+		},
+		"icdo": {
+			"title": "ICDO",
+			"description": "",
+			"type": "string"
+		},
+		"medicalCause": {
+			"title": "medical cause",
+			"description": "",
+			"anyOf": []
+		},
+		"medicalDiagnosis": {
+			"title": "medical diagnosis",
+			"description": "",
+			"anyOf": []
+		},
+		"medication": {
+			"title": "medication",
+			"description": "",
+			"anyOf": []
+		},
+		"meshId": {
+			"title": "MeSH ID",
+			"description": "",
+			"type": "string"
+		},
+		"nciId": {
+			"title": "NCI",
+			"description": "",
+			"type": "string"
+		},
+		"nord": {
+			"title": "NORD",
+			"description": "",
+			"type": "string"
+		},
+		"orpha": {
+			"title": "ORPHA",
+			"description": "",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"symptom": {
+			"title": "symptoms",
+			"description": "",
+			"anyOf": []
+		},
+		"treatment": {
+			"title": "treatment",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Disease",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Disease"}
+}

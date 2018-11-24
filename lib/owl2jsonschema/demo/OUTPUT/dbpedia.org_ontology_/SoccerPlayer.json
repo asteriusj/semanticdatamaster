@@ -1,0 +1,217 @@
+{
+	"id": "SoccerPlayer.json",
+	"title": "soccer player",
+	"translations": {
+		"title": {
+			"de": "Fußballspieler",
+			"el": "παίχτης ποδοσφαίρου",
+			"fr": "joueur de football",
+			"es": "futbolista",
+			"ga": "imreoir sacair",
+			"da": "fodboldspiller",
+			"ko": "축구 선수",
+			"nl": "voetballer",
+			"ja": "サッカー選手"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Athlete.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"years": {
+			"oneOf": [
+				{"$ref": "#/definitions/years"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/years"}
+				}
+			]
+		},
+		"nationalYears": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalYears"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalYears"}
+				}
+			]
+		},
+		"youthYears": {
+			"oneOf": [
+				{"$ref": "#/definitions/youthYears"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/youthYears"}
+				}
+			]
+		},
+		"appearancesInLeague": {
+			"oneOf": [
+				{"$ref": "#/definitions/appearancesInLeague"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/appearancesInLeague"}
+				}
+			]
+		},
+		"goalsInLeague": {
+			"oneOf": [
+				{"$ref": "#/definitions/goalsInLeague"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/goalsInLeague"}
+				}
+			]
+		},
+		"goalsInNationalTeam": {
+			"oneOf": [
+				{"$ref": "#/definitions/goalsInNationalTeam"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/goalsInNationalTeam"}
+				}
+			]
+		},
+		"appearancesInNationalTeam": {
+			"oneOf": [
+				{"$ref": "#/definitions/appearancesInNationalTeam"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/appearancesInNationalTeam"}
+				}
+			]
+		},
+		"trainerYears": {
+			"oneOf": [
+				{"$ref": "#/definitions/trainerYears"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/trainerYears"}
+				}
+			]
+		},
+		"managerYears": {
+			"oneOf": [
+				{"$ref": "#/definitions/managerYears"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/managerYears"}
+				}
+			]
+		},
+		"trainerClub": {
+			"oneOf": [
+				{"$ref": "SportsTeam.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SportsTeam.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"appearancesInLeague": {
+			"title": "appearances in league",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"appearancesInNationalTeam": {
+			"title": "appearances in national team",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"goalsInLeague": {
+			"title": "goals in league",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"goalsInNationalTeam": {
+			"title": "goals in national team",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"managerYears": {
+			"title": "manager years",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"nationalYears": {
+			"title": "national years",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"trainerYears": {
+			"title": "trainer years",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"years": {
+			"title": "years",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"youthYears": {
+			"title": "youth years",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SoccerPlayer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SoccerPlayer"}
+}

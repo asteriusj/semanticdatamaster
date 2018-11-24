@@ -1,0 +1,323 @@
+@prefix schema: <http://schema.org/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix con:    <http://www.w3.org/2000/10/swap/pim/contact#> .
+@prefix org:    <http://www.w3.org/ns/org#> .
+@prefix vcard:  <http://www.w3.org/2006/vcard/ns#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix sf:     <https://github.com/vocol/salesforce/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+@prefix dbo:    <http://dbpedia.org/ontology/> .
+@prefix vs:     <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix sdm:    <https://github.com/asteriusj/semanticdatamaster/> .
+
+
+sdm:   
+        a                   owl:Ontology ;
+        rdfs:label          "Ontology for Semantic Data Model"@en ;
+        rdfs:comment        "\n\n" ;
+        dc:date             "$Date: 2017-10-07 23:18:26 $" ;
+        dc:description      "\nThe \n" ;
+        dc:title            "Semantic Data Master (SDM) Ontology" ;
+        owl:versionInfo     "Draft"@en .
+
+
+sdm:Thing 
+        a                   rdfs:Class ;
+        rdfs:label          "Thing" ;
+        rdfs:comment        "The most generic type of item." ;
+        rdfs:subClassOf     owl:Thing ;
+        owl:equivalentClass schema:Thing  .
+
+
+sdm:Organization  
+        a                   owl:Class ;
+        rdfs:comment        "An organization." ;
+        rdfs:label          "Organization" ;
+        rdfs:subClassOf     sdm:Thing ;
+        owl:disjointWith    sdm:Person ;
+        vs:term_status      "stable" .
+
+sdm:Company  
+        a                   owl:Class ;
+        rdfs:comment        "A company" ;
+        rdfs:isDefinedBy    sdm: ;
+        rdfs:label          "Company" ;
+        rdfs:subClassOf     sdm:Organization .
+        
+sdm:Person  
+        a                   owl:Class ;
+        rdfs:label          "Person" ;
+        rdfs:comment        "A person. A person (alive, dead, undead, or fictional)." ;
+        rdfs:subClassOf     sdm:Thing ;
+        owl:equivalentClass schema:Person , foaf:Person , sf:Person .
+
+sdm:Employee  
+        a                   owl:Class ;
+        rdfs:comment        "An employee" ;
+        rdfs:isDefinedBy    sdm: ;
+        rdfs:label          "Employee" ;
+        rdfs:subClassOf     sdm:Person .
+        
+sdm:firstName   
+        a                       owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:label              "First Name" ;
+        rdfs:comment            "\nFirst or given name of contact person.\n " ;
+        rdfs:domain             sdm:Person ;
+        rdfs:range              rdfs:Literal ;
+        owl:equivalentProperty  sdm:given-name , schema:givenName , foaf:givenName , con:firstName , vcard:given-name , sf:firstName .
+
+
+sdm:lastName  
+        a                       owl:DatatypeProperty ;
+        rdfs:label              "Last Name" ;
+        rdfs:comment            "Last or family name of contact person." ;
+        rdfs:domain             sdm:Person ;
+        rdfs:range              rdfs:Literal ;
+        owl:equivalentProperty  sdm:given-name , schema:familyName , foaf:familyName , con:lastName , dbo:FamilyName , vcard:family-name , sf:lastName .
+        
+
+sdm:birthday  
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:label          "birthday" ;
+        rdfs:comment        "\nThe birthday of this Agent, represented in mm-dd string form, eg. '12-31'.\n" ;
+        rdfs:domain         sdm:Person ;
+        rdfs:range          xsd:dateTime  ;
+        owl:equivalentProperty  foaf:birthday , sf:birthday .
+
+ 
+sdm:hasBirthDate  
+        a        owl:DatatypeProperty ;
+        rdfs:label          "Birthdate" ;
+        rdfs:domain         sdm:Person ;
+        rdfs:range  sdm:bDate .
+        
+sdm:bDate  rdfs:subClassOf
+        [ rdf:type             owl:Restriction ;
+                 owl:onProperty       sdm:hasBirthDate ;
+                 owl:someValuesFrom   
+                  [ rdf:type             rdfs:Datatype ;
+                    owl:onDatatype       xsd:dateTime ;
+                    owl:withRestrictions ( xsd:dateTime xsd:minInclusive "1971-01-01T04:00:00-05:00"^^xsd:dateTime )
+                  ]
+               ] .
+
+sdm:family-name 
+    a owl:DatatypeProperty ;
+    rdfs:label "family name"@en ;
+    rdfs:comment "The family name associated with the object"@en ;
+    rdfs:domain         sdm:Person ;
+    rdfs:range xsd:string .
+
+sdm:given-name 
+    a owl:DatatypeProperty ;
+    rdfs:label "given name"@en ;
+    rdfs:comment "The given name associated with the object"@en ;
+    rdfs:domain         sdm:Person ;
+    rdfs:range xsd:string .
+
+sdm:additional-name 
+    a owl:DatatypeProperty ;
+    rdfs:label "additional name"@en ;
+    rdfs:comment "The additional name associated with the object"@en ;
+    rdfs:isDefinedBy sdm: ;
+    rdfs:range xsd:string .
+
+sdm:name 
+    a owl:DatatypeProperty ;
+    rdfs:label "name"@en ;
+    rdfs:comment "The name associated with the object"@en ;
+    rdfs:range sdm:Name .
+
+sdm:company 
+    a               owl:DatatypeProperty ;
+    rdfs:label      "company"@en ;
+    rdfs:comment    "Is part of Company"@en ;
+    rdfs:domain     sdm:Person ;
+    rdfs:range      sdm:Company .
+    
+sdm:title 
+    a owl:DatatypeProperty ;
+    rdfs:label "title"@en ;
+    rdfs:comment "To specify the position or job of the object"@en ;
+    rdfs:domain     sdm:Person ;
+    rdfs:range xsd:string .
+
+sdm:hasTitle a owl:ObjectProperty ;
+    rdfs:label "has title"@en ;
+    rdfs:comment "Used to support property parameters for the title data property"@en ;
+    rdfs:inverseOf sdm:title ;
+    rdfs:isDefinedBy sdm: .
+
+sdm:Gender 
+    a owl:Class ;
+    rdfs:label "Gender"@en ;
+    rdfs:comment "Used for gender codes. The URI of the gender code must be used as the value for Gender."@en ;
+    
+    rdfs:isDefinedBy sdm: .
+
+sdm:MyGenders  owl:equivalentClass  [
+        rdf:type   owl:Class ;
+        owl:oneOf  ( sdm:Male  sdm:Female  sdm:Alien )
+    ] .
+ 
+sdm:gender  
+        a                   owl:DatatypeProperty ;
+        rdfs:label          "gender" ;
+        rdfs:comment        "\nAge in years.\n" ;
+        rdfs:domain         sdm:Person ;
+        rdfs:range          sdm:MyGenders .
+
+sdm:hasIntegerValue  a        owl:DatatypeProperty ;
+        rdfs:range  xsd:integer .
+
+sdm:IntegerValue  a            owl:Class ;
+        rdfs:subClassOf  [ a                            owl:Restriction ;
+                           owl:maxQualifiedCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange              xsd:integer ;
+                           owl:onProperty               sdm:hasIntegerValue
+                         ] .
+
+
+
+sdm:age  
+        a                   owl:DatatypeProperty ;
+        rdfs:label          "age" ;
+        rdfs:comment        "\nAge in years.\n" ;
+        rdfs:domain         sdm:Person ;
+        rdfs:range          sdm:personAge ;
+        owl:equivalentProperty  foaf:age .
+
+sdm:personAge  owl:equivalentClass
+  [ rdf:type  rdfs:Datatype;
+    owl:onDatatype  xsd:integer;
+    owl:withRestrictions (
+       [ xsd:minExclusive     "12"^^xsd:integer ]
+       [ xsd:maxInclusive     "19"^^xsd:integer ]
+    )
+  ] .
+
+sdm:Teenager  rdfs:subClassOf
+       [ rdf:type             owl:Restriction ;
+         owl:onProperty       sdm:hasAge ;
+         owl:someValuesFrom   
+          [ rdf:type             rdfs:Datatype ;
+            owl:onDatatype       xsd:integer ;
+            owl:withRestrictions (  [ xsd:minExclusive     "12"^^xsd:integer ]
+                                    [ xsd:maxInclusive     "19"^^xsd:integer ]
+            )
+          ]
+       ] .
+
+
+sdm:home-address 
+        a                   owl:DatatypeProperty ;
+        rdfs:label          "Home Address" ;
+        rdfs:comment        "" ;
+        rdfs:domain         sdm:Person ;
+        rdfs:range          sdm:Address .
+        
+sdm:work-address 
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:label          "Work Address" ;
+        rdfs:comment        "" ;
+        rdfs:domain         sdm:Person ;
+        rdfs:range          sdm:Address .
+        
+
+sdm:country-name a owl:DatatypeProperty ;
+    rdfs:label "country name"@en ;
+    rdfs:comment "The country name associated with the address of the object"@en ;
+    rdfs:isDefinedBy sdm: ;
+    rdfs:range xsd:string .
+    
+sdm:Address a owl:Class ;
+    rdfs:label "Address"@en ;
+    rdfs:comment "To specify the components of the delivery address for the  object"@en ;
+    rdfs:isDefinedBy sdm:;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:country-name ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:country-name ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:locality ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:locality ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:postal-code ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:postal-code ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:region ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:region ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:street-address ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:street-address ] ) ] ) ] .
+
+
+
+sdm:hasAddress a owl:ObjectProperty ;
+    rdfs:label "has address"@en ;
+    rdfs:comment "To specify the components of the delivery address for the object"@en ;
+    rdfs:isDefinedBy sdm: ;
+    rdfs:domain sdm:Person, sdm:Organization ;
+    rdfs:range sdm:Address .
+
+sdm:hasEmail a owl:ObjectProperty ;
+    rdfs:label "has email"@en ;
+    rdfs:comment "To specify the electronic mail address for communication with the object"@en ;
+    rdfs:isDefinedBy sdm: ;
+    rdfs:domain sdm:Person, sdm:Organization ;
+    rdfs:range sdm:Email .
+
+sdm:Email a owl:Class ;
+    rdfs:label "Email"@en ;
+    rdfs:comment "To specify the electronic mail address for communication with the object the vCard represents. Use the hasEmail object property."@en ;
+    rdfs:isDefinedBy sdm: ;
+    owl:deprecated true .
+    
+sdm:Name a owl:Class ;
+    rdfs:label "Name"@en ;
+    rdfs:comment "To specify the components of the name of the object"@en ;
+    rdfs:isDefinedBy sdm: ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:additional-name ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:additional-name ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:family-name ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:family-name ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:given-name ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:given-name ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:honorific-prefix ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:honorific-prefix ] ) ] [ a owl:Class ;
+                        owl:intersectionOf ( [ a owl:Restriction ;
+                                    owl:onProperty sdm:honorific-suffix ;
+                                    owl:someValuesFrom xsd:string ] [ a owl:Restriction ;
+                                    owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onProperty sdm:honorific-suffix ] ) ] ) ] .

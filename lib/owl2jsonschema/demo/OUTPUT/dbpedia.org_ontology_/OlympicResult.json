@@ -1,0 +1,185 @@
+{
+	"id": "OlympicResult.json",
+	"title": "olympic result",
+	"translations": {
+		"title": {
+			"de": "olympisches Ergebnis",
+			"el": "αποτελέσματα Ολυμπιακών αγώνων",
+			"fr": "résultat de Jeux Olympiques",
+			"es": "resultados de Juegos Olímpicos",
+			"nl": "resultaat op de Olympische Spelen"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "SportCompetitionResult.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfOfficials": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfOfficials"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfOfficials"}
+				}
+			]
+		},
+		"numberOfCompetitors": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfCompetitors"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfCompetitors"}
+				}
+			]
+		},
+		"rankInFinalMedalCount": {
+			"oneOf": [
+				{"$ref": "#/definitions/rankInFinalMedalCount"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/rankInFinalMedalCount"}
+				}
+			]
+		},
+		"games": {
+			"oneOf": [
+				{"$ref": "#/definitions/games"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/games"}
+				}
+			]
+		},
+		"oldcode": {
+			"oneOf": [
+				{"$ref": "#/definitions/oldcode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/oldcode"}
+				}
+			]
+		},
+		"nationalOlympicCommittee": {
+			"oneOf": [
+				{"$ref": "#/definitions/nationalOlympicCommittee"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/nationalOlympicCommittee"}
+				}
+			]
+		},
+		"summerAppearances": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"otherAppearances": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"winterAppearances": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"flagBearer": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfOfficials": {
+			"title": "number of officials",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfCompetitors": {
+			"title": "number of competitors",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"rankInFinalMedalCount": {
+			"title": "rank in final medal count",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": true,
+			"format": "http://www.w3.org/2001/XMLSchema#positiveInteger"
+		},
+		"games": {
+			"title": "games",
+			"description": "",
+			"type": "string"
+		},
+		"oldcode": {
+			"title": "oldcode",
+			"description": "",
+			"type": "string"
+		},
+		"nationalOlympicCommittee": {
+			"title": "National Olympic Committee",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/OlympicResult",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/OlympicResult"}
+}

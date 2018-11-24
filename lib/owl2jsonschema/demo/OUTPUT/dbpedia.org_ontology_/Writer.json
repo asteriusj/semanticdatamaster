@@ -1,0 +1,76 @@
+{
+	"id": "Writer.json",
+	"title": "writer",
+	"translations": {
+		"title": {
+			"da": "forfatter",
+			"de": "schriftsteller",
+			"el": "συγγραφέας",
+			"es": "escritor",
+			"fr": "écrivain",
+			"ga": "scríbhneoir",
+			"ja": "著作家",
+			"ko": "작가",
+			"lv": "rakstnieks",
+			"nl": "auteur",
+			"pl": "pisarz"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"dbnlCodeDutch": {
+			"oneOf": [
+				{"$ref": "#/definitions/dbnlCodeDutch"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dbnlCodeDutch"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"dbnlCodeDutch": {
+			"title": "Digital Library code NL",
+			"description": "identifier in Dutch digital library &amp;&#35;40;dbnl&#41;",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Writer",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Writer"}
+}

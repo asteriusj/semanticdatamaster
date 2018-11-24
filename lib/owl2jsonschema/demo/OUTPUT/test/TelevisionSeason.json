@@ -1,0 +1,52 @@
+{
+	"id": "TelevisionSeason.json",
+	"title": "television season",
+	"translations": {
+		"title": {
+			"de": "Fernsehstaffel",
+			"el": "τηλεοπτική σεζόν",
+			"ko": "텔레비전 시즌",
+			"nl": "televisie seizoen"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TelevisionSeason",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TelevisionSeason"}
+}

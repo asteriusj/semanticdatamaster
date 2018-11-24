@@ -1,0 +1,258 @@
+{
+	"id": "SpaceShuttle.json",
+	"title": "space shuttle",
+	"translations": {
+		"title": {
+			"de": "Raumfähre",
+			"el": "διαστημικό λεωφορείο",
+			"fr": "navette spatiale",
+			"ga": "spástointeáil",
+			"ko": "우주 왕복선",
+			"nl": "ruimteveer"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "MeanOfTransportation.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"SpaceShuttle/distance": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilometre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"SpaceShuttle/timeInSpace": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/day.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/day.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"contractAward": {
+			"oneOf": [
+				{"$ref": "#/definitions/contractAward"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/contractAward"}
+				}
+			]
+		},
+		"crews": {
+			"oneOf": [
+				{"$ref": "#/definitions/crews"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/crews"}
+				}
+			]
+		},
+		"firstFlight": {
+			"oneOf": [
+				{"$ref": "SpaceMission.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SpaceMission.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"firstFlightEndDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstFlightEndDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstFlightEndDate"}
+				}
+			]
+		},
+		"firstFlightStartDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/firstFlightStartDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/firstFlightStartDate"}
+				}
+			]
+		},
+		"issDockings": {
+			"oneOf": [
+				{"$ref": "#/definitions/issDockings"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/issDockings"}
+				}
+			]
+		},
+		"lastFlight": {
+			"oneOf": [
+				{"$ref": "SpaceMission.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SpaceMission.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"lastFlightEndDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastFlightEndDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastFlightEndDate"}
+				}
+			]
+		},
+		"lastFlightStartDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/lastFlightStartDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/lastFlightStartDate"}
+				}
+			]
+		},
+		"mirDockings": {
+			"oneOf": [
+				{"$ref": "#/definitions/mirDockings"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mirDockings"}
+				}
+			]
+		},
+		"missions": {
+			"oneOf": [
+				{"$ref": "#/definitions/missions"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/missions"}
+				}
+			]
+		},
+		"satellitesDeployed": {
+			"oneOf": [
+				{"$ref": "#/definitions/satellitesDeployed"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/satellitesDeployed"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"contractAward": {
+			"title": "contract award",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"crews": {
+			"title": "crews",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"firstFlightEndDate": {
+			"title": "first flight end date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"firstFlightStartDate": {
+			"title": "first flight start date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"issDockings": {
+			"title": "iss dockings",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"lastFlightEndDate": {
+			"title": "last flight end date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"lastFlightStartDate": {
+			"title": "last flight start date",
+			"description": "",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"mirDockings": {
+			"title": "mir dockings",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"missions": {
+			"title": "missions",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"satellitesDeployed": {
+			"title": "satellites deployed",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/SpaceShuttle",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/SpaceShuttle"}
+}

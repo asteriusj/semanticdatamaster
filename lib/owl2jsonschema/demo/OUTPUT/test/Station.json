@@ -1,0 +1,260 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}],
+	"definitions": {
+		"agencyStationCode": {
+			"title": "agency station code",
+			"description": "Agency station code &amp;&#35;40;used on tickets/reservations, etc.&#41;.",
+			"type": "string"
+		},
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"availableSmartCard": {
+			"title": "available smart card",
+			"description": "Smartcard for fare payment system for public transit systems that are or will be available at the station.",
+			"anyOf": []
+		},
+		"bicycleInformation": {
+			"title": "bicycle information",
+			"description": "Information on station&apos;s bicycle facilities.",
+			"type": "string"
+		},
+		"canBaggageChecked": {
+			"title": "can baggage checked",
+			"description": "Whether bags can be checked.",
+			"type": "boolean"
+		},
+		"fareZone": {
+			"title": "fare zone",
+			"description": "The fare zone in which station is located.",
+			"type": "string"
+		},
+		"isHandicappedAccessible": {
+			"title": "is handicapped accessible",
+			"description": "True if the station is handicapped accessible.",
+			"type": "boolean"
+		},
+		"numberOfPlatformLevels": {
+			"title": "number of platform levels",
+			"description": "Number of levels of platforms at the station.",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"otherServingLines": {
+			"title": "other serving lines",
+			"description": "Connecting services that serve the station such as bus, etc.",
+			"type": "string"
+		},
+		"parkingInformation": {
+			"title": "parking information",
+			"description": "Information on station&apos;s parking facilities.",
+			"type": "string"
+		},
+		"passengersUsedSystem": {
+			"title": "passengers used system",
+			"description": "System the passengers are using &amp;&#35;40;from which the passenger statistics are&#41;.",
+			"type": "string"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"railwayPlatforms": {
+			"title": "railway platforms",
+			"description": "Information on the type of platform&amp;&#35;40;s&#41; at the station.",
+			"type": "string"
+		},
+		"servingRailwayLine": {
+			"title": "serving railway line",
+			"description": "Railway services that serve the station.",
+			"anyOf": []
+		},
+		"stationStructure": {
+			"title": "station structure",
+			"description": "Type of station structure &amp;&#35;40;underground, at-grade, or elevated&#41;.",
+			"type": "string"
+		},
+		"yearOfElectrification": {
+			"title": "year of electrification",
+			"description": "Year station was electrified, if not previously at date of opening.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		}
+	},
+	"description": "Public transport station &amp;&#35;40;eg. railway station, metro station, bus station&#41;.",
+	"format": "http://dbpedia.org/ontology/Station",
+	"id": "Station.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Station"},
+	"properties": {
+		"agencyStationCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/agencyStationCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/agencyStationCode"}
+				}
+			]
+		},
+		"availableSmartCard": {
+			"oneOf": [
+				{"$ref": "#/definitions/availableSmartCard"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/availableSmartCard"}
+				}
+			]
+		},
+		"bicycleInformation": {
+			"oneOf": [
+				{"$ref": "#/definitions/bicycleInformation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/bicycleInformation"}
+				}
+			]
+		},
+		"canBaggageChecked": {
+			"oneOf": [
+				{"$ref": "#/definitions/canBaggageChecked"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/canBaggageChecked"}
+				}
+			]
+		},
+		"fareZone": {
+			"oneOf": [
+				{"$ref": "#/definitions/fareZone"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fareZone"}
+				}
+			]
+		},
+		"isHandicappedAccessible": {
+			"oneOf": [
+				{"$ref": "#/definitions/isHandicappedAccessible"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/isHandicappedAccessible"}
+				}
+			]
+		},
+		"numberOfPlatformLevels": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPlatformLevels"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPlatformLevels"}
+				}
+			]
+		},
+		"otherServingLines": {
+			"oneOf": [
+				{"$ref": "#/definitions/otherServingLines"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/otherServingLines"}
+				}
+			]
+		},
+		"parkingInformation": {
+			"oneOf": [
+				{"$ref": "#/definitions/parkingInformation"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/parkingInformation"}
+				}
+			]
+		},
+		"passengersUsedSystem": {
+			"oneOf": [
+				{"$ref": "#/definitions/passengersUsedSystem"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/passengersUsedSystem"}
+				}
+			]
+		},
+		"railwayPlatforms": {
+			"oneOf": [
+				{"$ref": "#/definitions/railwayPlatforms"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/railwayPlatforms"}
+				}
+			]
+		},
+		"servingRailwayLine": {
+			"oneOf": [
+				{"$ref": "#/definitions/servingRailwayLine"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/servingRailwayLine"}
+				}
+			]
+		},
+		"stationStructure": {
+			"oneOf": [
+				{"$ref": "#/definitions/stationStructure"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/stationStructure"}
+				}
+			]
+		},
+		"yearOfElectrification": {
+			"oneOf": [
+				{"$ref": "#/definitions/yearOfElectrification"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/yearOfElectrification"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "station",
+	"translations": {
+		"title": {
+			"de": "Bahnhof",
+			"el": "Σταθμός",
+			"fr": "gare",
+			"es": "estación",
+			"ga": "stáisiún",
+			"ru": "станция",
+			"nl": "station",
+			"pt": "estação",
+			"ja": "駅"
+		},
+		"description": {"ru": "Остановка общественного транспорта &amp;&#35;40;например: железнодорожная станция, станция метро, автостанция&#41;."}
+	},
+	"type": "object"
+}

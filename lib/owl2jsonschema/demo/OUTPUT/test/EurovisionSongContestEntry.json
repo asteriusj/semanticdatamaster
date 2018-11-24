@@ -1,0 +1,53 @@
+{
+	"id": "EurovisionSongContestEntry.json",
+	"title": "Eurovision song contest entry",
+	"translations": {
+		"title": {
+			"de": "Vorentscheid Eurovision song contest",
+			"el": "Διαγωνισμός τραγουδιού της Eurovision",
+			"fr": "concours Eurovision de la chanson",
+			"ga": "iontráil i gComórtas Amhránaíochta na hEoraifíse",
+			"nl": "Eurovisie Songfestival act"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "MusicalWork.json"}, {"$ref": "Song.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/EurovisionSongContestEntry",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/EurovisionSongContestEntry"}
+}

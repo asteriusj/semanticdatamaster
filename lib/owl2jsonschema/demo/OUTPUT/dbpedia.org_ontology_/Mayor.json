@@ -1,0 +1,70 @@
+{
+	"id": "Mayor.json",
+	"title": "mayor",
+	"translations": {
+		"title": {
+			"de": "Bürgermeister",
+			"el": "δήμαρχος",
+			"fr": "maire",
+			"nl": "burgemeester",
+			"ja": "首長"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Politician.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"mayorMandate": {
+			"oneOf": [
+				{"$ref": "#/definitions/mayorMandate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/mayorMandate"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"mayorMandate": {
+			"title": "mayorMandate",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Mayor",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Mayor"}
+}

@@ -1,0 +1,52 @@
+{
+	"id": "GeologicalPeriod.json",
+	"title": "geological period",
+	"translations": {
+		"title": {
+			"de": "geologische Periode",
+			"el": "γεωλογική περίοδος",
+			"fr": "période géologiqueA",
+			"nl": "geologische periode"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TimePeriod.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/GeologicalPeriod",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/GeologicalPeriod"}
+}

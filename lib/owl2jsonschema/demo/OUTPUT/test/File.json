@@ -1,0 +1,95 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Document.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"fileExtension": {
+			"title": "The extension of this file",
+			"description": "",
+			"type": "string"
+		},
+		"hasKMLData": {
+			"title": "Has KML data associated with it &amp;&#35;40;usually because of KML overlays&#41;",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "A document with a filename",
+	"format": "http://dbpedia.org/ontology/File",
+	"id": "File.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/File"},
+	"properties": {
+		"fileExtension": {
+			"oneOf": [
+				{"$ref": "#/definitions/fileExtension"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/fileExtension"}
+				}
+			]
+		},
+		"hasKMLData": {
+			"oneOf": [
+				{"$ref": "#/definitions/hasKMLData"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/hasKMLData"}
+				}
+			]
+		},
+		"fileURL": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "file",
+	"translations": {
+		"title": {
+			"de": "Datei",
+			"el": "Αρχείο",
+			"fr": "fichier",
+			"ga": "comhad",
+			"nl": "bestand",
+			"ja": "ファイル"
+		},
+		"description": {"el": "Ένα σύνολο από στοιχεία ή πόρους που μπορούν να χρησιμοποιηθούν για επεξεργασία και παραγωγή πληροφορίας"}
+	},
+	"type": "object"
+}

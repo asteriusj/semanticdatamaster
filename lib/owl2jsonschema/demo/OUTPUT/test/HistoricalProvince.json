@@ -1,0 +1,61 @@
+{
+	"id": "HistoricalProvince.json",
+	"title": "Historical province",
+	"description": "A place which used to be a province.",
+	"translations": {
+		"title": {
+			"de": "historischer Provinz",
+			"fr": "Ancienne province",
+			"ga": "cúige stairiúil",
+			"nl": "voormalige provincie"
+		},
+		"description": {}
+	},
+	"allOf": [
+		{"$ref": "Thing.json"},
+		{"$ref": "Place.json"},
+		{"$ref": "PopulatedPlace.json"},
+		{"$ref": "Region.json"},
+		{"$ref": "AdministrativeRegion.json"},
+		{"$ref": "GovernmentalAdministrativeRegion.json"},
+		{"$ref": "Province.json"}
+	],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/HistoricalProvince",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/HistoricalProvince"}
+}

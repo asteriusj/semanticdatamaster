@@ -1,0 +1,52 @@
+{
+	"id": "TrackList.json",
+	"title": "track list",
+	"description": "A list of music tracks, like on a CD",
+	"translations": {
+		"title": {
+			"de": "Titelliste",
+			"el": "λίστα κομματιών",
+			"nl": "lijst van nummers"
+		},
+		"description": {"nl": "Een lijst van nummers als op een CD album"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "List.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/TrackList",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/TrackList"}
+}

@@ -1,0 +1,201 @@
+{
+	"id": "Language.json",
+	"title": "language",
+	"translations": {
+		"title": {
+			"de": "Sprache",
+			"el": "γλώσσα",
+			"fr": "langage",
+			"es": "idioma",
+			"ga": "teanga",
+			"gl": "lingua",
+			"da": "sprog",
+			"ko": "언어",
+			"nl": "taal",
+			"ja": "言語"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfSpeakers": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfSpeakers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfSpeakers"}
+				}
+			]
+		},
+		"languageCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/languageCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/languageCode"}
+				}
+			]
+		},
+		"galicianSpeakersPercentage": {
+			"oneOf": [
+				{"$ref": "#/definitions/galicianSpeakersPercentage"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/galicianSpeakersPercentage"}
+				}
+			]
+		},
+		"iso6391Code": {
+			"oneOf": [
+				{"$ref": "#/definitions/iso6391Code"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iso6391Code"}
+				}
+			]
+		},
+		"iso6393Code": {
+			"oneOf": [
+				{"$ref": "#/definitions/iso6393Code"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iso6393Code"}
+				}
+			]
+		},
+		"iso6392Code": {
+			"oneOf": [
+				{"$ref": "#/definitions/iso6392Code"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/iso6392Code"}
+				}
+			]
+		},
+		"galicianSpeakersDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/galicianSpeakersDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/galicianSpeakersDate"}
+				}
+			]
+		},
+		"spokenIn": {
+			"oneOf": [
+				{"$ref": "PopulatedPlace.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "PopulatedPlace.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"silCode": {
+			"oneOf": [
+				{"$ref": "#/definitions/silCode"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/silCode"}
+				}
+			]
+		},
+		"languageFamily": {
+			"oneOf": [
+				{"$ref": "#/definitions/languageFamily"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/languageFamily"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"galicianSpeakersDate": {
+			"title": "galicianSpeakersDate",
+			"description": "The last inquiry date about linguistics uses.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#gYear",
+			"pattern": "^(-?[0-9]+)(Z|[+-][0-9][0-9]:[0-9][0-9])?$"
+		},
+		"galicianSpeakersPercentage": {
+			"title": "galicianSpeakersPercentage",
+			"description": "Percentage of Galician speakers.",
+			"type": "string"
+		},
+		"iso6391Code": {
+			"title": "ISO 639-1 code",
+			"description": "",
+			"type": "string"
+		},
+		"iso6392Code": {
+			"title": "ISO 639-2 code",
+			"description": "",
+			"type": "string"
+		},
+		"iso6393Code": {
+			"title": "ISO 639-3 code",
+			"description": "",
+			"type": "string"
+		},
+		"languageCode": {
+			"title": "language code",
+			"description": "",
+			"type": "string"
+		},
+		"languageFamily": {
+			"title": "family",
+			"description": "",
+			"anyOf": []
+		},
+		"numberOfSpeakers": {
+			"title": "number of speakers",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"silCode": {
+			"title": "SIL code",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Language",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Language"}
+}

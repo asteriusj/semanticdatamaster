@@ -1,0 +1,52 @@
+{
+	"id": "FormulaOneTeam.json",
+	"title": "formula 1 team",
+	"translations": {
+		"title": {
+			"de": "Formel-1 Team",
+			"el": "ομάδα φόρμουλα 1",
+			"it": "scuderia formula 1",
+			"nl": "formule 1-team"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/FormulaOneTeam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/FormulaOneTeam"}
+}

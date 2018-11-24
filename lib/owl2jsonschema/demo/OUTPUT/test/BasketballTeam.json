@@ -1,0 +1,57 @@
+{
+	"id": "BasketballTeam.json",
+	"title": "basketball team",
+	"translations": {
+		"title": {
+			"de": "Basketballmannschaft",
+			"el": "Κουτί πληροφοριών συλλόγου καλαθοσφαίρισης",
+			"fr": "équipe de basketball",
+			"it": "squadra di pallacanestro",
+			"ga": "foireann cispheile",
+			"ko": "농구 팀",
+			"nl": "basketbalteam",
+			"pt": "time de basquete",
+			"ja": "バスケットボールチーム"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsTeam.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BasketballTeam",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BasketballTeam"}
+}

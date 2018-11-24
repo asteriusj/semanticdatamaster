@@ -1,0 +1,52 @@
+{
+	"id": "LiteraryGenre.json",
+	"title": "literary genre",
+	"description": "Genres of literature, e.g. Satire, Gothic",
+	"translations": {
+		"title": {
+			"de": "Literaturgattung",
+			"fr": "genre littéraire",
+			"nl": "literair genre"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "TopicalConcept.json"}, {"$ref": "Genre.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/LiteraryGenre",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LiteraryGenre"}
+}

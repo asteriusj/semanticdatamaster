@@ -1,0 +1,53 @@
+{
+	"id": "OrganisationMember.json",
+	"title": "Organisation member",
+	"description": "A member of an organisation.",
+	"translations": {
+		"title": {
+			"de": "Organisationsmitglied",
+			"el": "Μέλος οργανισμού",
+			"es": "Miembro de organización",
+			"nl": "organisatielid"
+		},
+		"description": {"el": "Μέλος ενός οργανισμού."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/OrganisationMember",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/OrganisationMember"}
+}

@@ -1,0 +1,56 @@
+{
+	"id": "RailwayLine.json",
+	"title": "railway line",
+	"description": "A railway line is a transport service by trains that pull passengers or freight provided by an organization. Not to be mistaken for railway track, which is the structure consisting of the rails. Wikipedia do not clearly differentiate between both, so there is one infobox describing tracks and lines.",
+	"translations": {
+		"title": {
+			"de": "Eisenbahnlinie",
+			"el": "σιδηρόδρομος",
+			"ga": "líne iarnróid",
+			"nl": "spoorlijn"
+		},
+		"description": {
+			"el": "O σιδηρόδρομος είναι μια υπηρεσία μεταφοράς επιβατών ή εμπορευμάτων με τρένα που παρέχονται από έναν οργανισμό. Δεν πρέπει να συγχέεται με τη σιδηροδρομική γραμμή, τη δομή που αποτελείται από τις ράγες. Στη Βικιπαίδεια δε γίνεται σαφής διαφοροποίηση μεταξύ των δύο, έτσι υπάρχει ένα κουτί πληροφοριών που περιγράφει ράγες και γραμμές",
+			"de": "Eine Eisenbahnlinie im Verkehrswesen ist die regelmäßige Bedienung einer bestimmten Eisenbahnstrecke durch öffentliche Verkehrsmittel."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Infrastructure.json"}, {"$ref": "RouteOfTransportation.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/RailwayLine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/RailwayLine"}
+}

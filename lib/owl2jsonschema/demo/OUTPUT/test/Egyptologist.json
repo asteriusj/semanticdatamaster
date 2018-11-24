@@ -1,0 +1,54 @@
+{
+	"id": "Egyptologist.json",
+	"title": "egyptologist",
+	"translations": {
+		"title": {
+			"de": "Ägyptologe",
+			"el": "αιγυπτιολόγος",
+			"fr": "égyptologue",
+			"ga": "Éigipteolaí",
+			"nl": "egyptoloog",
+			"ja": "エジプト学者"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Egyptologist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Egyptologist"}
+}

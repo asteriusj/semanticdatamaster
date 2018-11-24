@@ -1,0 +1,104 @@
+{
+	"id": "MemberResistanceMovement.json",
+	"title": "Member of a Resistance Movement",
+	"translations": {
+		"title": {
+			"de": "Mitglied einer Widerstandorganisation",
+			"nl": "lid van een verzetsorganisatie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"codeListOfHonour": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeListOfHonour"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeListOfHonour"}
+				}
+			]
+		},
+		"dutchNAIdentifier": {
+			"oneOf": [
+				{"$ref": "#/definitions/dutchNAIdentifier"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/dutchNAIdentifier"}
+				}
+			]
+		},
+		"codeIndex": {
+			"oneOf": [
+				{"$ref": "#/definitions/codeIndex"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/codeIndex"}
+				}
+			]
+		},
+		"participatingIn": {
+			"oneOf": [
+				{"$ref": "SocietalEvent.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "SocietalEvent.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"codeListOfHonour": {
+			"title": "code on List of Honour",
+			"description": "",
+			"type": "string"
+		},
+		"dutchNAIdentifier": {
+			"title": "Identifier for Duch National Archive",
+			"description": "",
+			"type": "string"
+		},
+		"codeIndex": {
+			"title": "code on index",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MemberResistanceMovement",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MemberResistanceMovement"}
+}

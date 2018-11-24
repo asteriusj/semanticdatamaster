@@ -1,0 +1,54 @@
+{
+	"id": "PoloLeague.json",
+	"title": "polo league",
+	"description": "A group of sports teams that compete against each other in Polo.",
+	"translations": {
+		"title": {
+			"de": "Polo-Liga",
+			"el": "Ομοσπονδία Υδατοσφαίρισης",
+			"fr": "ligue de polo",
+			"ga": "sraith póló",
+			"nl": "polo competitie"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "SportsLeague.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/PoloLeague",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/PoloLeague"}
+}

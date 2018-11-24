@@ -1,0 +1,74 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "Artwork.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"technique": {
+			"title": "technique",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"description": "Describes a painting to assign picture entries in wikipedia to artists.",
+	"format": "http://dbpedia.org/ontology/Painting",
+	"id": "Painting.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Painting"},
+	"properties": {
+		"technique": {
+			"oneOf": [
+				{"$ref": "#/definitions/technique"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/technique"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Painting",
+	"translations": {
+		"title": {
+			"pl": "obraz",
+			"de": "Gemälde",
+			"el": "Έργο Ζωγραφικής",
+			"fr": "peinture",
+			"ga": "pictiúr",
+			"da": "maleri",
+			"nl": "schilderij",
+			"ja": "絵画"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

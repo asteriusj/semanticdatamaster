@@ -1,0 +1,116 @@
+{
+	"id": "BodyOfWater.json",
+	"title": "body of water",
+	"translations": {
+		"title": {
+			"de": "Gewässer",
+			"el": "ύδατα",
+			"fr": "étendue d&apos;eau",
+			"it": "distesa d&apos;acqua",
+			"es": "Cuerpo de agua",
+			"ko": "수역",
+			"nl": "watervlakte",
+			"pt": "extensão d’água",
+			"ja": "水域"
+		},
+		"description": {"el": "Συγκεντρωμένες, συνήθως μεγάλες ποσότητες νερού &amp;&#35;40;π.χ. ωκεανοί&#41; που βρίσκονται στη Γη ή σε οποιονδήποτε άλλο πλανήτη. Ο όρος χρησιμοποιείται και για υδάτινους σχηματισμούς όπου υπάρχει κίνηση του νερού, όπως ποταμοί, ρεύματα ή κανάλια."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"shoreLength": {
+			"oneOf": [
+				{"$ref": "#/definitions/shoreLength"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/shoreLength"}
+				}
+			]
+		},
+		"frozen": {
+			"oneOf": [
+				{"$ref": "#/definitions/frozen"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/frozen"}
+				}
+			]
+		},
+		"inflow": {
+			"oneOf": [
+				{"$ref": "#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"outflow": {
+			"oneOf": [
+				{"$ref": "River.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "River.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"island": {
+			"oneOf": [
+				{"$ref": "Island.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Island.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"shoreLength": {
+			"title": "shore length &amp;&#35;40;μ&#41;",
+			"description": "",
+			"type": "number",
+			"format": "http://www.w3.org/2001/XMLSchema#double"
+		},
+		"frozen": {
+			"title": "frozen",
+			"description": "",
+			"type": "string"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/BodyOfWater",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/BodyOfWater"}
+}

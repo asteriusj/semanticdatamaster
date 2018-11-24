@@ -1,0 +1,75 @@
+{
+	"id": "Coach.json",
+	"title": "coach",
+	"translations": {
+		"title": {
+			"de": "Trainer",
+			"el": "προπονητής",
+			"fr": "entraîneur",
+			"it": "allenatore",
+			"ga": "traenálaí",
+			"nl": "coach",
+			"ja": "コーチ"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"defeatAsMgr": {
+			"oneOf": [
+				{"$ref": "#/definitions/defeatAsMgr"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/defeatAsMgr"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"defeatAsMgr": {
+			"title": "defeat as team manager",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Coach",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Coach"}
+}

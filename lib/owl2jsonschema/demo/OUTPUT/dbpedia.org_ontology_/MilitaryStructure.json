@@ -1,0 +1,53 @@
+{
+	"id": "MilitaryStructure.json",
+	"title": "military structure",
+	"description": "A military structure such as a Castle, Fortress, Wall, etc.",
+	"translations": {
+		"title": {
+			"de": "militärisches Bauwerk",
+			"el": "Στρατιωτική Δομή",
+			"ko": "군사 건축물",
+			"nl": "militair bouwwerk"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/MilitaryStructure",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/MilitaryStructure"}
+}

@@ -1,0 +1,52 @@
+{
+	"id": "LightNovel.json",
+	"title": "light novel",
+	"description": "A style of Japanese novel",
+	"translations": {
+		"title": {
+			"de": "Light novel",
+			"ja": "ライトノベル",
+			"el": "ανάλαφρο μυθιστόρημα"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}, {"$ref": "Book.json"}, {"$ref": "Novel.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/LightNovel",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/LightNovel"}
+}

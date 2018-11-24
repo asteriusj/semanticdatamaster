@@ -1,0 +1,88 @@
+{
+	"id": "Law.json",
+	"title": "law",
+	"translations": {
+		"title": {
+			"de": "Gesetz",
+			"fr": "loi",
+			"da": "lov",
+			"nl": "wet",
+			"ja": "法 &amp;&#35;40;法学&#41;"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Work.json"}, {"$ref": "WrittenWork.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"approvedByUpperParliament": {
+			"oneOf": [
+				{"$ref": "#/definitions/approvedByUpperParliament"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/approvedByUpperParliament"}
+				}
+			]
+		},
+		"approvedByLowerParliament": {
+			"oneOf": [
+				{"$ref": "#/definitions/approvedByLowerParliament"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/approvedByLowerParliament"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"approvedByUpperParliament": {
+			"title": "date of approval by upper parliament",
+			"description": "Date of approval by upper parliament &amp;&#35;40;House of Lords, Sénat, Eerste Kamer etc.&#41;.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		},
+		"approvedByLowerParliament": {
+			"title": "date of approval by lower parliament",
+			"description": "Date of approval by lower parliament &amp;&#35;40;House of Commons, Chambre des Députés, Bundestag, Tweede Kamer etc.&#41;.",
+			"type": "string",
+			"format": "http://www.w3.org/2001/XMLSchema#date",
+			"pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])(Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])?$"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Law",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Law"}
+}

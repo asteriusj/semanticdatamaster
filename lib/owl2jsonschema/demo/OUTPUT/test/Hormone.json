@@ -1,0 +1,48 @@
+{
+	"id": "Hormone.json",
+	"title": "Hormone",
+	"description": "A hormone is any member of a class of signaling molecules produced by glands in multicellular organisms that are transported by the circulatory system to target distant organs to regulate physiology and behaviour.",
+	"translations": {
+		"title": {"nl": "hormoon"},
+		"description": {"nl": "Hormonen zijn signaalstoffen die door endocriene klieren via de bloedbaan aan doelcellen of -organen worden afgegeven en fysiologische processen en gedrag reguleren"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Biomolecule.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Hormone",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Hormone"}
+}

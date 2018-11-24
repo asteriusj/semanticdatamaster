@@ -1,0 +1,55 @@
+{
+	"id": "Sea.json",
+	"title": "sea",
+	"translations": {
+		"title": {
+			"de": "Meer",
+			"el": "θάλασσα",
+			"fr": "mer",
+			"ga": "farraige",
+			"nl": "zee",
+			"pt": "mar",
+			"ja": "海"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "NaturalPlace.json"}, {"$ref": "BodyOfWater.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Sea",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Sea"}
+}

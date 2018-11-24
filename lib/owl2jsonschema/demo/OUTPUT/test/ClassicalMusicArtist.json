@@ -1,0 +1,53 @@
+{
+	"id": "ClassicalMusicArtist.json",
+	"title": "classical music artist",
+	"translations": {
+		"title": {
+			"de": "Künstler der klassischen Musik",
+			"el": "καλλιτέχνης κλασικής μουσικής",
+			"fr": "artiste de musique classique",
+			"ga": "ceoltóir clasaiceach",
+			"nl": "artiest klassieke muziek"
+		},
+		"description": {"el": "Ο Λούντβιχ βαν Μπετόβεν,Γερμανός συνθέτης και πιανίστας,ήταν ένας σπουδαίος καλλιτέχνης της κλασικής μουσικής."}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Person.json"}, {"$ref": "Artist.json"}, {"$ref": "MusicalArtist.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ClassicalMusicArtist",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ClassicalMusicArtist"}
+}

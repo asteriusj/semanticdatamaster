@@ -1,0 +1,113 @@
+{
+	"id": "Weapon.json",
+	"title": "weapon",
+	"translations": {
+		"title": {
+			"de": "Waffe",
+			"el": "όπλο",
+			"fr": "arme",
+			"ga": "arm",
+			"da": "våben",
+			"ko": "무기",
+			"nl": "wapen",
+			"ja": "武器"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Device.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"Weapon/length": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Weapon/diameter": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Weapon/width": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Weapon/height": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/millimetre.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"Weapon/weight": {
+			"oneOf": [
+				{"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "http://dbpedia.org/datatype/kilogram.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"usedInWar": {
+			"oneOf": [
+				{"$ref": "MilitaryConflict.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "MilitaryConflict.json#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Weapon",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Weapon"}
+}

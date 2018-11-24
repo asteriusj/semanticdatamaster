@@ -1,0 +1,140 @@
+{
+	"id": "ChemicalElement.json",
+	"title": "chemical element",
+	"translations": {
+		"title": {
+			"de": "chemisches Element",
+			"el": "χημικό στοιχείο",
+			"fr": "élément chimique",
+			"it": "elemento chimico",
+			"ko": "원소",
+			"nl": "chemisch element",
+			"ja": "元素"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "ChemicalSubstance.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"elementBlock": {
+			"oneOf": [
+				{"$ref": "#/definitions/elementBlock"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elementBlock"}
+				}
+			]
+		},
+		"elementGroup": {
+			"oneOf": [
+				{"$ref": "#/definitions/elementGroup"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elementGroup"}
+				}
+			]
+		},
+		"relativeAtomicMass": {
+			"oneOf": [
+				{"$ref": "#/definitions/relativeAtomicMass"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/relativeAtomicMass"}
+				}
+			]
+		},
+		"elementPeriod": {
+			"oneOf": [
+				{"$ref": "#/definitions/elementPeriod"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/elementPeriod"}
+				}
+			]
+		},
+		"atomicNumber": {
+			"oneOf": [
+				{"$ref": "#/definitions/atomicNumber"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/atomicNumber"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"elementBlock": {
+			"title": "element block",
+			"description": "A block of the periodic table of elements is a set of adjacent groups.",
+			"type": "string"
+		},
+		"elementGroup": {
+			"title": "element group",
+			"description": "In chemistry, a group &amp;&#35;40;also known as a family&#41; is a column of elements in the periodic table of the chemical elements.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"relativeAtomicMass": {
+			"title": "atomic weight",
+			"description": "the ratio of the average mass of atoms of an element &amp;&#35;40;from a single given sample or source&#41; to 1⁄12 of the mass of an atom of carbon-12",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"elementPeriod": {
+			"title": "element period",
+			"description": "In the periodic table of the elements, elements are arranged in a series of rows &amp;&#35;40;or periods&#41; so that those with similar properties appear in a column.",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"atomicNumber": {
+			"title": "atomic number",
+			"description": "the ratio of the average mass of atoms of an element &amp;&#35;40;from a single given sample or source&#41; to 1⁄12 of the mass of an atom of carbon-12",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		}
+	},
+	"format": "http://dbpedia.org/ontology/ChemicalElement",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ChemicalElement"}
+}

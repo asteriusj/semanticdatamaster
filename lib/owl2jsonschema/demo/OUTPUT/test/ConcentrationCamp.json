@@ -1,0 +1,97 @@
+{
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfDeaths": {
+			"title": "number of deaths",
+			"description": "",
+			"type": "string"
+		},
+		"liberationDate": {
+			"title": "date of liberation",
+			"description": "",
+			"type": "string"
+		},
+		"gasChambers": {
+			"title": "gas chambers",
+			"description": "Number or description of gas chambers of a ConcentrationCamp",
+			"type": "string"
+		}
+	},
+	"description": "camp in which people are imprisoned or confined, commonly in large groups, without trial.Includes concentration, extermination, transit, detention, internment, &amp;&#35;40;forced&#41; labor, prisoner-of-war, Gulag; Nazi camps related to the Holocaust",
+	"format": "http://dbpedia.org/ontology/ConcentrationCamp",
+	"id": "ConcentrationCamp.json",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/ConcentrationCamp"},
+	"properties": {
+		"numberOfDeaths": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfDeaths"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfDeaths"}
+				}
+			]
+		},
+		"liberationDate": {
+			"oneOf": [
+				{"$ref": "#/definitions/liberationDate"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/liberationDate"}
+				}
+			]
+		},
+		"gasChambers": {
+			"oneOf": [
+				{"$ref": "#/definitions/gasChambers"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/gasChambers"}
+				}
+			]
+		}
+	},
+	"required": [],
+	"title": "Concentration camp",
+	"translations": {
+		"title": {
+			"de": "Konzentrationslager",
+			"nl": "concentratiekamp",
+			"fr": "camp de concentration"
+		},
+		"description": {}
+	},
+	"type": "object"
+}

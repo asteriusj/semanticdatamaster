@@ -1,0 +1,156 @@
+{
+	"id": "University.json",
+	"title": "university",
+	"translations": {
+		"title": {
+			"pl": "uniwersytet",
+			"de": "Universität",
+			"el": "πανεπιστήμιο",
+			"fr": "université",
+			"es": "universidad",
+			"ga": "ollscoil",
+			"ko": "대학",
+			"nl": "universiteit",
+			"pt": "universidade",
+			"ja": "大学"
+		},
+		"description": {}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Agent.json"}, {"$ref": "Organisation.json"}, {"$ref": "EducationalInstitution.json"}],
+	"type": "object",
+	"required": [],
+	"properties": {
+		"numberOfDoctoralStudents": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfDoctoralStudents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfDoctoralStudents"}
+				}
+			]
+		},
+		"numberOfPostgraduateStudents": {
+			"oneOf": [
+				{"$ref": "#/definitions/numberOfPostgraduateStudents"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/numberOfPostgraduateStudents"}
+				}
+			]
+		},
+		"other": {
+			"oneOf": [
+				{"$ref": "#/definitions/other"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/other"}
+				}
+			]
+		},
+		"athletics": {
+			"oneOf": [
+				{"$ref": "#/definitions/athletics"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/athletics"}
+				}
+			]
+		},
+		"provost": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"officerInCharge": {
+			"oneOf": [
+				{"$ref": "Person.json#/definitions/possibleRef"},
+				{
+					"type": "array",
+					"items": {"$ref": "Person.json#/definitions/possibleRef"}
+				}
+			]
+		},
+		"campus": {
+			"oneOf": [
+				{"$ref": "#/definitions/campus"},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/campus"}
+				}
+			]
+		}
+	},
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		},
+		"numberOfDoctoralStudents": {
+			"title": "number of doctoral students",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"numberOfPostgraduateStudents": {
+			"title": "number of postgraduate students",
+			"description": "",
+			"type": "integer",
+			"minimum": 0,
+			"exclusiveMinimum": false,
+			"format": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+		},
+		"other": {
+			"title": "other",
+			"description": "",
+			"type": "integer",
+			"format": "http://www.w3.org/2001/XMLSchema#integer"
+		},
+		"athletics": {
+			"title": "athletics",
+			"description": "",
+			"anyOf": []
+		},
+		"campus": {
+			"title": "campus",
+			"description": "",
+			"anyOf": []
+		}
+	},
+	"format": "http://dbpedia.org/ontology/University",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/University"}
+}

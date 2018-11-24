@@ -1,0 +1,52 @@
+{
+	"id": "Mine.json",
+	"title": "mine",
+	"description": "A mine is a place where mineral resources are or were extracted",
+	"translations": {
+		"title": {
+			"de": "Mine &amp;&#35;40;Bergwerk&#41;",
+			"nl": "mijn &amp;&#35;40;delfstoffen&#41;)",
+			"ja": "鉱山"
+		},
+		"description": {"nl": "Een mijn is een plaats waar delfstoffen worden of werden gewonnen"}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Mine",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Mine"}
+}

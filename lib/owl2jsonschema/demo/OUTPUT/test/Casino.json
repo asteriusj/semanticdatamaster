@@ -1,0 +1,60 @@
+{
+	"id": "Casino.json",
+	"title": "casino",
+	"description": "In modern English, a casino is a facility which houses and accommodates certain types of gambling activities.",
+	"translations": {
+		"title": {
+			"de": "Kasino",
+			"el": "καζίνο",
+			"fr": "casino",
+			"it": "casinò",
+			"es": "casino",
+			"ko": "카지노",
+			"nl": "casino",
+			"ja": "カジノ"
+		},
+		"description": {
+			"el": "To καζίνο είναι ένας χώρος στον οποίο μπορούμε να παίξουμε τυχερά παιχνίδια ποντάροντας χρήματα.",
+			"fr": "Un casino est un lieu proposant des jeux d&apos;argent et de hasard ou jeux de casino."
+		}
+	},
+	"allOf": [{"$ref": "Thing.json"}, {"$ref": "Place.json"}, {"$ref": "ArchitecturalStructure.json"}, {"$ref": "Building.json"}],
+	"required": [],
+	"definitions": {
+		"array": {
+			"type": "array",
+			"items": {"$ref": "#"}
+		},
+		"possibleRef": {
+			"oneOf": [
+				{"$ref": "#"},
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				}
+			]
+		},
+		"possibleRefArray": {
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri",
+					"links": [{
+						"rel": "full",
+						"href": "{+$}"
+					}]
+				},
+				{
+					"type": "array",
+					"items": {"$ref": "#/definitions/possibleRef"}
+				}
+			]
+		}
+	},
+	"format": "http://dbpedia.org/ontology/Casino",
+	"media": {"type": "application/json;profile=http://dbpedia.org/ontology/Casino"}
+}
