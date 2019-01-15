@@ -1,0 +1,33 @@
+{
+  "name": "semantic-data-services",
+  "description": "",
+  "version": "0.0.5",
+  "contributors": [
+    {
+      "name": "J Stewart",
+      "email": "jstewart@asteriusmedia.com"
+    }
+  ],
+  "main": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "Asterius Media LLC",
+  "license": "GPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asteriusj/semanticdatamaster"
+  },
+  "private": true,
+  "engines": {
+    "node": ">= 10.0.0",
+    "npm": ">= 6.5.0"
+  },
+  "dependencies": {
+    "csvjson": "^5.1.0",
+    "jsonld": "^1.2.1",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0",
+    "serverless": "^1.36.1",
+    "uuid": "^3.3.2"
+  }
+}

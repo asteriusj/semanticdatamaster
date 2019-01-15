@@ -1,0 +1,24 @@
+# package directories
+node_modules
+bower_components
+src/bower_components
+npm-debug.log
+jspm_packages
+
+# environment
+app-env
+.env
+.env.yml
+
+# archives
+z-archive
+x-*
+
+# Serverless directories
+.serverless
+
+# other
+coverage
+*DS_Store
+.classpath
+.project

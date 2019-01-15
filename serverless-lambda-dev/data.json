@@ -1,0 +1,82 @@
+{
+  "body": {
+    "@graph": [
+      {
+        "@id": "schema:Patient",
+        "subClassOf": "schema:Person"
+      },
+      {
+        "@id": "schema:Person",
+        "@type": "rdfs:Class",
+        "source": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews",
+        "comment": "A person (alive, dead, undead, or fictional).",
+        "label": "Person",
+        "subClassOf": "schema:Thing",
+        "equivalentClass": "http://xmlns.com/foaf/0.1/Person"
+      },
+      {
+        "@id": "schema:Thing",
+        "@type": "rdfs:Class",
+        "comment": "The most generic type of item.",
+        "label": "Thing"
+      },
+      {
+        "@id": "schema:worksFor",
+        "@type": "rdf:Property",
+        "domainIncludes": "schema:Person",
+        "rangeIncludes": "schema:Organization",
+        "comment": "Organizations that the person works for.",
+        "label": "worksFor"
+      }
+    ],
+    "@id": "urn:x-arq:DefaultGraphNode",
+    "@context": {
+      "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
+      "rangeIncludes": {
+        "@id": "http://schema.org/rangeIncludes",
+        "@type": "@id"
+      },
+      "domainIncludes": {
+        "@id": "http://schema.org/domainIncludes",
+        "@type": "@id"
+      },
+      "label": "http://www.w3.org/2000/01/rdf-schema#label",
+      "source": {
+        "@id": "http://purl.org/dc/terms/source",
+        "@type": "@id"
+      },
+      "supersededBy": {
+        "@id": "http://schema.org/supersededBy",
+        "@type": "@id"
+      },
+      "inverseOf": {
+        "@id": "http://schema.org/inverseOf",
+        "@type": "@id"
+      },
+      "subPropertyOf": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#subPropertyOf",
+        "@type": "@id"
+      },
+      "equivalentProperty": {
+        "@id": "http://www.w3.org/2002/07/owl#equivalentProperty",
+        "@type": "@id"
+      },
+      "subClassOf": {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+        "@type": "@id"
+      },
+      "equivalentClass": {
+        "@id": "http://www.w3.org/2002/07/owl#equivalentClass",
+        "@type": "@id"
+      },
+      "schema": "http://schema.org/",
+      "dct": "http://purl.org/dc/terms/",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "xml": "http://www.w3.org/XML/1998/namespace",
+      "rdfa": "http://www.w3.org/ns/rdfa#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }
+  }
+}
