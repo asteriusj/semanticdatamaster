@@ -11,9 +11,9 @@ plugins:
   - serverless-s3-sync
   
 custom:
-  siteName: sdm.asteriusmedia.com
-  # bucketName: ${self:siteName}
-  bucketName: sdm.asteriusmedia.com
+  siteName: semanticdataservices.asteriusmedia.com
+  bucketName: ${self:custom:siteName}
+  # bucketName: sdm.asteriusmedia.com
   aliasHostedZoneId: Z2FDTNDATAQYW2     # us-east-1
   aliasDNSName: s3-website-us-east-1.amazonaws.com
   s3Sync:
@@ -36,7 +36,7 @@ resources:
         BucketName: ${self:custom.bucketName}
         WebsiteConfiguration:
           IndexDocument: index.html
-          ErrorDocument: index.html
+          ErrorDocument: 404.html
 
     StaticSiteS3BucketPolicy:
       Type: AWS::S3::BucketPolicy

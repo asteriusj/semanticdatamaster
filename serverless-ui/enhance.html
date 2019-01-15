@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-25292380-5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-25292380-5');
+    </script>
+
+
+    <title>Semantic Data Services - Enhance</title>
+    <meta name="description" content="Sematic Data Services are operational function utilities that facilitate a Semantic Data Master (SDM) implementation.">
+    <meta name="author" content="Asterius Media LLC - jstewart@asteriusmedia.com">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./favicon.ico" sizes="32x32"> 
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+  
+    <script type="text/javascript" src="./semanticdataservices.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./semanticdataservices.css">-->
+
+    
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "familyName": "Stewart",
+      "givenName": "Jeffrey",
+      "name": "Jeffrey Stewart",
+      "telephone": "(815) 262-****",
+      "email": "jstewart@asteriusmedia.com",
+      "url": "http://www.asteriusmedia.com/",
+      "sameAs": [
+        "https://www.linkedin.com/in/jeffreyastewart",
+        "https://twitter.com/JeffreyAStewart",
+        "https://twitter.com/asteriusmedia",
+        "https://www.facebook.com/AsteriusMedia/",
+        "https://foursquare.com/jeffreyastewart",
+        "https://medium.com/@jeffreystewart",
+        "https://github.com/asteriusj",
+        "http://www.slideshare.net/stewtrekk",
+        "http://jeffreystewart.brandyourself.com/",
+        "http://www.pinterest.com/stewjeffrey/",
+        "https://instagram.com/stewjeffrey",
+        "https://angel.co/jeffrey-stewart"
+      ],
+      "jobtitle": "Owner / IT and Management Consultant / Fractional CTO CMTO",
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Byron",
+          "addressRegion": "IL",
+          "postalCode": "61010",
+          "streetAddress": ""
+        },
+        "name": "work"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Asterius Media",
+      "legalName": "Asterius Media LLC",
+      "description": "Asterius Media LLC is an IT management and consulting firm that helps clients envision a technology future state, to organize capacity and needs into a planning road map, to design and manage the projects based on those objectives, to arrive at lower cost and better agility.",
+      "url": "http://www.asteriusmedia.com",
+      "logo": "http://www.asteriusmedia.com/_/rsrc/1314091303950/config/customLogo.gif",
+      "founder": { 
+      		"@type": "Person",
+    		"name": "Jeffrey Stewart",
+      		"jobtitle": "Owner / IT and Management Consultant / Fractional CTO CMTO",
+      		"email": "jstewart@asteriusmedia.com"
+       },
+      "contactPoint": [
+        { "@type": "ContactPoint",
+          "telephone": "+1-779-548-5398",
+          "contactType": "sales",
+          "contactOption": "TollFree",
+          "areaServed": "US"
+        }
+      ],
+      "areaServed": [
+          "US",
+          "IL",
+          "WS"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/jeffreyastewart",
+        "https://twitter.com/asteriusmedia",
+        "https://www.facebook.com/AsteriusMedia/",
+        "https://medium.com/@jeffreystewart",
+        "https://github.com/asteriusj",
+        "http://www.slideshare.net/stewtrekk",
+        "https://angel.co/jeffrey-stewart"
+      ],
+      "location": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Byron",
+          "addressRegion": "IL",
+          "postalCode": "61010",
+          "streetAddress": ""
+        },
+        "name": "work"
+      }
+    }
+  </script>
+
+ </head>
+ <body onload="">
+    <div id="header" class="container" ng-view>
+        
+        <div id="enhance-services">
+            <h2> Enhance services</h2>
+            Read JSONLD file from things/jsonld and append enhanced information in the form of metadata, semantic linked open data, and congnative computing services. 
+        
+        
+            <div="jsonmetadata">
+    
+                <h3>jsonmetadata</h3>
+                Enhance JSON structure with metadata for _id, _etag, _guid, _kind _datepublished
+            
+                <br>
+                <div class="details container container-fluid">
+                    <br/>
+                    <div>
+                        <label for="file_uploader">Choose file to upload (JSON, JS)</label>
+                        <input type="file" id="file_uploader" name="file_uploader"  value="Upload" accept=".json, js" multiple>
+                    </div>
+                    <div class="preview">
+                        <p>No file currently selected for upload</p>
+                    </div>
+                    
+                    <textarea id="contents"  style="width: 50%;"class="container container-fluid"></textarea>
+                    <br/>
+                    <button id="btn-enhanceit">Enhance Metadata</button>
+                    
+                      
+                   
+                        
+                </div>
+                <br>
+                <textarea id="showj" style="width: 60%;" rows=6 class="container container-fluid">
+                    
+                </textarea>
+                
+
+                <script>
+                    
+                    // document.getElementById('file_uploads').onload = function() {
+                    function updatePreviewDisplay() {
+                        console.log('updatePreviewDisplay')
+                        
+                        while(preview.firstChild) {
+                            preview.removeChild(preview.firstChild);
+                        }
+                        var curFiles = fileUploader.files;
+                        if(curFiles.length > 0) {
+                            var list = document.createElement('ol');
+                            preview.appendChild(list);
+                            for(var i = 0; i < curFiles.length; i++) {
+                              var listItem = document.createElement('li');
+                              var para = document.createElement('p');
+                              if(validFileType(curFiles[i])) {
+                                para.textContent = 'File name ' + curFiles[i].name + ', file size ' + returnFileSize(curFiles[i].size) + '.';
+                                // var image = document.createElement('img');
+                                // image.src = window.URL.createObjectURL(curFiles[i]);
+                                // listItem.appendChild(image);
+                                listItem.appendChild(para);
+                        
+                              } else {
+                                para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
+                                listItem.appendChild(para);
+                              }
+                        
+                              list.appendChild(listItem);
+                            }
+                        }
+                        
+                        var files = document.getElementById('file_uploader').files;
+                        console.log(files);
+                        if (files.length <= 0) {
+                            return false;
+                        }
+                        var fr = new FileReader();
+                        fr.onload = function(e) { 
+                            console.log(e);
+                            var result = JSON.parse(e.target.result);
+                            var formatted = JSON.stringify(result, null, 2);
+                            console.log('formatted',formatted)
+                            document.getElementById('contents').value = formatted;
+                            // var resp = submitIt(result)
+                            // var resp = helloYo(result)
+                            // console.log('resp',resp)
+                        }
+                        fr.readAsText(files.item(0));
+                    };    
+                        
+                        
+                    document.getElementById('btn-enhanceit').onclick = function() {
+                        console.log('btn-enhanceit.onclick')
+                        
+                        var contents = document.getElementById('contents').value
+                        var resp = submitIt(contents)
+                        // var resp = helloYo(contents)
+                        console.log('resp',resp)
+                        
+                    };    
+                    // function helloYo(body) { 
+                    //     console.log('helloYo body:',body)
+                        
+                    //     const url = "https://li1t6awrf8.execute-api.us-east-1.amazonaws.com/dev/helloWorld";
+                    //     fetch(url, {
+                    //         method : "GET",
+                    //         // body: body,
+                    //         // -- or --
+                    //         // body : JSON.stringify({
+                    //             // user : document.getElementById('user').value,
+                    //             // ...
+                    //         // })
+                    //     }).then(
+                    //         response => {
+                    //             console.log('response',response)
+                    //             response.json() // if the response is a JSON object
+                    //     }).then(
+                    //         success => console.log('success',success) // Handle the success response object
+                    //     ).catch(
+                    //         error => console.log('error',error) // Handle the error response object 
+                    //     );   
+                    // }; // end submitIt
+                    
+                    function submitIt(body) { 
+                        console.log('submitIt body:',body)
+                        
+                        const url = "https://38j1vcg9d4.execute-api.us-east-1.amazonaws.com/dev/enhance/jsonmetadata";
+                        console.log('url:',url)
+                        
+                        fetch(url, {
+                            method : "POST",
+                            body: body,
+                            // -- or --
+                            // body : JSON.stringify({
+                                // user : document.getElementById('user').value,
+                                // ...
+                            // })
+                        })
+                        .then(response => response.json())
+                        .catch(error => console.error('Error:', error))
+                        .then(response => {
+                            console.log('Success:', JSON.stringify(response))
+                            document.getElementById('showj').style.opacity = 1;
+                            document.getElementById("showj").innerHTML = JSON.stringify(response) ;
+                        }); 
+                        
+                        // .then(
+                        //     response => {
+                        //         console.log('response',response)
+                        //         response.json() // if the response is a JSON object
+                        // }).then(
+                        //     success => console.log('success',success) // Handle the success response object
+                        // ).catch(
+                        //     error => console.log('error',error) // Handle the error response object 
+                        // );   
+                    }; // end submitIt
+                    
+                    
+                    var fileUploader = document.getElementById('file_uploader') ;
+                    // fileUploader.style.opacity = 0;
+                    fileUploader.addEventListener('change', updatePreviewDisplay);
+                    
+                    // var input = document.querySelector('input');
+                    var preview = document.querySelector('.preview');
+                    
+                    var showj = document.getElementById('showj') ;
+                    showj.style.opacity = 0;
+                    
+                    
+                    
+                    function updateImageDisplay() {
+                        console.log('updateImageDisplay')
+                      while(preview.firstChild) {
+                        preview.removeChild(preview.firstChild);
+                      }
+                    
+                      var curFiles = fileUploader.files;
+                      if(curFiles.length === 0) {
+                        var para = document.createElement('p');
+                        para.textContent = 'No files currently selected for upload';
+                        preview.appendChild(para);
+                      } else {
+                        var list = document.createElement('ol');
+                        preview.appendChild(list);
+                        for(var i = 0; i < curFiles.length; i++) {
+                          var listItem = document.createElement('li');
+                          var para = document.createElement('p');
+                          if(validFileType(curFiles[i])) {
+                            para.textContent = 'File name ' + curFiles[i].name + ', file size ' + returnFileSize(curFiles[i].size) + '.';
+                            var image = document.createElement('img');
+                            image.src = window.URL.createObjectURL(curFiles[i]);
+                    
+                            listItem.appendChild(image);
+                            listItem.appendChild(para);
+                    
+                          } else {
+                            para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
+                            listItem.appendChild(para);
+                          }
+                    
+                          list.appendChild(listItem);
+                        }
+                      }
+                    }
+                    var fileTypes = [
+                      'application/json',
+                      'application/js'
+                    ]
+                    
+                    function validFileType(file) {
+                        console.log('validFileType')
+                      for(var i = 0; i < fileTypes.length; i++) {
+                        if(file.type === fileTypes[i]) {
+                          return true;
+                        }
+                      }
+                    
+                      return false;
+                    }
+                    function returnFileSize(number) {
+                        console.log('returnFileSize')
+                      if(number < 1024) {
+                        return number + 'bytes';
+                      } else if(number >= 1024 && number < 1048576) {
+                        return (number/1024).toFixed(1) + 'KB';
+                      } else if(number >= 1048576) {
+                        return (number/1048576).toFixed(1) + 'MB';
+                      }
+                    }
+                
+                </script>
+
+            </div>
+
+    
+            <div="dbpedialookup">
+            
+                <h3>dbpedialookup</h3>
+                Retrieve semantic linked open data properties from matching DBPedia entry 
+                
+                <br>
+                <div id="div-dbpedialookup" class="details container container-fluid">
+                    <br/>
+                    <div>
+                        <label for="txt_entity">Input and entity name for DBPeida lookup</label>
+                        <br/>
+                        <input id="txt_entity"  name="txt_entity"  value="Chicago" placeholder="i.e. Chicago" ></input>
+                    </div>
+                    
+                    <button id="btn-lookup">LookUp</button>
+                        
+                    <br>
+                    <textarea id="showprops" style="width: 60%;" rows=6 class="container container-fluid">
+                        
+                    </textarea>
+                </div>
+                
+                    
+                <script>
+                    
+                    document.getElementById('btn-lookup').onclick = function() {    
+                        console.log('btn-lookup.onclick')
+                        
+                        var strEntity = document.getElementById('txt_entity').value
+                        console.log('strEntity',strEntity)
+                        
+                        var resp = getProps(strEntity)
+                        // console.log('resp',resp)
+                            
+                    };   
+                
+                    function getProps(entity) { 
+                        console.log('getProps entity:',entity)
+                        
+                        const url = "https://38j1vcg9d4.execute-api.us-east-1.amazonaws.com/dev/enhance/dbpedialookup/" + entity ;
+                        console.log('url:',url)
+                        
+                        fetch(url, {
+                            method : "GET",
+                            
+                        })
+                        .then(response => response.json())
+                        .catch(error => console.error('Error:', error))
+                        .then(response => {
+                            console.log('Success:', JSON.stringify(response))
+                            document.getElementById('showprops').style.opacity = 1;
+                            document.getElementById("showprops").innerHTML = JSON.stringify(response) ;
+                        });    
+                            
+                            // response => {
+                            //     console.log('response:',response)
+                            //     console.log('JSON.stringify(response)',JSON.stringify(response))
+                            //     document.getElementById("showprops").innerHTML = JSON.stringify(response) ;
+                        //         response.json() // if the response is a JSON object
+                        // }).then(
+                        //     json => {
+                        //         console.log('json',json)
+                        //         // Handle the success response object
+                                
+                        // }).catch(
+                        //     error => console.log('error',error) // Handle the error response object 
+                        // );   
+                    }; // end getProps
+                    
+                    document.getElementById('showprops').style.opacity = 0;
+                    
+                    
+                </script>
+                
+            </div>
+            
+        </div>
+
+
+  </div>
+ </body>
+</html>
